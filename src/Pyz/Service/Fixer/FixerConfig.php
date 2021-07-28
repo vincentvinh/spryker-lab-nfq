@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Service\Fixer;
 
 use Generated\Shared\Transfer\PriceExchangeConfigTransfer;
@@ -17,7 +22,7 @@ class FixerConfig extends AbstractBundleConfig
     public const PRICE_EXCHANGE_URI = 'priceExchangeUri';
 
     /**
-     * @return PriceExchangeConfigTransfer
+     * @return \Generated\Shared\Transfer\PriceExchangeConfigTransfer
      */
     public function getFixerConfig(): PriceExchangeConfigTransfer
     {

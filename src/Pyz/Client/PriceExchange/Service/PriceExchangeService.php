@@ -2,6 +2,11 @@
 
 declare(strict_types = 1);
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Client\PriceExchange\Service;
 
 use Generated\Shared\Transfer\PriceExchangeTransfer;
@@ -18,7 +23,7 @@ class PriceExchangeService implements PriceExchangeServiceInterface
     public const SYMBOLS = 'symbols';
 
     /**
-     * @var FixerService
+     * @var \Pyz\Service\Fixer\FixerService
      */
     private $fixerService;
 
@@ -30,7 +35,6 @@ class PriceExchangeService implements PriceExchangeServiceInterface
 
     /**
      * @param array $symbols
-     *
      */
     public function getPriceExchanges(array $symbols): PriceExchangeTransfer
     {

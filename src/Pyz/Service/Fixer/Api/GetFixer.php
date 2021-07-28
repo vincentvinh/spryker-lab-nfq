@@ -1,33 +1,39 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Service\Fixer\Api;
 
 use Generated\Shared\Transfer\PriceExchangeTransfer;
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 use Pyz\Service\Fixer\FixerConfig;
-use Pyz\Service\Fixer\FixerServiceFactory;
 use Spryker\Service\Kernel\AbstractService;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 /**
- * @method FixerServiceFactory getFactory()
+ * @method \Pyz\Service\Fixer\FixerServiceFactory getFactory()
  */
 class GetFixer extends AbstractService implements GetFixerInterface
 {
     public const SYMBOLS = 'symbols';
-    const ACCESS_KEY = 'access_key';
-    const IMPLODE_SEPARATOR = ',';
+    public const ACCESS_KEY = 'access_key';
+    public const IMPLODE_SEPARATOR = ',';
     /**
-     * @var Client
+     * @var \GuzzleHttp\Client
      */
     private $client;
+
     /**
-     * @var PriceExchangeTransfer
+     * @var \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     private $priceExchangeTransfer;
+
     /**
-     * @var FixerConfig
+     * @var \Pyz\Service\Fixer\FixerConfig
      */
     private $fixerConfig;
 
@@ -41,7 +47,7 @@ class GetFixer extends AbstractService implements GetFixerInterface
     /**
      * @param array $symbols
      *
-     * @return PriceExchangeTransfer
+     * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     public function getPriceExchangeData(array $symbols): PriceExchangeTransfer
     {
@@ -53,6 +59,8 @@ class GetFixer extends AbstractService implements GetFixerInterface
 
     /**
      * @param array $symbols
+     *
+     * @throws \Symfony\Component\HttpFoundation\Exception\BadRequestException
      *
      * @return string
      */
@@ -73,18 +81,18 @@ class GetFixer extends AbstractService implements GetFixerInterface
         throw new BadRequestException();
     }
 
-
     /**
-     * @param ResponseInterface $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      *
-     * @return PriceExchangeTransfer
+     * @throws \Symfony\Component\HttpFoundation\Exception\BadRequestException
      *
+     * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     private function handleResponse(ResponseInterface $response): PriceExchangeTransfer
     {
         $data = json_decode($response->getBody()->getContents(), true);
         if (!$data['success']) {
-            throw new BadRequestException($data['error']['info'],$data['error']['code']);
+            throw new BadRequestException($data['error']['info'], $data['error']['code']);
         }
         $this->priceExchangeTransfer->fromArray($data, true);
 

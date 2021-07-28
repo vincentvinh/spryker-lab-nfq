@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Client\PriceExchange;
 
 use Spryker\Client\Kernel\AbstractDependencyProvider;
@@ -7,13 +12,12 @@ use Spryker\Client\Kernel\Container;
 
 class PriceExchangeDependencyProvider extends AbstractDependencyProvider
 {
-
     public const FIXER_SERVICE = 'fixer_service';
 
     /**
-     * @param Container $container
+     * @param \Spryker\Client\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Client\Kernel\Container
      */
     public function provideServiceLayerDependencies(Container $container): Container
     {
@@ -21,9 +25,9 @@ class PriceExchangeDependencyProvider extends AbstractDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Client\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Client\Kernel\Container
      */
     protected function addFixerService(Container $container)
     {

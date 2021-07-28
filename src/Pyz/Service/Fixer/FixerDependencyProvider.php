@@ -13,12 +13,12 @@ use Spryker\Service\Kernel\Container;
 
 class FixerDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const HTTP_CLIENT = 'http_client';
+    public const HTTP_CLIENT = 'http_client';
 
     /**
-     * @param Container $container
+     * @param \Spryker\Service\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Service\Kernel\Container
      */
     public function provideServiceDependencies(Container $container): Container
     {
@@ -28,9 +28,9 @@ class FixerDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Service\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Service\Kernel\Container
      */
     protected function addHttpClient(Container $container): Container
     {

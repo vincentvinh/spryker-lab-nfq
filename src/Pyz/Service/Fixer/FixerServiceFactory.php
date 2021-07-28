@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Service\Fixer;
 
 use Generated\Shared\Transfer\PriceExchangeTransfer;
@@ -9,24 +14,24 @@ use Pyz\Service\Fixer\Api\GetFixerInterface;
 use Spryker\Service\Kernel\AbstractServiceFactory;
 
 /**
- * @method FixerConfig getConfig()
+ * @method \Pyz\Service\Fixer\FixerConfig getConfig()
  */
 class FixerServiceFactory extends AbstractServiceFactory
 {
     /**
-     * @return GetFixerInterface
+     * @return \Pyz\Service\Fixer\Api\GetFixerInterface
      */
     public function createFixerService(): GetFixerInterface
     {
         return new GetFixer(
             $this->getHttpClient(),
             $this->getConfig(),
-            new PriceExchangeTransfer
+            new PriceExchangeTransfer()
         );
     }
 
     /**
-     * @return ClientInterface
+     * @return \GuzzleHttp\ClientInterface
      */
     public function getHttpClient(): ClientInterface
     {
