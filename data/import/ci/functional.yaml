@@ -1,0 +1,8 @@
+version: 0
+
+actions:
+  - data_entity: store
+  - data_entity: currency
+    source: data/import/common/common/currency.csv
+  - data_entity: glossary
+    source: data/import/common/common/glossary.csv

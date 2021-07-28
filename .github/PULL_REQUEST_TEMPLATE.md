@@ -1,10 +1,11 @@
 #### Overview
 
-- Ticket: URL_HERE
+- How to run locally
 
 ###### Optional
 
-- Core PR: URL_HERE
+- [ ] Run migration
+- [ ] Additional migration steps (put more details after this item)
 
 ###### Change log
 

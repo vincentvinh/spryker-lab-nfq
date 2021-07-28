@@ -1,101 +1,106 @@
 sections:
-    generate:
-        generate-transfers:
-            command: "vendor/bin/console transfer:generate"
+  generate:
+    generate-transfers:
+      command: "vendor/bin/console transfer:generate"
 
-        generate-transfer-databuilders:
-            command: "vendor/bin/console transfer:databuilder:generate"
+    generate-transfer-databuilders:
+      command: "vendor/bin/console transfer:databuilder:generate"
 
-        generate-ide-auto-completion:
-            command: "vendor/bin/console dev:ide-auto-completion:generate"
+    generate-ide-auto-completion:
+      command: "vendor/bin/console dev:ide-auto-completion:generate"
 
-        rest-api-generate-documentation:
-            command: "vendor/bin/console rest-api:generate:documentation"
+    rest-api-generate-documentation:
+      command: "vendor/bin/console rest-api:generate:documentation"
 
-    cache:
-        router-cache-warmup-yves:
-            command: "vendor/bin/yves router:cache:warm-up"
+    propel-copy-schema:
+      command: "vendor/bin/console propel:schema:copy"
 
-        router-cache-warmup-zed:
-            command: "vendor/bin/console router:cache:warm-up"
+    propel-build:
+      command: "vendor/bin/console propel:model:build"
 
-        twig-cache-warmup:
-            command: "vendor/bin/console twig:cache:warmer"
+    generate-entity-transfer:
+      command: "vendor/bin/console transfer:entity:generate"
 
-        navigation-cache-warmup:
-            command: "vendor/bin/console navigation:build-cache"
+    setup-seach-create-source-map:
+      command: "vendor/bin/console search:setup:source-map"
 
-        rest-request-validation-cache-warmup:
-            command: "vendor/bin/console rest-api:build-request-validation-cache"
+  cache:
+    router-cache-warmup-yves:
+      command: "vendor/bin/yves router:cache:warm-up"
 
-        resolvable-class-cache-warmup:
-            command: "vendor/bin/console cache:class-resolver:build"
+    router-cache-warmup-zed:
+      command: "vendor/bin/console router:cache:warm-up"
 
-    database-migrate:
-        propel-create:
-            command: "vendor/bin/console propel:database:create"
+    twig-cache-warmup:
+      command: "vendor/bin/console twig:cache:warmer"
 
-        propel-postgres-compatibility:
-            command: "vendor/bin/console propel:pg-sql-compat"
+    navigation-cache-warmup:
+      command: "vendor/bin/console navigation:build-cache"
 
-        propel-copy-schema:
-            command: "vendor/bin/console propel:schema:copy"
+    rest-request-validation-cache-warmup:
+      command: "vendor/bin/console rest-api:build-request-validation-cache"
 
-        propel-build:
-            command: "vendor/bin/console propel:model:build"
+    resolvable-class-cache-warmup:
+      command: "vendor/bin/console cache:class-resolver:build"
 
-        propel-diff:
-            command: "vendor/bin/console propel:diff"
+  database-migrate:
+    propel-create:
+      command: "vendor/bin/console propel:database:create"
 
-        propel-migrate:
-            command: "vendor/bin/console propel:migrate"
+    propel-postgres-compatibility:
+      command: "vendor/bin/console propel:pg-sql-compat"
 
-        generate-entity-transfer:
-            command: "vendor/bin/console transfer:entity:generate"
+    propel-diff:
+      command: "vendor/bin/console propel:diff"
 
-        init-database:
-            command: "vendor/bin/console setup:init-db"
+    propel-migrate:
+      command: "vendor/bin/console propel:migrate"
 
-        setup-search-create-sources:
-            command: "vendor/bin/console search:setup:sources"
+    init-database:
+      command: "vendor/bin/console setup:init-db"
 
-        setup-seach-create-source-map:
-            command: "vendor/bin/console search:setup:source-map"
+  setup-es:
+    setup-search-create-sources:
+      command: "vendor/bin/console search:setup:sources"
 
-    setup-test:
-        codeception-build:
-            command: "vendor/bin/codecept build --ansi"
+  setup-test:
+    codeception-build:
+      command: "vendor/bin/codecept build --ansi"
 
-        databuilder-generate:
-            command: "vendor/bin/console transfer:databuilder:generate"
+    databuilder-generate:
+      command: "vendor/bin/console transfer:databuilder:generate"
 
-    demodata:
-        import-eu-region-demodata:
-            command: "vendor/bin/console data:import --config=data/import/local/full_EU.yml"
+  demodata:
+    import-eu-region-demodata:
+      command: "vendor/bin/console data:import --config=data/import/local/full_EU.yml"
 
-        update-product-labels:
-            command: "vendor/bin/console product-label:relations:update"
+    update-product-labels:
+      command: "vendor/bin/console product-label:relations:update"
 
+  demodata-functional:
+    import-data:
+      command: "vendor/bin/console data:import --config=data/import/ci/functional.yaml"
+
+  fixtures:
     fixtures:
-        fixtures:
-            command: "vendor/bin/console code:fixtures"
+      command: "vendor/bin/console code:fixtures"
 
-    queue:
-        run-worker:
-            command: "vendor/bin/console queue:worker:start --stop-when-empty"
+  queue:
+    run-worker:
+      command: "vendor/bin/console queue:worker:start --stop-when-empty"
 
-    frontend:
-        dependencies-install:
-            command: "vendor/bin/console frontend:project:install-dependencies"
+  frontend:
+    dependencies-install:
+      command: "vendor/bin/console frontend:project:install-dependencies"
 
-        yves-install-dependencies:
-            command: "vendor/bin/console frontend:yves:install-dependencies"
+    yves-install-dependencies:
+      command: "vendor/bin/console frontend:yves:install-dependencies"
 
-        yves-build-frontend:
-            command: "vendor/bin/console frontend:yves:build"
+    yves-build-frontend:
+      command: "vendor/bin/console frontend:yves:build"
 
-        zed-install-dependencies:
-            command: "vendor/bin/console frontend:zed:install-dependencies"
+    zed-install-dependencies:
+      command: "vendor/bin/console frontend:zed:install-dependencies"
 
-        zed-build-frontend:
-            command: "vendor/bin/console frontend:zed:build"
+    zed-build-frontend:
+      command: "vendor/bin/console frontend:zed:build"
