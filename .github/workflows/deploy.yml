@@ -1,0 +1,15 @@
+name: Deploy to test server
+
+on:
+  - workflow_dispatch
+
+jobs:
+  build-images:
+    name: Build container images
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - run: docker/sdk boot deploy.staging.yml
+      - run: docker/sdk export images
