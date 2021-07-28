@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyz\Zed\PriceProduct\Business;
+namespace Pyz\Zed\PriceProductStorage\Business;
 
 interface RateExchangeInterface {
     public function updateProductPrice();

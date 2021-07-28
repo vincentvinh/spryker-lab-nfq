@@ -1,5 +1,5 @@
 <?php
-namespace Pyz\Zed\PriceProduct\Communication\Console;
+namespace Pyz\Zed\PriceProductStorage\Communication\Console;
 
 use Pyz\Client\PriceExchange\PriceExchangeClient;
 use Spryker\Zed\Kernel\Communication\Console\Console;
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ExchangeRateCommand extends Console
 {
-    const COMMAND_NAME = 'price-product:price:update';
+    const COMMAND_NAME = 'price-product-storage:price:update';
 
     /**
      * @return void
@@ -27,10 +27,7 @@ class ExchangeRateCommand extends Console
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $client = new PriceExchangeClient();
-        $exchangeTransfer = $client->getExchangeData(['VND']); //TODO just hard-code now for symbols
-
-        var_dump($result->getRates());
+        $this->getFacade()->updatePriceProductConcreteStorage();
     }
 
 }
