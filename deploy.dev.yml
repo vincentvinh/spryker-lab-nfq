@@ -6,6 +6,11 @@ tag: 'dev'
 environment: docker.dev
 image:
     tag: spryker/php:7.3-alpine3.12
+    environment:
+        FIXER_API_BASE_URL: "http://data.fixer.io/api"
+        FIXER_EXCHANGE_RATE_URI: "latest"
+        FIXER_EXCHANGE_RATE_METHOD: "GET"
+        FIXER_API_KEY: "a2fbdfd9d28ecff82f28910f2571ede6"
     php:
         enabled-extensions:
             - blackfire
