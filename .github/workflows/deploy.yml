@@ -11,5 +11,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: Install packages
+        run: apt-get install iproute2
       - run: docker/sdk boot deploy.staging.yml
       - run: docker/sdk export images
