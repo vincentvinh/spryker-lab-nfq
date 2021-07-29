@@ -2,16 +2,11 @@
 
 namespace Pyz\Zed\PriceProductStorage\Business;
 
+
 use Pyz\Zed\PriceProductStorage\PriceProductStorageDependencyProvider;
 
-class PriceProductStorageFacade extends \Spryker\Zed\PriceProduct\Business\PriceProductFacade
+class PriceProductStorageBusinessFactory extends \Spryker\Zed\PriceProductStorage\Business\PriceProductStorageBusinessFactory
 {
-    public function updatePriceProductConcreteStorage()
-    {
-        $handler = $this->getFactory()->getRateExchangeUpdater();
-        $handler->execute();
-    }
-
     /**
      * @return \Spryker\Zed\AvailabilityGui\Dependency\Facade\AvailabilityToStoreFacadeInterface
      */
@@ -19,4 +14,12 @@ class PriceProductStorageFacade extends \Spryker\Zed\PriceProduct\Business\Price
     {
         return $this->getProvidedDependency(PriceProductStorageDependencyProvider::FACADE_STORE);
     }
+
+    public function getRateExchangeUpdater(){
+        return new RateExchangeUpdater(
+            $this->getStoreFacade()->getCurrentStore(),
+            $this->getQueryContainer()
+        );
+    }
 }
+

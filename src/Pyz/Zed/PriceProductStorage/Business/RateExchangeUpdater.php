@@ -3,31 +3,60 @@
 namespace Pyz\Zed\PriceProductStorage\Business;
 
 use Pyz\Client\PriceExchange\PriceExchangeClient;
-use Spryker\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer;
+use Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface;
 
-class RateExchange implements RateExchangeInterface{
+class RateExchangeUpdater implements RateExchangeUpdaterInterface{
     /** @var array $rates */
     protected $rates;
 
+    /** @var \Generated\Shared\Transfer\StoreTransfer $currentStore*/
+    protected $currentStore;
+
+    /** @var PriceProductQueryContainerInterface $queryContainer */
+    protected $queryContainer;
+
+    public function __construct($store, \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer)
+    {
+        $this->currentStore = $store;
+        $this->queryContainer = $queryContainer;
+    }
+
+    /**
+     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     */
     public function execute(){
         $this->getRates();
         $this->updateProductPrice();
     }
 
+    /**
+     * get exchange rate
+     */
     public function getRates(){
         $client = new PriceExchangeClient();
-        $exchangeTransfer = $client->getExchangeData(['VND']); //TODO just hard-code now for symbols
+        $currentCurrency = $this->currentStore->getSelectedCurrencyIsoCode();
+
+        $exchangeTransfer = $client->getExchangeData($this->currentStore->getAvailableCurrencyIsoCodes());
         $this->rates = $exchangeTransfer->getRates();
 
-        echo "[+] Rates:";
+        echo "[+] Rates (compare with $currentCurrency):";
         foreach ($this->rates as $symbol => $rate){
+            if($symbol == $currentCurrency){
+                unset($this->rates[$symbol]);
+                continue;
+            }
             echo "\n - $symbol: $rate";
         }
     }
 
+    /**
+     * Perform update
+     *
+     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     */
     public function updateProductPrice()
     {
-        $query = (new PriceProductStorageQueryContainer())->queryPriceConcreteStorageByProductIds([])->clear();
+        $query = $this->queryContainer->queryPriceConcreteStorageByStore($this->currentStore->getName());
 
         echo "\n[+] Starting update price product concrete storage...";
 
@@ -36,8 +65,8 @@ class RateExchange implements RateExchangeInterface{
             $data = $item->getData();
             $originalPrice = $data['prices']['EUR'];
 
+            echo "\n- Product #{$item->getFkProduct()}";
             foreach($this->rates as $symbol => $rate){
-                echo "\nHandle for product #{$item->getFkProduct()}";
                 $data['prices'][$symbol] = [
                     'priceData' => NULL,
                     'GROSS_MODE' =>[
@@ -53,7 +82,7 @@ class RateExchange implements RateExchangeInterface{
                 $item->setData($data);
                 echo ($item->save() > 0 ? " - Success" : " - Fail");
             }
-            echo "\n";
         }
+        echo "\n";
     }
 }
