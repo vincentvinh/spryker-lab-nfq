@@ -12,6 +12,11 @@ use Generated\Shared\Transfer\PriceExchangeTransfer;
 interface PriceExchangeClientInterface
 {
     /**
+     * Specification:
+     * - Get exchange data from fixer.io.
+     *
+     * @api
+     *
      * @param array $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer

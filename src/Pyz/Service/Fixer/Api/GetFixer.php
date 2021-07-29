@@ -37,6 +37,11 @@ class GetFixer extends AbstractService implements GetFixerInterface
      */
     private $fixerConfig;
 
+    /**
+     * @param \GuzzleHttp\Client $client
+     * @param \Pyz\Service\Fixer\FixerConfig $fixerConfig
+     * @param \Generated\Shared\Transfer\PriceExchangeTransfer $priceExchangeTransfer
+     */
     public function __construct(Client $client, FixerConfig $fixerConfig, PriceExchangeTransfer $priceExchangeTransfer)
     {
         $this->client = $client;

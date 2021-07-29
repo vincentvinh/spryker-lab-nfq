@@ -27,6 +27,9 @@ class PriceExchangeService implements PriceExchangeServiceInterface
      */
     private $fixerService;
 
+    /**
+     * @param \Pyz\Service\Fixer\FixerService $fixerService
+     */
     public function __construct(
         FixerService $fixerService
     ) {
@@ -34,7 +37,14 @@ class PriceExchangeService implements PriceExchangeServiceInterface
     }
 
     /**
+     * Specification:
+     * - Get exchange data from fixer.io.
+     *
+     * @api
+     *
      * @param array $symbols
+     *
+     * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     public function getPriceExchanges(array $symbols): PriceExchangeTransfer
     {

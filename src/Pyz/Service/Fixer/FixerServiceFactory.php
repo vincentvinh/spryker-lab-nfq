@@ -26,7 +26,7 @@ class FixerServiceFactory extends AbstractServiceFactory
         return new GetFixer(
             $this->getHttpClient(),
             $this->getConfig(),
-            new PriceExchangeTransfer()
+            $this->createPriceExchangeTransfer()
         );
     }
 
@@ -36,5 +36,13 @@ class FixerServiceFactory extends AbstractServiceFactory
     public function getHttpClient(): ClientInterface
     {
         return $this->getProvidedDependency(FixerDependencyProvider::HTTP_CLIENT);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\PriceExchangeTransfer
+     */
+    private function createPriceExchangeTransfer(): PriceExchangeTransfer
+    {
+        return new PriceExchangeTransfer();
     }
 }

@@ -28,6 +28,9 @@ class PriceExchangeFactory extends AbstractFactory
         );
     }
 
+    /**
+     * @return mixed
+     */
     public function getFixerService()
     {
         return $this->getProvidedDependency(PriceExchangeDependencyProvider::FIXER_SERVICE);
