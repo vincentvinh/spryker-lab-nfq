@@ -42,6 +42,7 @@ class PriceExchangeService implements PriceExchangeServiceInterface
      * @api
      *
      * symbols is an array of country currency symbols like ['USD','VND']
+     *
      * @param array $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
