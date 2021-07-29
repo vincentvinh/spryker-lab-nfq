@@ -2,7 +2,8 @@
 
 namespace Pyz\Zed\PriceProductStorage\Business;
 
-interface RateExchangeUpdaterInterface {
+interface RateExchangeUpdaterInterface
+{
     /* */
     public function execute();
 }

@@ -8,7 +8,8 @@
 namespace Pyz\Zed\PriceProductStorage\Persistence;
 
 class PriceProductStorageQueryContainer extends \Spryker\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer
-implements PriceProductStorageQueryContainerInterface {
+    implements PriceProductStorageQueryContainerInterface
+{
     /**
      * {@inheritDoc}
      *

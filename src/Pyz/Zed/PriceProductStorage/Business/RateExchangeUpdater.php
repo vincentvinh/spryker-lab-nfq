@@ -2,29 +2,41 @@
 
 namespace Pyz\Zed\PriceProductStorage\Business;
 
+use Generated\Shared\Transfer\StoreTransfer;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
+use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 use Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface;
 
-class RateExchangeUpdater implements RateExchangeUpdaterInterface{
+class RateExchangeUpdater implements RateExchangeUpdaterInterface
+{
     /** @var array $rates */
     protected $rates;
 
-    /** @var \Generated\Shared\Transfer\StoreTransfer $currentStore*/
+    /** @var \Generated\Shared\Transfer\StoreTransfer $currentStore */
     protected $currentStore;
 
     /** @var PriceProductQueryContainerInterface $queryContainer */
     protected $queryContainer;
 
-    public function __construct($store, \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer)
+    /** @var AbstractEntityManager $entityManager */
+    protected $entityManager;
+
+    public function __construct(
+        StoreTransfer $store,
+        \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer,
+        AbstractEntityManager $entityManager
+    )
     {
         $this->currentStore = $store;
         $this->queryContainer = $queryContainer;
+        $this->entityManager = $entityManager;
     }
 
     /**
      * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      */
-    public function execute(){
+    public function execute()
+    {
         $this->getRates();
         $this->updateProductPrice();
     }
@@ -32,7 +44,8 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface{
     /**
      * get exchange rate
      */
-    public function getRates(){
+    public function getRates()
+    {
         $client = new PriceExchangeClient();
         $currentCurrency = $this->currentStore->getSelectedCurrencyIsoCode();
 
@@ -40,8 +53,8 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface{
         $this->rates = $exchangeTransfer->getRates();
 
         echo "[+] Rates (compare with $currentCurrency):";
-        foreach ($this->rates as $symbol => $rate){
-            if($symbol == $currentCurrency){
+        foreach ($this->rates as $symbol => $rate) {
+            if ($symbol == $currentCurrency) {
                 unset($this->rates[$symbol]);
                 continue;
             }
@@ -56,33 +69,6 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface{
      */
     public function updateProductPrice()
     {
-        $query = $this->queryContainer->queryPriceConcreteStorageByStore($this->currentStore->getName());
-
-        echo "\n[+] Starting update price product concrete storage...";
-
-        /** @var \Orm\Zed\PriceProductStorage\Persistence\Base\SpyPriceProductConcreteStorage $item */
-        foreach ($query->find() as $item){
-            $data = $item->getData();
-            $originalPrice = $data['prices']['EUR'];
-
-            echo "\n- Product #{$item->getFkProduct()}";
-            foreach($this->rates as $symbol => $rate){
-                $data['prices'][$symbol] = [
-                    'priceData' => NULL,
-                    'GROSS_MODE' =>[
-                        'DEFAULT' => ($originalPrice['GROSS_MODE']['DEFAULT'] ?? 0) * $rate,
-                        'ORIGINAL' => ($originalPrice['GROSS_MODE']['ORIGINAL'] ?? 0) * $rate,
-                    ],
-                    'NET_MODE' =>[
-                        'DEFAULT' => ($originalPrice['NET_MODE']['DEFAULT'] ?? 0) * $rate,
-                        'ORIGINAL' => ($originalPrice['NET_MODE']['DEFAULT'] ?? 0) * $rate,
-                    ]
-                ];
-
-                $item->setData($data);
-                echo ($item->save() > 0 ? " - Success" : " - Fail");
-            }
-        }
-        echo "\n";
+        $this->entityManager->updatePriceData($this->rates, $this->queryContainer, $this->currentStore->getName());
     }
 }

@@ -1,7 +1,7 @@
 <?php
+
 namespace Pyz\Zed\PriceProductStorage\Communication\Console;
 
-use Pyz\Client\PriceExchange\PriceExchangeClient;
 use Spryker\Zed\Kernel\Communication\Console\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

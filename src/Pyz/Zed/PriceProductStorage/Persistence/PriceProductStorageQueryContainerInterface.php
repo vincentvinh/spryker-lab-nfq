@@ -7,7 +7,8 @@
 
 namespace Pyz\Zed\PriceProductStorage\Persistence;
 
-interface PriceProductStorageQueryContainerInterface{
+interface PriceProductStorageQueryContainerInterface
+{
     /**
      * {@inheritDoc}
      *

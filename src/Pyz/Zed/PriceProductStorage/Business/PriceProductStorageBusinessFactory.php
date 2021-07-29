@@ -15,10 +15,12 @@ class PriceProductStorageBusinessFactory extends \Spryker\Zed\PriceProductStorag
         return $this->getProvidedDependency(PriceProductStorageDependencyProvider::FACADE_STORE);
     }
 
-    public function getRateExchangeUpdater(){
+    public function getRateExchangeUpdater()
+    {
         return new RateExchangeUpdater(
             $this->getStoreFacade()->getCurrentStore(),
-            $this->getQueryContainer()
+            $this->getQueryContainer(),
+            $this->getEntityManager()
         );
     }
 }
