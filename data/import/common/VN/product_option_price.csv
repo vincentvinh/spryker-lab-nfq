@@ -1,0 +1,11 @@
+product_option_sku,store,currency,value_net,value_gross
+OP_1_year_waranty,VN,VND,0,0
+OP_2_year_waranty,VN,VND,700,900
+OP_3_year_waranty,VN,VND,1700,1800
+OP_insurance,VN,VND,7000,9000
+OP_gift_wrapping,VN,VND,300,400
+OP_1_year_waranty,VN,VND,0,0
+OP_2_year_waranty,VN,VND,800,1100
+OP_3_year_waranty,VN,VND,1900,2200
+OP_insurance,VN,VND,8000,11000
+OP_gift_wrapping,VN,VND,400,500

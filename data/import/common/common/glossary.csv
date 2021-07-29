@@ -2846,3 +2846,1418 @@ customer.authorization.validate_email_address,"Almost there! We send you an emai
 customer.authorization.validate_email_address,"Fast dort! Wir senden Ihnen eine E-Mail, um Ihre E-Mail-Adresse zu bestätigen. Bitte bestätigen Sie dies, um sich anmelden zu können.",de_DE
 customer.authorization.invalid_account,"You must first validate your email address before being able to log in",en_US
 customer.authorization.invalid_account,"Sie müssen zuerst Ihre E-Mail-Adresse überprüfen, bevor Sie sich anmelden können",de_DE
+cart.remove.items.success,Products were removed successfully,vi_VN
+cart.add.items.error.text,Something went wrong. Sorry.,vi_VN
+cart.add.items.success,Items added successfully,vi_VN
+cart.your-order,Your Order,vi_VN
+cart.product-option,Product Options,vi_VN
+cart.price,Price,vi_VN
+cart.shipping.order-item,+ Shipping,vi_VN
+cart.shipping,Shipping,vi_VN
+cart.total,Total,vi_VN
+cart.checkout,Checkout,vi_VN
+cart.empty,Your shopping cart is empty!,vi_VN
+cart.cart,Cart,vi_VN
+cart.total.discount,Discount,vi_VN
+cart.vouchers,Vouchers,vi_VN
+cart.discounts,Discounts,vi_VN
+cart.sales-order-threshold,Minimum Order Value,vi_VN
+checkout.sales-order-threshold,Minimum Order Value,vi_VN
+sales-order-threshold.expense.name,Surcharge,vi_VN
+sales-order-threshold.strategy.soft-minimum-threshold-fixed-fee,Surcharge,vi_VN
+sales-order-threshold.strategy.soft-minimum-threshold-flexible-fee,Surcharge,vi_VN
+cart.item_quantity,Quantity,vi_VN
+cart.item_attributes_needed,Please select more attributes,vi_VN
+cart.voucher.redeem,Redeem code,vi_VN
+cart.price.subtotal,Subtotal,vi_VN
+cart.price.grand.total,Grand Total,vi_VN
+cart.total.tax_total,Tax,vi_VN
+sales-order-threshold.hard-minimum-threshold.de.eur.message,You should add items for {{threshold}} to pass a recommended threshold. You can't proceed with checkout,vi_VN
+sales-order-threshold.hard-minimum-threshold.de.chf.message,You should add items for {{threshold}} to pass a recommended threshold. You can't proceed with checkout,vi_VN
+sales-order-threshold.hard-maximum-threshold.de.eur.message,The cart value cannot be higher than {{threshold}}. Please remove some items to proceed with the order,vi_VN
+sales-order-threshold.hard-maximum-threshold.de.chf.message,The cart value cannot be higher than {{threshold}}. Please remove some items to proceed with the order,vi_VN
+sales-order-threshold.soft-minimum-threshold.de.eur.message,"You need to add items for {{threshold}} to pass a recommended threshold, but if you want can proceed to checkout.",vi_VN
+sales-order-threshold.soft-minimum-threshold.de.chf.message,"You need to add items for {{threshold}} to pass a recommended threshold, but if you want can proceed to checkout.",vi_VN
+sales-order-threshold.strategy.soft-minimum-threshold-fixed-fee,Surcharge,vi_VN
+sales-order-threshold.strategy.soft-minimum-threshold-flexible-fee,Surcharge,vi_VN
+auth.login,Sign up,vi_VN
+auth.password,Password,vi_VN
+auth.password-forgot,Forgotten?,vi_VN
+auth.email,E-mail,vi_VN
+auth.register,Register,vi_VN
+auth.im-new-customer,New Customer,vi_VN
+auth.im-already-customer,I already have an account,vi_VN
+navigation.menu.categories,Categories,vi_VN
+navigation.menu.have-a-look,It is worth a look,vi_VN
+page.checkout.errors,Please check your entry.,vi_VN
+page.checkout.client.existing,Existing Customer,vi_VN
+page.checkout.client.new,New Customer,vi_VN
+customer.password,Password,vi_VN
+password.confirm,Confirm passwort,vi_VN
+page.checkout.address.heading,1. Address Data,vi_VN
+page.checkout.address.name,Name,vi_VN
+page.checkout.address.billing-address,Billing Address,vi_VN
+page.checkout.address.billing-isnt-shipping-address,Different Delivery Address,vi_VN
+page.checkout.address.shipping-address,Delivery Address,vi_VN
+page.checkout.address.address-example,Example:</br>Wayne Manor 1</br>10292 Gotham City</br>z.H. Alfred Pennyworth,vi_VN
+page.checkout.address.next-step,Continue to Shippment Method,vi_VN
+page.checkout.address.edit,edit Address Data,vi_VN
+page.checkout.address.use_selected_address,Use selected address,vi_VN
+page.checkout.address.different_delivery_address,Use a different delivery address,vi_VN
+page.checkout.address.different_billing_address,Use a different billing address,vi_VN
+page.checkout.address.option_group.customer,Customer addresses,vi_VN
+page.checkout.address.option_group.company_business_unit,Business addresses,vi_VN
+page.checkout.address.delivery.address_select,Select a delivery address,vi_VN
+page.checkout.address.billing.address_select,Select a billing address,vi_VN
+page.checkout.address.manage_your_addresses,Manage your addresses,vi_VN
+page.checkout.address.address_select.label,Select a delivery address,vi_VN
+page.checkout.address.address_select.placeholder,Select an address,vi_VN
+page.checkout.address.multi_shipment.title,Assign each product to its own delivery address,vi_VN
+page.checkout.shipment.heading,2. Shipping Method,vi_VN
+shipment.standart.name,Standard,vi_VN
+shipment.express.name,Express,vi_VN
+shipment.standart.description,2-4 working days,vi_VN
+page.checkout.shipping.delivery_time,Delivery time:,vi_VN
+page.checkout.shipping.day,day,vi_VN
+page.checkout.shipping.days,days,vi_VN
+page.checkout.shipping.price,Price:,vi_VN
+shipment.express.description,24-48 hours (working days),vi_VN
+page.checkout.shipment.edit,edit Shipment Method,vi_VN
+page.checkout.shipment.next-step,Continue to Payment Method,vi_VN
+page.checkout.shipment.item.quantity,Amount,vi_VN
+page.checkout.shipment.item.price,Price,vi_VN
+page.checkout.shipment.shipping_address.title,Delivery address,vi_VN
+page.checkout.shipment.requested_delivery_date.label,Requested delivery date,vi_VN
+page.checkout.shipment.requested_delivery_date.placeholder,Leave it empty if you want it ASAP,vi_VN
+page.checkout.shipment.requested_delivery_date.title,When do you want to be delivered?,vi_VN
+page.checkout.shipment.shipment_group_heading,Shipment %current% of %total%,vi_VN
+page.checkout.shipment.shipping_method_heading,Shipping Method,vi_VN
+page.checkout.shipping.delivery_time,Delivery time,vi_VN
+page.checkout.payment.heading,3. Payment Method,vi_VN
+page.checkout.payment.edit,edit Payment Method,vi_VN
+page.checkout.payment.next-step,Continue to finalise order,vi_VN
+page.checkout.summary.products,Products,vi_VN
+page.checkout.summary.billing,Invoice Address,vi_VN
+page.checkout.summary.shipping,Shipping Address,vi_VN
+page.checkout.summary.date_of_birth,Date of Birth,vi_VN
+page.checkout.summary.card_type,Card Type,vi_VN
+page.checkout.summary.card_number,Card Number,vi_VN
+page.checkout.summary.name_on_card,Name on the Card,vi_VN
+page.checkout.summary.card_expires,Expiry Date,vi_VN
+page.checkout.summary.complete_checkout,Complete checkout,vi_VN
+page.checkout.summary.accept_terms_and_conditions,I accept the terms and conditions,vi_VN
+page.checkout.finalize.heading,4. Check and finalise order,vi_VN
+shipment.international.parcel.service,International Parcel Services,vi_VN
+page.checkout.terms,I accept the general terms and conditions.,vi_VN
+page.checkout.finalize.enter-voucher,Enter voucher code,vi_VN
+page.checkout.finalize.tos,"With a click to the button ""Buy now"" I confirm the GTCs.",vi_VN
+page.checkout.finalize.buy-now,Buy now,vi_VN
+page.detail.add-to-cart,Add to Cart,vi_VN
+page.detail.dimensions,Measurements,vi_VN
+page.product.by,by,vi_VN
+page.product.details,Details,vi_VN
+page.product.similar-products,You might also like,vi_VN
+page.imprint.url,/en/imprint,vi_VN
+page.imprint.title,Imprint,vi_VN
+page.terms.url,/en/gtc,vi_VN
+page.terms.title,GTC,vi_VN
+page.privacy.url,/en/privacy,vi_VN
+page.privacy.title,Data privacy,vi_VN
+catalog.currency,€,vi_VN
+catalog.filter.filter,Filters / Sorting,vi_VN
+catalog.filter.button,Apply,vi_VN
+catalog.filter.active,Active Filter,vi_VN
+catalog.filter.main_color,Color,vi_VN
+catalog.filter.extras,Other characteristics,vi_VN
+catalog.filter.pricerangeFrom,from,vi_VN
+catalog.filter.pricerangeTo,to,vi_VN
+catalog.filter.rangeFrom,Range of,vi_VN
+catalog.filter.rangeTo,to,vi_VN
+catalog.filter.show,insert filter,vi_VN
+catalog.filter.hide,hide filter,vi_VN
+catalog.filter.rating_up,& Up,vi_VN
+catalog.filter.active_rating_up,Stars & Up,vi_VN
+catalog.filter.per,Per Page,vi_VN
+catalog.itemsFound,Results,vi_VN
+catalog.loading,Loading,vi_VN
+catalog.next,continue,vi_VN
+catalog.prev,back,vi_VN
+catalog.sort,Sorting,vi_VN
+catalog.sort.relevance,Sort by relevance,vi_VN
+catalog.sort.name_asc,Sort by name ascending,vi_VN
+catalog.sort.name_desc,Sort by name descending,vi_VN
+catalog.sort.price_asc,Sort by price ascending,vi_VN
+catalog.sort.price_desc,Sort by price descending,vi_VN
+catalog.sort.rating,Sort by product ratings,vi_VN
+catalog.filter.activeFilters,Active filters,vi_VN
+catalog.filter.resetAllFilters,Reset all filters,vi_VN
+catalog.no-results,No results.,vi_VN
+product.filter.category,Categories,vi_VN
+product.filter.price,Price,vi_VN
+product.filter.rating,Ratings,vi_VN
+shipment.dhl,DHL,vi_VN
+shipment.dhl.paket.name,Package,vi_VN
+shipment.dhl.paket.description,"DHL Paket is the easy, affordable, fast and reliable shipping service to over 220 countries around the world.",vi_VN
+shipment.dhl.express.name,Express,vi_VN
+shipment.dhl.express.description,"Our force of 100,000 engaged employees is working worldwide. Local know-how and our unique network make us your International Specialists.",vi_VN
+shipment.dpd,DPD,vi_VN
+shipment.hermes,Hermes,vi_VN
+customer.first_name,First Name,vi_VN
+customer.last_name,Last Name,vi_VN
+customer.salutation.mr,Mr.,vi_VN
+customer.salutation.mrs,Mrs.,vi_VN
+customer.salutation.ms,Ms.,vi_VN
+customer.salutation.dr,Dr.,vi_VN
+customer.birth_date,Date of birth (DD.MM.YYYY),vi_VN
+customer.email,E-Mail,vi_VN
+customer.phone,Telephone number,vi_VN
+customer.reset.password.error.already.loggedIn,Another customer already logged in. Please logout to reset your password.,vi_VN
+payment.prepay,Prepayment,vi_VN
+payment.paypal,PayPal,vi_VN
+payment.creditcard,Credit card,vi_VN
+payment.invoice,Invoice,vi_VN
+address.street,Street,vi_VN
+address.street_nr,Number,vi_VN
+address.city,City,vi_VN
+address.zip_code,Zip Code,vi_VN
+page.checkout.create_account,Create customer account,vi_VN
+whishlist.whishlist,Whishlist,vi_VN
+whishlist.remove,Remove,vi_VN
+whishlist.reduce,Reduce,vi_VN
+whishlist.increase,Increase,vi_VN
+whishlist.move.to.cart,Move to cart,vi_VN
+checkout.thank.you,Thank you,vi_VN
+checkout.this.is.demoshop,This is a demoshop,vi_VN
+checkout.nothing.will.be.sent,"Therefore, of course, nothing will be sent!",vi_VN
+global.order.ascendent,A-Z,vi_VN
+global.order.descendent,Z-A,vi_VN
+global.close,Close,vi_VN
+global.search,Search,vi_VN
+global.search.results,Search Results,vi_VN
+global.search.spellingSuggestion,Did you mean,vi_VN
+global.search.suggestions,Search suggestions,vi_VN
+global.search.suggestion.in_products,Products,vi_VN
+global.search.suggestion.in_categories,Categories,vi_VN
+global.search.suggestion.in_cms,Pages,vi_VN
+global.search.suggestion.no_result,Nothing found…,vi_VN
+global.search.suggestion.see_all_products,See all products,vi_VN
+global.spryker.shop,Spryker Shop,vi_VN
+global.spryker.motto,technology with quality,vi_VN
+global.payment_providers,Payment providers,vi_VN
+global.shipment_providers,Shipment providers,vi_VN
+global.get_in_touch,Get in touch,vi_VN
+global.newsletter,Newsletter,vi_VN
+global.categories,Categories,vi_VN
+global.company,Company,vi_VN
+global.social,Social Media,vi_VN
+global.home,Home,vi_VN
+global.email.address,Email Address,vi_VN
+global.password,Password,vi_VN
+global.permission.failed,This action is forbidden,vi_VN
+global.recover.password,Recover Password,vi_VN
+global.accept.terms.and.conditions,Accept Terms and Conditions,vi_VN
+global.login,Login,vi_VN
+global.create.account,Create Account,vi_VN
+global.cart,Cart,vi_VN
+global.no_image_available,No image available,vi_VN
+global.add-to-cart,Add to Cart,vi_VN
+global.benefit.free_returns,Free Returns,vi_VN
+global.benefit.warranty,3 Years Warranty,vi_VN
+global.benefit.competitive_prices,Competitive Prices,vi_VN
+global.quantity_symbol,x,vi_VN
+global.partners,Partners,vi_VN
+error.404,Error 404,vi_VN
+error_page.title,Page not found.,vi_VN
+error_page.home_link,Go to Homepage,vi_VN
+error_page.text,We couldn't find the page you're looking for.,vi_VN
+homepage.carousel.previous,Previous,vi_VN
+homepage.carousel.next,Next,vi_VN
+customer.signup,New customer?,vi_VN
+customer.signin,Signin,vi_VN
+customer.logout,Logout,vi_VN
+customer.register,Register,vi_VN
+customer.login,Login,vi_VN
+customer.login.email,Email,vi_VN
+customer.login.password,Password,vi_VN
+customer.login.title,Access your account,vi_VN
+customer.registration.title,Create account,vi_VN
+customer.account.no_order,No orders at the moment,vi_VN
+customer.account,Customer Account,vi_VN
+customer.account.contact,Contact,vi_VN
+customer.account.overview,Overview,vi_VN
+customer.account.profile_data,Profile,vi_VN
+customer.account.address,Addresses,vi_VN
+customer.account.order_history,Orders History,vi_VN
+customer.account.newsletter,Newsletter,vi_VN
+customer.account.last_orders,Last Orders,vi_VN
+customer.account.default_billing_address,Default Billing Address,vi_VN
+customer.account.please_specify_billing_address,Please Specify Billing Address,vi_VN
+customer.account.default_shipping_address,Default Shipping Address,vi_VN
+customer.account.please_specify_shipping_address,Please Specify Shipping Address,vi_VN
+customer.account.edit_address_information,Edit Address Information,vi_VN
+customer.account.additional_addresses,Additional Addresses,vi_VN
+customer.account.button.add_new_address,Add new address,vi_VN
+customer.account.add_new_address,Define new address,vi_VN
+customer.account.deliver_to_multiple_addresses,Deliver to multiple addresses,vi_VN
+customer.newsletter.not_subscribed,No newsletter subscription,vi_VN
+customer.profile.order_history,Last Orders,vi_VN
+customer.account.no_orders,No orders at the moment,vi_VN
+customer.address.updated,Address was successfully updated,vi_VN
+customer.address.delete.success,Address deleted successfully,vi_VN
+customer.address.added,Address was successfully added,vi_VN
+customer.address.first_name,First Name,vi_VN
+customer.address.last_name,Last Name,vi_VN
+customer.address.company,Company,vi_VN
+customer.address.address1,Street,vi_VN
+customer.address.address2,House Number,vi_VN
+customer.address.address3,Additional address field,vi_VN
+customer.address.zip_code,Postcode,vi_VN
+customer.address.city,City,vi_VN
+customer.address.country,Country,vi_VN
+customer.address.phone,Phone,vi_VN
+customer.address.is_default_billing,Is default billing address,vi_VN
+customer.address.is_default_shipping,Is default shipping address,vi_VN
+customer.anonymization.success,Your account has been deleted successfully,vi_VN
+customer.anonymization.failed,Your account could not be deleted,vi_VN
+customer.authorization.success,Almost there! We send you an email to validate your email address. Please confirm it to be able to log in.,vi_VN
+customer.authorization.account_confirmed,Your email address is validated. Please login to continue.,vi_VN
+customer.profile.change.success,Profile was successfully saved,vi_VN
+customer.password.invalid_password,Current password is wrong,vi_VN
+customer.password.invalid,Password is invalid,vi_VN
+customer.password.restore,Set a new password,vi_VN
+customer.password.changed,Your password was changed successfully,vi_VN
+customer.token.invalid,Token is invalid,vi_VN
+customer.forgotten-password.description,Enter the e-mail address associated with your account.,vi_VN
+customer.forgotten_password.email,Email Address,vi_VN
+customer.forgotten-password.title,Recover my password,vi_VN
+customer.order.order_id,Order ID,vi_VN
+customer.order.view_all,View All,vi_VN
+customer.order.all_orders,View orders,vi_VN
+customer.order.total,Total,vi_VN
+customer.order.view_order,View Order,vi_VN
+customer.order.reorder,Reorder,vi_VN
+customer.order.reorder_all,Reorder all,vi_VN
+customer.order.reorder_selected,Reorder selected items,vi_VN
+customer.order.reorder.error.unable_to_reorder_items,"You can not reorder those products directly, please add them to your cart separately",vi_VN
+customer.order.date,Order Date,vi_VN
+customer.order.item_sku,SKU,vi_VN
+customer.order.product_name,Product name,vi_VN
+customer.order.item_price,Price,vi_VN
+customer.order.item_quantity,Quantity,vi_VN
+customer.order.item_sum,Item total,vi_VN
+customer.order.subTotal,Subtotal,vi_VN
+customer.order.taxTotal,Tax,vi_VN
+customer.order.expenseTotal,Shipment costs (total),vi_VN
+customer.order.shipment,Shipment,vi_VN
+customer.order.discount.total,Discount,vi_VN
+customer.order.grandTotal,Grand Total,vi_VN
+customer.order.shipping_address,Shipping address,vi_VN
+customer.order.billing_address,Billing address,vi_VN
+customer.order.shipment_method,Shipment,vi_VN
+customer.order.payment_method,Payment method,vi_VN
+customer.order.products,Products,vi_VN
+customer.order.delivery_method,Delivery method,vi_VN
+customer.order.requested_delivery_date,Requested delivery date,vi_VN
+customer.order.payment,Payment,vi_VN
+customer.order.complete_checkout,Complete checkout,vi_VN
+customer.order.items_state,Items State,vi_VN
+customer.order.canceledTotal,Canceled amount,vi_VN
+customer.order.remunerationTotal,Remuneration Total,vi_VN
+customer.order.refundTotal,Refund Total,vi_VN
+customer.order.delivery_address,Delivery address,vi_VN
+customer.newsletter.subscription,Newsletter settings,vi_VN
+customer.newsletter.subscription_agreement,I agree to newsletter subscription,vi_VN
+customer.profile,My Account,vi_VN
+customer.profile.title,My Account,vi_VN
+customer.profile.link,My Profile,vi_VN
+customer.profile.update,Update Profile,vi_VN
+customer.profile.delete,Delete Account,vi_VN
+customer.profile.delete.description,This will delete all of the account information.,vi_VN
+customer.profile.delete.confirmation_question,Are you sure you want to delete your account?,vi_VN
+customer.profile.first_name,First Name,vi_VN
+customer.profile.last_name,Last Name,vi_VN
+customer.profile.email,Email,vi_VN
+customer.profile.phone,Phone,vi_VN
+customer.profile.old_password,Old Password,vi_VN
+customer.profile.request.new_password,New Password,vi_VN
+customer.profile.confirm.new_password,Confirm New Password,vi_VN
+customer.profile.address.edit,Edit,vi_VN
+customer.profile.address.delete,Delete,vi_VN
+customer.profile.order_details,Order Details,vi_VN
+customer.profile.order_details.giftcard.label,Gift card,vi_VN
+customer.password.update,Change Password,vi_VN
+customer.password.old_password,Old Password,vi_VN
+customer.password.request.new_password,New Password,vi_VN
+customer.password.confirm.new_password,Confirm Password,vi_VN
+customer.table.actions,Actions,vi_VN
+profile.form.salutation,Salutation,vi_VN
+customer.salutation.dr,Dr.,vi_VN
+customer.customer_id,ID,vi_VN
+forms.submit-btn,Submit,vi_VN
+forms.save-btn,Save,vi_VN
+forms.submit.login,Login,vi_VN
+forms.submit.register,Register,vi_VN
+forms.forgot-password,Forgot Password,vi_VN
+forms.first-name,First Name,vi_VN
+forms.last-name,Last Name,vi_VN
+forms.email,Email,vi_VN
+forms.password,Password,vi_VN
+forms.confirm-password,Confirm Password,vi_VN
+forms.accept_terms,Accept Terms,vi_VN
+address.salutation,Salutation,vi_VN
+email.orderEmail.salutationMale,Mr.,vi_VN
+email.orderEmail.salutationFemale,Ms. / Mrs.,vi_VN
+customer.login.failed,Login failed,vi_VN
+customer.email.already.used,Email already used,vi_VN
+general.back.button,Back,vi_VN
+general.cancel.button,Cancel,vi_VN
+general.edit.button,Edit,vi_VN
+newsletter.subscription.success,You successfully subscribed to the newsletter,vi_VN
+newsletter.unsubscription.success,You successfully unsubscribed from the newsletter,vi_VN
+newsletter.subscription.already_subscribed,You are already subscribed to the newsletter,vi_VN
+newsletter.subscription.email_format_invalid,Invalid Email address format,vi_VN
+customer.authentication.failed,Authentication failed,vi_VN
+customer.email.invalid,Email address is invalid,vi_VN
+customer.email.format.invalid,Invalid Email address format,vi_VN
+customer.password.recovery.mail.sent,"If there is an account associated with this email address, you will receive an email with further instructions",vi_VN
+customer.address.number,House Number,vi_VN
+customer.address.save_new_address,Save new address to address book,vi_VN
+countries.iso.VN,Viet Nam,vi_VN
+customer.billingSameAsShipping,Billing address same as shipping address,vi_VN
+checkout.customer.proceed_as_user,Proceed as a registered user (sign up),vi_VN
+checkout.customer.proceed_as_guest,Proceed as a guest,vi_VN
+checkout.customer.order_as_guest,Order as guest,vi_VN
+checkout.customer.auth_as_user,Sign Up,vi_VN
+checkout.customer.auth_as_guest,Buy as Guest,vi_VN
+checkout.customer.auth_as_login,Login,vi_VN
+checkout.step.customer.title,Login,vi_VN
+checkout.step.address.title,Address,vi_VN
+checkout.step.shipment.title,Shipment,vi_VN
+checkout.step.shipment.provider.a,DHL,vi_VN
+checkout.step.shipment.provider.b,Hermes,vi_VN
+checkout.step.payment.title,Payment,vi_VN
+checkout.step.summary.title,Summary,vi_VN
+checkout.step.shipment,Go to Shipment,vi_VN
+checkout.step.address.select_address,Select an address,vi_VN
+checkout.step.payment,Go to Payment,vi_VN
+checkout.step.summary.title,Summary,vi_VN
+checkout.step.summary,Go to Summary,vi_VN
+checkout.step.summary.with_method,With,vi_VN
+checkout.step.summary.items,Items,vi_VN
+checkout.step.summary.overview,Overview,vi_VN
+checkout.step.summary.sub_total,Subtotal,vi_VN
+checkout.step.summary.grand_total,Grand Total,vi_VN
+checkout.step.summary.payment,Payment,vi_VN
+checkout.step.summary.shipping,Shipment,vi_VN
+checkout.step.summary.tax,Tax,vi_VN
+checkout.step.summary.total,Complete checkout,vi_VN
+checkout.step.summary.shipment_costs_total,Shipment costs (total),vi_VN
+checkout.step.summary.delivery_method,Delivery method,vi_VN
+checkout.step.summary.requested_delivery_date,Requested delivery date,vi_VN
+checkout.step.summary.delivery_address,Delivery Address,vi_VN
+checkout.step.summary.products,Products,vi_VN
+checkout.step.place.order,Submit your order,vi_VN
+checkout.step.payment.must_be_older_than_18_years,You must be at least 18 years old.,vi_VN
+checkout.step.success.title,Thank you.,vi_VN
+checkout.step.success.text,Your order has been placed successfully. You will get the order confirmation email in a few minutes. You can check and track your order in Your Account.,vi_VN
+checkout.step.success.link,"Go to ""My Account""",vi_VN
+checkout.step.error.title,Your order has not been placed.,vi_VN
+checkout.step.error.text,Something went wrong. Sorry.,vi_VN
+checkout.step.summary.billing_address,Billing Address,vi_VN
+customer.password.change.success,Password change successful,vi_VN
+customer.newsletter.subscribed,Newsletter subscribed,vi_VN
+validator.constraints.password.do_not_match,Passwords don't match,vi_VN
+discount.successfully.applied,"The discount ""display_name"" has been successfully applied",vi_VN
+discount.quote_change.discount.not_available,The discounts you have chosen for the following items skus is no longer available,vi_VN
+discount.quote_change.discount.amount_changed,The discounts you selected for the following items skus have changed,vi_VN
+product.unavailable,Product is out of stock,vi_VN
+product.attribute.slug,slug,vi_VN
+product.attribute.variant_id,ID,vi_VN
+product.attribute.variant.reset,Reset,vi_VN
+product.attribute.sku,SKU,vi_VN
+product.attribute.image_quality,Image Quality,vi_VN
+product.attribute.lens_system,Lens System,vi_VN
+product.attribute.focus,Focus,vi_VN
+product.attribute.shutter,Shutter,vi_VN
+product.attribute.video,Video,vi_VN
+product.attribute.screen,Screen,vi_VN
+product.attribute.processor,Processor,vi_VN
+product.attribute.memory,Memory,vi_VN
+product.attribute.display,Display,vi_VN
+product.attribute.storage,Storage,vi_VN
+product.attribute.color,Color,vi_VN
+product.attribute.design,Design,vi_VN
+product.attribute.graphics,Graphics,vi_VN
+product.attribute.camera,Camera,vi_VN
+product.attribute.gps,GPS,vi_VN
+product.attribute.weight,Weight,vi_VN
+product.attribute.waterproof,Waterproof,vi_VN
+product.attribute.battery,Battery,vi_VN
+product.attribute.description,Description,vi_VN
+product.attribute.short_description,Short Description,vi_VN
+product.attribute.long_description,Long Description,vi_VN
+product.attribute.manufacturer_name,Brand,vi_VN
+product.attribute.product_id,Product ID,vi_VN
+product.attribute.image_big,Image big,vi_VN
+product.attribute.image_small,Image small,vi_VN
+product.attribute.license,License,vi_VN
+product.product_options,Product Options,vi_VN
+product.product_options_select,Select an option,vi_VN
+product.sets,Product Sets,vi_VN
+product.sets.no-results,No results.,vi_VN
+product.sets.widget.title,Shop the Collection,vi_VN
+product.set.detail.add-all-to-cart,Add all to Cart,vi_VN
+product.set.detail.set-contents,Products in this set,vi_VN
+product.set.detail.no-products,No products in the set,vi_VN
+product.view,View,vi_VN
+wishlist.title,Wishlist,vi_VN
+wishlist.wishlist,Wishlist,vi_VN
+page.detail.add-to-wishlist,Add to Wishlist,vi_VN
+customer.account.wishlist,Wishlist,vi_VN
+customer.account.wishlist.empty,Currently there are no items in your wishlist.,vi_VN
+customer.account.wishlist.continue-shopping,Continue shopping,vi_VN
+customer.account.wishlist.product,Product,vi_VN
+customer.account.wishlist.price,Price,vi_VN
+customer.account.wishlist.add-to-cart,Add to Cart,vi_VN
+customer.account.wishlist.remove,Remove,vi_VN
+customer.account.wishlist.product-not-available,This product is not available at the moment.,vi_VN
+customer.account.wishlist.view-in-shop,View,vi_VN
+customer.account.wishlist.overview.sku,Sku,vi_VN
+customer.account.wishlist.overview.name,Name,vi_VN
+customer.account.wishlist.overview.price,Price,vi_VN
+customer.account.wishlist.overview.variant,Variant,vi_VN
+customer.account.wishlist.overview.title,Manage wishlists,vi_VN
+customer.account.wishlist.overview.empty,You do not have any lists yet.,vi_VN
+customer.account.wishlist.overview.enter_name,Enter name here,vi_VN
+customer.account.wishlist.overview.add_new,Add new wishlist,vi_VN
+customer.account.wishlist.overview.item_count,# of items,vi_VN
+customer.account.wishlist.overview.date,Date of creation,vi_VN
+customer.account.wishlist.overview.edit,Edit,vi_VN
+customer.account.wishlist.overview.delete,Delete,vi_VN
+customer.account.wishlist.add_all_available_to_cart,Add all available products to cart,vi_VN
+customer.account.wishlist.availability,Availability,vi_VN
+customer.account.wishlist.available,Available,vi_VN
+customer.account.wishlist.not_available,Currently not available,vi_VN
+customer.account.wishlist.item.removed,Product removed successfully.,vi_VN
+customer.account.wishlist.item.moved_to_cart,Item moved to cart successfully.,vi_VN
+customer.account.wishlist.item.moved_to_cart.failed,Item was not moved to cart.,vi_VN
+customer.account.wishlist.item.moved_all_available_to_cart,Available items moved to cart successfully.,vi_VN
+customer.account.wishlist.item.moved_all_available_to_cart.failed,Not all items are moved to cart successfully,vi_VN
+customer.account.wishlist.created,Wishlist created successfully.,vi_VN
+customer.account.wishlist.updated,Wishlist updated successfully,vi_VN
+customer.account.wishlist.deleted,Wishlist deleted successfully.,vi_VN
+customer.account.wishlist.item.not_added,Failed to add product to wishlist.,vi_VN
+newsletter.subscribe,E-Mail,vi_VN
+newsletter.form.subscribe,Subscribe,vi_VN
+pagination.previous,Previous,vi_VN
+pagination.next,Next,vi_VN
+product.attribute.iso_en,ISO,vi_VN
+product.attribute.waterproof_up_to,Waterproof up to,vi_VN
+product.attribute.width,Width,vi_VN
+product.attribute.touchscreen,Touchscreen,vi_VN
+product.attribute._none,Please select a value,vi_VN
+product.variants,Product Variants,vi_VN
+product.attribute.usb_version,USB version,vi_VN
+product.attribute.thermal_design_power,Thermal design power,vi_VN
+product.attribute.processor_boost_frequency,Processor Boost,vi_VN
+product.attribute.touch_technology,Touch technology,vi_VN
+product.attribute.video_recording_modes,Video recording modes,vi_VN
+product.attribute.voice_recording,Voice recording,vi_VN
+product.attribute.total_megapixels,Total megapixels,vi_VN
+product.attribute.white_balance,White balance,vi_VN
+product.attribute.themes,Themes,vi_VN
+product.attribute.usb_port,USB port,vi_VN
+product.detail.out_of_stock,This product is currently not available.,vi_VN
+product.groups,Product Groups,vi_VN
+cart.pre.check.availability.failed,Item %sku% only has availability of %stock%.,vi_VN
+cart.pre.check.availability.failed.empty,Item %sku% no longer available.,vi_VN
+mail.sender.name,Spryker No-Reply,vi_VN
+mail.sender.email,noreply@demo-spryker.com,vi_VN
+mail.company.status.subject,Your company has changed status,vi_VN
+mail.company.status.text,Your company has changed status to: ,vi_VN
+mail.company.status.approved,Approved ,vi_VN
+mail.company.status.pending,Waiting for Approval,vi_VN
+mail.company.status.denied,Denied,vi_VN
+mail.customer.registration.subject,Thank you for signing up with Spryker Shop!,vi_VN
+mail.customer.registration.text,Thank you for signing up with Spryker Shop!,vi_VN
+mail.customer.restore_password.subject,New password for your Spryker Shop account,vi_VN
+mail.customer.restore_password.text,"""Somebody has requested a new password for your Spryker Shop account. If it's not you, just ignore this email. If it's you, please follow the link bellow:""",vi_VN
+mail.customer.restore_password_confirmation.subject,Your password was changed successfully!,vi_VN
+mail.customer.restore_password_confirmation.text,Your password was changed successfully!,vi_VN
+mail.newsletter.subscribed.subject,Welcome to Spryker newsletter,vi_VN
+mail.newsletter.subscribed.text,We are thrilled you have signed up for our newletter. We will do our best to deliver you the most relevant and exciting news and updates.,vi_VN
+mail.newsletter.subscribed.footer.text,Enjoy your shopping experience.,vi_VN
+mail.newsletter.unsubscribed.subject,Sorry to see you go…,vi_VN
+mail.newsletter.unsubscribed.text,"Your email address has been unsubscribed from Spryker Shop newsletter, but you can always manage your subscription in your customer profile.",vi_VN
+mail.order.confirmation.subject,Thank you for your order at Spryker Shop,vi_VN
+mail.order.confirmation.salutation,Hello,vi_VN
+mail.order.confirmation.text_line_1,Thank you for shopping at Spryker Shop!,vi_VN
+mail.order.confirmation.text_line_2,We are writing to let you know that we got your order. You will receive a shipping confirmation by e-mail from us as soon as the order has been sent.,vi_VN
+mail.order.confirmation.text_line_3,"We hope you like your order. In case you change your mind, you can return within 14 days.",vi_VN
+mail.order.confirmation.details,Details of your order,vi_VN
+mail.order.confirmation.shipping_address,Delivery address,vi_VN
+mail.order.confirmation.billing_address,Billing address,vi_VN
+mail.order.confirmation.order_number,Order number,vi_VN
+mail.order.confirmation.price_including_tax,Total price including taxes,vi_VN
+mail.order.confirmation.date,Date of order,vi_VN
+mail.order.confirmation.footer.text_line_1,Have a great day!,vi_VN
+mail.order.confirmation.footer.text_line_2,Your Spryker Shop,vi_VN
+mail.order.confirmation.shipment_details,Shipment details,vi_VN
+mail.order.confirmation.shipment_number,Shipment number,vi_VN
+mail.order.confirmation.shipping_method,Shipment method,vi_VN
+mail.order.confirmation.delivery_date,Requested delivery date,vi_VN
+mail.order.confirmation.products_in_shipment,Products by shipment,vi_VN
+mail.order.confirmation.product_title,Product title,vi_VN
+mail.order.confirmation.item_quantity,Item quantity,vi_VN
+mail.order.confirmation.item_sku,Artikel SKU,vi_VN
+mail.order.confirmation.item_price_including_tax,Total item price including taxes,vi_VN
+mail.order.shipped.subject,Your order %orderReference% is on its way,vi_VN
+mail.order.shipped.salutation,Hello,vi_VN
+mail.order.shipped.text,Your order is already on its way.,vi_VN
+mail.order.shipped.details,Details of your order,vi_VN
+mail.order.shipped.order_number,Order number,vi_VN
+mail.order.shipped.price_including_tax,Total price including taxes,vi_VN
+mail.order.shipped.date,Date of order,vi_VN
+mail.order.shipped.footer.text_line_1,Have a great day!,vi_VN
+mail.order.shipped.footer.text_line_2,Your Spryker Shop,vi_VN
+mail.order_invoice.subject,Invoice: %invoiceReference%,vi_VN
+mail.trans.customerRegistration.confirmationLink,Validate your email address,vi_VN
+cart.item.remove.confirm,Are you sure that you want to remove this item?,vi_VN
+cart.voucher.remove,Remove,vi_VN
+cart.vouchers.clear-all,Clear all,vi_VN
+cart.voucher.apply.failed,Your voucher code is invalid.,vi_VN
+cart.voucher.apply.successful,Your voucher code has been applied,vi_VN
+cart.voucher.apply.non_applicable,The voucher code is invalid,vi_VN
+cart.item.bundle.description,Items in the bundle:,vi_VN
+bundle.title,Bundle includes,vi_VN
+checkout.summary.item.bundle.description,Items in the bundle:,vi_VN
+customer.order.bundled_items,Items in the bundle:,vi_VN
+customer.order.options,Product options:,vi_VN
+cart.item.option.description,Product options:,vi_VN
+cart.item.sku,SKU,vi_VN
+checkout.summary.item.option.description,Product options:,vi_VN
+invoice.order.address.billing,Billing address,vi_VN
+invoice.order.address.shipping,Shipping address,vi_VN
+invoice.header,Invoice,vi_VN
+invoice.order.number,Order reference,vi_VN
+invoice.customer.number,Customer reference,vi_VN
+invoice.created.at,Invoice date,vi_VN
+invoice.order.item.sku,SKU,vi_VN
+invoice.order.item.product_name,PRODUCT NAME,vi_VN
+invoice.order.item.quantity,QUANTITY,vi_VN
+invoice.order.item.price,ITEM PRICE,vi_VN
+invoice.order.item.price_total,ITEM TOTAL,vi_VN
+invoice.order.grand_total,GRAND TOTAL,vi_VN
+invoice.order.tax_amount,Incl. VAT,vi_VN
+invoice.order.expenses.total,Shipping costs,vi_VN
+invoice.company.address,Spryker Systems GmbH<br/>Julie-Wolfthorn-Straße 1<br />10115 Berlin / Germany,vi_VN
+invoice.company.bank.information,Bank Name<br/>IBAN 1234 5678 9123 4567 89<br />BIC 12345678<br/>Handelsregister ABC123456<br />Steuernummer 12/345/6789,vi_VN
+invoice.company.contact.information,+49 (0)30 2084983 50<br/>hello@spryker.com,vi_VN
+DummyPaymentCreditCard,Credit Card,vi_VN
+payment.dummy-payment.credit-card,Pay with the following credit card:,vi_VN
+dummyPaymentCreditCard.card_type,Card Type,vi_VN
+dummyPaymentCreditCard.card_number,Card Number,vi_VN
+dummyPaymentCreditCard.name_on_card,Name on the Card,vi_VN
+dummyPaymentCreditCard.card_expires,Expiry Date,vi_VN
+dummyPaymentCreditCard.card_security_code,CVC,vi_VN
+dummyPaymentCreditCard.hidden_numbers,*********,vi_VN
+DummyPaymentInvoice,Invoice,vi_VN
+dummyPaymentInvoice.invoice,Pay with invoice:,vi_VN
+dummyPaymentInvoice.date_of_birth,Date of Birth,vi_VN
+cart.item.item_price,Item price,vi_VN
+cart.item.item_total,Item total,vi_VN
+cart.shipping,Shipping,vi_VN
+product_review.product_ratings,Product Ratings,vi_VN
+product_review.product_reviews,Product Reviews,vi_VN
+product_review.ratings_reviews,Ratings & Reviews,vi_VN
+product_review.average_ratings,Average Rating,vi_VN
+product_review.on,on,vi_VN
+product_review.summary.star,Star,vi_VN
+product_review.summary.stars,Stars,vi_VN
+product_review.summary.out_of,out of,vi_VN
+product_review.summary.review,review,vi_VN
+product_review.summary.reviews,reviews,vi_VN
+product_review.no_reviews,No review for this product yet,vi_VN
+product_review.submit.add_a_review,Write a Review,vi_VN
+product_review.submit.rating,Rating,vi_VN
+product_review.submit.rating.none,No rating was selected,vi_VN
+product_review.submit.summary,Summary,vi_VN
+product_review.submit.description,Description,vi_VN
+product_review.submit.nickname,Name,vi_VN
+product_review.submit.success,Product review was successfully submitted.,vi_VN
+product_review.error.no_customer,Please login to access this feature.,vi_VN
+product_review.submit.error,The review hasn't sent.,vi_VN
+cart.promotion.items,Promotional products,vi_VN
+checkout.payment_method.invalid,Checkout payment is not valid,vi_VN
+checkout.payment.provider.DummyPayment,Payment Methods,vi_VN
+cms.preview.access_denied,You are not logged in or you do not have permission to access this page.,vi_VN
+product-cart.validation.error.abstract-product-exists,"Product ""sku"" not found",vi_VN
+product-cart.validation.error.concrete-product-exists,"Product ""sku"" not found",vi_VN
+cart.item.option.pre.check.validation.error.exists,"You can not reorder the product %name% directly, please add it to your cart separately.",vi_VN
+product-cart.validation.error.product-option-value-price-exists,Product option price not found for product '%sku%'.,vi_VN
+product-cart.validation.error.concrete-product-inactive,Product %sku% is not active.,vi_VN
+product-cart.info.concrete-product-inactive.removed,Inactive item %sku% was removed from your shopping cart.,vi_VN
+product.filter.label,Label,vi_VN
+product.filter.price-default-chf-gross_mode,Price,vi_VN
+product.filter.price-default-chf-net_mode,Price,vi_VN
+product.filter.price-default-eur-net_mode,Price,vi_VN
+product.filter.price-default-eur-gross_mode,Price,vi_VN
+cart.pre.check.product_discontinued,"Product '%name%' is discontinued, please choose an alternative one.",vi_VN
+replacement_for_widget.replacement_for,Replacement for,vi_VN
+product_alternative_widget.product_alternative,Alternative products,vi_VN
+product_alternative_widget.add_to_shopping_list,Add to shopping list,vi_VN
+product_alternative_widget.add_to_wishlist,Add to Wishlist,vi_VN
+product_alternative_widget.alternative_for,Alternative for name,vi_VN
+product_alternative_widget.product_status.discontinued,Discontinued,vi_VN
+product_alternative_widget.show_all,Show all,vi_VN
+product_alternative_widget.not_applicable,N/A,vi_VN
+product_discontinued_widget.note,Note,vi_VN
+product_discontinued.super_attribute_discontinued,Discontinued,vi_VN
+price.mode.gross_mode,Gross prices,vi_VN
+price.mode.net_mode,Net prices,vi_VN
+page.detail.volume_price.quantity,Quantity,vi_VN
+page.detail.volume_price.price,Price,vi_VN
+cart.pre.check.price.failed,Price in selected currency not found for product with sku '%sku%'. Please change the currency or remove product from order.,vi_VN
+price.mode.switch.error,Can't switch price mode when there are items in the cart.,vi_VN
+price-cart-connector.info.concrete-product-without-price.removed,Item %sku% without price was removed from your shopping cart.,vi_VN
+cart.pre.check.shipment.failed,Can't apply these changes. The shipment method not found. Please select another shipment method.,vi_VN
+catalog.view.mode.grid,Grid,vi_VN
+catalog.view.mode.list,List,vi_VN
+cart.quantity.adjusted,Requested item quantity was adjusted as far as selected quantity is not available.,vi_VN
+catalog.sale,Sale,vi_VN
+catalog.new,New,vi_VN
+company.account.page-title,My Company,vi_VN
+company.account.name,Company Name,vi_VN
+company.account,Company Account,vi_VN
+company.account.address.edit,Edit,vi_VN
+company.account.address.delete,Delete,vi_VN
+company.account.shipping_address,Default Shipping Address,vi_VN
+company.account.billing_address,Default Billing Address,vi_VN
+company.account.address.address1,Street,vi_VN
+company.account.address.number,Number,vi_VN
+company.account.address.address3,Addition to address,vi_VN
+company.account.address.zip_code,Zip code,vi_VN
+company.account.address.city,City,vi_VN
+company.account.address.country,Country,vi_VN
+company.account.address.phone,Telephone number,vi_VN
+company.account.address,Addresses,vi_VN
+company.account.edit_address_information,Edit Address Information,vi_VN
+company.account.login.title,Access your account,vi_VN
+company.account.login.email,Email,vi_VN
+company.account.login.password,Password,vi_VN
+company.account.registration.title,Create account,vi_VN
+company.user.first_name,First Name,vi_VN
+company.user.last_name,Last Name,vi_VN
+company.user.salutation.mr,Mr.,vi_VN
+company.user.salutation.mrs,Mrs.,vi_VN
+company.user.salutation.ms,Ms.,vi_VN
+company.user.salutation.dr,Dr.,vi_VN
+company.account.overview,Overview,vi_VN
+company.user.invitation.title.plural,Invitations,vi_VN
+company.user.invitation.invite_users,Invite users,vi_VN
+company.user.invitation.imported.title.plural,Imported invitations,vi_VN
+company.user.invitation.import.title,Import new invitations,vi_VN
+company.user.invitation.import.download.errors.file,"Some invitations failed to be imported. Click <a href=""%link%"">here</a> to download the errors file",vi_VN
+company.user.invitation.import.error.message,Invitations import failed,vi_VN
+company.user.invitation.file,Invitations file,vi_VN
+company.user.invitation.first.name,First Name,vi_VN
+company.user.invitation.last.name,Last Name,vi_VN
+company.user.invitation.mail,Mail,vi_VN
+company.user.invitation.business.unit,Business Unit,vi_VN
+company.user.invitation.status,Status,vi_VN
+company.user.invitation.actions,Actions,vi_VN
+company.user.invitation.status.new,Not Sent,vi_VN
+company.user.invitation.status.pending,Pending,vi_VN
+company.user.invitation.status.accepted,Accepted,vi_VN
+company.user.invitation.not.found.message,Invitation not found,vi_VN
+company.user.invitation.send.button,Send,vi_VN
+company.user.invitation.sent.success.message,Invitation sent successfully,vi_VN
+company.user.invitation.sent.error.message,Invitation was not sent,vi_VN
+company.user.invitation.send.all.button,Send All,vi_VN
+company.user.invitation.sent.all.success.message,All invitations sent successfully,vi_VN
+company.user.invitation.sent.all.none.found.message,No invitations to send found,vi_VN
+company.user.invitation.sent.all.error.message,Some invitations failed to be sent,vi_VN
+company.user.invitation.resend.title,Resend invitation,vi_VN
+company.user.invitation.resend.confirmation.question,Are you sure you want to resend the invitation?,vi_VN
+company.user.invitation.resend.button,Resend,vi_VN
+company.user.invitation.resent.success.message,Invitation resent successfully,vi_VN
+company.user.invitation.resent.error.message,Invitation was not resent,vi_VN
+company.user.invitation.delete.title,Delete invitation,vi_VN
+company.user.invitation.delete.confirmation.question,Are you sure you want to delete the invitation?,vi_VN
+company.user.invitation.delete.button,Delete,vi_VN
+company.user.invitation.deleted.success.message,Invitation deleted successfully,vi_VN
+company.user.invitation.deleted.error.message,Invitation was not deleted,vi_VN
+company.user.invitation.invalid,Your invitation is not valid,vi_VN
+company.user.invitation.expired,Your invitation has expired,vi_VN
+company.user.invitation.accepted,Your invitation has already been used,vi_VN
+company.user.invitation.import.file.invalid,The import file is not valid,vi_VN
+message.submit_link,Ok!,vi_VN
+mail.company.user.invitation.subject,Invitation,vi_VN
+mail.company.user.invitation.body.html,"Hi %name%, You have been invited to join a Company Account on the Spryker Demo- hop, please follow this <a href=""%invitationLink%"">link</a> to complete your registration",vi_VN
+mail.company.user.invitation.body.text,"Hi %name%, You have been invited to join a Company Account on the Spryker Demo shop, please follow this link %invitationLink% to complete your registration",vi_VN
+company.account.add_new_address,Define new address,vi_VN
+company.account.table.actions,Actions,vi_VN
+company.account.business_unit.view,View,vi_VN
+company.account.business_unit.create,Create,vi_VN
+company.account.business_unit.edit,Edit,vi_VN
+company.account.business_unit.delete,Delete,vi_VN
+company.account.business_unit.address,Addresses,vi_VN
+company.account.business_unit.details,Details,vi_VN
+company.account.business_unit.delete.confirmation.warning,Warning,vi_VN
+company.company_business_unit.delete.error.has_users,You can not delete a business unit while it contains users,vi_VN
+company.account.address.is_default_billing,Is default billing address,vi_VN
+company.account.authorization.success,Registration Successful,vi_VN
+company.account.company_user,Users,vi_VN
+company.account.company_user.add,Add new user,vi_VN
+company.account.company_role,Roles,vi_VN
+company.account.company_role.add,Add new role,vi_VN
+company.account.company_role.default,Default,vi_VN
+company.account.company_role.edit,Edit,vi_VN
+company.account.company_role.name,Name,vi_VN
+company.account.company_role.is_default,Is Default,vi_VN
+company.account.company_role.edit_information,Edit Role Information,vi_VN
+company.account.company_role.details,Details,vi_VN
+company.account.company_role.view,View,vi_VN
+company.account.company_role.user.manage,Manage assigned company users,vi_VN
+company.account.company_role.users,Users,vi_VN
+company.account.company_role.permissions,Permissions,vi_VN
+company.account.company_role.permission.key,Key,vi_VN
+company.account.company_role.permission.configure,Configure,vi_VN
+company.account.company_role.permission.manage,Manage permissions,vi_VN
+company.account.company_role.permission.status,Status,vi_VN
+company.account.company_role.permission.assign,Assign,vi_VN
+company.account.company_role.permission.assigned,Assigned,vi_VN
+company.account.company_role.permission.unassign,Unassign,vi_VN
+company.account.company_role.permission.unassigned,Unassigned,vi_VN
+company.company_role.delete.error.has_users,You can not delete a role while it contains users,vi_VN
+company.account.business_unit.name,Name,vi_VN
+company.account.business_unit.email,Email,vi_VN
+company.account.business_unit.phone,Telephone number,vi_VN
+company.account.business_unit.external_url,External Url,vi_VN
+company.account.business_unit,Business Units,vi_VN
+company.account.business_unit.add,Create Business Unit,vi_VN
+company.account.business_unit.edit_information,Edit,vi_VN
+company.account.company_name,Company name,vi_VN
+company.account.company_user,Users,vi_VN
+company.account.company_user.name,Name,vi_VN
+company.account.company_user.role,Role,vi_VN
+company.account.company_user.add,Create user,vi_VN
+company.account.company_user.business_unit,Business unit,vi_VN
+company.account.company_user.edit,Edit,vi_VN
+company.account.company_user.delete.successful,The user has been deleted,vi_VN
+company.account.company_user.delete,Delete,vi_VN
+company.account.company_user.edit_information,Edit user information,vi_VN
+customer.access.cannot_see_price,Please login to see the price,vi_VN
+company.account.company_user.delete.back,Back,vi_VN
+company.account.company_user.edit_information,Edit user '%first_name% %last_name%',vi_VN
+company.account.company_user.enable,Enable,vi_VN
+company.account.company_user.disable,Disable,vi_VN
+company.account.company_user.status.enable.success,Company user successfully enabled,vi_VN
+company.account.company_user.status.enable.error,Company user cannot be enabled,vi_VN
+company.account.company_user.status.enable.error.cannot_enable_yourself,You are not allowed to enable yourself,vi_VN
+company.account.company_user.status.disable.success,Company user successfully disabled,vi_VN
+company.account.company_user.status.disable.error,Company user cannot be disabled,vi_VN
+company.account.company_user.status.disable.error.cannot_disable_yourself,You are not allowed to disable yourself,vi_VN
+quick-order.page-title,Quick Order,vi_VN
+quick-order.input-label.qty,# Qty,vi_VN
+quick-order.input-label.sku,SKU,vi_VN
+quick-order.button.add-more-rows,Add More Rows,vi_VN
+quick-order.button.create-order,Create Order,vi_VN
+quick-order.button.clear-all-rows,Clear All Rows,vi_VN
+quick-order.message.success.the-form-items-have-been-successfully-cleared,The form items have been successfully cleared.,vi_VN
+quick-order.errors.items-required,Please enter at least one product SKU,vi_VN
+quick-order.errors.quantity-required,Quantity must be at least 1,vi_VN
+quick-order.paste-order.title,Paste your order,vi_VN
+quick-order.paste-order.description,"Copy and paste your order with the item # and quantity separated by spaces, semicolons or commas.",vi_VN
+quick-order.paste-order.input-placeholder.copy-paste-order,Paste your order here,vi_VN
+quick-order.paste-order.button.verify,Verify,vi_VN
+quick-order.paste-order.errors.text-order-format-incorrect,Order format is incorrect.,vi_VN
+quick-order.paste-order.errors.parser.separator-not-detected,Separator is not defined.,vi_VN
+checkout.pre.check.shipment.failed,Invalid shipping method %method_name% (%carrier_name%).,vi_VN
+measurement_units.item.name,Item,vi_VN
+measurement_units.standard.weight.kilo.name,Kilo,vi_VN
+measurement_units.standard.weight.gram.name,Gram,vi_VN
+measurement_units.standard.weight.tone.name,Ton,vi_VN
+measurement_units.standard.weight.gbou.name,GB Ounce,vi_VN
+measurement_units.standard.weight.usou.name,US Ounce,vi_VN
+measurement_units.standard.weight.pund.name,Pound,vi_VN
+measurement_units.standard.weight.huwg.name,Hundredweight,vi_VN
+measurement_units.standard.weight.gbtn.name,GB Ton,vi_VN
+measurement_units.standard.weight.ustn.name,US Ton,vi_VN
+measurement_units.standard.weight.oztr.name,Troy Ounce,vi_VN
+measurement_units.standard.weight.ucwt.name,US Hundredweight,vi_VN
+measurement_units.standard.length.metr.name,Meter,vi_VN
+measurement_units.standard.length.cmet.name,Centimeter,vi_VN
+measurement_units.standard.length.mmet.name,Millimetre,vi_VN
+measurement_units.standard.length.kmet.name,Kilometre,vi_VN
+measurement_units.standard.length.inch.name,Inch,vi_VN
+measurement_units.standard.length.yard.name,Yard,vi_VN
+measurement_units.standard.length.foot.name,Foot,vi_VN
+measurement_units.standard.length.mile.name,Mile,vi_VN
+measurement_units.standard.area.smet.name,Square Metre,vi_VN
+measurement_units.standard.area.sqki.name,Square Kilometre,vi_VN
+measurement_units.standard.area.smil.name,Square Millimetre,vi_VN
+measurement_units.standard.area.scmt.name,Square Centimetre,vi_VN
+measurement_units.standard.area.sqin.name,Square Inch,vi_VN
+measurement_units.standard.area.sqfo.name,Square Foot,vi_VN
+measurement_units.standard.area.sqmi.name,Square Mile,vi_VN
+measurement_units.standard.area.sqya.name,Square Yard,vi_VN
+measurement_units.standard.area.acre.name,Acre,vi_VN
+measurement_units.standard.area.ares.name,Are,vi_VN
+measurement_units.standard.area.hect.name,Hectare,vi_VN
+measurement_units.standard.litr.name,Litre,vi_VN
+measurement_units.standard.celi.name,Centilitre,vi_VN
+measurement_units.standard.mili.name,Milli Litre,vi_VN
+measurement_units.standard.gbga.name,GB Gallon,vi_VN
+measurement_units.standard.gbpi.name,GB Pint,vi_VN
+measurement_units.standard.uspi.name,US Pint,vi_VN
+measurement_units.standard.gbqa.name,GB Quart,vi_VN
+measurement_units.standard.usqa.name,US Quart,vi_VN
+measurement_units.standard.usga.name,US Gallon,vi_VN
+measurement_units.standard.barl.name,Barrel,vi_VN
+measurement_units.standard.bcuf.name,Billion Cubic Feet,vi_VN
+measurement_units.standard.bdft.name,Board Feet,vi_VN
+measurement_units.standard.cbme.name,Cubic Meter,vi_VN
+measurement_units.standard.miba.name,Million Barrel,vi_VN
+measurement_units.standard.dgeu.name,Diesel Gallon Equivalent,vi_VN
+measurement_units.standard.ggeu.name,Gasoline Gallon Equivalent,vi_VN
+measurement_units.standard.busl.name,Bushel,vi_VN
+measurement_units.recommendation.between-units-info,The quantity you have chosen is in between 2 base units,vi_VN
+measurement_units.recommendation.min-violation,Minimum quantity requirements for product are not fulfilled,vi_VN
+measurement_units.recommendation.max-violation,Maximum quantity requirements for product are not fulfilled,vi_VN
+measurement_units.recommendation.suggestion,Would you like to add,vi_VN
+measurement_units.new-price,New price,vi_VN
+product.measurement.sales_unit,Sales Unit,vi_VN
+cart.pre.check.quantity.min.failed,Minimum quantity requirements for product SKU '%sku%' are not fulfilled.,vi_VN
+cart.pre.check.quantity.max.failed,Maximum quantity for product SKU '%sku%' is exceeded.,vi_VN
+cart.pre.check.quantity.value.failed,Wrong quantity for product SKU '%sku%'.,vi_VN
+cart.pre.check.quantity.interval.failed,Quantity interval requirements for product SKU '%sku%' are not fulfilled.,vi_VN
+persistent_cart.error.quote.not_available,Cart does not exists,vi_VN
+persistent_cart.quote.remove.success,Cart deleted successfully,vi_VN
+persistent_cart.quote.remove.can_not_remove_last_cart,Customer should have at least one cart,vi_VN
+cart_note.cart_page.item.note_added,Note has been successfully added to item '%sku%',vi_VN
+cart_note.cart_page.cart.note_added,Note has been successfully added to Cart,vi_VN
+cart_note.quote_form.enter_note,Add a note for the cart,vi_VN
+cart_note.quote_form.placeholder,Enter your note,vi_VN
+cart_note.item_form.enter_note,Add a note for the item,vi_VN
+cart_note.item_form.placeholder,Enter your note,vi_VN
+cart_note.form.save,Save,vi_VN
+cart_note.checkout_page.item_note,Note,vi_VN
+cart_note.checkout_page.quote_note,Cart Note,vi_VN
+cart_note.customer_page.item_note,Order item Note,vi_VN
+cart_note.customer_page.order_note,Order Note,vi_VN
+cart.validate.items.price.changed,Prices have been changed for products with SKU '%sku%'.,vi_VN
+multi_cart.form.create_cart,Add new cart,vi_VN
+multi_cart.form.quote.name,Cart Name,vi_VN
+multi_cart.form.edit_cart,Change Name,vi_VN
+multi_cart.form.edit_cart_information,Edit Cart information,vi_VN
+multi_cart.cart.set_default.success,Cart '%quote%' has successfully been set to your active cart.,vi_VN
+multi_cart_page.cart_clear.success,Cart was successfully cleared,vi_VN
+multi_cart_page.cart_delete_confirmation.warning,Warning,vi_VN
+multi_cart_page.cart_delete_confirmation.trying_to_delete,You are trying to delete Cart,vi_VN
+multi_cart_page.cart_delete_confirmation.shared_with,It is shared with the following users,vi_VN
+multi_cart_page.cart_delete_confirmation.from_all_of_them,It will be deleted from all of them,vi_VN
+multi_cart_page.cart_delete_confirmation.cancel,Cancel,vi_VN
+multi_cart_page.cart_delete_confirmation.delete,Delete,vi_VN
+multi_cart_page.cart_delete_confirmation.breadcrumbs.shopping_carts,Shopping carts,vi_VN
+multi_cart_widget.cart.cart_name,Cart Name,vi_VN
+multi_cart_widget.cart.add,Create New Cart,vi_VN
+multi_cart_widget.cart.action.change_name,Change Name,vi_VN
+multi_cart_widget.cart.action.duplicate,Duplicate,vi_VN
+multi_cart_widget.cart.action.clear,Clear cart,vi_VN
+multi_cart_widget.cart.action.delete,Delete cart,vi_VN
+multi_cart_widget.cart.action.view,View details,vi_VN
+multi_cart_widget.cart.action.set_default,Set active,vi_VN
+multi_cart_widget.cart.default,Active,vi_VN
+multi_cart_widget.cart.item,Item,vi_VN
+multi_cart_widget.cart.items,Items,vi_VN
+multi_cart_widget.cart.view_all,View all carts,vi_VN
+multi_cart_widget.cart.cart,Cart,vi_VN
+multi_cart_widget.cart.carts,Carts,vi_VN
+multi_cart_widget.cart.list,Cart List,vi_VN
+multi_cart_widget.cart.status,Status,vi_VN
+multi_cart_widget.cart.sub_total,Sub Total,vi_VN
+multi_cart_widget.cart.actions,Actions,vi_VN
+multi_cart_widget.cart.created.success,Cart '%quoteName%' was created successfully,vi_VN
+multi_cart_widget.cart.updated.success,Cart updated successfully,vi_VN
+multi_cart_widget.cart.remove.confirm,Are you sure that you want to remove this cart?,vi_VN
+shared_cart_widget.add_product.separate,Add as separate item,vi_VN
+shared_cart_widget.cart.share,Share cart,vi_VN
+shared_cart_widget.cart.unshare,Unshare cart,vi_VN
+shared_cart_widget.cart.dismiss,Dismiss,vi_VN
+shared_cart_widget.share_list.shared_with,Cart shared with,vi_VN
+shared_cart_widget.share_list.customer_name,Customer name,vi_VN
+shared_cart_widget.share_list.permission,Access level,vi_VN
+shared_cart_widget.share_list.actions,Actions,vi_VN
+shared_cart_widget.share_list.action.unshare,Unshare cart,vi_VN
+shared_cart.share_list.permissions.NO_ACCESS,No access,vi_VN
+shared_cart.share_list.permissions.READ_ONLY,Read-only,vi_VN
+shared_cart.share_list.permissions.FULL_ACCESS,Full access,vi_VN
+shared_cart.form.share_cart,Share cart,vi_VN
+shared_cart.form.share_cart.title,"Share cart ""cart_name""",vi_VN
+shared_cart.form.customer,Customer name,vi_VN
+shared_cart.form.select_customer,Select customer,vi_VN
+shared_cart.form.select_permissions,Select access level,vi_VN
+shared_cart.form.share_button,Share,vi_VN
+shared_cart.form.save_button,Save,vi_VN
+shared_cart.form.data_empty,There are no Users with whom you can share shopping cart.,vi_VN
+shared_cart.share.error.already_exist,Cart was already shared with this customer,vi_VN
+shared_cart.share.breadcrumbs.share,Share,vi_VN
+shared_cart.share.breadcrumbs.shopping_carts,Shopping carts,vi_VN
+shared_cart.share.form.users,Users,vi_VN
+shared_cart_page.share.success,Cart was successfully shared,vi_VN
+shared_cart_page.unshare.success,Cart was successfully unshared,vi_VN
+shopping_list.shopping_list,Shopping list,vi_VN
+shopping_list.item_quantity,Quantity,vi_VN
+shopping_list.remove_all_items,Remove all,vi_VN
+shopping_list.item_note,Note:,vi_VN
+shopping_list.item_note.add,Add a note +,vi_VN
+customer.account.shopping_list,Shopping lists,vi_VN
+customer.account.shopping_list.access,Access,vi_VN
+customer.account.shopping_list.access.full_access,Full Access,vi_VN
+customer.account.shopping_list.access.read_only,Read Only,vi_VN
+customer.account.shopping_list.create.success,List '%name%' was created successfully.,vi_VN
+customer.account.shopping_list.create.failed,Shopping list creation failed.,vi_VN
+customer.account.shopping_list.overview.create.success,Shopping List has been created successfully.,vi_VN
+customer.account.shopping_list.overview.shared_with,Shared with,vi_VN
+customer.account.shopping_list.overview.title,Manage Shopping Lists,vi_VN
+customer.account.shopping_list.overview.enter_name,Enter name here,vi_VN
+customer.account.shopping_list.overview.add_new,Add new shopping list,vi_VN
+customer.account.shopping_list.overview.name,Name of List,vi_VN
+customer.account.shopping_list.overview.item_count,Number of items,vi_VN
+customer.account.shopping_list.overview.modified_date,Date of last update,vi_VN
+customer.account.shopping_list.overview.created_date,Date created,vi_VN
+customer.account.shopping_list.overview.actions,Actions,vi_VN
+customer.account.shopping_list.overview.edit,Rename,vi_VN
+customer.account.shopping_list.overview.view,View,vi_VN
+customer.account.shopping_list.overview.form.new,Create new shopping list,vi_VN
+customer.account.shopping_list.overview.delete,Delete,vi_VN
+customer.account.shopping_list.overview.empty,You do not have any shopping lists yet.,vi_VN
+customer.account.shopping_list.overview.share,Share,vi_VN
+customer.account.shopping_list.overview.print,Print,vi_VN
+customer.account.shopping_list.overview.dismiss,Dismiss,vi_VN
+shopping_list_page.dismiss_confirmation.trying_to_dismiss,Are you sure that you what to dismiss shopping list?,vi_VN
+shopping_list_page.dismiss.failed,Shopping list was not dismissed.,vi_VN
+shopping_list_page.dismiss.success,Shopping list was dismissed successfully.,vi_VN
+customer.account.shopping_list.share.from.share,Share,vi_VN
+customer.account.shopping_list.share.from.share_with,Share Shopping List with:,vi_VN
+customer.account.shopping_list.item.select_item,At least one product should be selected.,vi_VN
+customer.account.shopping_list.item.add.success,Item %sku% was added to the List.,vi_VN
+customer.account.shopping_list.item.add.failed,Item %sku% could not be added to the List.,vi_VN
+customer.account.shopping_list.items.added_to_cart.select_list,At least one shopping list should be selected.,vi_VN
+customer.account.shopping_list.product,Product,vi_VN
+customer.account.shopping_list.price,Price,vi_VN
+customer.account.shopping_list.overview.variant,Variant,vi_VN
+customer.account.shopping_list.availability,Availability,vi_VN
+customer.account.shopping_list.available,Available,vi_VN
+customer.account.shopping_list.not_available,Currently not available,vi_VN
+customer.account.shopping_list.add-to-cart,Add to Cart,vi_VN
+customer.account.shopping_list.empty,Currently there are no items in your shopping list.,vi_VN
+customer.account.shopping_list.add_all_available_to_cart,Add all available products to cart,vi_VN
+customer.account.shopping_list.print_shopping_list,Print Shopping list,vi_VN
+customer.account.shopping_list.item.not_added,Failed to add product to shopping list.,vi_VN
+customer.account.shopping_list.add_item.success,Item has been added to the shopping list.,vi_VN
+customer.account.shopping_list.item.remove.success,Product removed successfully.,vi_VN
+customer.account.shopping_list.item.remove.failed,Product was not removed from shopping list.,vi_VN
+customer.account.shopping_list.updated,Shopping list updated successfully,vi_VN
+customer.account.shopping_list.clear.success,Shopping list was successfully cleared.,vi_VN
+customer.account.shopping_list.delete.success,Shopping list deleted successfully.,vi_VN
+customer.account.shopping_list.delete.failed,Shopping list was not deleted.,vi_VN
+customer.account.shopping_list.delete.you_are_trying_to_delete_shopping_list,"You are trying to delete shopping list <a href=""%link%"">%name%</a>",vi_VN
+customer.account.shopping_list.delete.warning,Warning,vi_VN
+customer.account.shopping_list.delete.it_belongs_to_follow,It belongs to following,vi_VN
+customer.account.shopping_list.delete.it_will_be_deleted_from_all_of_them,It will be deleted from all of them,vi_VN
+customer.account.shopping_list.quantity,Quantity,vi_VN
+customer.account.shopping_list.remove,Remove,vi_VN
+validation.not_blank,This value should not be blank.,vi_VN
+validation.invalid_date,Date should be in correct format %s.,vi_VN
+validation.address_number,This value is not valid (accepted format e.g.: 12c).,vi_VN
+validation.zip_code,This field should contain exactly 5 digits.,vi_VN
+validation.min_length,This field must be at least {{ limit }} characters long.,vi_VN
+validation.email,This value is not a valid email address.,vi_VN
+validation.choice,Product rating should be selected.,vi_VN
+customer.account.shopping_list.item.added_to_cart.failed,Item was not added to cart.,vi_VN
+customer.account.shopping_list.items.added_to_cart.not_found,There are no products available for adding to cart.,vi_VN
+customer.account.shopping_list.item.added_to_cart,Item added to cart successfully.,vi_VN
+customer.account.shopping_list.item.added_all_available_to_cart,Available items added to cart successfully.,vi_VN
+customer.account.shopping_list.item.added_all_available_to_cart.failed,Not all items are added to cart successfully,vi_VN
+shopping_list.cart.items_add.failed,Items could not be added to the List,vi_VN
+shopping_list.cart.items_add.success,Items were added to the List,vi_VN
+shopping_list.not_applicable,N/A,vi_VN
+shopping_list_add_items_widget.add_to_shopping_list,Add to shopping list,vi_VN
+page.detail.add-to-shopping-list,Add to Shopping list,vi_VN
+cart.add-to-shopping-list,Add to Shopping list,vi_VN
+cart.add-to-shopping-list.form,Save cart to a shopping list,vi_VN
+cart.add-to-shopping-list.form.placeholder,Enter name of a new shopping list,vi_VN
+cart.add-to-shopping-list.form.add_new,Add new shopping list,vi_VN
+cart.add-to-shopping-list.form.error.empty_name,"Please, enter shopping list name",vi_VN
+customer.account.shopping_list.overview.add_shopping_list_to_cart,Add selected shopping lists to cart,vi_VN
+customer.account.shopping_list.items.added_to_cart.failed,Items were not added to cart.,vi_VN
+customer.account.shopping_list.items.added_to_cart,Items added to cart successfully.,vi_VN
+customer.account.shopping_list.add_selected_items_to_cart,Add selected items to cart,vi_VN
+customer.account.shopping_list.share.select_company_user,Select customer,vi_VN
+customer.account.shopping_list.share.select_company_business_unit,Select business unit,vi_VN
+customer.account.shopping_list.share.select_permission,Select access level,vi_VN
+customer.account.shopping_list.share.error.one_id_required,Please choose either customer or business unit to share the shopping list with,vi_VN
+customer.account.shopping_list.share.share_shopping_list_successful,Sharing shopping list was successful,vi_VN
+customer.account.shopping_list.share.share_shopping_list_fail,This shopping list has been shared before with this entity,vi_VN
+customer.account.shopping_list.overview.owner,User who created list,vi_VN
+customer.account.shopping_list.error.duplicate_name,A shopping list with the same name already exists.,vi_VN
+customer.account.shopping_list.error.cannot_update,Cannot update shopping list.,vi_VN
+jumbotron.smart_watches.link,/en/smart-wearables/smartwatches,vi_VN
+jumbotron.smartphones.link,/en/telecom-&-navigation/smartphones,vi_VN
+jumbotron.tablets.link,/en/computers/tablets,vi_VN
+cms-product-group.category.link.text,Explore More,vi_VN
+camcorders.category.link,/en/cameras-&-camcorders/digital-cameras?,vi_VN
+smartphones.category.link,/en/telecom-&-navigation/smartphones,vi_VN
+packaging_unit_type.item.name,Item,vi_VN
+packaging_unit_type.ring_500.name,Ring (500m),vi_VN
+packaging_unit_type.box.name,Box,vi_VN
+packaging_unit_type.palette.name,Palette,vi_VN
+packaging_unit_type.giftbox.name,Giftbox,vi_VN
+packaging_unit_type.valentines_special.name,Valentine's special,vi_VN
+packaging_unit_type.pack_20.name,Pack 20,vi_VN
+packaging_unit_type.pack_500.name,Pack 500,vi_VN
+packaging_unit_type.pack_100.name,Pack 100,vi_VN
+packaging_unit_type.pack_mixed.name,Mixed Screws boxes,vi_VN
+business_on_behalf_widget.no_selected_company,No selected company,vi_VN
+business_on_behalf_widget.change_company_user,Change Company User,vi_VN
+company_user.business_on_behalf.error.company_not_active,"You can not select this company user, company is not active.",vi_VN
+company_user.business_on_behalf.error.company_user_invalid,"You can not select this company user, it is invalid.",vi_VN
+company_user.change_company_user,Change Company User,vi_VN
+company_user.no_company,No Company,vi_VN
+company_user.remember_choice,Remember choice,vi_VN
+company_page.company_user_restricted_message,Regular customers are not allowed to operate on company pages,vi_VN
+company_page.company_business_unit_restricted_message,You don't have permissions to perform this operation,vi_VN
+customer.account.print_shopping_list.table.barcode,Barcode,vi_VN
+customer.account.print_shopping_list.table.product_sku,Product SKU,vi_VN
+customer.account.print_shopping_list.table.product_name,Product name,vi_VN
+customer.account.print_shopping_list.table.default_price,Default price,vi_VN
+customer.account.print_shopping_list.table.note,Note,vi_VN
+customer.account.print_shopping_list.title.shopping_list_id,Shopping List ID,vi_VN
+customer.account.print_shopping_list.title.shopping_list_name,Shopping List Name,vi_VN
+cameras.category.link,/en/cameras-&-camcorders/digital-cameras,vi_VN
+samsung.search.link,/en/search?q=samsung,vi_VN
+cart.title_content,In Your Cart,vi_VN
+cart.title_sidebar,Continue to Checkout,vi_VN
+cart.note-title,Cart Note,vi_VN
+cart.voucher-title,Voucher Code,vi_VN
+remove,Remove,vi_VN
+item,Item,vi_VN
+cart.select.default_value,Please select a value,vi_VN
+page.product.upsell-products,Similar products,vi_VN
+account.newsletter.text,"Sign up for our Newsletter and always stay up to date! Get updates about latest smartphones and wearables trends, top brands and great offers.",vi_VN
+footer_subscribe.subscription_text,Sign up and always stay up to date,vi_VN
+footer_subscribe.subscription_placeholder,Add email,vi_VN
+cart_widget.empty_text,Your cart is empty. Go fill it up with all your tech hopes and dreams.,vi_VN
+page.checkout.address.billing-same-as-shipping,Billing same as shipping,vi_VN
+agent.authentication.failed,Authentication failed,vi_VN
+agent.login.title,Access your account,vi_VN
+agent.confirm_user_selection,Confirm,vi_VN
+agent.login.email,Email,vi_VN
+agent.login.password,Password,vi_VN
+agent.control_bar.username,Agent:,vi_VN
+agent.control_bar.customer_name,Customer:,vi_VN
+agent.control_bar.logout_as_customer,End Customer Assistance,vi_VN
+agent.control_bar.logout,Logout,vi_VN
+agent.autocomplete.no_results,No results found,vi_VN
+agent.account.overview,Overview,vi_VN
+agent.account.quote_request,Requests for Quote,vi_VN
+agent.account.page_title,Agent,vi_VN
+agent.account.profile_data,Agent Profile,vi_VN
+autocomplete.placeholder,Search,vi_VN
+footer.logo.text,Built with,vi_VN
+footer.logo.url,https://spryker.com,vi_VN
+footer.logo.link.privacy,https://spryker.com/privacy-policy/,vi_VN
+footer.logo.link.imprint,https://spryker.com/imprint/,vi_VN
+footer.providers__title,Shipment and Payment,vi_VN
+page.product.details.slider_image,Product Image,vi_VN
+page.product.details.slider_thumbnail,Product Image,vi_VN
+wishlist.form.save,Save,vi_VN
+wishlist.validation.error.name.already_exists,A wishlist with the same name already exists.,vi_VN
+global.search.pages,Pages,vi_VN
+global.search.results.view,View,vi_VN
+cms.page.sort.relevance,Sort by relevance,vi_VN
+cms.page.sort.name_asc,Sort by name ascending,vi_VN
+cms.page.sort.name_desc,Sort by name descending,vi_VN
+cms.page.itemsFound,Items found,vi_VN
+cms.page.filter.per,Per Page,vi_VN
+availability_notification.notify_me,Notify me when back in stock,vi_VN
+availability_notification.do_not_notify_me,Do not notify me when back in stock,vi_VN
+availability_notification.subscribed,Successfully subscribed,vi_VN
+availability_notification.unsubscribed,Successfully unsubscribed,vi_VN
+availability_notification.successfully_unsubscribed,Successfully unsubscribed,vi_VN
+availability_notification.successfully_unsubscribed_text,You have successfully unsubscribed from being notified when the product is available again,vi_VN
+availability_notification_subscription.mail.subscribed.head,We just informed our purchase team about your subscription!,vi_VN
+availability_notification_subscription.mail.subscribed.body,You will receive an email when the product will be available again,vi_VN
+availability_notification_subscription.mail.subscribed.subject,We just informed our purchase team about your subscription!,vi_VN
+availability_notification_subscription.mail.unsubscribed.subject,You will not be notified when the product %name% will be available again.,vi_VN
+availability_notification_subscription.mail.unsubscribed.body,You will not be notified when the product %name% will be available again.,vi_VN
+availability_notification_subscription.mail.notification.buy_now,Buy now,vi_VN
+availability_notification_subscription.mail.notification.subject,%name% is available again!,vi_VN
+availability_notification_subscription.mail.notification.head,%name% is available again!,vi_VN
+availability_notification_subscription.mail.notification.body,"The wait is over, you can now add this product inside your cart.",vi_VN
+availability_notification_subscription.mail.copyright,"<em>Copyright © current year company name, All rights reserved.</em><br><br>",vi_VN
+availability_notification_subscription.mail.unsubscribe,"Want to change how you receive these emails?<br>You can <a target=""_blank"" href=""%link%"" style=""mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #656565;font-weight: normal;text-decoration: underline;"">unsubscribe from this list</a>.",vi_VN
+availability_notification.email_address,Email address,vi_VN
+discount.voucher_code.usage_limit.reached,Voucher code usage limit reached,vi_VN
+product_bundle.unavailable,Product '%productSku%' in the Bundle Product '%bundleSku%' is not available at the moment,vi_VN
+cart.total.price_to_pay,Price to pay,vi_VN
+cart.giftcard.label,Gift card,vi_VN
+cart.giftcard.apply.failed,The gift card is not applicable,vi_VN
+cart.giftcard.apply.successful,Your gift card code has been applied,vi_VN
+checkout.giftcard.label,Gift card,vi_VN
+mail.giftCard.delivery.subject,Your Gift card!,vi_VN
+mail.giftCard.delivery.text,"Dear customer, thank you for buying a gift card at our shop. Your gift card code is: ",vi_VN
+mail.giftCard.usage.subject,Thank you for using a Gift Card!,vi_VN
+cart.code.apply.failed,Code could not be applied,vi_VN
+cart.code.enter-code,Enter voucher/gift card code,vi_VN
+general.next.button,Next,vi_VN
+shipment.validation.not_found,Shipment method not found.,vi_VN
+billing.address.validation.is_missing,Billing address is missing,vi_VN
+shipping.address.validation.is_missing,Shipping address is missing,vi_VN
+billing.address.country.validation.not_found,Billing address country not found for country code: %code%,vi_VN
+shipping.address.country.validation.not_found,Shipping address country not found for country code: %code%,vi_VN
+product_search_widget.search.product_discontinued_prefix,[Discontinued],vi_VN
+place_order.pre_check.product_discontinued,"Product '%name%' is discontinued, please choose an alternative one",vi_VN
+configurable_bundle.templates.configurable-bundle-all-in.name,All in,vi_VN
+configurable_bundle.templates.smartstation.name,Smartstation Kit,vi_VN
+configurable_bundle.template_slots.slot-1.name,Slot 1,vi_VN
+configurable_bundle.template_slots.slot-2.name,Slot 2,vi_VN
+configurable_bundle.template_slots.slot-3.name,Slot 3,vi_VN
+configurable_bundle.template_slots.slot-4.name,Slot 4,vi_VN
+configurable_bundle.template_slots.slot-5.name,Slot 5,vi_VN
+configurable_bundle.template_slots.slot-6.name,Slot 6,vi_VN
+configurable_bundle.template.validation.error.not_exists,Configurable bundle template does not exist.,vi_VN
+configurable_bundle.slot.validation.error.not_exists,Configurable bundle template slot does not exist.,vi_VN
+configurable_bundle.template.validation.error.already_activated,Configurable bundle template is already activated.,vi_VN
+configurable_bundle.template.validation.error.already_deactivated,Configurable bundle template is already deactivated.,vi_VN
+configurable_bundle_note.enter_note,Add a note for the configured bundle,vi_VN
+configurable_bundle_note.note,Configured Bundle Note:,vi_VN
+configurable_bundle_note.form.save,Save,vi_VN
+configurable_bundle_note.note_added,Note has been successfully added to configured bundle,vi_VN
+configurable_bundle_page.select,Select,vi_VN
+configurable_bundle_page.unselect,Unselect,vi_VN
+configurable_bundle_page.edit,Edit,vi_VN
+configurable_bundle_page.configurator,Configurator,vi_VN
+configurable_bundle_page.configurable_bundle_list,Configurable Bundle List,vi_VN
+configurable_bundle_page.choose_bundle_to_configure,Choose Bundle to configure,vi_VN
+configurable_bundle_page.configurator.templates_not_found,There are no templates available.,vi_VN
+configurable_bundle_page.template_not_found,Configurable bundle template not found.,vi_VN
+configurable_bundle_page.invalid_template_slot_combination,Invalid template/slot combination.,vi_VN
+configurable_bundle_page.configurator.tip.header,Create your own bundle.,vi_VN
+configurable_bundle_page.configurator.tip.text,"To create the bundle, please select the slot from the left side, and choose the product from the list.",vi_VN
+configurable_bundle_page.configurator.selected_product,Selected product,vi_VN
+configurable_bundle_page.configurator.summary,Summary,vi_VN
+configurable_bundle_page.configurator.add_to_cart,Add to Cart,vi_VN
+configurable_bundle_page.configurator.summary_page_locked,Product for at least one slot should be configured to visit Summary page.,vi_VN
+configurable_bundle_page.configurator.summary_page_total,Total,vi_VN
+configurable_bundle_page.configurator.added_to_cart,Configured bundle successfully added to cart.,vi_VN
+configurable_bundle_page.configurator.slot_became_unavailable,Configured slot with ID '%id%' became unavailable.,vi_VN
+configurable_bundle_page.configurator.product_became_unavailable,Product with SKU '%sku%' configured for slot with ID '%id%' became unavailable.,vi_VN
+configurable_bundle_page.configurator.slot_page.back_link,Back to Bundles,vi_VN
+configurable_bundle_page.configurator.sku,Sku:,vi_VN
+configurable_bundle_note.enter_note,Add a note for the configured bundle,vi_VN
+configurable_bundle_note.note,Configured Bundle Note:,vi_VN
+configurable_bundle_note.form.save,Save,vi_VN
+configurable_bundle_note.note_added,Note has been successfully added to configured bundle,vi_VN
+sales_configured_bundle_widget.success.items_added_to_cart_as_individual_products,Please notice: Items from the Configured Bundle were added to the Cart as individual products.,vi_VN
+sales_configured_bundle_widget.returnable_state,Non-returnable,vi_VN
+sales_configured_bundle_widget.quantity,Quantity:,vi_VN
+configured_bundle_widget.items,Items,vi_VN
+configured_bundle.quantity,Quantity:,vi_VN
+configured_bundle.price,Item price:,vi_VN
+configured_bundle.bundle_total,Bundle total:,vi_VN
+configured_bundle.total,Item total:,vi_VN
+configured_bundle.remove,Remove,vi_VN
+configured_bundle.order.items,Items in the bundle:,vi_VN
+configured_bundle.item_sku,SKU:,vi_VN
+configured_bundle_cart.error.configured_bundle_not_found,Configured bundle with provided sku not found in cart.,vi_VN
+configured_bundle_cart.error.configured_bundle_cannot_be_removed,Configured bundle cannot be removed from cart.,vi_VN
+configured_bundle_cart.error.configured_bundle_cannot_be_updated,Configured bundle cannot be updated.,vi_VN
+configured_bundle_cart.error.configured_bundle_cannot_be_added,Configured bundle cannot be added to cart.,vi_VN
+configured_bundle_widget.configured_bundle.removed,Configured bundle removed successfully.,vi_VN
+configured_bundle_widget.configured_bundle.updated,Configured bundle updated successfully.,vi_VN
+configured_bundle_widget.items,Items,vi_VN
+configured_bundle_widget.multiplier,x,vi_VN
+configured_bundle_note_widget.edit_note,Edit,vi_VN
+configured_bundle_note_widget.remove_note,Remove,vi_VN
+product_search_widget.search.no_results,Products were not found.,vi_VN
+sales_configured_bundle_widget.success.items_added_to_cart_as_individual_products,Please notice: Items from the Configured Bundle were added to the Cart as individual products.,vi_VN
+return.return_reasons.damaged.name,Damaged,vi_VN
+return.return_reasons.wrong-item.name,Wrong Item,vi_VN
+return.return_reasons.no_longer_needed.name,No longer needed,vi_VN
+return.return_policy.returnable_till.message,Returnable till: %date%,vi_VN
+cart_page.error_message.unexpected_error,Unexpected error occurred.,vi_VN
+return_page.default_title,Returns,vi_VN
+return_page.title,Create Return,vi_VN
+return_page.return_reasons.select_reason.placeholder,Select reason,vi_VN
+return_page.return_reasons.custom_reason.placeholder,Custom reason,vi_VN
+return_page.return_reasons.empty,—,vi_VN
+return.return_policy.returnable_till.message,Returnable till: %date%,vi_VN
+order_invoice.invoice_template.table.number,Pos.,vi_VN
+order_invoice.invoice_template.table.quantity,Quantity,vi_VN
+order_invoice.invoice_template.table.name,Item,vi_VN
+order_invoice.invoice_template.table.tax,Tax rate,vi_VN
+order_invoice.invoice_template.table.price,Price,vi_VN
+order_invoice.invoice_template.table.subtotal,Subtotal,vi_VN
+order_invoice.invoice_template.table.discount,Discount,vi_VN
+order_invoice.invoice_template.table.tax.included,this includes %tax_rate%% VAT net,vi_VN
+order_invoice.invoice_template.table.tax.name,VAT,vi_VN
+order_invoice.invoice_template.table.grandtotal,Grand total,vi_VN
+order_invoice.invoice_template.reference,Invoice number:,vi_VN
+order_invoice.invoice_template.introduction,We hereby charge you for the following goods:,vi_VN
+order_invoice.invoice_template.company.name,Spryker Systems GmbH Berlin,vi_VN
+order_invoice.invoice_template.company.address,Julie-Wolfthorn-Straße 1<br>10115 Berlin <br> Germany,vi_VN
+order_invoice.invoice_template.company.group,Unternehmensgruppe Spryker Systems GmbH	,vi_VN
+order_invoice.invoice_template.merchant.name,Spryker Systems GmbH Berlin,vi_VN
+order_invoice.invoice_template.merchant.address,Julie-Wolfthorn-Straße 1 + 10115 Berlin,vi_VN
+return_page.list.title,Returns,vi_VN
+return_page.account.no_return,No returns at the moment,vi_VN
+return_page.return.return_ref,Return Reference,vi_VN
+return_page.return.order_ref,Order Reference,vi_VN
+return_page.return.number_of_items,No. of Items,vi_VN
+return_page.return.date,Return Date,vi_VN
+return_page.return.items_state,Items State,vi_VN
+return_page.return.view_return,View Return,vi_VN
+return_page.return.print_return,Print Slip,vi_VN
+return_page.breadcrumb.returns,Returns,vi_VN
+return_page.breadcrumb.create_return,Create Return,vi_VN
+return_page.details.page_title,Return Details,vi_VN
+return_page.details.actions.back_to_list,Back to List,vi_VN
+return_page.details.actions.print_slip,Print Slip,vi_VN
+return_page.details.total.items_to_return,Items to return,vi_VN
+return_page.details.total.items_to_return.count,items,vi_VN
+return_page.details.total.remuneration_total,Remuneration Total,vi_VN
+return_page.item.options,Product options:,vi_VN
+return_page.table.actions, ,vi_VN
+return_page.button.return_list,Returns,vi_VN
+return_page.return_reasons.title,Reason:,vi_VN
+return_page.return.created,Return created successfully,vi_VN
+return_page.return.title,Create Return,vi_VN
+return_page.order_reference,Order ref:,vi_VN
+return_page.order_date,Order Date:,vi_VN
+return_page.return_reference,Return ref:,vi_VN
+return_page.return_date,Return Date:,vi_VN
+return_page.button_text,Create Return,vi_VN
+return_page.item_sku,SKU:,vi_VN
+return_page.quantity,Quantity:,vi_VN
+return_page.returnable_state,Non-returnable,vi_VN
+return_page.create_return.validation.selected_items,At least one product should be selected.,vi_VN
+return_page.button.create_return,Return,vi_VN
+return_page.slip.return_reference,Return Ref,vi_VN
+return_page.slip.return_date,Return Date,vi_VN
+return_page.slip.order_reference,Order Ref,vi_VN
+return_page.slip.barcode,Barcode,vi_VN
+return_page.slip.product_sku,Product SKU,vi_VN
+return_page.slip.product_name,Product Name,vi_VN
+return_page.slip.default_price,Default Price,vi_VN
+return_page.slip.quantity,Qty,vi_VN
+return_page.slip.total_price,Total Price,vi_VN
+return_page.slip.return_reason,Return Reason,vi_VN
+return_page.slip.items_to_return,Items to Return,vi_VN
+return_page.slip.remuneration_total,Remuneration Total,vi_VN
+return_page.create_return.select_all_checkbox,Select all,vi_VN
+sales_product_bundle_widget.returnable_text,Returnable till:,vi_VN
+sales_product_bundle_widget.returnable_state,Non-returnable,vi_VN
+sales_product_bundle_widget.item_sku,SKU:,vi_VN
+sales_product_bundle_widget.quantity,Quantity:,vi_VN
+sales_product_bundle_widget.item.options,Product options:,vi_VN
+oms.state.new,New,vi_VN
+oms.state.waiting,Waiting,vi_VN
+oms.state.in-progress,In progress,vi_VN
+oms.state.ready,Ready,vi_VN
+oms.state.canceled,Canceled,vi_VN
+oms.state.closed,Closed,vi_VN
+oms.state.draft,Draft,vi_VN
+oms.state.payment-pending,Payment pending,vi_VN
+oms.state.paid,Paid,vi_VN
+oms.state.confirmed,Confirmed,vi_VN
+oms.state.exported,Exported,vi_VN
+oms.state.shipped,Shipped,vi_VN
+oms.state.delivered,Delivered,vi_VN
+oms.state.ready-for-return,Ready for return,vi_VN
+oms.state.refunded,Refunded,vi_VN
+oms.state.returned,Returned,vi_VN
+oms.state.waiting-for-return,Waiting for return,vi_VN
+oms.state.shipped-to-customer,Shipped to customer,vi_VN
+oms.state.sent-to-merchant,Sent to merchant,vi_VN
+oms.state.shipped-by-merchant,Shipped by merchant,vi_VN
+oms.state.return-canceled,Return canceled,vi_VN
+oms.state.merchant-split-pending,Merchant split pending,vi_VN
+oms.state.gift-card-purchased,Gift card purchased,vi_VN
+oms.state.gift-card-created,Gift card created,vi_VN
+oms.state.gift-card-shipped,Gift card shipped,vi_VN
+oms.state.invoice-generated,Invoice generated,vi_VN
+return.create_return.validation.returnable_items_error,Return cannot be created as it contains non-returnable items,vi_VN
+return.create_return.validation.store_error,Return cannot be created - a wrong store has been selected,vi_VN
+return.create_return.validation.items_error,Return cannot be cretaed for this set of items,vi_VN
+form.csrf.error.text,Something went wrong. Sorry.,vi_VN
+sales.error.customer_order_not_found,Customer Order not found.,vi_VN
+sales.error.order_cannot_be_canceled_due_to_wrong_item_state,Order cannot be canceled due to wrong item state.,vi_VN
+order_cancel_widget.cancel_order,Cancel Order,vi_VN
+order_cancel_widget.order.cancelled,Order was canceled successfully.,vi_VN
+product_cart_item.remove,× remove,vi_VN
+product-cart.info.restricted-product.removed,The Item %sku% was removed from the cart because it was deactivated.,vi_VN
+form.csrf.error.text,Something went wrong. Sorry.,vi_VN
+mail.trans.availability_notification.subtitle,The wait is over! Add this product to your cart now.,vi_VN
+mail.trans.availability_notification.title.part2,is available again!,vi_VN
+mail.trans.availability_notification_subscription.subtitle,You will receive an email when the product is available again.,vi_VN
+mail.trans.availability_notification_subscription.title,We just informed our purchase team about your subscription!,vi_VN
+mail.trans.availability_notification_unsubscribed.subtitle,You will not be notified when the product is available again.,vi_VN
+mail.trans.availability_notification_unsubscribed.title.part1,Your subscription to,vi_VN
+mail.trans.availability_notification_unsubscribed.title.part2,was canceled,vi_VN
+mail.trans.common.go_to_shop,Go to shop,vi_VN
+mail.trans.common.hello_for_first_name,Hello,vi_VN
+mail.trans.common.my_account,My Account,vi_VN
+mail.trans.customer_registration.change_info,"You can change your info (delivery address, email address, password etc.) in My Account",vi_VN
+mail.trans.customer_registration.registration_success,Your registration to the Spryker Shop was successful!,vi_VN
+mail.trans.customer_registration.title,Thank you for signing up with Spryker Shop!,vi_VN
+mail.trans.customer_restored_password_confirmation.title,Your password was changed successfully,vi_VN
+mail.trans.customer_restore_password.change_password,Change password,vi_VN
+mail.trans.customer_restore_password.subtitle,"Somebody has requested a new password for your Spryker Shop account. If this was not you, please ignore this email. If it was you, please follow the instructions in the button below.",vi_VN
+mail.trans.customer_restore_password.title,New password for your Spryker Shop account,vi_VN
+mail.trans.footer.contact_email_address,info@spryker.com,vi_VN
+mail.trans.footer.if_you_have_further_questions,"If you have any further questions, please contact our customer service at",vi_VN
+mail.trans.footer.shop_address,Julie-Wolfthorn-Strasse 1,vi_VN
+mail.trans.footer.shop_city,Berlin,vi_VN
+mail.trans.footer.shop_name,Spryker Systems GmbH,vi_VN
+mail.trans.footer.shop_phone,+49 (0) 30 208 498 350,vi_VN
+mail.trans.footer.shopping_experience,Enjoy your shopping experience.,vi_VN
+mail.trans.footer.shop_zip_code,10115,vi_VN
+mail.trans.footer.your_team,Your Spryker team!,vi_VN
+mail.trans.gift_card_delivery.subtitle,Your gift card code is,vi_VN
+mail.trans.gift_card_delivery.title,"Dear customer, thank you for purchasing a gift card in our shop.",vi_VN
+mail.trans.gift_card_usage.subtitle,Your gift card code is,vi_VN
+mail.trans.gift_card_usage.title,You just used a gift card!,vi_VN
+mail.trans.header.shop_name,Spryker Shop,vi_VN
+mail.trans.newsletter_subscribed.subtitle,We will do our best to deliver the most relevant and exciting news and updates.,vi_VN
+mail.trans.newsletter_subscribed.title,We are thrilled you have signed up for our newsletter.,vi_VN
+mail.trans.newsletter_unsubscribed.subtitle,Your email address has been unsubscribed from Spryker Shop newsletter. You can always manage your subscription in your customer profile.,vi_VN
+mail.trans.newsletter_unsubscribed.title,Sorry to see you go...,vi_VN
+mail.trans.order.billing_address,Billing address,vi_VN
+mail.trans.order.delivery_address,Delivery address,vi_VN
+mail.trans.order.delivery_method,Shipment method,vi_VN
+mail.trans.order.discounts_total,Discounts,vi_VN
+mail.trans.order.grand_total,Grand Total,vi_VN
+mail.trans.order.order_date,Order date,vi_VN
+mail.trans.order.order_details,Order details,vi_VN
+mail.trans.order.order_reference,Order reference,vi_VN
+mail.trans.order.quantity,Qty,vi_VN
+mail.trans.order.requested_delivery_date,Requested delivery date,vi_VN
+mail.trans.order.shipment_costs_total,Shipment costs (total),vi_VN
+mail.trans.order.shipment_for_number.part1,Shipment,vi_VN
+mail.trans.order.shipment_for_number.part2,of,vi_VN
+mail.trans.order.subtotal,Subtotal,vi_VN
+mail.trans.order.taxes,Taxes,vi_VN
+mail.trans.order_confirmation.subtitle,"We are writing to let you know that we recieved your order. You can expect a shipping confirmation by e-mail as soon as the order has been sent. We hope you like your order, but if you change your mind, please return it within 14 days.",vi_VN
+mail.trans.order_confirmation.title,Thank you for shopping at Spryker Shop!,vi_VN
+mail.trans.restore_password.change_password,Change password,vi_VN
+mail.trans.restore_password.subtitle,"Somebody has requested a new password for your Spryker Back Office account. If it was not you, please ignore this email. If it was you, please follow the instructions in  the button bellow",vi_VN
+mail.trans.restore_password.title,New password for your Spryker Back Office account,vi_VN
+mail.trans.order_shipped.title,Your order is on its way!,vi_VN
+mail.trans.company_status.title,The status of your company has been changed to,vi_VN
+mail.trans.customer_registration.confirmation_link,Validate your email address,vi_VN
+customer.error.confirm_email_link.invalid_or_used,This email verification link is invalid or has been already used.,vi_VN
+customer.authorization.validate_email_address,Almost there! We send you an email to validate your email address. Please confirm it to be able to log in.,vi_VN
+customer.authorization.invalid_account,You must first validate your email address before being able to log in,vi_VN
