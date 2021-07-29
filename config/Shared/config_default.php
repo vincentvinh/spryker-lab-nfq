@@ -2,6 +2,7 @@
 
 use Monolog\Logger;
 use Pyz\Shared\Console\ConsoleConstants;
+use Pyz\Shared\PriceExchange\PriceExchangeConstants;
 use Pyz\Shared\Scheduler\SchedulerConfig;
 use Pyz\Yves\ShopApplication\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
@@ -529,3 +530,9 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [];
 
 // >>> Taxes
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
+
+// API FIXER.IO
+$config[PriceExchangeConstants::FIXER_API_BASE_URL] = getenv('FIXER_API_BASE_URL') ?: 'base_url';
+$config[PriceExchangeConstants::FIXER_API_KEY] = getenv('FIXER_API_KEY') ?: null;
+$config[PriceExchangeConstants::FIXER_EXCHANGE_RATE_METHOD] = getenv('FIXER_EXCHANGE_RATE_METHOD') ?: null;
+$config[PriceExchangeConstants::FIXER_EXCHANGE_RATE_URI] = getenv('FIXER_EXCHANGE_RATE_URI') ?: null;
