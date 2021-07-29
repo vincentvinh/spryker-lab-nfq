@@ -19,12 +19,11 @@ class PriceProductStorageEntityManager extends AbstractEntityManager implements 
 {
     /**
      * @param array $rates
-     * @param PriceProductStorageQueryContainer
+     * @param PriceProductStorageQueryContainer $queryContainer
      * @param string $store
-     *
-     * @return void
+     * @return mixed|void
      */
-    public function updatePriceData(array $rates, AbstractQueryContainer $queryContainer, string $store)
+    public function updatePriceData(array $rates, PriceProductStorageQueryContainer $queryContainer, string $store)
     {
         $query = $queryContainer->queryPriceConcreteStorageByStore($store);
 

@@ -7,14 +7,12 @@
 
 namespace Pyz\Zed\PriceProductStorage\Business;
 
-use Spryker\Zed\PriceProduct\Business\PriceProductFacade;
-
 /**
  * Class PriceProductStorageFacade
  *
  * @package Pyz\Zed\PriceProductStorage\Business
  */
-class PriceProductStorageFacade extends PriceProductFacade implements PriceProductStorageFacadeInterface
+class PriceProductStorageFacade extends \Spryker\Zed\PriceProductStorage\Business\PriceProductStorageFacade implements PriceProductStorageFacadeInterface
 {
     /**
      * @return void
