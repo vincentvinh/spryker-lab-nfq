@@ -96,7 +96,7 @@ class GetFixer extends AbstractService implements GetFixerInterface
     private function handleResponse(ResponseInterface $response): PriceExchangeTransfer
     {
         $data = json_decode($response->getBody()->getContents(), true);
-        if (!$data['success']) {
+        if (empty($data['success'])) {
             throw new BadRequestException($data['error']['info'], $data['error']['code']);
         }
         $this->priceExchangeTransfer->fromArray($data, true);

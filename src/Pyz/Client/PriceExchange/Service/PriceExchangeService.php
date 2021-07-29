@@ -20,7 +20,6 @@ use Pyz\Service\Fixer\FixerService;
 class PriceExchangeService implements PriceExchangeServiceInterface
 {
     public const STATUS_SUCCESS = 200;
-    public const SYMBOLS = 'symbols';
 
     /**
      * @var \Pyz\Service\Fixer\FixerService
@@ -42,6 +41,7 @@ class PriceExchangeService implements PriceExchangeServiceInterface
      *
      * @api
      *
+     * symbols is an array of country currency symbols like ['USD','VND']
      * @param array $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
