@@ -1,39 +1,61 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\PriceProductStorage\Business;
 
 use Generated\Shared\Transfer\StoreTransfer;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
+use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
-use Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface;
 
+/**
+ * Class RateExchangeUpdater
+ *
+ * @package Pyz\Zed\PriceProductStorage\Business
+ */
 class RateExchangeUpdater implements RateExchangeUpdaterInterface
 {
-    /** @var array $rates */
+    /**
+     * @var array $rates
+     */
     protected $rates;
 
-    /** @var \Generated\Shared\Transfer\StoreTransfer $currentStore */
+    /**
+     * @var \Generated\Shared\Transfer\StoreTransfer $currentStore
+     */
     protected $currentStore;
 
-    /** @var PriceProductQueryContainerInterface $queryContainer */
+    /**
+     * @var \Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
+     */
     protected $queryContainer;
 
-    /** @var AbstractEntityManager $entityManager */
+    /**
+     * @var \Spryker\Zed\Kernel\Persistence\AbstractEntityManager $entityManager
+     */
     protected $entityManager;
 
+    /**
+     * @param \Generated\Shared\Transfer\StoreTransfer $store
+     * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer
+     * @param \Spryker\Zed\Kernel\Persistence\AbstractEntityManager $entityManager
+     */
     public function __construct(
         StoreTransfer $store,
-        \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer,
+        PriceProductStorageQueryContainerInterface $queryContainer,
         AbstractEntityManager $entityManager
-    )
-    {
+    ) {
         $this->currentStore = $store;
         $this->queryContainer = $queryContainer;
         $this->entityManager = $entityManager;
     }
 
     /**
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     * @return void
      */
     public function execute()
     {
@@ -43,6 +65,8 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
 
     /**
      * get exchange rate
+     *
+     * @return void
      */
     public function getRates()
     {
@@ -65,7 +89,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     /**
      * Perform update
      *
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     * @return void
      */
     public function updateProductPrice()
     {

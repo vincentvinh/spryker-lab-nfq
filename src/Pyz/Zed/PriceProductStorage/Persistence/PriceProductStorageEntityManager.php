@@ -1,12 +1,29 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\PriceProductStorage\Persistence;
 
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 
+/**
+ * Class PriceProductStorageEntityManager
+ *
+ * @package Pyz\Zed\PriceProductStorage\Persistence
+ */
 class PriceProductStorageEntityManager extends AbstractEntityManager implements PriceProductStorageEntityManagerInterface
 {
+    /**
+     * @param array $rates
+     * @param PriceProductStorageQueryContainer
+     * @param string $store
+     *
+     * @return void
+     */
     public function updatePriceData(array $rates, AbstractQueryContainer $queryContainer, string $store)
     {
         $query = $queryContainer->queryPriceConcreteStorageByStore($store);
@@ -21,7 +38,7 @@ class PriceProductStorageEntityManager extends AbstractEntityManager implements 
             echo "\n- Product #{$item->getFkProduct()}";
             foreach ($rates as $symbol => $rate) {
                 $data['prices'][$symbol] = [
-                    'priceData' => NULL,
+                    'priceData' => null,
                     'GROSS_MODE' => [
                         'DEFAULT' => ($originalPrice['GROSS_MODE']['DEFAULT'] ?? 0) * $rate,
                         'ORIGINAL' => ($originalPrice['GROSS_MODE']['ORIGINAL'] ?? 0) * $rate,
@@ -29,7 +46,7 @@ class PriceProductStorageEntityManager extends AbstractEntityManager implements 
                     'NET_MODE' => [
                         'DEFAULT' => ($originalPrice['NET_MODE']['DEFAULT'] ?? 0) * $rate,
                         'ORIGINAL' => ($originalPrice['NET_MODE']['DEFAULT'] ?? 0) * $rate,
-                    ]
+                    ],
                 ];
 
                 $item->setData($data);

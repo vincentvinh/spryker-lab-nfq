@@ -1,11 +1,21 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\PriceProductStorage\Business;
 
-
 use Pyz\Zed\PriceProductStorage\PriceProductStorageDependencyProvider;
+use Spryker\Zed\PriceProductStorage\Business\PriceProductStorageBusinessFactory as SprykerPriceProductStorageBusinessFactory;
 
-class PriceProductStorageBusinessFactory extends \Spryker\Zed\PriceProductStorage\Business\PriceProductStorageBusinessFactory
+/**
+ * Class PriceProductStorageBusinessFactory
+ *
+ * @package Pyz\Zed\PriceProductStorage\Business
+ */
+class PriceProductStorageBusinessFactory extends SprykerPriceProductStorageBusinessFactory
 {
     /**
      * @return \Spryker\Zed\AvailabilityGui\Dependency\Facade\AvailabilityToStoreFacadeInterface
@@ -15,7 +25,10 @@ class PriceProductStorageBusinessFactory extends \Spryker\Zed\PriceProductStorag
         return $this->getProvidedDependency(PriceProductStorageDependencyProvider::FACADE_STORE);
     }
 
-    public function getRateExchangeUpdater()
+    /**
+     * @return \Pyz\Zed\PriceProductStorage\Business\RateExchangeUpdater
+     */
+    public function createRateExchangeUpdater()
     {
         return new RateExchangeUpdater(
             $this->getStoreFacade()->getCurrentStore(),
@@ -24,4 +37,3 @@ class PriceProductStorageBusinessFactory extends \Spryker\Zed\PriceProductStorag
         );
     }
 }
-

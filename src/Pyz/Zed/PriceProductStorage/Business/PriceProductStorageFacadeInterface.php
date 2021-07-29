@@ -7,10 +7,15 @@
 
 namespace Pyz\Zed\PriceProductStorage\Business;
 
-interface RateExchangeUpdaterInterface
+/**
+ * Interface PriceProductStorageFacadeInterface
+ *
+ * @package Pyz\Zed\PriceProductStorage\Business
+ */
+interface PriceProductStorageFacadeInterface
 {
     /**
-     * @return mixed
+     * @return void
      */
-    public function execute();
+    public function updatePriceProductConcreteStorage();
 }

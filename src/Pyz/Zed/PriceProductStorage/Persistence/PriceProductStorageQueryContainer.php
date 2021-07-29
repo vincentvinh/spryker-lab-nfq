@@ -1,24 +1,20 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\PriceProductStorage\Persistence;
 
-class PriceProductStorageQueryContainer extends \Spryker\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer
-    implements PriceProductStorageQueryContainerInterface
+use Spryker\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer as SprykerPriceProductStorageQueryContainer;
+
+class PriceProductStorageQueryContainer extends SprykerPriceProductStorageQueryContainer implements PriceProductStorageQueryContainerInterface
 {
     /**
-     * {@inheritDoc}
-     *
-     * @param int[] $productConcreteIds
+     * @param string $store
      *
      * @return \Orm\Zed\PriceProductStorage\Persistence\SpyPriceProductConcreteStorageQuery
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
-     * @api
-     *
      */
     public function queryPriceConcreteStorageByStore(string $store)
     {

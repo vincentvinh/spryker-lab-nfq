@@ -9,10 +9,19 @@ namespace Pyz\Zed\PriceProductStorage;
 
 use Spryker\Zed\AvailabilityGui\Dependency\Facade\AvailabilityToStoreFacadeBridge;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\PriceProductStorage\PriceProductStorageDependencyProvider as SprykerPriceProductStorageDependencyProvider;
 
-class PriceProductStorageDependencyProvider extends \Spryker\Zed\PriceProductStorage\PriceProductStorageDependencyProvider
+/**
+ * Class PriceProductStorageDependencyProvider
+
+ * @uses Spryker\Zed\PriceProductStorage\PriceProductStorageDependencyProvider
+ * @uses \Spryker\Zed\PriceProductStorage\PriceProductStorageDependencyProvider
+
+ * @package Pyz\Zed\PriceProductStorage
+ */
+class PriceProductStorageDependencyProvider extends SprykerPriceProductStorageDependencyProvider
 {
-    const FACADE_STORE = 'store facade';
+    public const FACADE_STORE = 'store facade';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -22,6 +31,7 @@ class PriceProductStorageDependencyProvider extends \Spryker\Zed\PriceProductSto
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = $this->addStoreFacade($container);
+
         return $container;
     }
 

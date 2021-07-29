@@ -1,14 +1,23 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\PriceProductStorage\Communication\Console;
 
 use Spryker\Zed\Kernel\Communication\Console\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * @method \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface getQueryContainer()
+ * @method \Pyz\Zed\PriceProductStorage\Business\PriceProductStorageFacadeInterface getFacade()
+ */
 class ExchangeRateCommand extends Console
 {
-    const COMMAND_NAME = 'price-product-storage:price:update';
+    public const COMMAND_NAME = 'price-product-storage:price:update';
 
     /**
      * @return void
@@ -20,8 +29,8 @@ class ExchangeRateCommand extends Console
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return void
      */
@@ -29,5 +38,4 @@ class ExchangeRateCommand extends Console
     {
         $this->getFacade()->updatePriceProductConcreteStorage();
     }
-
 }
