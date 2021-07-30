@@ -8,7 +8,6 @@
 namespace Pyz\Zed\PriceProductStorage\Persistence;
 
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
-use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 
 /**
  * Class PriceProductStorageEntityManager
@@ -19,9 +18,10 @@ class PriceProductStorageEntityManager extends AbstractEntityManager implements 
 {
     /**
      * @param array $rates
-     * @param PriceProductStorageQueryContainer $queryContainer
+     * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer $queryContainer
      * @param string $store
-     * @return mixed|void
+     *
+     * @return void
      */
     public function updatePriceData(array $rates, PriceProductStorageQueryContainer $queryContainer, string $store)
     {

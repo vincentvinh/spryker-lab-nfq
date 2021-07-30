@@ -9,7 +9,6 @@ namespace Pyz\Zed\PriceProductStorage\Business;
 
 use Generated\Shared\Transfer\StoreTransfer;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
-use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageEntityManager;
 use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 
@@ -36,7 +35,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     protected $queryContainer;
 
     /**
-     * @var PriceProductStorageEntityManager $entityManager
+     * @var \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageEntityManager $entityManager
      */
     protected $entityManager;
 

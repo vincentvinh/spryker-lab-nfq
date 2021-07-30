@@ -11,8 +11,9 @@ interface PriceProductStorageEntityManagerInterface
 {
     /**
      * @param array $rates
-     * @param PriceProductStorageQueryContainer $queryContainer
+     * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer $queryContainer
      * @param string $store
+     *
      * @return mixed
      */
     public function updatePriceData(array $rates, PriceProductStorageQueryContainer $queryContainer, string $store);
