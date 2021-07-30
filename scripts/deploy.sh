@@ -22,10 +22,12 @@ while getopts "t:" opt; do
     esac
 done
 
-for STORE in "${STORES[@]}"
-do
-    kubectl -n ${KUBE_NAMESPACE} exec "${CLI_POD}" -- bash -c "APPLICATION_STORE=${STORE} vendor/bin/console scheduler:suspend"
-done
+if [ -n "$CLI_POD" ]; then
+    for STORE in "${STORES[@]}"
+    do
+        kubectl -n ${KUBE_NAMESPACE} exec "${CLI_POD}" -- bash -c "APPLICATION_STORE=${STORE} vendor/bin/console scheduler:suspend"
+    done
+fi
 
 helm dependency update kubernetes/spryker
 helm --namespace ${KUBE_NAMESPACE} upgrade --install spryker kubernetes/spryker \
