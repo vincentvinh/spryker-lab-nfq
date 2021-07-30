@@ -1,8 +1,9 @@
 name: Deploy to test server
 
 on:
-  - workflow_dispatch
-  - release
+  workflow_dispatch:
+  release:
+      types: [published]
 
 jobs:
   build-images:
