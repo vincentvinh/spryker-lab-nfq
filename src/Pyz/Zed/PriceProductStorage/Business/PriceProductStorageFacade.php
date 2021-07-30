@@ -13,6 +13,8 @@ use Spryker\Zed\PriceProductStorage\Business\PriceProductStorageFacade as Spryke
  * Class PriceProductStorageFacade
  *
  * @package Pyz\Zed\PriceProductStorage\Business
+ *
+ * @method \Pyz\Zed\PriceProductStorage\Business\PriceProductStorageBusinessFactory getFactory()
  */
 class PriceProductStorageFacade extends SprykerPriceProductStorageFacade implements PriceProductStorageFacadeInterface
 {
@@ -21,9 +23,7 @@ class PriceProductStorageFacade extends SprykerPriceProductStorageFacade impleme
      */
     public function updatePriceProductConcreteStorage()
     {
-        /** @var PriceProductStorageBusinessFactory $factory */
-        $factory = $this->getFactory();
-        $handler = $factory->createRateExchangeUpdater();
+        $handler = $this->getFactory()->createRateExchangeUpdater();
         $handler->execute();
     }
 }
