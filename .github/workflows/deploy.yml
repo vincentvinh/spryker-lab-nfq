@@ -2,6 +2,7 @@ name: Deploy to test server
 
 on:
   - workflow_dispatch
+  - release
 
 jobs:
   build-images:
@@ -12,6 +13,34 @@ jobs:
         with:
           submodules: true
       - name: Install packages
-        run: apt-get install iproute2
+        run: apt-get install iproute2 -y
       - run: docker/sdk boot deploy.staging.yml
-      - run: docker/sdk export images
+      - run: docker/sdk export images -t ${GITHUB_SHA}
+
+  push-images:
+    name: Push container images to internal registry
+    runs-on: self-hosted
+    needs:
+      - build-images
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./scripts/push-images.sh -t ${GITHUB_SHA}
+
+  upgrade-helm:
+    name: Upgrade helm chart to deploy to test server
+    runs-on: self-hosted
+    needs:
+      - push-images
+    steps:
+      - name: Install kubectl and helm
+        run: |
+          curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+          echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
+          curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+          echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+          apt-get update
+          apt-get install -y kubectl helm
+          kubectl version
+          helm version
+      - uses: actions/checkout@v2
+      - run: ./scripts/deploy.sh -t ${GITHUB_SHA}

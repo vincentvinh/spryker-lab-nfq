@@ -7,15 +7,15 @@ maintainers:
 dependencies:
   - name: redis
     version: "10.6.12"
-    repository: "@bitnami"
+    repository: "https://charts.bitnami.com/bitnami"
     alias: key-value-store
   - name: redis
     version: "10.6.12"
-    repository: "@bitnami"
+    repository: "https://charts.bitnami.com/bitnami"
     alias: sessions
   - name: postgresql
     version: "10.6.0"
-    repository: "@bitnami"
+    repository: "https://charts.bitnami.com/bitnami"
     alias: database
   - name: pgadmin4
     version: "1.7.0"
@@ -23,7 +23,7 @@ dependencies:
     alias: pgadmin
   - name: rabbitmq
     version: "8.18.1"
-    repository: "@bitnami"
+    repository: "https://charts.bitnami.com/bitnami"
     alias: broker
   - name: elasticsearch
     version: "6.8.17"

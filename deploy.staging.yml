@@ -43,14 +43,14 @@ regions:
             namespace: de_search
           session:
             namespace: 1
-      AT:
+      VN:
         services:
           broker:
-            namespace: at_queue
+            namespace: vn_queue
           key_value_store:
             namespace: 2
           search:
-            namespace: at_search
+            namespace: vn_search
           session:
             namespace: 2
 
@@ -61,30 +61,30 @@ groups:
       yves_eu:
         application: yves
         endpoints:
-          www.de.b2c.k8s.spryker-solution.nfq.internal:
+          www.de.beta-shop.dev.spryker.nfq.asia:
             store: DE
-          www.at.b2c.k8s.spryker-solution.nfq.internal:
-            store: AT
+          www.vn.beta-shop.dev.spryker.nfq.asia:
+            store: VN
       zed_eu:
         application: zed
         endpoints:
-          os.de.b2c.k8s.spryker-solution.nfq.internal:
+          os.de.beta-shop.dev.spryker.nfq.asia:
             store: DE
             services:
               session:
                 namespace: 3
-          os.at.b2c.k8s.spryker-solution.nfq.internal:
-            store: AT
+          os.vn.beta-shop.dev.spryker.nfq.asia:
+            store: VN
             services:
               session:
                 namespace: 4
       glue_eu:
         application: glue
         endpoints:
-          glue.de.b2c.k8s.spryker-solution.nfq.internal:
+          glue.de.beta-shop.dev.spryker.nfq.asia:
             store: DE
-          glue.at.b2c.k8s.spryker-solution.nfq.internal:
-            store: AT
+          glue.vn.beta-shop.dev.spryker.nfq.asia:
+            store: VN
 services:
   database:
     engine: postgres
@@ -101,7 +101,7 @@ services:
       username: "spryker"
       password: "secret"
     endpoints:
-      queue.b2c.k8s.spryker-solution.nfq.internal:
+      queue.beta-shop.dev.spryker.nfq.asia:
       localhost:5672:
         protocol: tcp
   session:
@@ -121,15 +121,15 @@ services:
     engine: kibana
     version: 6.8
     endpoints:
-      kibana.b2c.k8s.spryker-solution.nfq.internal:
+      kibana.beta-shop.dev.spryker.nfq.asia:
   scheduler:
     engine: jenkins
     endpoints:
-      scheduler.b2c.k8s.spryker-solution.nfq.internal:
+      scheduler.beta-shop.dev.spryker.nfq.asia:
   mail_catcher:
     engine: mailhog
     endpoints:
-      mail.b2c.k8s.spryker-solution.nfq.internal:
+      mail.beta-shop.dev.spryker.nfq.asia:
 
 docker:
 

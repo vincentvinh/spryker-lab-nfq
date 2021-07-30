@@ -5,7 +5,7 @@ command-timeout: 7200
 
 stores:
     - DE
-    - AT
+    - VN
 
 sections:
 
@@ -59,6 +59,7 @@ sections:
     demodata:
         import-eu-region-demodata:
             command: "vendor/bin/console data:import --config=data/import/production/full_EU.yml"
+            stores: true
 
         update-product-labels:
             command: "vendor/bin/console product-label:relations:update -vvv --no-ansi"

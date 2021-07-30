@@ -6,7 +6,7 @@ global:
   persistencePodsNodeSelector: *persistencePodsNodeSelector
   stores:
     - DE
-    - AT
+    - VN
 
 container:
   # The version of spryker built containers
@@ -75,13 +75,13 @@ components:
     data:
       namespace:
         DE: 1
-        AT: 2
+        VN: 2
 
 
   kibana:
     name: &kibanaName "kibana"
     endpoints:
-      - kibana.b2c.k8s.spryker-solution.nfq.internal
+      - kibana.beta-shop.dev.spryker.nfq.asia
 
   redisCommander:
     name: &searchName "redis-commander"
@@ -90,7 +90,7 @@ components:
       image: "rediscommander/redis-commander"
       imageVersion: "latest"
     endpoints:
-      - redis-commander.b2c.k8s.spryker-solution.nfq.internal
+      - redis-commander.beta-shop.dev.spryker.nfq.asia
 
   scheduler:
     name: &schedulerName "scheduler"
@@ -108,7 +108,7 @@ components:
           memory: "2Gi"
     templatePath: "/home/spryker/jenkins.docker.xml.twig"
     endpoints:
-      - scheduler.b2c.k8s.spryker-solution.nfq.internal
+      - scheduler.beta-shop.dev.spryker.nfq.asia
     persistent:
       size: 8Gi
 
@@ -122,10 +122,10 @@ components:
       namespace:
         yves:
           DE: 1
-          AT: 2
+          VN: 2
         zed:
           DE: 3
-          AT: 4
+          VN: 4
 
   yves:
     # The name of the component
@@ -143,8 +143,8 @@ components:
     # The number of replicas for the deployment
     replicas: 1
     endpoints:
-      - www.de.b2c.k8s.spryker-solution.nfq.internal
-      - www.at.b2c.k8s.spryker-solution.nfq.internal
+      - www.de.beta-shop.dev.spryker.nfq.asia
+      - www.vn.beta-shop.dev.spryker.nfq.asia
 
   zed:
     # The name of the component
@@ -162,8 +162,8 @@ components:
     # The number of replicas for the deployment
     replicas: 1
     endpoints:
-      - os.de.b2c.k8s.spryker-solution.nfq.internal
-      - os.at.b2c.k8s.spryker-solution.nfq.internal
+      - os.de.beta-shop.dev.spryker.nfq.asia
+      - os.vn.beta-shop.dev.spryker.nfq.asia
 
 credentials:
   broker:
@@ -211,13 +211,13 @@ pgadmin:
       kubernetes.io/ingress.class: "traefik"
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
-      - host: pgadmin.b2c.k8s.spryker-solution.nfq.internal
+      - host: pgadmin.beta-shop.dev.spryker.nfq.asia
         paths:
           - path: "/"
             pathType: Prefix
     tls:
       - hosts:
-          - pgadmin.b2c.k8s.spryker-solution.nfq.internal
+          - pgadmin.beta-shop.dev.spryker.nfq.asia
         secretName: pgadmin-beta-shop-tls
   VolumePermissions:
     enabled: true
@@ -236,9 +236,13 @@ broker:
     password: *brokerPassword
     erlangCookie: "UvIcj2JH3ntFtUxoWomgOsNK0wAlVRmE"
   replicaCount: 2
+  serviceAccount:
+    create: false
+  rbac:
+    create: false
   ingress:
     enabled: true
-    hostname: broker.b2c.k8s.spryker-solution.nfq.internal
+    hostname: broker.beta-shop.dev.spryker.nfq.asia
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     ingressClassName: *ingressClassName
