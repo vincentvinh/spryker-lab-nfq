@@ -10,11 +10,11 @@ namespace Pyz\Zed\PriceProductStorage\Persistence;
 interface PriceProductStorageEntityManagerInterface
 {
     /**
+     * @param string $currentCurrency
      * @param array $rates
-     * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer $queryContainer
-     * @param string $store
+     * @param int $store
      *
      * @return mixed
      */
-    public function updatePriceData(array $rates, PriceProductStorageQueryContainer $queryContainer, string $store);
+    public function updatePriceData(string $currentCurrency, array $rates, int $store);
 }

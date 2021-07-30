@@ -93,6 +93,10 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
      */
     public function updateProductPrice()
     {
-        $this->entityManager->updatePriceData($this->rates, $this->queryContainer, $this->currentStore->getName());
+        $this->entityManager->updatePriceData(
+            $this->currentStore->getDefaultCurrencyIsoCode(),
+            $this->rates,
+            $this->currentStore->getIdStore()
+        );
     }
 }

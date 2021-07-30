@@ -8,16 +8,14 @@
 namespace Pyz\Zed\PriceProductStorage\Business;
 
 use Pyz\Zed\PriceProductStorage\PriceProductStorageDependencyProvider;
+use Spryker\Zed\PriceProductStorage\Business\PriceProductStorageBusinessFactory as SprykerPriceProductStorageBusinessFactory;
 
 /**
  * Class PriceProductStorageBusinessFactory
  *
  * @package Pyz\Zed\PriceProductStorage\Business
- * @method getProvidedDependency(string $FACADE_STORE)
- * @method getQueryContainer()
- * @method getEntityManager()
  */
-class PriceProductStorageBusinessFactory extends \Spryker\Zed\PriceProductStorage\PriceProductStorageDependencyProvider
+class PriceProductStorageBusinessFactory extends SprykerPriceProductStorageBusinessFactory
 {
     /**
      * @return \Spryker\Zed\AvailabilityGui\Dependency\Facade\AvailabilityToStoreFacadeInterface
