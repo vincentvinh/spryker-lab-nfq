@@ -2,7 +2,7 @@
 set -exuo pipefail
 
 KUBE_NAMESPACE="beta-shop"
-STORES=(DE AT)
+STORES=(DE VN)
 CLI_POD=$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name)
 DOCKER_IMAGE_VERSION="1.0"
 
