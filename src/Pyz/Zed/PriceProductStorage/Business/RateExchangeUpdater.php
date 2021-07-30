@@ -9,6 +9,8 @@ namespace Pyz\Zed\PriceProductStorage\Business;
 
 use Generated\Shared\Transfer\StoreTransfer;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
+use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageEntityManager;
+use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer;
 use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 
@@ -30,7 +32,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     protected $currentStore;
 
     /**
-     * @var \Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
+     * @var PriceProductStorageQueryContainerInterface $queryContainer
      */
     protected $queryContainer;
 
@@ -42,12 +44,12 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     /**
      * @param \Generated\Shared\Transfer\StoreTransfer $store
      * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\Kernel\Persistence\AbstractEntityManager $entityManager
+     * @param PriceProductStorageEntityManager $entityManager
      */
     public function __construct(
         StoreTransfer $store,
         PriceProductStorageQueryContainerInterface $queryContainer,
-        AbstractEntityManager $entityManager
+        PriceProductStorageEntityManager $entityManager
     ) {
         $this->currentStore = $store;
         $this->queryContainer = $queryContainer;

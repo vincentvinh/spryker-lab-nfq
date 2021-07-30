@@ -21,7 +21,9 @@ class PriceProductStorageFacade extends SprykerPriceProductStorageFacade impleme
      */
     public function updatePriceProductConcreteStorage()
     {
-        $handler = $this->getFactory()->createRateExchangeUpdater();
+        /** @var PriceProductStorageBusinessFactory $factory */
+        $factory = $this->getFactory();
+        $handler = $factory->createRateExchangeUpdater();
         $handler->execute();
     }
 }
