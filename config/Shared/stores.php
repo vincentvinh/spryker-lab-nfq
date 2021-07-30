@@ -94,24 +94,47 @@ $stores['DE'] = [
     'currencyIsoCodes' => ['EUR', 'CHF'],
     'queuePools' => [
         'synchronizationPool' => [
-            'AT-connection',
+            'VN-connection',
             'DE-connection',
         ],
     ],
-    'storesWithSharedPersistence' => ['AT'],
+    'storesWithSharedPersistence' => ['VN'],
 ];
 
-$stores['AT'] = [
-        'storesWithSharedPersistence' => ['DE'],
-    ] + $stores['DE'];
-
-$stores['US'] = [
-        'queuePools' => [
-            'synchronizationPool' => [
-                'US-connection',
+$stores['VN'] = [
+    'contexts' => [
+        // shared settings for all contexts
+        '*' => [
+            'timezone' => 'ASIA/HO_CHI_MINH',
+            'dateFormat' => [
+                // short date (01.02.12)
+                'short' => 'd/m/Y',
+                // medium Date (01. Feb 2012)
+                'medium' => 'd. M Y',
+                // date formatted as described in RFC 2822
+                'rfc' => 'r',
+                'datetime' => 'Y-m-d H:i:s',
             ],
         ],
-        'storesWithSharedPersistence' => [],
+        // settings for contexts (overwrite shared)
+        'yves' => [],
+        'zed' => [
+            'dateFormat' => [
+                // short date (2012-12-28)
+                'short' => 'Y-m-d',
+            ],
+        ],
+    ],
+    'countries' => ['VN'],
+    // internal and shop
+    'currencyIsoCode' => 'VND',
+    'currencyIsoCodes' => ['VND'],
+    'locales' => [
+        // first entry is default
+        'vi' => 'vi_VN',
+        'en' => 'en_US',
+    ],
+        'storesWithSharedPersistence' => ['DE'],
     ] + $stores['DE'];
 
 return $stores;

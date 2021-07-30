@@ -5,7 +5,7 @@ tag: 'dev'
 
 environment: docker.dev
 image:
-    tag: spryker/php:7.3-alpine3.12
+    tag: spryker/php:7.4-alpine3.12
     environment:
         FIXER_API_BASE_URL: "http://data.fixer.io/api"
         FIXER_EXCHANGE_RATE_URI: "latest"
@@ -37,29 +37,14 @@ regions:
                         namespace: 1
                     search:
                         namespace: de_search
-            AT:
+            VN:
                 services:
                     broker:
-                        namespace: at-docker
+                        namespace: vn-docker
                     key_value_store:
                         namespace: 2
                     search:
-                        namespace: at_search
-    US:
-        services:
-            database:
-                database: us-docker
-                username: spryker
-                password: secret
-        stores:
-            US:
-                services:
-                    broker:
-                        namespace: us-docker
-                    key_value_store:
-                        namespace: 3
-                    search:
-                        namespace: us_search
+                        namespace: vn_search
 groups:
     EU:
         region: EU
@@ -72,8 +57,8 @@ groups:
                         services:
                             session:
                                 namespace: 1
-                    yves.at.spryker.local:
-                        store: AT
+                    yves.vn.spryker.local:
+                        store: VN
                         services:
                             session:
                                 namespace: 2
@@ -82,8 +67,8 @@ groups:
                 endpoints:
                     glue.de.spryker.local:
                         store: DE
-                    glue.at.spryker.local:
-                        store: AT
+                    glue.vn.spryker.local:
+                        store: VN
             zed_eu:
                 application: zed
                 endpoints:
@@ -92,35 +77,11 @@ groups:
                         services:
                             session:
                                 namespace: 3
-                    zed.at.spryker.local:
-                        store: AT
+                    zed.vn.spryker.local:
+                        store: VN
                         services:
                             session:
                                 namespace: 4
-    US:
-        region: US
-        applications:
-            yves_us:
-                application: yves
-                endpoints:
-                    yves.us.spryker.local:
-                        store: US
-                        services:
-                            session:
-                                namespace: 5
-            glue_us:
-                application: glue
-                endpoints:
-                    glue.us.spryker.local:
-                        store: US
-            zed_us:
-                application: zed
-                endpoints:
-                    zed.us.spryker.local:
-                        store: US
-                        services:
-                            session:
-                                namespace: 6
 services:
     database:
         engine: postgres
@@ -152,6 +113,11 @@ services:
         endpoints:
             localhost:9200:
                 protocol: tcp
+    kibana:
+      version: 6.8
+      engine: kibana
+      endpoints:
+        kibana.spryker.local:
     scheduler:
         engine: jenkins
         endpoints:
