@@ -236,9 +236,10 @@ broker:
     password: *brokerPassword
     erlangCookie: "UvIcj2JH3ntFtUxoWomgOsNK0wAlVRmE"
   replicaCount: 2
-  # Service account and RBAC must be `true` and run on a privilege machine on the first deployment
+  # The `reader` service account and required role binding must be prepared outside of this chart because the `runner` user does not have permissions to manage roles
   serviceAccount:
     create: false
+    name: reader
   rbac:
     create: false
   ingress:
