@@ -1,0 +1,32 @@
+name: Run on Spryker CLI
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: CLI Command
+        required: true
+        default: vendor/bin/console
+env:
+  KUBE_NAMESPACE: beta-shop
+
+jobs:
+  find-cli-pod:
+    name: Find the CLI pod on K8s
+    runs-on: self-hosted
+    outputs:
+      cli-pod: ${{ steps.find-pod.outputs.pod }}
+    steps:
+      - id: find-pod
+        run: |
+          CLI_POD=$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name)
+          echo "::set-output name=pod::${CLI_POD}"
+
+  run-cli:
+    name: Execute the command
+    runs-on: self-hosted
+    needs:
+      - find-cli-pod
+    steps:
+      - run: |
+          kubectl -n ${KUBE_NAMESPACE} exec "${{ needs.find-cli-pod.outputs.cli-pod }}" -- bash -c "${{ github.event.inputs.command }}"
+
