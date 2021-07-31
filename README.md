@@ -175,3 +175,39 @@ docker rm -f {container_hash}
 `Error response from daemon: OCI runtime create failed: .... \\\"no such file or directory\\\"\"": unknown.`
 
 Repeat the failed command.
+
+### Deployment
+
+**First deployment** must be run manually using the `scripts/deploy.sh` script on a privilege account
+of the K8s cluster with some changes that noted in the `kubernetes/spryker/values.yaml` file.
+Remember to export images and push the first version of container images to the internal registry
+with `scripts/push-images.sh`.
+
+Then, init the data **once** with `scripts/init-data.sh`, waiting for all queue messages are consumed.
+
+#### Follow-up deployments
+
+The deployment is NOT run when `master` is updated nor a tag is created. The deployment workflow is
+run automatically when a new [**release**](https://github.com/nfq-asia/spryker-beta-shop/releases) is created in GitHub.
+
+* Create a new release, wait for the workflow to be finished
+* The migration is run within the deployment workflow
+* If more console or commands need running, use the manual [*Run on Spryker CLI*](https://github.com/nfq-asia/spryker-beta-shop/actions/workflows/spryker_cli.yml)
+workflow with the command to be run and the store name.
+
+#### Staging endpoints:
+
+Yves:
+* https://www.de.beta-shop.dev.spryker.nfq.asia
+* https://www.vn.beta-shop.dev.spryker.nfq.asia
+
+Zed:
+* https://os.vn.beta-shop.dev.spryker.nfq.asia
+* https://os.de.beta-shop.dev.spryker.nfq.asia
+
+Dev tools:
+* https://redis-commander.beta-shop.dev.spryker.nfq.asia
+* https://pgadmin.beta-shop.dev.spryker.nfq.asia
+* https://scheduler.beta-shop.dev.spryker.nfq.asia
+* https://broker.beta-shop.dev.spryker.nfq.asia
+* https://kibana.beta-shop.dev.spryker.nfq.asi
