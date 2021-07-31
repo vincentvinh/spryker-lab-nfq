@@ -5,6 +5,9 @@ on:
   release:
       types: [published]
 
+env:
+  SPRYKER_BUILD_HASH: ${GITHUB_SHA}
+
 jobs:
   build-images:
     name: Build container images
@@ -15,6 +18,7 @@ jobs:
           submodules: true
       - name: Install packages
         run: apt-get install iproute2 -y
+      - run: 'echo "SPRYKER_BUILD_HASH: ${SPRYKER_BUILD_HASH}"'
       - run: docker/sdk boot deploy.staging.yml
       - run: docker/sdk export images -t ${GITHUB_SHA}
 
