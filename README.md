@@ -1,14 +1,4 @@
 # Spryker B2C Demo Shop
-[![Build Status](https://github.com/spryker-shop/b2c-demo-shop/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/spryker-shop/b2c-demo-shop/actions?query=branch:master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spryker-shop/b2c-demo-shop/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/spryker-shop/b2c-demo-shop/?branch=master)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.2-8892BF.svg)](https://php.net/)
-
-## Vagrant Installation
-To install the B2C Demo Shop in Vagrant on your machine, follow [Developer Getting Started Guide](https://documentation.spryker.com/docs/dev-getting-started).
-
-__NOTE: instead of `vagrant up` run `VM_PROJECT=suite SPRYKER_REPOSITORY="git@github.com:spryker-shop/b2c-demo-shop.git" vagrant up`__.
-
-For common installation issues, check [Troubleshooting](https://documentation.spryker.com/docs/troubleshooting).
 
 ## Docker installation
 
@@ -24,58 +14,14 @@ Recommended system requirements for MacOS:
 
 |Macbook type|vCPU| RAM|
 |---|---|---|
-|15' | 4 | 6GB |
-|13' | 2 | 4GB |
+|15' | 4 | 16GB |
+|13' | 4 | 16GB |
 
 ### Installation
 
-Run the commands:
-```bash
-mkdir spryker-b2c && cd spryker-b2c
-git clone https://github.com/spryker-shop/b2c-demo-shop.git ./
-git clone git@github.com:spryker/docker-sdk.git docker
-```
-
-### Production-like environment
-
-1. Run the following commands right after cloning the repository:
-
-```bash
-docker/sdk boot -s
-```
-
-> Please, follow the recommendations in output in order to prepare the environment.
-
-```bash
-docker/sdk up
-```
-
-2. Git checkout with assets and importing data:
-
-```bash
-git checkout your_branch
-docker/sdk boot -s
-docker/sdk up --assets --data
-```
-
-> Optional `up` command arguments:
->
-> - `--assets` - build assets
-> - `--data` - get new demo data
-
-3. Light git checkout:
-
-```bash
-git checkout your_branch
-docker/sdk boot -s
-
-docker/sdk up
-```
-
-4. Reload all the data:
-
-```bash
-docker/sdk clean-data && docker/sdk up && docker/sdk console q:w:s -v -s
+Clone the repoitory along with the sub-modules
+```shell
+git clone git@github.com:nfq-asia/spryker-beta-shop.git --recurse-submodules
 ```
 
 ### Developer environment
@@ -178,14 +124,14 @@ Repeat the failed command.
 
 ### Deployment
 
-**First deployment** must be run manually using the `scripts/deploy.sh` script on a privilege account
-of the K8s cluster with some changes that noted in the `kubernetes/spryker/values.yaml` file.
-Remember to export images and push the first version of container images to the internal registry
-with `scripts/push-images.sh`.
+This is the deployment process to Kubernetes. We must prepare:
 
-Then, init the data **once** with `scripts/init-data.sh`, waiting for all queue messages are consumed.
+* The `beta-shop` namespace in K8s
+* A `reader` service account with appropriate RBAC settings for rabbitmq chart
 
-#### Follow-up deployments
+Both CI and deployments are executed in GitHub workflows.
+
+#### Deployment workflow
 
 The deployment is NOT run when `master` is updated nor a tag is created. The deployment workflow is
 run automatically when a new [**release**](https://github.com/nfq-asia/spryker-beta-shop/releases) is created in GitHub.
@@ -193,7 +139,16 @@ run automatically when a new [**release**](https://github.com/nfq-asia/spryker-b
 * Create a new release, wait for the workflow to be finished
 * The migration is run within the deployment workflow
 * If more console or commands need running, use the manual [*Run on Spryker CLI*](https://github.com/nfq-asia/spryker-beta-shop/actions/workflows/spryker_cli.yml)
-workflow with the command to be run and the store name.
+  workflow with the command to be run and the store name.
+
+#### Release naming convention
+
+Release should follow semver (`MAJOR.MINOR.PATCH`) for naming convention with the `v` prefix.
+Tags and releases must share the same name. In the development, we only increase
+minor and patch number:
+
+* Increase the minor number for stories.
+* Increase the patch number for bug fixes.
 
 #### Staging endpoints:
 
