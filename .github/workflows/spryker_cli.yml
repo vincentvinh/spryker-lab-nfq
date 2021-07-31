@@ -6,6 +6,10 @@ on:
         description: CLI Command
         required: true
         default: vendor/bin/console
+      store:
+        description: Store name for env (DE/VN)
+        required: true
+        default: DE
 env:
   KUBE_NAMESPACE: beta-shop
 
@@ -28,5 +32,5 @@ jobs:
       - find-cli-pod
     steps:
       - run: |
-          kubectl -n ${KUBE_NAMESPACE} exec "${{ needs.find-cli-pod.outputs.cli-pod }}" -- bash -c "${{ github.event.inputs.command }}"
+          kubectl -n ${KUBE_NAMESPACE} exec "${{ needs.find-cli-pod.outputs.cli-pod }}" -- bash -c "APPLICATION_STORE=${{ github.event.inputs.store }} ${{ github.event.inputs.command }}"
 
