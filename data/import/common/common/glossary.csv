@@ -3061,9 +3061,9 @@ global.create.account,Create Account,vi_VN
 global.cart,Cart,vi_VN
 global.no_image_available,No image available,vi_VN
 global.add-to-cart,Add to Cart,vi_VN
-global.benefit.free_returns,Free Returns,vi_VN
-global.benefit.warranty,3 Years Warranty,vi_VN
-global.benefit.competitive_prices,Competitive Prices,vi_VN
+global.benefit.free_returns,Miễn phí hoàn trả,vi_VN
+global.benefit.warranty,Bảo hành 3 năm,vi_VN
+global.benefit.competitive_prices,Giá cả cạnh tranh,vi_VN
 global.quantity_symbol,x,vi_VN
 global.partners,Partners,vi_VN
 error.404,Error 404,vi_VN

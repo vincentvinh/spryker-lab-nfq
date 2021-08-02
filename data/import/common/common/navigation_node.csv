@@ -1,91 +1,91 @@
-navigation_key,node_key,parent_node_key,node_type,title.en_US,url.en_US,css_class.en_US,title.de_DE,url.de_DE,css_class.de_DE,valid_from,valid_to,title.vi_VN,css_class.vi_VN,url.vi_VN,title.vi_VN
-MAIN_NAVIGATION,node_key_1,,category,Computers,/en/computers,,Computer,/de/computer,,,,Computers,,/vi/computers-vn,Computers
-MAIN_NAVIGATION,node_key_2,node_key_1,category,Notebooks,/en/computers/notebooks,,Notebooks,/de/computer/notebooks,,,,Notebooks,,/vi/computers-vn/notebooks-vn,Notebooks
-MAIN_NAVIGATION,node_key_3,node_key_1,link,Stylish Black Notebooks,/en/computers/notebooks?color%5B0%5D=Black,,Elegante schwarze Notebooks,/de/computer/notebooks?color%5B%5D=Black,,,,Stylish Black Notebooks,,/vi/computers-vn/notebooks-vn?color%5B0%5D=Black,Stylish Black Notebooks
-MAIN_NAVIGATION,node_key_4,node_key_1,category,PCs & Workstations,/en/computers/pcs-&-workstations,,PCs & Workstations,/de/computer/pcs-&-workstations,,,,PCs & Workstations,,/vi/computers-vn/pcs-&-workstations-vn,PCs & Workstations
-MAIN_NAVIGATION,node_key_5,node_key_1,category,Tablets,/en/computers/tablets,,Tablets,/de/computer/tablets,,,,Tablets,,/vi/computers-vn/tablets-vn,Tablets
-MAIN_NAVIGATION,node_key_6,node_key_1,link,Tablets on Sale,/en/computers/tablets?label%5B0%5D=SALE+%25,,Tablets im Sale,/de/computer/tablets?label%5B0%5D=SALE%20%25,,,,Tablets on Sale,,/vi/computers-vn/tablets-vn?label%5B0%5D=SALE+%25,Tablets on Sale
-MAIN_NAVIGATION,node_key_7,,category,Cameras,/en/cameras-&-camcorders,,Kameras,/de/kameras-&-camcorder,,,,Cameras,,/vi/cameras-&-camcorders-vn,Cameras
-MAIN_NAVIGATION,node_key_8,node_key_7,category,Digital Cameras,/en/cameras-&-camcorders/digital-cameras,,Digitale Kameras,/de/kameras-&-camcorder/digitale-kameras,,,,Digital Cameras,,/vi/cameras-&-camcorders-vn/digital-cameras-vn,Digital Cameras
-MAIN_NAVIGATION,node_key_9,node_key_7,link,Digital Cameras on Sale,/en/cameras-&-camcorders/digital-cameras?label%5B0%5D=SALE+%25,,Digitale Kameras im Sale,/de/kameras-&-camcorder/digitale-kameras?label%5B0%5D=SALE%20%25,,,,Digital Cameras on Sale,,/vi/cameras-&-camcorders-vn/digital-cameras-vn?label%5B0%5D=SALE+%25,Digital Cameras on Sale
-MAIN_NAVIGATION,node_key_10,node_key_7,category,Camcorders,/en/cameras-&-camcorders/camcorders,,Camcorder,/de/kameras-&-camcorder/camcorder,,,,Camcorders,,/vi/cameras-&-camcorders-vn/camcorders-vn,Camcorders
-MAIN_NAVIGATION,node_key_11,node_key_7,link,New Camcorders,/en/cameras-&-camcorders/camcorders?label%5B0%5D=New,,Neue Camcorder,/de/kameras-&-camcorder/camcorder?label%5B0%5D=New,,,,New Camcorders,,/vi/cameras-&-camcorders-vn/camcorders-vn?label%5B0%5D=New,New Camcorders
-MAIN_NAVIGATION,node_key_12,node_key_7,link,Sony Cameras,/en/cameras-&-camcorders?brand=Sony,,Sony Kameras,/de/kameras-&-camcorder?brand=Sony,,,,Sony Cameras,,/vi/cameras-&-camcorders-vn?brand=Sony,Sony Cameras
-MAIN_NAVIGATION,node_key_13,,label,Smartphones & Wearables,,,Smartphones & Wearables,,,,,Smartphones & Wearables,,,Smartphones & Wearables
-MAIN_NAVIGATION,node_key_14,node_key_13,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,,,,Smartphones,,/vi/telecom-&-navigation-vn/smartphones-vn,Smartphones
-MAIN_NAVIGATION,node_key_15,node_key_13,link,Smartphones with high storage,/en/telecom-&-navigation/smartphones?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB,,Smartphones mit viel Speicherplatz,/de/telekommunikation-&-navigation/smartphones?storage_capacity%5B0%5D=128%20GB&storage_capacity%5B1%5D=64%20GB,,,,Smartphones with high storage,,/vi/telecom-&-navigation-vn/smartphones-vn?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB,Smartphones with high storage
-MAIN_NAVIGATION,node_key_16,node_key_13,category,Smartwatches,/en/smart-wearables/smartwatches,,Smartwatches,/de/smart-wearables/smartwatches,,,,Smartwatches,,/vi/smart-wearables-vn/smartwatches-vn,Smartwatches
-MAIN_NAVIGATION,node_key_17,node_key_13,link,Smartwatches with Touchscreen,/en/smart-wearables/smartwatches?touchscreen=yes,,Smartwatches mit Touchscreen,/de/smart-wearables/smartwatches?touchscreen=yes,,,,Smartwatches with Touchscreen,,/vi/smart-wearables-vn/smartwatches-vn?touchscreen=yes,Smartwatches with Touchscreen
-MAIN_NAVIGATION,node_key_18,node_key_13,link,Top Smartwatches,/en/smart-wearables/smartwatches?rating%5Bmin%5D=3,,Top Smartwatches,/de/smart-wearables/smartwatches?rating%5Bmin%5D=3,,,,Top Smartwatches,,/vi/smart-wearables-vn/smartwatches-vn?rating%5Bmin%5D=3,Top Smartwatches
-MAIN_NAVIGATION,node_key_19,,label,Brands,,,Marken,,,,,Brands,,,Brands
-MAIN_NAVIGATION,node_key_20,node_key_19,link,Samsung,/en/search?q=samsung,,Samsung,/de/search?q=samsung,,,,Samsung,,/vi/search?q=samsung,Samsung
-MAIN_NAVIGATION,node_key_21,node_key_19,link,Sony,/en/search?q=sony,,Sony,/de/search?q=sony,,,,Sony,,/vi/search?q=sony,Sony
-MAIN_NAVIGATION,node_key_22,node_key_19,link,Canon,/en/search?q=canon,,Canon,/de/search?q=canon,,,,Canon,,/vi/search?q=canon,Canon
-MAIN_NAVIGATION,node_key_23,node_key_19,link,Lenovo,/en/search?q=lenovo,,Lenovo,/de/search?q=lenovo,,,,Lenovo,,/vi/search?q=lenovo,Lenovo
-MAIN_NAVIGATION,node_key_24,node_key_19,link,ASUS,/en/search?q=asus,,ASUS,/de/search?q=asus,,,,ASUS,,/vi/search?q=asus,ASUS
-MAIN_NAVIGATION,node_key_25,,label,More,,,Mehr,,,,,More,,,More
-MAIN_NAVIGATION,node_key_26,node_key_25,category,Product Bundles,/en/product-bundles,,Product Bundles,/de/product-bundles,,,,Product Bundles,,/vi/product-bundles-vn,Product Bundles
-MAIN_NAVIGATION,node_key_27,node_key_25,link,Product Sets,/en/product-sets,,Product Sets,/de/product-sets,,,,Product Sets,,/vi/product-sets-vn,Product Sets
-MAIN_NAVIGATION,node_key_29,node_key_25,cms_page,Demo Landing Page,/en/demo-landing-page,,Demo Landing Page,/de/demo-landing-page,,,,Demo Landing Page,,/vi/demo-landing-page,Demo Landing Page
-MAIN_NAVIGATION,node_key_30,node_key_25,external_url,Explore Spryker,https://spryker.com/product,,Endecke Spryker,https://spryker.com/product,,,,Explore Spryker,,https://spryker.com/product,Explore Spryker
-MAIN_NAVIGATION,node_key_31,,link,Sale %,/en/outlet,sale__red,Sale %,/de/outlet,sale__red,,,Sale %,sale__red,/vi/outlet,Sale %
-MAIN_NAVIGATION,node_key_32,,link,New,/en/new,,Neu,/de/new,,,,New,,/vi/new,New
-MAIN_NAVIGATION,node_key_91,node_key_25,link,Gift Cards,/en/gift-cards,,Geschenkgutschein,/de/geschenkgutscheine,,,,Gift Cards,,/vi/gift-cards,Gift Cards
-FOOTER_NAVIGATION,node_key_33,,cms_page,Imprint,/en/imprint,,Impressum,/de/impressum,,,,Imprint,,/vi/imprint,Imprint
-FOOTER_NAVIGATION,node_key_34,,cms_page,GTC,/en/gtc,,AGB,/de/agb,,,,GTC,,/vi/gtc,GTC
-FOOTER_NAVIGATION,node_key_35,,cms_page,Data privacy,/en/privacy,,Datenschutz,/de/datenschutz,,,,Data privacy,,/vi/privacy,Data privacy
-PAYMENT_PROVIDERS,node_key_36,,label,Paypal,,paypal,Paypal,,paypal,,,Paypal,paypal,,Paypal
-PAYMENT_PROVIDERS,node_key_37,,label,Klarna,,klarna,Klarna,,klarna,,,Klarna,klarna,,Klarna
-SHIPMENT_PROVIDERS,node_key_38,,label,DHL,,dhl,DHL,,dhl,,,DHL,dhl,,DHL
-SOCIAL_LINKS,node_key_39,,external_url,Twitter,https://twitter.com/sprysys,twitter,Twitter,https://twitter.com/sprysys,twitter,,,Twitter,twitter,https://twitter.com/sprysys,Twitter
-SOCIAL_LINKS,node_key_40,,external_url,Xing,https://www.xing.com/companies/sprykersystemsgmbh,xing,Xing,https://www.xing.com/companies/sprykersystemsgmbh,xing,,,Xing,xing,https://www.xing.com/companies/sprykersystemsgmbh,Xing
-SOCIAL_LINKS,node_key_41,,external_url,LinkedIn,https://www.linkedin.com/company/spryker-systems-gmbh,linkedin,LinkedIn,https://www.linkedin.com/company/spryker-systems-gmbh,linkedin,,,LinkedIn,linkedin,https://www.linkedin.com/company/spryker-systems-gmbh,LinkedIn
-SOCIAL_LINKS,node_key_42,,external_url,YouTube,https://www.youtube.com/channel/UC6lVOEbqXxUh0W5FMTvlPDQ,youtube,YouTube,https://www.youtube.com/channel/UC6lVOEbqXxUh0W5FMTvlPDQ,youtube,,,YouTube,youtube,https://www.youtube.com/channel/UC6lVOEbqXxUh0W5FMTvlPDQ,YouTube
-SOCIAL_LINKS,node_key_43,,external_url,Instagram,https://www.instagram.com/spryker/,instagram,Instagram,https://www.instagram.com/spryker/,instagram,,,Instagram,instagram,https://www.instagram.com/spryker/,Instagram
-SOCIAL_LINKS,node_key_44,,external_url,Facebook,https://www.facebook.com/Spryker/,facebook,Facebook,https://www.facebook.com/Spryker/,facebook,,,Facebook,facebook,https://www.facebook.com/Spryker/,Facebook
-FOOTER_NAVIGATION_CATEGORIES,node_key_45,,category,Computers,/en/computers,,Computer,/de/computer,,,,Computers,,/vi/computers-vn,Computers
-FOOTER_NAVIGATION_CATEGORIES,node_key_46,,category,Cameras,/en/cameras-&-camcorders,,Kameras,/de/kameras-&-camcorder,,,,Cameras,,/vi/cameras-&-camcorders-vn,Cameras
-FOOTER_NAVIGATION_CATEGORIES,node_key_47,,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,,,,Smartphones,,/vi/telecom-&-navigation-vn/smartphones-vn,Smartphones
-FOOTER_NAVIGATION_CATEGORIES,node_key_48,,category,Tablets,/en/computers/tablets,,Tablets,/de/computer/tablets,,,,Tablets,,/vi/computers-vn/tablets-vn,Tablets
-FOOTER_NAVIGATION_CATEGORIES,node_key_49,,link,Sale %,/en/outlet,,Sale %,/de/outlet,,,,Sale %,,/vi/outlet-vn,Sale %
-MAIN_NAVIGATION_DESKTOP,node_key_50,,category,Computers,/en/computers,flyout-fullscreen,Computer,/de/computer,flyout-fullscreen,,,Computers,flyout-fullscreen,/vi/computers-vn,Computers
-MAIN_NAVIGATION_DESKTOP,node_key_51,node_key_50,category,Notebooks,/en/computers/notebooks,,Notebooks,/de/computer/notebooks,,,,Notebooks,,/vi/computers-vn/notebooks-vn,Notebooks
-MAIN_NAVIGATION_DESKTOP,node_key_53,node_key_50,link,Stylish Black Notebooks,/en/computers/notebooks?color%5B0%5D=Black,,Elegante schwarze Notebooks,/de/computer/notebooks?color%5B%5D=Black,,,,Stylish Black Notebooks,,/vi/computers-vn/notebooks-vn?color%5B0%5D=Black,Stylish Black Notebooks
-MAIN_NAVIGATION_DESKTOP,node_key_54,node_key_50,category,PCs & Workstations,/en/computers/pcs-&-workstations,,PCs & Workstations,/de/computer/pcs-&-workstations,,,,PCs & Workstations,,/vi/computers-vn/pcs-&-workstations-vn,PCs & Workstations
-MAIN_NAVIGATION_DESKTOP,node_key_55,node_key_50,category,Tablets,/en/computers/tablets,,Tablets,/de/computer/tablets,,,,Tablets,,/vi/computers-vn/tablets-vn,Tablets
-MAIN_NAVIGATION_DESKTOP,node_key_56,node_key_50,link,Tablets on Sale,/en/computers/tablets?label%5B0%5D=SALE+%25,,Tablets im Sale,/de/computer/tablets?label%5B0%5D=SALE%20%25,,,,Tablets on Sale,,/vi/computers-vn/tablets-vn?label%5B0%5D=SALE+%25,Tablets on Sale
-MAIN_NAVIGATION_DESKTOP,node_key_57,,category,Cameras,/en/cameras-&-camcorders,flyout-fullscreen,Kameras,/de/kameras-&-camcorder,flyout-fullscreen,,,Cameras,flyout-fullscreen,/vi/cameras-&-camcorders-vn,Cameras
-MAIN_NAVIGATION_DESKTOP,node_key_58,node_key_57,category,Digital Cameras,/en/cameras-&-camcorders/digital-cameras,,Digitale Kameras,/de/kameras-&-camcorder/digitale-kameras,,,,Digital Cameras,,/vi/cameras-&-camcorders-vn/digital-cameras-vn,Digital Cameras
-MAIN_NAVIGATION_DESKTOP,node_key_59,node_key_57,link,Digital Cameras on Sale,/en/cameras-&-camcorders/digital-cameras?label%5B0%5D=SALE+%25,,Digitale Kameras im Sale,/de/kameras-&-camcorder/digitale-kameras?label%5B0%5D=SALE%20%25,,,,Digital Cameras on Sale,,/vi/cameras-&-camcorders-vn/digital-cameras-vn?label%5B0%5D=SALE+%25,Digital Cameras on Sale
-MAIN_NAVIGATION_DESKTOP,node_key_60,node_key_57,category,Camcorders,/en/cameras-&-camcorders/camcorders,,Camcorder,/de/kameras-&-camcorder/camcorder,,,,Camcorders,,/vi/cameras-&-camcorders-vn/camcorders-vn,Camcorders
-MAIN_NAVIGATION_DESKTOP,node_key_62,node_key_57,link,New Camcorders,/en/cameras-&-camcorders/camcorders?label%5B0%5D=New,,Neue Camcorder,/de/kameras-&-camcorder/camcorder?label%5B0%5D=New,,,,New Camcorders,,/vi/cameras-&-camcorders-vn/camcorders-vn?label%5B0%5D=New,New Camcorders
-MAIN_NAVIGATION_DESKTOP,node_key_63,node_key_57,link,Sony Cameras,/en/cameras-&-camcorders?brand=Sony,,Sony Kameras,/de/kameras-&-camcorder?brand=Sony,,,,Sony Cameras,,/vi/cameras-&-camcorders-vn?brand=Sony,Sony Cameras
-MAIN_NAVIGATION_DESKTOP,node_key_64,,label,Smartphones & Wearables,,flyout-fullscreen,Smartphones & Wearables,,flyout-fullscreen,,,Smartphones & Wearables,flyout-fullscreen,,Smartphones & Wearables
-MAIN_NAVIGATION_DESKTOP,node_key_65,node_key_64,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,,,,Smartphones,,/vi/telecom-&-navigation-vn/smartphones-vn,Smartphones
-MAIN_NAVIGATION_DESKTOP,node_key_66,node_key_64,link,Smartphones with high storage,/en/telecom-&-navigation/smartphones?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB,,Smartphones mit viel Speicherplatz,/de/telekommunikation-&-navigation/smartphones?storage_capacity%5B0%5D=128%20GB&storage_capacity%5B1%5D=64%20GB,,,,Smartphones with high storage,,/vi/telecom-&-navigation-vn/smartphones-vn?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB,Smartphones with high storage
-MAIN_NAVIGATION_DESKTOP,node_key_67,node_key_64,category,Smartwatches,/en/smart-wearables/smartwatches,,Smartwatches,/de/smart-wearables/smartwatches,,,,Smartwatches,,/vi/smart-wearables-vn/smartwatches-vn,Smartwatches
-MAIN_NAVIGATION_DESKTOP,node_key_68,node_key_64,link,Smartwatches with Touchscreen,/en/smart-wearables/smartwatches?touchscreen=yes,,Smartwatches mit Touchscreen,/de/smart-wearables/smartwatches?touchscreen=yes,,,,Smartwatches with Touchscreen,,/vi/smart-wearables-vn/smartwatches-vn?touchscreen=yes,Smartwatches with Touchscreen
-MAIN_NAVIGATION_DESKTOP,node_key_69,node_key_64,link,Top Smartwatches,/en/smart-wearables/smartwatches?rating%5Bmin%5D=3,,Top Smartwatches,/de/smart-wearables/smartwatches?rating%5Bmin%5D=3,,,,Top Smartwatches,,/vi/smart-wearables-vn/smartwatches-vn?rating%5Bmin%5D=3,Top Smartwatches
-MAIN_NAVIGATION_DESKTOP,node_key_70,,label,Brands,,flyout-fullscreen brand-dropdown,Marken,,flyout-fullscreen brand-dropdown,,,Brands,flyout-fullscreen brand-dropdown,,Brands
-MAIN_NAVIGATION_DESKTOP,node_key_71,node_key_70,link,Samsung,/en/search?q=samsung,brand-item image-1,Samsung,/de/search?q=samsung,brand-item image-1,,,Samsung,brand-item image-1,/vi/search?q=samsung,Samsung
-MAIN_NAVIGATION_DESKTOP,node_key_72,node_key_70,link,Sony,/en/search?q=sony,brand-item image-2,Sony,/de/search?q=sony,brand-item image-2,,,Sony,brand-item image-2,/vi/search?q=sony,Sony
-MAIN_NAVIGATION_DESKTOP,node_key_73,node_key_70,link,Canon,/en/search?q=canon,brand-item image-3,Canon,/de/search?q=canon,brand-item image-3,,,Canon,brand-item image-3,/vi/search?q=canon,Canon
-MAIN_NAVIGATION_DESKTOP,node_key_74,node_key_70,link,Lenovo,/en/search?q=lenovo,brand-item image-4,Lenovo,/de/search?q=lenovo,brand-item image-4,,,Lenovo,brand-item image-4,/vi/search?q=lenovo,Lenovo
-MAIN_NAVIGATION_DESKTOP,node_key_76,,label,More,,,Mehr,,,,,More,,,More
-MAIN_NAVIGATION_DESKTOP,node_key_77,node_key_76,category,Product Bundles,/en/product-bundles,,Product Bundles,/de/product-bundles,,,,Product Bundles,,/vi/product-bundles-vn,Product Bundles
-MAIN_NAVIGATION_DESKTOP,node_key_78,node_key_76,link,Product Sets,/en/product-sets,,Product Sets,/de/product-sets,,,,Product Sets,,/vi/product-sets-vn,Product Sets
-MAIN_NAVIGATION_DESKTOP,node_key_80,node_key_76,cms_page,Demo Landing Page,/en/demo-landing-page,,Demo Landing Page,/de/demo-landing-page,,,,Demo Landing Page,,/vi/demo-landing-page,Demo Landing Page
-MAIN_NAVIGATION_DESKTOP,node_key_81,node_key_76,external_url,Explore Spryker,https://spryker.com/product,,Endecke Spryker,https://spryker.com/product,,,,Explore Spryker,,https://spryker.com/product,Explore Spryker
-MAIN_NAVIGATION_DESKTOP,node_key_82,,link,Sale %,/en/outlet,sale__red,Sale %,/de/outlet,sale__red,,,Sale %,sale__red,/vi/outlet,Sale %
-MAIN_NAVIGATION_DESKTOP,node_key_83,,link,New,/en/new,,Neu,/de/new,,,,New,,/vi/new,New
-MAIN_NAVIGATION_DESKTOP,node_key_84,node_key_64,link,Sony Xperia,/en/sony-xperia-z3-compact-078,node-image image-1,Sony Xperia,/de/sony-xperia-z3-compact-078,node-image image-1,,,Sony Xperia,node-image image-1,/vi/sony-xperia-z3-compact-078,Sony Xperia
-MAIN_NAVIGATION_DESKTOP,node_key_85,node_key_64,link,Samsung Galaxy,/en/samsung-galaxy-s4-mini-063,node-image image-2,Samsung Galaxy,/de/samsung-galaxy-s4-mini-063,node-image image-2,,,Samsung Galaxy,node-image image-2,/vi/samsung-galaxy-s4-mini-063,Samsung Galaxy
-MAIN_NAVIGATION_DESKTOP,node_key_86,node_key_57,link,Sony Camera,/en/sony-nex-vg20eh-201,node-image image-3,Sony Kamera,/de/sony-nex-vg20eh-201,node-image image-3,,,Sony Camera,node-image image-3,/vi/sony-nex-vg20eh-201,Sony Camera
-MAIN_NAVIGATION_DESKTOP,node_key_87,node_key_57,link,Canon PowerShot,/en/canon-powershot-n-035,node-image image-4,Canon PowerShot,/de/canon-powershot-n-035,node-image image-4,,,Canon PowerShot,node-image image-4,/vi/canon-powershot-n-035,Canon PowerShot
-MAIN_NAVIGATION_DESKTOP,node_key_88,node_key_50,link,Asus Zenbook,/en/asus-zenbook-us303ub-141,node-image image-5,Asus Zenbook,/de/asus-zenbook-us303ub-141,node-image image-5,,,Asus Zenbook,node-image image-5,/vi/asus-zenbook-us303ub-141,Asus Zenbook
-MAIN_NAVIGATION_DESKTOP,node_key_89,node_key_50,link,Asus ZenPad,/en/asus-zenpad-z580ca-1b-166,node-image image-6,Asus ZenPad,/de/asus-zenpad-z580ca-1b-166,node-image image-6,,,Asus ZenPad,node-image image-6,/vi/asus-zenpad-z580ca-1b-166,Asus ZenPad
-MAIN_NAVIGATION_DESKTOP,node_key_90,node_key_76,link,Gift Cards,/en/gift-cards,,Geschenkgutschein,/de/geschenkgutscheine,,,,Gift Cards,,/vi/gift-cards,Gift Cards
-MAIN_NAVIGATION_DESKTOP,node_key_90,node_key_76,link,Configurable Bundle,/en/configurable-bundle/configurator/template-selection,,Configurable Bundle,/de/configurable-bundle/configurator/template-selection,,,,Configurable Bundle,,/vi/configurable-bundle/configurator/template-selection,Configurable Bundle
-PARTNERS,node_key_91,,label,Paypal,,paypal,Paypal,,paypal,,,Paypal,paypal,,Paypal
-PARTNERS,node_key_92,,label,Klarna,,klarna,Klarna,,klarna,,,Klarna,klarna,,Klarna
-PARTNERS,node_key_93,,label,DHL,,dhl,DHL,,dhl,,,DHL,dhl,,DHL
+navigation_key,node_key,parent_node_key,node_type,title.en_US,url.en_US,css_class.en_US,title.de_DE,url.de_DE,css_class.de_DE,valid_from,valid_to,title.vi_VN,css_class.vi_VN,url.vi_VN
+MAIN_NAVIGATION,node_key_1,,category,Computers,/en/computers,,Computer,/de/computer,,,,Computers VN,,/vi/computers-vn
+MAIN_NAVIGATION,node_key_2,node_key_1,category,Notebooks,/en/computers/notebooks,,Notebooks,/de/computer/notebooks,,,,Notebooks VN,,/vi/computers-vn/notebooks-vn
+MAIN_NAVIGATION,node_key_3,node_key_1,link,Stylish Black Notebooks,/en/computers/notebooks?color%5B0%5D=Black,,Elegante schwarze Notebooks,/de/computer/notebooks?color%5B%5D=Black,,,,Stylish Black Notebooks VN,,/vi/computers-vn/notebooks-vn?color%5B0%5D=Black
+MAIN_NAVIGATION,node_key_4,node_key_1,category,PCs & Workstations,/en/computers/pcs-&-workstations,,PCs & Workstations,/de/computer/pcs-&-workstations,,,,PCs & Workstations VN,,/vi/computers-vn/pcs-&-workstations-vn
+MAIN_NAVIGATION,node_key_5,node_key_1,category,Tablets,/en/computers/tablets,,Tablets,/de/computer/tablets,,,,Tablets VN,,/vi/computers-vn/tablets-vn
+MAIN_NAVIGATION,node_key_6,node_key_1,link,Tablets on Sale,/en/computers/tablets?label%5B0%5D=SALE+%25,,Tablets im Sale,/de/computer/tablets?label%5B0%5D=SALE%20%25,,,,Tablets on Sale VN,,/vi/computers-vn/tablets-vn?label%5B0%5D=SALE+%25
+MAIN_NAVIGATION,node_key_7,,category,Cameras,/en/cameras-&-camcorders,,Kameras,/de/kameras-&-camcorder,,,,Cameras VN,,/vi/cameras-&-camcorders-vn
+MAIN_NAVIGATION,node_key_8,node_key_7,category,Digital Cameras,/en/cameras-&-camcorders/digital-cameras,,Digitale Kameras,/de/kameras-&-camcorder/digitale-kameras,,,,Digital Cameras VN,,/vi/cameras-&-camcorders-vn/digital-cameras-vn
+MAIN_NAVIGATION,node_key_9,node_key_7,link,Digital Cameras on Sale,/en/cameras-&-camcorders/digital-cameras?label%5B0%5D=SALE+%25,,Digitale Kameras im Sale,/de/kameras-&-camcorder/digitale-kameras?label%5B0%5D=SALE%20%25,,,,Digital Cameras on Sale VN,,/vi/cameras-&-camcorders-vn/digital-cameras-vn?label%5B0%5D=SALE+%25
+MAIN_NAVIGATION,node_key_10,node_key_7,category,Camcorders,/en/cameras-&-camcorders/camcorders,,Camcorder,/de/kameras-&-camcorder/camcorder,,,,Camcorders VN,,/vi/cameras-&-camcorders-vn/camcorders-vn
+MAIN_NAVIGATION,node_key_11,node_key_7,link,New Camcorders,/en/cameras-&-camcorders/camcorders?label%5B0%5D=New,,Neue Camcorder,/de/kameras-&-camcorder/camcorder?label%5B0%5D=New,,,,New Camcorders VN,,/vi/cameras-&-camcorders-vn/camcorders-vn?label%5B0%5D=New
+MAIN_NAVIGATION,node_key_12,node_key_7,link,Sony Cameras,/en/cameras-&-camcorders?brand=Sony,,Sony Kameras,/de/kameras-&-camcorder?brand=Sony,,,,Sony Cameras VN,,/vi/cameras-&-camcorders-vn?brand=Sony
+MAIN_NAVIGATION,node_key_13,,label,Smartphones & Wearables,,,Smartphones & Wearables,,,,,Smartphones & Wearables VN,,
+MAIN_NAVIGATION,node_key_14,node_key_13,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,,,,Smartphones VN,,/vi/telecom-&-navigation-vn/smartphones-vn
+MAIN_NAVIGATION,node_key_15,node_key_13,link,Smartphones with high storage,/en/telecom-&-navigation/smartphones?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB,,Smartphones mit viel Speicherplatz,/de/telekommunikation-&-navigation/smartphones?storage_capacity%5B0%5D=128%20GB&storage_capacity%5B1%5D=64%20GB,,,,Smartphones with high storage VN,,/vi/telecom-&-navigation-vn/smartphones-vn?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB
+MAIN_NAVIGATION,node_key_16,node_key_13,category,Smartwatches,/en/smart-wearables/smartwatches,,Smartwatches,/de/smart-wearables/smartwatches,,,,Smartwatches VN,,/vi/smart-wearables-vn/smartwatches-vn
+MAIN_NAVIGATION,node_key_17,node_key_13,link,Smartwatches with Touchscreen,/en/smart-wearables/smartwatches?touchscreen=yes,,Smartwatches mit Touchscreen,/de/smart-wearables/smartwatches?touchscreen=yes,,,,Smartwatches with Touchscreen VN,,/vi/smart-wearables-vn/smartwatches-vn?touchscreen=yes
+MAIN_NAVIGATION,node_key_18,node_key_13,link,Top Smartwatches,/en/smart-wearables/smartwatches?rating%5Bmin%5D=3,,Top Smartwatches,/de/smart-wearables/smartwatches?rating%5Bmin%5D=3,,,,Top Smartwatches VN,,/vi/smart-wearables-vn/smartwatches-vn?rating%5Bmin%5D=3
+MAIN_NAVIGATION,node_key_19,,label,Brands,,,Marken,,,,,Brands VN,,
+MAIN_NAVIGATION,node_key_20,node_key_19,link,Samsung,/en/search?q=samsung,,Samsung,/de/search?q=samsung,,,,Samsung VN,,/vi/search?q=samsung
+MAIN_NAVIGATION,node_key_21,node_key_19,link,Sony,/en/search?q=sony,,Sony,/de/search?q=sony,,,,Sony VN,,/vi/search?q=sony
+MAIN_NAVIGATION,node_key_22,node_key_19,link,Canon,/en/search?q=canon,,Canon,/de/search?q=canon,,,,Canon VN,,/vi/search?q=canon
+MAIN_NAVIGATION,node_key_23,node_key_19,link,Lenovo,/en/search?q=lenovo,,Lenovo,/de/search?q=lenovo,,,,Lenovo VN,,/vi/search?q=lenovo
+MAIN_NAVIGATION,node_key_24,node_key_19,link,ASUS,/en/search?q=asus,,ASUS,/de/search?q=asus,,,,ASUS VN,,/vi/search?q=asus
+MAIN_NAVIGATION,node_key_25,,label,More,,,Mehr,,,,,More VN,,
+MAIN_NAVIGATION,node_key_26,node_key_25,category,Product Bundles,/en/product-bundles,,Product Bundles,/de/product-bundles,,,,Product Bundles VN,,/vi/product-bundles-vn
+MAIN_NAVIGATION,node_key_27,node_key_25,link,Product Sets,/en/product-sets,,Product Sets,/de/product-sets,,,,Product Sets VN,,/vi/product-sets-vn
+MAIN_NAVIGATION,node_key_29,node_key_25,cms_page,Demo Landing Page,/en/demo-landing-page,,Demo Landing Page,/de/demo-landing-page,,,,Demo Landing Page VN,,/vi/demo-landing-page
+MAIN_NAVIGATION,node_key_30,node_key_25,external_url,Explore Spryker,https://spryker.com/product,,Endecke Spryker,https://spryker.com/product,,,,Explore Spryker VN,,https://spryker.com/product
+MAIN_NAVIGATION,node_key_31,,link,Sale %,/en/outlet,sale__red,Sale %,/de/outlet,sale__red,,,Sale % VN,sale__red,/vi/outlet
+MAIN_NAVIGATION,node_key_32,,link,New,/en/new,,Neu,/de/new,,,,New VN,,/vi/new
+MAIN_NAVIGATION,node_key_91,node_key_25,link,Gift Cards,/en/gift-cards,,Geschenkgutschein,/de/geschenkgutscheine,,,,Gift Cards VN,,/vi/gift-cards
+FOOTER_NAVIGATION,node_key_33,,cms_page,Imprint,/en/imprint,,Impressum,/de/impressum,,,,Imprint VN,,/vi/imprint
+FOOTER_NAVIGATION,node_key_34,,cms_page,GTC,/en/gtc,,AGB,/de/agb,,,,GTC VN,,/vi/gtc
+FOOTER_NAVIGATION,node_key_35,,cms_page,Data privacy,/en/privacy,,Datenschutz,/de/datenschutz,,,,Data privacy VN,,/vi/privacy
+PAYMENT_PROVIDERS,node_key_36,,label,Paypal,,paypal,Paypal,,paypal,,,Paypal VN,paypal,
+PAYMENT_PROVIDERS,node_key_37,,label,Klarna,,klarna,Klarna,,klarna,,,Klarna VN,klarna,
+SHIPMENT_PROVIDERS,node_key_38,,label,DHL,,dhl,DHL,,dhl,,,DHL VN,dhl,
+SOCIAL_LINKS,node_key_39,,external_url,Twitter,https://twitter.com/sprysys,twitter,Twitter,https://twitter.com/sprysys,twitter,,,Twitter VN,twitter,https://twitter.com/sprysys
+SOCIAL_LINKS,node_key_40,,external_url,Xing,https://www.xing.com/companies/sprykersystemsgmbh,xing,Xing,https://www.xing.com/companies/sprykersystemsgmbh,xing,,,Xing VN,xing,https://www.xing.com/companies/sprykersystemsgmbh
+SOCIAL_LINKS,node_key_41,,external_url,LinkedIn,https://www.linkedin.com/company/spryker-systems-gmbh,linkedin,LinkedIn,https://www.linkedin.com/company/spryker-systems-gmbh,linkedin,,,LinkedIn VN,linkedin,https://www.linkedin.com/company/spryker-systems-gmbh
+SOCIAL_LINKS,node_key_42,,external_url,YouTube,https://www.youtube.com/channel/UC6lVOEbqXxUh0W5FMTvlPDQ,youtube,YouTube,https://www.youtube.com/channel/UC6lVOEbqXxUh0W5FMTvlPDQ,youtube,,,YouTube VN,youtube,https://www.youtube.com/channel/UC6lVOEbqXxUh0W5FMTvlPDQ
+SOCIAL_LINKS,node_key_43,,external_url,Instagram,https://www.instagram.com/spryker/,instagram,Instagram,https://www.instagram.com/spryker/,instagram,,,Instagram VN,instagram,https://www.instagram.com/spryker/
+SOCIAL_LINKS,node_key_44,,external_url,Facebook,https://www.facebook.com/Spryker/,facebook,Facebook,https://www.facebook.com/Spryker/,facebook,,,Facebook VN,facebook,https://www.facebook.com/Spryker/
+FOOTER_NAVIGATION_CATEGORIES,node_key_45,,category,Computers,/en/computers,,Computer,/de/computer,,,,Computers VN,,/vi/computers-vn
+FOOTER_NAVIGATION_CATEGORIES,node_key_46,,category,Cameras,/en/cameras-&-camcorders,,Kameras,/de/kameras-&-camcorder,,,,Cameras VN,,/vi/cameras-&-camcorders-vn
+FOOTER_NAVIGATION_CATEGORIES,node_key_47,,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,,,,Smartphones VN,,/vi/telecom-&-navigation-vn/smartphones-vn
+FOOTER_NAVIGATION_CATEGORIES,node_key_48,,category,Tablets,/en/computers/tablets,,Tablets,/de/computer/tablets,,,,Tablets VN,,/vi/computers-vn/tablets-vn
+FOOTER_NAVIGATION_CATEGORIES,node_key_49,,link,Sale %,/en/outlet,,Sale %,/de/outlet,,,,Sale % VN,,/vi/outlet-vn
+MAIN_NAVIGATION_DESKTOP,node_key_50,,category,Computers,/en/computers,flyout-fullscreen,Computer,/de/computer,flyout-fullscreen,,,Computers VN,flyout-fullscreen,/vi/computers-vn
+MAIN_NAVIGATION_DESKTOP,node_key_51,node_key_50,category,Notebooks,/en/computers/notebooks,,Notebooks,/de/computer/notebooks,,,,Notebooks VN,,/vi/computers-vn/notebooks-vn
+MAIN_NAVIGATION_DESKTOP,node_key_53,node_key_50,link,Stylish Black Notebooks,/en/computers/notebooks?color%5B0%5D=Black,,Elegante schwarze Notebooks,/de/computer/notebooks?color%5B%5D=Black,,,,Stylish Black Notebooks VN,,/vi/computers-vn/notebooks-vn?color%5B0%5D=Black
+MAIN_NAVIGATION_DESKTOP,node_key_54,node_key_50,category,PCs & Workstations,/en/computers/pcs-&-workstations,,PCs & Workstations,/de/computer/pcs-&-workstations,,,,PCs & Workstations VN,,/vi/computers-vn/pcs-&-workstations-vn
+MAIN_NAVIGATION_DESKTOP,node_key_55,node_key_50,category,Tablets,/en/computers/tablets,,Tablets,/de/computer/tablets,,,,Tablets VN,,/vi/computers-vn/tablets-vn
+MAIN_NAVIGATION_DESKTOP,node_key_56,node_key_50,link,Tablets on Sale,/en/computers/tablets?label%5B0%5D=SALE+%25,,Tablets im Sale,/de/computer/tablets?label%5B0%5D=SALE%20%25,,,,Tablets on Sale VN,,/vi/computers-vn/tablets-vn?label%5B0%5D=SALE+%25
+MAIN_NAVIGATION_DESKTOP,node_key_57,,category,Cameras,/en/cameras-&-camcorders,flyout-fullscreen,Kameras,/de/kameras-&-camcorder,flyout-fullscreen,,,Cameras VN,flyout-fullscreen,/vi/cameras-&-camcorders-vn
+MAIN_NAVIGATION_DESKTOP,node_key_58,node_key_57,category,Digital Cameras,/en/cameras-&-camcorders/digital-cameras,,Digitale Kameras,/de/kameras-&-camcorder/digitale-kameras,,,,Digital Cameras VN,,/vi/cameras-&-camcorders-vn/digital-cameras-vn
+MAIN_NAVIGATION_DESKTOP,node_key_59,node_key_57,link,Digital Cameras on Sale,/en/cameras-&-camcorders/digital-cameras?label%5B0%5D=SALE+%25,,Digitale Kameras im Sale,/de/kameras-&-camcorder/digitale-kameras?label%5B0%5D=SALE%20%25,,,,Digital Cameras on Sale VN,,/vi/cameras-&-camcorders-vn/digital-cameras-vn?label%5B0%5D=SALE+%25
+MAIN_NAVIGATION_DESKTOP,node_key_60,node_key_57,category,Camcorders,/en/cameras-&-camcorders/camcorders,,Camcorder,/de/kameras-&-camcorder/camcorder,,,,Camcorders VN,,/vi/cameras-&-camcorders-vn/camcorders-vn
+MAIN_NAVIGATION_DESKTOP,node_key_62,node_key_57,link,New Camcorders,/en/cameras-&-camcorders/camcorders?label%5B0%5D=New,,Neue Camcorder,/de/kameras-&-camcorder/camcorder?label%5B0%5D=New,,,,New Camcorders VN,,/vi/cameras-&-camcorders-vn/camcorders-vn?label%5B0%5D=New
+MAIN_NAVIGATION_DESKTOP,node_key_63,node_key_57,link,Sony Cameras,/en/cameras-&-camcorders?brand=Sony,,Sony Kameras,/de/kameras-&-camcorder?brand=Sony,,,,Sony Cameras VN,,/vi/cameras-&-camcorders-vn?brand=Sony
+MAIN_NAVIGATION_DESKTOP,node_key_64,,label,Smartphones & Wearables,,flyout-fullscreen,Smartphones & Wearables,,flyout-fullscreen,,,Smartphones & Wearables VN,flyout-fullscreen,
+MAIN_NAVIGATION_DESKTOP,node_key_65,node_key_64,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,,,,Smartphones VN,,/vi/telecom-&-navigation-vn/smartphones-vn
+MAIN_NAVIGATION_DESKTOP,node_key_66,node_key_64,link,Smartphones with high storage,/en/telecom-&-navigation/smartphones?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB,,Smartphones mit viel Speicherplatz,/de/telekommunikation-&-navigation/smartphones?storage_capacity%5B0%5D=128%20GB&storage_capacity%5B1%5D=64%20GB,,,,Smartphones with high storage VN,,/vi/telecom-&-navigation-vn/smartphones-vn?storage_capacity%5B0%5D=128+GB&storage_capacity%5B1%5D=64+GB
+MAIN_NAVIGATION_DESKTOP,node_key_67,node_key_64,category,Smartwatches,/en/smart-wearables/smartwatches,,Smartwatches,/de/smart-wearables/smartwatches,,,,Smartwatches VN,,/vi/smart-wearables-vn/smartwatches-vn
+MAIN_NAVIGATION_DESKTOP,node_key_68,node_key_64,link,Smartwatches with Touchscreen,/en/smart-wearables/smartwatches?touchscreen=yes,,Smartwatches mit Touchscreen,/de/smart-wearables/smartwatches?touchscreen=yes,,,,Smartwatches with Touchscreen VN,,/vi/smart-wearables-vn/smartwatches-vn?touchscreen=yes
+MAIN_NAVIGATION_DESKTOP,node_key_69,node_key_64,link,Top Smartwatches,/en/smart-wearables/smartwatches?rating%5Bmin%5D=3,,Top Smartwatches,/de/smart-wearables/smartwatches?rating%5Bmin%5D=3,,,,Top Smartwatches VN,,/vi/smart-wearables-vn/smartwatches-vn?rating%5Bmin%5D=3
+MAIN_NAVIGATION_DESKTOP,node_key_70,,label,Brands,,flyout-fullscreen brand-dropdown,Marken,,flyout-fullscreen brand-dropdown,,,Brands VN,flyout-fullscreen brand-dropdown,
+MAIN_NAVIGATION_DESKTOP,node_key_71,node_key_70,link,Samsung,/en/search?q=samsung,brand-item image-1,Samsung,/de/search?q=samsung,brand-item image-1,,,Samsung VN,brand-item image-1,/vi/search?q=samsung
+MAIN_NAVIGATION_DESKTOP,node_key_72,node_key_70,link,Sony,/en/search?q=sony,brand-item image-2,Sony,/de/search?q=sony,brand-item image-2,,,Sony VN,brand-item image-2,/vi/search?q=sony
+MAIN_NAVIGATION_DESKTOP,node_key_73,node_key_70,link,Canon,/en/search?q=canon,brand-item image-3,Canon,/de/search?q=canon,brand-item image-3,,,Canon VN,brand-item image-3,/vi/search?q=canon
+MAIN_NAVIGATION_DESKTOP,node_key_74,node_key_70,link,Lenovo,/en/search?q=lenovo,brand-item image-4,Lenovo,/de/search?q=lenovo,brand-item image-4,,,Lenovo VN,brand-item image-4,/vi/search?q=lenovo
+MAIN_NAVIGATION_DESKTOP,node_key_76,,label,More,,,Mehr,,,,,More VN,,
+MAIN_NAVIGATION_DESKTOP,node_key_77,node_key_76,category,Product Bundles,/en/product-bundles,,Product Bundles,/de/product-bundles,,,,Product Bundles VN,,/vi/product-bundles-vn
+MAIN_NAVIGATION_DESKTOP,node_key_78,node_key_76,link,Product Sets,/en/product-sets,,Product Sets,/de/product-sets,,,,Product Sets VN,,/vi/product-sets-vn
+MAIN_NAVIGATION_DESKTOP,node_key_80,node_key_76,cms_page,Demo Landing Page,/en/demo-landing-page,,Demo Landing Page,/de/demo-landing-page,,,,Demo Landing Page VN,,/vi/demo-landing-page
+MAIN_NAVIGATION_DESKTOP,node_key_81,node_key_76,external_url,Explore Spryker,https://spryker.com/product,,Endecke Spryker,https://spryker.com/product,,,,Explore Spryker VN,,https://spryker.com/product
+MAIN_NAVIGATION_DESKTOP,node_key_82,,link,Sale %,/en/outlet,sale__red,Sale %,/de/outlet,sale__red,,,Sale % VN,sale__red,/vi/outlet
+MAIN_NAVIGATION_DESKTOP,node_key_83,,link,New,/en/new,,Neu,/de/new,,,,New VN,,/vi/new
+MAIN_NAVIGATION_DESKTOP,node_key_84,node_key_64,link,Sony Xperia,/en/sony-xperia-z3-compact-078,node-image image-1,Sony Xperia,/de/sony-xperia-z3-compact-078,node-image image-1,,,Sony Xperia VN,node-image image-1,/vi/sony-xperia-z3-compact-078
+MAIN_NAVIGATION_DESKTOP,node_key_85,node_key_64,link,Samsung Galaxy,/en/samsung-galaxy-s4-mini-063,node-image image-2,Samsung Galaxy,/de/samsung-galaxy-s4-mini-063,node-image image-2,,,Samsung Galaxy VN,node-image image-2,/vi/samsung-galaxy-s4-mini-063
+MAIN_NAVIGATION_DESKTOP,node_key_86,node_key_57,link,Sony Camera,/en/sony-nex-vg20eh-201,node-image image-3,Sony Kamera,/de/sony-nex-vg20eh-201,node-image image-3,,,Sony Camera VN,node-image image-3,/vi/sony-nex-vg20eh-201
+MAIN_NAVIGATION_DESKTOP,node_key_87,node_key_57,link,Canon PowerShot,/en/canon-powershot-n-035,node-image image-4,Canon PowerShot,/de/canon-powershot-n-035,node-image image-4,,,Canon PowerShot VN,node-image image-4,/vi/canon-powershot-n-035
+MAIN_NAVIGATION_DESKTOP,node_key_88,node_key_50,link,Asus Zenbook,/en/asus-zenbook-us303ub-141,node-image image-5,Asus Zenbook,/de/asus-zenbook-us303ub-141,node-image image-5,,,Asus Zenbook VN,node-image image-5,/vi/asus-zenbook-us303ub-141
+MAIN_NAVIGATION_DESKTOP,node_key_89,node_key_50,link,Asus ZenPad,/en/asus-zenpad-z580ca-1b-166,node-image image-6,Asus ZenPad,/de/asus-zenpad-z580ca-1b-166,node-image image-6,,,Asus ZenPad VN,node-image image-6,/vi/asus-zenpad-z580ca-1b-166
+MAIN_NAVIGATION_DESKTOP,node_key_90,node_key_76,link,Gift Cards,/en/gift-cards,,Geschenkgutschein,/de/geschenkgutscheine,,,,Gift Cards VN,,/vi/gift-cards
+MAIN_NAVIGATION_DESKTOP,node_key_90,node_key_76,link,Configurable Bundle,/en/configurable-bundle/configurator/template-selection,,Configurable Bundle,/de/configurable-bundle/configurator/template-selection,,,,Configurable Bundle VN,,/vi/configurable-bundle/configurator/template-selection
+PARTNERS,node_key_91,,label,Paypal,,paypal,Paypal,,paypal,,,Paypal VN,paypal,
+PARTNERS,node_key_92,,label,Klarna,,klarna,Klarna,,klarna,,,Klarna VN,klarna,
+PARTNERS,node_key_93,,label,DHL,,dhl,DHL,,dhl,,,DHL VN,dhl,
