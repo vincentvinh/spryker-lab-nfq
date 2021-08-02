@@ -1,32 +1,48 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace PyzTest\Service\Fixer\Api;
 
+use Codeception\Test\Unit;
 use Generated\Shared\Transfer\PriceExchangeConfigTransfer;
 use Generated\Shared\Transfer\PriceExchangeTransfer;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
 use Pyz\Service\Fixer\Api\GetFixer;
 use Pyz\Service\Fixer\FixerConfig;
-use GuzzleHttp\Psr7\Response;
-use Codeception\Test\Unit;
 use Pyz\Shared\PriceExchange\PriceExchangeConstants;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
+/**
+ * Auto-generated group annotations
+ *
+ * @group PyzTest
+ * @group Service
+ * @group Fixer
+ * @group Api
+ * @group GetFixerTest
+ * Add your own group annotations below this line
+ */
 class GetFixerTest extends Unit
 {
     /**
-     * @var GetFixer
+     * @var \Pyz\Service\Fixer\Api\GetFixer
      */
     private $getFixerClass;
+
     /**
      * @var string[]
      */
     private $symbols;
+
     /**
      * @var object
      */
     private $getFixerClassWrongConfig;
-
 
     /**
      * @return void
@@ -37,28 +53,31 @@ class GetFixerTest extends Unit
         $this->symbols = ['VND', 'USD'];
         // create a stub by calling constructor and replacing a method
         $client = $this->createMock(Client::class);
-        $this->getFixerClass = $this->construct(GetFixer::class,
+        $this->getFixerClass = $this->construct(
+            GetFixer::class,
             [
                 'client' => $client,
-                'fixerConfig' => new FixerConfig,
-                'priceExchangeTransfer' => new PriceExchangeTransfer
+                'fixerConfig' => new FixerConfig(),
+                'priceExchangeTransfer' => new PriceExchangeTransfer(),
             ]
         );
-        $priceExchangeConfigTransfer = new PriceExchangeConfigTransfer;
+        $priceExchangeConfigTransfer = new PriceExchangeConfigTransfer();
         $priceExchangeConfigTransfer->setApiKey(PriceExchangeConstants::FIXER_API_KEY);
         $priceExchangeConfigTransfer->setBaseUrl('wrong_http_base');
         $priceExchangeConfigTransfer->setPriceExchangeMethod(PriceExchangeConstants::FIXER_EXCHANGE_RATE_METHOD);
         $priceExchangeConfigTransfer->setPriceExchangeUri(PriceExchangeConstants::FIXER_EXCHANGE_RATE_URI);
-        $getFixerConfigFail = $this->make(FixerConfig::class,
+        $getFixerConfigFail = $this->make(
+            FixerConfig::class,
             [
-                'getFixerConfig' => $priceExchangeConfigTransfer
+                'getFixerConfig' => $priceExchangeConfigTransfer,
             ]
         );
-        $this->getFixerClassWrongConfig = $this->construct(GetFixer::class,
+        $this->getFixerClassWrongConfig = $this->construct(
+            GetFixer::class,
             [
                 'client' => $client,
                 'fixerConfig' => $getFixerConfigFail,
-                'priceExchangeTransfer' => new PriceExchangeTransfer
+                'priceExchangeTransfer' => new PriceExchangeTransfer(),
             ]
         );
     }
