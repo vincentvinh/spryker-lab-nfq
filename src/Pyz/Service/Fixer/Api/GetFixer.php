@@ -69,7 +69,7 @@ class GetFixer extends AbstractService implements GetFixerInterface
      *
      * @return string
      */
-    private function getFixerUrl(array $symbols): string
+    public function getFixerUrl(array $symbols): string
     {
         $baseUrl = $this->fixerConfig->getFixerConfig()->getBaseUrl();
         $uri = $this->fixerConfig->getFixerConfig()->getPriceExchangeUri();
@@ -93,7 +93,7 @@ class GetFixer extends AbstractService implements GetFixerInterface
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
-    private function handleResponse(ResponseInterface $response): PriceExchangeTransfer
+    public function handleResponse(ResponseInterface $response): PriceExchangeTransfer
     {
         $data = json_decode($response->getBody()->getContents(), true);
         if (empty($data['success'])) {
