@@ -22,6 +22,8 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class PriceProductEntityManager extends AbstractEntityManager implements PriceProductEntityManagerInterface
 {
+    public const PRICE_STORE_EVENT_UPDATE = 'Entity.spy_price_product_store.update';
+
     /**
      * @param string $currentCurrency
      * @param array $rates
@@ -74,7 +76,7 @@ class PriceProductEntityManager extends AbstractEntityManager implements PricePr
                 $transfers[] = (new EventEntityTransfer())->setId($entity->getPrimaryKey());
             }
 
-            $this->getFactory()->getEventFacade()->triggerBulk('Entity.spy_price_product_store.update', $transfers);
+            $this->getFactory()->getEventFacade()->triggerBulk(static::PRICE_STORE_EVENT_UPDATE, $transfers);
         }
     }
 }
