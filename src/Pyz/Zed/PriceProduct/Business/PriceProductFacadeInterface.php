@@ -5,14 +5,14 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\PriceProductStorage\Business;
+namespace Pyz\Zed\PriceProduct\Business;
 
 /**
- * Interface PriceProductStorageFacadeInterface
+ * Interface PriceProductFacadeInterface
  *
- * @package Pyz\Zed\PriceProductStorage\Business
+ * @package Pyz\Zed\PriceProduct\Business
  */
-interface PriceProductStorageFacadeInterface
+interface PriceProductFacadeInterface
 {
     /**
      * @return void

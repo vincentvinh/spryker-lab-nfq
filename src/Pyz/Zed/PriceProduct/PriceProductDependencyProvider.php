@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\PriceProduct;
 
+use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PriceProduct\PriceProductDependencyProvider as SprykerPriceProductDependencyProvider;
 use Spryker\Zed\PriceProductVolume\Communication\Plugin\PriceProductExtension\PriceProductVolumeExtractorPlugin;
 
@@ -16,6 +17,8 @@ use Spryker\Zed\PriceProductVolume\Communication\Plugin\PriceProductExtension\Pr
  */
 class PriceProductDependencyProvider extends SprykerPriceProductDependencyProvider
 {
+    public const FACADE_EVENT = 'FACADE_EVENT';
+
     /**
      * @return \Spryker\Zed\PriceProductExtension\Dependency\Plugin\PriceProductReaderPricesExtractorPluginInterface[]
      */
@@ -24,5 +27,32 @@ class PriceProductDependencyProvider extends SprykerPriceProductDependencyProvid
         return [
             new PriceProductVolumeExtractorPlugin(),
         ];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    public function providePersistenceLayerDependencies(Container $container)
+    {
+        $container = parent::provideBusinessLayerDependencies($container);
+        $this->addEventFacade($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addEventFacade(Container $container)
+    {
+        $container[static::FACADE_EVENT] = function (Container $container) {
+            return $container->getLocator()->event()->facade();
+        };
+
+        return $container;
     }
 }

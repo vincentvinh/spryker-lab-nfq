@@ -5,8 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\PriceProductStorage\Persistence;
+namespace Pyz\Zed\PriceProduct\Persistence;
 
+use Generated\Shared\Transfer\EventEntityTransfer;
 use Orm\Zed\Currency\Persistence\Map\SpyCurrencyTableMap;
 use Orm\Zed\PriceProduct\Persistence\Map\SpyPriceProductStoreTableMap;
 use PDO;
@@ -14,51 +15,13 @@ use Propel\Runtime\Propel;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 
 /**
- * Class PriceProductStorageEntityManager
+ * Class PriceProductEntityManager
  *
- * @package Pyz\Zed\PriceProductStorage\Persistence
+ * @package Pyz\Zed\PriceProduct\Persistence
+ * @method \Pyz\Zed\PriceProduct\Persistence\PriceProductPersistenceFactory getFactory()
  */
-class PriceProductStorageEntityManager extends AbstractEntityManager implements PriceProductStorageEntityManagerInterface
+class PriceProductEntityManager extends AbstractEntityManager implements PriceProductEntityManagerInterface
 {
-    /**
-     * @param array $rates
-     * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainer $queryContainer
-     * @param string $store
-     *
-     * @return void
-     */
-    public function updatePriceDataConcrete(array $rates, PriceProductStorageQueryContainer $queryContainer, string $store)
-    {
-        $query = $queryContainer->queryPriceConcreteStorageByStore($store);
-
-        echo "\n[+] Starting update price product concrete storage...";
-
-        /** @var \Orm\Zed\PriceProductStorage\Persistence\Base\SpyPriceProductConcreteStorage $item */
-        foreach ($query->find() as $item) {
-            $data = $item->getData();
-            $originalPrice = $data['prices']['EUR'];
-
-            echo "\n- Product #{$item->getFkProduct()}";
-            foreach ($rates as $symbol => $rate) {
-                $data['prices'][$symbol] = [
-                    'priceData' => null,
-                    'GROSS_MODE' => [
-                        'DEFAULT' => ($originalPrice['GROSS_MODE']['DEFAULT'] ?? 0) * $rate,
-                        'ORIGINAL' => ($originalPrice['GROSS_MODE']['ORIGINAL'] ?? 0) * $rate,
-                    ],
-                    'NET_MODE' => [
-                        'DEFAULT' => ($originalPrice['NET_MODE']['DEFAULT'] ?? 0) * $rate,
-                        'ORIGINAL' => ($originalPrice['NET_MODE']['DEFAULT'] ?? 0) * $rate,
-                    ],
-                ];
-
-                $item->setData($data);
-                echo($item->save() > 0 ? " - Success" : " - Fail");
-            }
-        }
-        echo "\n";
-    }
-
     /**
      * @param string $currentCurrency
      * @param array $rates
@@ -91,6 +54,27 @@ class PriceProductStorageEntityManager extends AbstractEntityManager implements 
             $stmt->bindValue(':symbol', (string)$symbol);
             $stmt->bindValue(':rate', (float)$rate, PDO::PARAM_STR);
             $stmt->execute();
+        }
+    }
+
+    /**
+     * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainer $queryContainer
+     * @param int $store
+     * @param array $rates
+     *
+     * @return void
+     */
+    public function publishEvents(PriceProductQueryContainer $queryContainer, int $store, array $rates)
+    {
+        foreach ($rates as $symbol => $rate) {
+            $entities = $queryContainer->queryPriceProductStoreByStoreAndCurrency($store, $symbol)->find();
+            $transfers = [];
+            /** @var \Orm\Zed\PriceProduct\Persistence\SpyPriceProductStore $entity */
+            foreach ($entities as $entity) {
+                $transfers[] = (new EventEntityTransfer())->setId($entity->getPrimaryKey());
+            }
+
+            $this->getFactory()->getEventFacade()->triggerBulk('Entity.spy_price_product_store.update', $transfers);
         }
     }
 }

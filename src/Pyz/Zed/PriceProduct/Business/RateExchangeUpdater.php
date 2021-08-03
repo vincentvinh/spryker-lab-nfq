@@ -5,17 +5,17 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\PriceProductStorage\Business;
+namespace Pyz\Zed\PriceProduct\Business;
 
 use Generated\Shared\Transfer\StoreTransfer;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
-use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageEntityManager;
-use Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface;
+use Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager;
+use Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface;
 
 /**
  * Class RateExchangeUpdater
  *
- * @package Pyz\Zed\PriceProductStorage\Business
+ * @package Pyz\Zed\PriceProduct\Business
  */
 class RateExchangeUpdater implements RateExchangeUpdaterInterface
 {
@@ -30,24 +30,24 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     protected $currentStore;
 
     /**
-     * @var \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer
+     * @var \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
      */
     protected $queryContainer;
 
     /**
-     * @var \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageEntityManager $entityManager
+     * @var \Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager $entityManager
      */
     protected $entityManager;
 
     /**
      * @param \Generated\Shared\Transfer\StoreTransfer $store
-     * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface $queryContainer
-     * @param \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageEntityManager $entityManager
+     * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
+     * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager $entityManager
      */
     public function __construct(
         StoreTransfer $store,
-        PriceProductStorageQueryContainerInterface $queryContainer,
-        PriceProductStorageEntityManager $entityManager
+        PriceProductQueryContainerInterface $queryContainer,
+        PriceProductEntityManager $entityManager
     ) {
         $this->currentStore = $store;
         $this->queryContainer = $queryContainer;
@@ -97,6 +97,12 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
             $this->currentStore->getDefaultCurrencyIsoCode(),
             $this->rates,
             $this->currentStore->getIdStore()
+        );
+
+        $this->entityManager->publishEvents(
+            $this->queryContainer,
+            $this->currentStore->getIdStore(),
+            $this->rates
         );
     }
 }

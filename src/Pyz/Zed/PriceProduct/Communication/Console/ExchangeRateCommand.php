@@ -5,15 +5,15 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\PriceProductStorage\Communication\Console;
+namespace Pyz\Zed\PriceProduct\Communication\Console;
 
 use Spryker\Zed\Kernel\Communication\Console\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @method \Pyz\Zed\PriceProductStorage\Persistence\PriceProductStorageQueryContainerInterface getQueryContainer()
- * @method \Pyz\Zed\PriceProductStorage\Business\PriceProductStorageFacadeInterface getFacade()
+ * @method \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface getQueryContainer()
+ * @method \Pyz\Zed\PriceProduct\Business\PriceProductFacadeInterface getFacade()
  */
 class ExchangeRateCommand extends Console
 {
