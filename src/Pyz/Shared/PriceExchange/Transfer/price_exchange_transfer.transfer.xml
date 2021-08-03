@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+
+    <transfer name="PriceExchangeConfig">
+        <property name="baseUrl" type="string"/>
+        <property name="apiKey" type="string"/>
+        <property name="PriceExchangeMethod" type="string"/>
+        <property name="PriceExchangeUri" type="string"/>
+    </transfer>
+
+</transfers>

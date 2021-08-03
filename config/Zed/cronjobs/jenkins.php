@@ -154,3 +154,11 @@ $jobs[] = [
     'enable' => true,
     'stores' => $allStores,
 ];
+
+$jobs[] = [
+    'name' => 'price-exchange-daily',
+    'command' => '$PHP_BIN vendor/bin/console price-product-storage:price:update',
+    'schedule' => '0 0 * * *',
+    'enable' => true,
+    'stores' => $allStores,
+];
