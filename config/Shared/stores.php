@@ -128,7 +128,7 @@ $stores['VN'] = [
     'countries' => ['VN'],
     // internal and shop
     'currencyIsoCode' => 'VND',
-    'currencyIsoCodes' => ['VND'],
+    'currencyIsoCodes' => ['VND', 'USD'],
     'locales' => [
         // first entry is default
         'vi' => 'vi_VN',
