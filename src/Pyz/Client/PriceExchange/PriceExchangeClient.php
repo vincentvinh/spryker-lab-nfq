@@ -21,12 +21,13 @@ class PriceExchangeClient extends AbstractClient implements PriceExchangeClientI
      *
      * @api
      *
+     * @param string $base
      * @param array $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
-    public function getExchangeData(array $symbols): PriceExchangeTransfer
+    public function getExchangeData(string $base, array $symbols): PriceExchangeTransfer
     {
-        return $this->getFactory()->createPriceExchange()->getPriceExchanges($symbols);
+        return $this->getFactory()->createPriceExchangeService()->getPriceExchangeData($base, $symbols);
     }
 }

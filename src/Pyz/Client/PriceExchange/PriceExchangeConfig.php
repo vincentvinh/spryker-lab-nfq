@@ -5,16 +5,16 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Service\Fixer;
+namespace Pyz\Client\PriceExchange;
 
 use Generated\Shared\Transfer\PriceExchangeConfigTransfer;
 use Pyz\Shared\PriceExchange\PriceExchangeConstants;
 use Spryker\Client\Kernel\AbstractBundleConfig;
 
 /**
- * Class FixerConfig
+ * Class PriceExchangeConfig
  */
-class FixerConfig extends AbstractBundleConfig
+class PriceExchangeConfig extends AbstractBundleConfig
 {
     public const BASE_URL = 'baseUrl';
     public const API_KEY = 'apiKey';

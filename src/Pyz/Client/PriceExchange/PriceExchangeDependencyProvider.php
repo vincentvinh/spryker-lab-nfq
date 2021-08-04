@@ -7,12 +7,13 @@
 
 namespace Pyz\Client\PriceExchange;
 
+use GuzzleHttp\Client;
 use Spryker\Client\Kernel\AbstractDependencyProvider;
 use Spryker\Client\Kernel\Container;
 
 class PriceExchangeDependencyProvider extends AbstractDependencyProvider
 {
-    public const FIXER_SERVICE = 'fixer_service';
+    public const HTTP_CLIENT = 'http_client';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -21,7 +22,9 @@ class PriceExchangeDependencyProvider extends AbstractDependencyProvider
      */
     public function provideServiceLayerDependencies(Container $container): Container
     {
-        return $this->addFixerService($container);
+        $container = $this->addHttpClient($container);
+
+        return $container;
     }
 
     /**
@@ -29,11 +32,11 @@ class PriceExchangeDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addFixerService(Container $container)
+    protected function addHttpClient(Container $container): Container
     {
-        $container[static::FIXER_SERVICE] = function (Container $container) {
-            return $container->getLocator()->fixer()->service();
-        };
+        $container->set(static::HTTP_CLIENT, function (Container $container) {
+            return new Client();
+        });
 
         return $container;
     }

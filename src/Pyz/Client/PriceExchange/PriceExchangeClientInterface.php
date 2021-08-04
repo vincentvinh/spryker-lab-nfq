@@ -17,9 +17,10 @@ interface PriceExchangeClientInterface
      *
      * @api
      *
+     * @param string $base
      * @param array $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
-    public function getExchangeData(array $symbols): PriceExchangeTransfer;
+    public function getExchangeData(string $base, array $symbols): PriceExchangeTransfer;
 }
