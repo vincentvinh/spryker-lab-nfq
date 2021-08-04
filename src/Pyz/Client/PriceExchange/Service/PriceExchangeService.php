@@ -9,15 +9,13 @@ namespace Pyz\Client\PriceExchange\Service;
 
 use Generated\Shared\Transfer\PriceExchangeTransfer;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 use Pyz\Client\PriceExchange\PriceExchangeConfig;
-use Pyz\Client\PriceExchange\PriceExchangeFactory;
 use Spryker\Service\Kernel\AbstractService;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 /**
- * @method PriceExchangeFactory getFactory()
+ * @method \Pyz\Client\PriceExchange\PriceExchangeFactory getFactory()
  */
 class PriceExchangeService extends AbstractService implements PriceExchangeServiceInterface
 {
@@ -26,24 +24,24 @@ class PriceExchangeService extends AbstractService implements PriceExchangeServi
     public const IMPLODE_SEPARATOR = ',';
     public const BASE_SYMBOL = 'base';
     /**
-     * @var Client
+     * @var \GuzzleHttp\Client
      */
     private $client;
 
     /**
-     * @var PriceExchangeTransfer
+     * @var \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     private $priceExchangeTransfer;
 
     /**
-     * @var PriceExchangeConfig
+     * @var \Pyz\Client\PriceExchange\PriceExchangeConfig
      */
     private $fixerConfig;
 
     /**
-     * @param Client $client
-     * @param PriceExchangeConfig $fixerConfig
-     * @param PriceExchangeTransfer $priceExchangeTransfer
+     * @param \GuzzleHttp\Client $client
+     * @param \Pyz\Client\PriceExchange\PriceExchangeConfig $fixerConfig
+     * @param \Generated\Shared\Transfer\PriceExchangeTransfer $priceExchangeTransfer
      */
     public function __construct(Client $client, PriceExchangeConfig $fixerConfig, PriceExchangeTransfer $priceExchangeTransfer)
     {
@@ -56,8 +54,7 @@ class PriceExchangeService extends AbstractService implements PriceExchangeServi
      * @param string $base
      * @param array $symbols
      *
-     * @return PriceExchangeTransfer
-     * @throws GuzzleException
+     * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     public function getPriceExchangeData(string $base, array $symbols): PriceExchangeTransfer
     {
@@ -70,6 +67,8 @@ class PriceExchangeService extends AbstractService implements PriceExchangeServi
     /**
      * @param string $base
      * @param array $symbols
+     *
+     * @throws \Symfony\Component\HttpFoundation\Exception\BadRequestException
      *
      * @return string
      */
@@ -92,11 +91,11 @@ class PriceExchangeService extends AbstractService implements PriceExchangeServi
     }
 
     /**
-     * @param ResponseInterface $response
+     * @param \Psr\Http\Message\ResponseInterface $response
      *
-     * @return PriceExchangeTransfer
-     *@throws BadRequestException
+     * @throws \Symfony\Component\HttpFoundation\Exception\BadRequestException
      *
+     * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     public function handleResponse(ResponseInterface $response): PriceExchangeTransfer
     {

@@ -21,15 +21,16 @@ use Symfony\Component\HttpFoundation\Exception\BadRequestException;
  * Auto-generated group annotations
  *
  * @group PyzTest
+ * @group Client
+ * @group PriceExchange
  * @group Service
- * @group Fixer
- * @group Api
- * @group GetFixerTest
+ * @group PriceExchangeServiceTest
  * Add your own group annotations below this line
  */
 class PriceExchangeServiceTest extends Unit
 {
     /**
+     * @var object
      */
     private $getFixerClass;
 
@@ -42,6 +43,7 @@ class PriceExchangeServiceTest extends Unit
      * @var object
      */
     private $getFixerClassWrongConfig;
+
     /**
      * @var string
      */

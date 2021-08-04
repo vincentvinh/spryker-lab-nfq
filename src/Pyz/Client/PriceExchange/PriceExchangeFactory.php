@@ -15,13 +15,14 @@ use Spryker\Client\Kernel\AbstractFactory;
 
 /**
  * Class PriceExchangeFactory
- * @method PriceExchangeConfig getConfig()
+ *
+ * @method \Pyz\Client\PriceExchange\PriceExchangeConfig getConfig()
  * @package Pyz\Client\PriceExchange
  */
 class PriceExchangeFactory extends AbstractFactory
 {
     /**
-     * @return PriceExchangeServiceInterface
+     * @return \Pyz\Client\PriceExchange\Service\PriceExchangeServiceInterface
      */
     public function createPriceExchangeService(): PriceExchangeServiceInterface
     {
@@ -33,7 +34,7 @@ class PriceExchangeFactory extends AbstractFactory
     }
 
     /**
-     * @return ClientInterface
+     * @return \GuzzleHttp\ClientInterface
      */
     public function getHttpClient(): ClientInterface
     {
@@ -41,7 +42,7 @@ class PriceExchangeFactory extends AbstractFactory
     }
 
     /**
-     * @return PriceExchangeTransfer
+     * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
     private function createPriceExchangeTransfer(): PriceExchangeTransfer
     {
