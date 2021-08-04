@@ -16,9 +16,9 @@ class PriceExchangeDependencyProvider extends AbstractDependencyProvider
     public const HTTP_CLIENT = 'http_client';
 
     /**
-     * @param \Spryker\Service\Kernel\Container $container
+     * @param \Spryker\Client\Kernel\Container $container
      *
-     * @return \Spryker\Service\Kernel\Container
+     * @return \Spryker\Client\Kernel\Container
      */
     public function provideServiceLayerDependencies(Container $container): Container
     {
@@ -28,9 +28,9 @@ class PriceExchangeDependencyProvider extends AbstractDependencyProvider
     }
 
     /**
-     * @param \Spryker\Service\Kernel\Container $container
+     * @param \Spryker\Client\Kernel\Container $container
      *
-     * @return \Spryker\Service\Kernel\Container
+     * @return \Spryker\Client\Kernel\Container
      */
     protected function addHttpClient(Container $container): Container
     {

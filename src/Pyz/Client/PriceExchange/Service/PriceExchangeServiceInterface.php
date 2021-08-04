@@ -25,7 +25,7 @@ interface PriceExchangeServiceInterface
      * @api
      *
      * @param string $base
-     * @param string[]|string $symbols
+     * @param string[] $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
