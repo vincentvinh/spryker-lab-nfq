@@ -20,7 +20,7 @@ class PriceExchangeDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Service\Kernel\Container
      */
-    public function provideClientDependencies(\Spryker\Service\Kernel\Container $container): Container
+    public function provideServiceLayerDependencies(Container $container): Container
     {
         $container = $this->addHttpClient($container);
 

@@ -12,9 +12,9 @@ use Pyz\Shared\PriceExchange\PriceExchangeConstants;
 use Spryker\Client\Kernel\AbstractBundleConfig;
 
 /**
- * Class FixerConfig
+ * Class PriceExchangeConfig
  */
-class FixerConfig extends AbstractBundleConfig
+class PriceExchangeConfig extends AbstractBundleConfig
 {
     public const BASE_URL = 'baseUrl';
     public const API_KEY = 'apiKey';

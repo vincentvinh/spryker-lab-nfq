@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\PriceExchangeTransfer;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
-use Pyz\Client\PriceExchange\FixerConfig;
+use Pyz\Client\PriceExchange\PriceExchangeConfig;
 use Pyz\Client\PriceExchange\PriceExchangeFactory;
 use Spryker\Service\Kernel\AbstractService;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -36,16 +36,16 @@ class PriceExchangeService extends AbstractService implements PriceExchangeServi
     private $priceExchangeTransfer;
 
     /**
-     * @var FixerConfig
+     * @var PriceExchangeConfig
      */
     private $fixerConfig;
 
     /**
      * @param Client $client
-     * @param FixerConfig $fixerConfig
+     * @param PriceExchangeConfig $fixerConfig
      * @param PriceExchangeTransfer $priceExchangeTransfer
      */
-    public function __construct(Client $client, FixerConfig $fixerConfig, PriceExchangeTransfer $priceExchangeTransfer)
+    public function __construct(Client $client, PriceExchangeConfig $fixerConfig, PriceExchangeTransfer $priceExchangeTransfer)
     {
         $this->client = $client;
         $this->priceExchangeTransfer = $priceExchangeTransfer;
@@ -102,7 +102,7 @@ class PriceExchangeService extends AbstractService implements PriceExchangeServi
     {
         $data = json_decode($response->getBody()->getContents(), true);
         if (empty($data['success'])) {
-            throw new BadRequestException($data['error']['info'], $data['error']['code']);
+            throw new BadRequestException($data['error']['type'], $data['error']['code']);
         }
         $this->priceExchangeTransfer->fromArray($data, true);
 

@@ -15,7 +15,7 @@ use Spryker\Client\Kernel\AbstractFactory;
 
 /**
  * Class PriceExchangeFactory
- * @method FixerConfig getConfig()
+ * @method PriceExchangeConfig getConfig()
  * @package Pyz\Client\PriceExchange
  */
 class PriceExchangeFactory extends AbstractFactory

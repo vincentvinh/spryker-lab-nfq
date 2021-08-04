@@ -12,7 +12,7 @@ use Generated\Shared\Transfer\PriceExchangeConfigTransfer;
 use Generated\Shared\Transfer\PriceExchangeTransfer;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
-use Pyz\Client\PriceExchange\FixerConfig;
+use Pyz\Client\PriceExchange\PriceExchangeConfig;
 use Pyz\Client\PriceExchange\Service\PriceExchangeService;
 use Pyz\Shared\PriceExchange\PriceExchangeConstants;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -61,7 +61,7 @@ class PriceExchangeServiceTest extends Unit
             PriceExchangeService::class,
             [
                 'client' => $client,
-                'fixerConfig' => new FixerConfig(),
+                'fixerConfig' => new PriceExchangeConfig(),
                 'priceExchangeTransfer' => new PriceExchangeTransfer(),
             ]
         );
@@ -71,7 +71,7 @@ class PriceExchangeServiceTest extends Unit
         $priceExchangeConfigTransfer->setPriceExchangeMethod(PriceExchangeConstants::FIXER_EXCHANGE_RATE_METHOD);
         $priceExchangeConfigTransfer->setPriceExchangeUri(PriceExchangeConstants::FIXER_EXCHANGE_RATE_URI);
         $getFixerConfigFail = $this->make(
-            FixerConfig::class,
+            PriceExchangeConfig::class,
             [
                 'getFixerConfig' => $priceExchangeConfigTransfer,
             ]
@@ -117,7 +117,7 @@ class PriceExchangeServiceTest extends Unit
         $response = new Response(200, [], json_encode([
             'success' => false,
             'error' => [
-                'info' => 'internal error',
+                'type' => 'internal error',
                 'code' => '500',
             ],
         ]));
