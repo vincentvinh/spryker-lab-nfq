@@ -17,13 +17,4 @@ interface PriceProductEntityManagerInterface
      * @return mixed
      */
     public function updatePriceData(string $currentCurrency, array $rates, int $store);
-
-    /**
-     * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainer $queryContainer
-     * @param int $store
-     * @param array $rates
-     *
-     * @return void
-     */
-    public function publishEvents(PriceProductQueryContainer $queryContainer, int $store, array $rates);
 }

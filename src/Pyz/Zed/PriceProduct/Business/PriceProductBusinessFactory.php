@@ -25,7 +25,8 @@ class PriceProductBusinessFactory extends SprykerPriceProductBusinessFactory
         return new RateExchangeUpdater(
             $this->getStoreFacade()->getCurrentStore(),
             $this->getQueryContainer(),
-            $this->getEntityManager()
+            $this->getEntityManager(),
+            $this->getEventFacade()
         );
     }
 

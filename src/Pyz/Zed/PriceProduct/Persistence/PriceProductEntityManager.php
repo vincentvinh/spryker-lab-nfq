@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\PriceProduct\Persistence;
 
-use Generated\Shared\Transfer\EventEntityTransfer;
 use Orm\Zed\Currency\Persistence\Map\SpyCurrencyTableMap;
 use Orm\Zed\PriceProduct\Persistence\Map\SpyPriceProductStoreTableMap;
 use PDO;
@@ -22,8 +21,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class PriceProductEntityManager extends AbstractEntityManager implements PriceProductEntityManagerInterface
 {
-    public const PRICE_STORE_EVENT_UPDATE = 'Entity.spy_price_product_store.update';
-
     /**
      * @param string $currentCurrency
      * @param array $rates
@@ -56,27 +53,6 @@ class PriceProductEntityManager extends AbstractEntityManager implements PricePr
             $stmt->bindValue(':symbol', (string)$symbol);
             $stmt->bindValue(':rate', (float)$rate, PDO::PARAM_STR);
             $stmt->execute();
-        }
-    }
-
-    /**
-     * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainer $queryContainer
-     * @param int $store
-     * @param array $rates
-     *
-     * @return void
-     */
-    public function publishEvents(PriceProductQueryContainer $queryContainer, int $store, array $rates)
-    {
-        foreach ($rates as $symbol => $rate) {
-            $entities = $queryContainer->queryPriceProductStoreByStoreAndCurrency($store, $symbol)->find();
-            $transfers = [];
-            /** @var \Orm\Zed\PriceProduct\Persistence\SpyPriceProductStore $entity */
-            foreach ($entities as $entity) {
-                $transfers[] = (new EventEntityTransfer())->setId($entity->getPrimaryKey());
-            }
-
-            $this->getFactory()->getEventFacade()->triggerBulk(static::PRICE_STORE_EVENT_UPDATE, $transfers);
         }
     }
 }

@@ -34,7 +34,7 @@ class PriceProductDependencyProvider extends SprykerPriceProductDependencyProvid
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    public function providePersistenceLayerDependencies(Container $container)
+    public function provideBusinessLayerDependencies(Container $container)
     {
         $container = parent::provideBusinessLayerDependencies($container);
         $this->addEventFacade($container);
