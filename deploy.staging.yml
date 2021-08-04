@@ -10,6 +10,11 @@ image:
     ini:
       opcache.enable: 0
       opcache.enable_cli: 0
+  environment:
+    FIXER_API_BASE_URL: "http://data.fixer.io/api"
+    FIXER_EXCHANGE_RATE_URI: "latest"
+    FIXER_EXCHANGE_RATE_METHOD: "GET"
+    FIXER_API_KEY: "a2fbdfd9d28ecff82f28910f2571ede6"
 
 composer:
   mode: --no-dev
