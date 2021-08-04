@@ -7,32 +7,44 @@
 
 namespace Pyz\Client\PriceExchange;
 
+use Generated\Shared\Transfer\PriceExchangeTransfer;
+use GuzzleHttp\ClientInterface;
 use Pyz\Client\PriceExchange\Service\PriceExchangeService;
 use Pyz\Client\PriceExchange\Service\PriceExchangeServiceInterface;
 use Spryker\Client\Kernel\AbstractFactory;
 
 /**
  * Class PriceExchangeFactory
- *
+ * @method FixerConfig getConfig()
  * @package Pyz\Client\PriceExchange
  */
 class PriceExchangeFactory extends AbstractFactory
 {
     /**
-     * @return \Pyz\Client\PriceExchange\Service\PriceExchangeServiceInterface
+     * @return PriceExchangeServiceInterface
      */
-    public function createPriceExchange(): PriceExchangeServiceInterface
+    public function createPriceExchangeService(): PriceExchangeServiceInterface
     {
         return new PriceExchangeService(
-            $this->getFixerService()
+            $this->getHttpClient(),
+            $this->getConfig(),
+            $this->createPriceExchangeTransfer()
         );
     }
 
     /**
-     * @return mixed
+     * @return ClientInterface
      */
-    public function getFixerService()
+    public function getHttpClient(): ClientInterface
     {
-        return $this->getProvidedDependency(PriceExchangeDependencyProvider::FIXER_SERVICE);
+        return $this->getProvidedDependency(PriceExchangeDependencyProvider::HTTP_CLIENT);
+    }
+
+    /**
+     * @return PriceExchangeTransfer
+     */
+    private function createPriceExchangeTransfer(): PriceExchangeTransfer
+    {
+        return new PriceExchangeTransfer();
     }
 }

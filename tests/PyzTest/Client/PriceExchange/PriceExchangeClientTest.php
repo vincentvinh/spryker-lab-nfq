@@ -48,7 +48,7 @@ class PriceExchangeClientTest extends Unit
      */
     public function testGetExchangeRateDataSuccessReturnExchangeRateTransfer()
     {
-        $priceExchangeTransfer = $this->priceExchangeClient->getExchangeData(['VND', 'EUR']);
+        $priceExchangeTransfer = $this->priceExchangeClient->getExchangeData('VND', ['VND', 'EUR']);
 
         $this->assertInstanceOf(PriceExchangeTransfer::class, $priceExchangeTransfer);
     }

@@ -15,11 +15,12 @@ interface PriceExchangeClientInterface
      * Specification:
      * - Get exchange data from fixer.io.
      *
-     * @api
-     *
+     * @param string $base
      * @param array $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
+     * @api
+     *
      */
-    public function getExchangeData(array $symbols): PriceExchangeTransfer;
+    public function getExchangeData(string $base, array $symbols): PriceExchangeTransfer;
 }

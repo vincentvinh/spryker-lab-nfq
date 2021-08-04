@@ -19,14 +19,9 @@ use Generated\Shared\Transfer\PriceExchangeTransfer;
 interface PriceExchangeServiceInterface
 {
     /**
-     * Specification:
-     * - Get exchange data from fixer.io.
-     *
-     * @api
-     *
-     * @param array $symbols
+     * @param string[] $symbols
      *
      * @return \Generated\Shared\Transfer\PriceExchangeTransfer
      */
-    public function getPriceExchanges(array $symbols): PriceExchangeTransfer;
+    public function getPriceExchangeData(string $base, array $symbols): PriceExchangeTransfer;
 }
