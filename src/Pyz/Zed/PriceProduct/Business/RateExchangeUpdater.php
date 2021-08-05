@@ -85,7 +85,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
         $client = new PriceExchangeClient();
         $currentCurrency = $this->currentStore->getSelectedCurrencyIsoCode();
 
-        $exchangeTransfer = $client->getExchangeData('EUR', $this->currentStore->getAvailableCurrencyIsoCodes());
+        $exchangeTransfer = $client->getExchangeData('EUR', ['VND', 'USD', 'CHF']);
         $this->rates = $exchangeTransfer->getRates();
 
         echo "[+] Rates (compare with $currentCurrency):";
@@ -111,7 +111,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
             $this->currentStore->getIdStore()
         );
 
-        $this->publishEvents();
+//        $this->publishEvents();
     }
 
     /**
