@@ -160,5 +160,5 @@ $jobs[] = [
     'command' => '$PHP_BIN vendor/bin/console price-product-storage:price:update $CURRENCIES',
     'schedule' => '0 0 * * *',
     'enable' => true,
-    'stores' => $allStores,
+    'stores' => ['DE'],
 ];

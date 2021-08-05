@@ -7,13 +7,15 @@
 
 namespace Pyz\Zed\PriceProduct\Persistence;
 
+use Generated\Shared\Transfer\StoreTransfer;
+
 interface PriceProductEntityManagerInterface
 {
     /**
-     * @param string $currentCurrency
+     * @param \Generated\Shared\Transfer\StoreTransfer $currentStore
      * @param array $rates
      *
      * @return mixed
      */
-    public function updatePriceData(string $currentCurrency, array $rates);
+    public function updatePriceData(StoreTransfer $currentStore, array $rates);
 }

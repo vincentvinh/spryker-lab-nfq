@@ -27,7 +27,8 @@ class ExchangeRateCommand extends Console
     {
         $this->setName(static::COMMAND_NAME);
         $this->setDescription('This job will be ran every day to update price exchange for different currency');
-        $this->addArgument('currency', InputArgument::OPTIONAL, 'The target currencies', 'USD,CHF,VND' );
+        $this->addArgument('currency', InputArgument::OPTIONAL, 'The target currencies', 'USD,CHF,VND');
+        $this->addOption('asd');
     }
 
     /**

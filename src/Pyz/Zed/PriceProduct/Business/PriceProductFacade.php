@@ -19,6 +19,8 @@ use Spryker\Zed\PriceProduct\Business\PriceProductFacade as SprykerPriceProductF
 class PriceProductFacade extends SprykerPriceProductFacade implements PriceProductFacadeInterface
 {
     /**
+     * @param array $currency
+     *
      * @return void
      */
     public function updatePriceProduct(array $currency)

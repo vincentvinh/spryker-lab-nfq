@@ -10,7 +10,9 @@ namespace Pyz\Zed\PriceProduct\Business;
 interface RateExchangeUpdaterInterface
 {
     /**
-     * @return mixed
+     * @param array $currencies
+     *
+     * @return void
      */
     public function execute(array $currencies);
 }

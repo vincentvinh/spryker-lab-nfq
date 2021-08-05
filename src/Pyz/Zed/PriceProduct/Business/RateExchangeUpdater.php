@@ -67,6 +67,8 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     }
 
     /**
+     * @param array $currencies
+     *
      * @return void
      */
     public function execute(array $currencies)
@@ -76,7 +78,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     }
 
     /**
-     * get exchange rate
+     * @param array $currencies
      *
      * @return void
      */
@@ -85,7 +87,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
         $client = new PriceExchangeClient();
         $currentCurrency = $this->currentStore->getSelectedCurrencyIsoCode();
 
-        $exchangeTransfer = $client->getExchangeData('EUR', $currencies);
+        $exchangeTransfer = $client->getExchangeData($this->currentStore->getDefaultCurrencyIsoCode(), $currencies);
         $this->rates = $exchangeTransfer->getRates();
 
         echo "[+] Rates (compare with $currentCurrency):";
@@ -106,9 +108,8 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     public function updateProductPrice()
     {
         $this->entityManager->updatePriceData(
-            $this->currentStore->getDefaultCurrencyIsoCode(),
-            $this->rates,
-            $this->currentStore->getIdStore()
+            $this->currentStore,
+            $this->rates
         );
 
         $this->publishEvents();
