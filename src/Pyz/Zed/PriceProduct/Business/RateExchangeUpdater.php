@@ -69,9 +69,9 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     /**
      * @return void
      */
-    public function execute()
+    public function execute(array $currencies)
     {
-        $this->getRates();
+        $this->getRates($currencies);
         $this->updateProductPrice();
     }
 
@@ -80,12 +80,12 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
      *
      * @return void
      */
-    public function getRates()
+    public function getRates(array $currencies)
     {
         $client = new PriceExchangeClient();
         $currentCurrency = $this->currentStore->getSelectedCurrencyIsoCode();
 
-        $exchangeTransfer = $client->getExchangeData('EUR', ['VND', 'USD', 'CHF']);
+        $exchangeTransfer = $client->getExchangeData('EUR', $currencies);
         $this->rates = $exchangeTransfer->getRates();
 
         echo "[+] Rates (compare with $currentCurrency):";
@@ -111,7 +111,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
             $this->currentStore->getIdStore()
         );
 
-//        $this->publishEvents();
+        $this->publishEvents();
     }
 
     /**
@@ -120,7 +120,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     public function publishEvents()
     {
         foreach ($this->rates as $symbol => $rate) {
-            $entities = $this->queryContainer->queryPriceProductStoreByStoreAndCurrency($this->currentStore->getIdStore(), $symbol)->find();
+            $entities = $this->queryContainer->queryPriceProductStoreByCurrency($symbol)->find();
             $transfers = [];
             /** @var \Orm\Zed\PriceProduct\Persistence\SpyPriceProductStore $entity */
             foreach ($entities as $entity) {

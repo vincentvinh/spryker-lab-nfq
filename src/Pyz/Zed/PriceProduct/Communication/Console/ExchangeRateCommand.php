@@ -8,6 +8,7 @@
 namespace Pyz\Zed\PriceProduct\Communication\Console;
 
 use Spryker\Zed\Kernel\Communication\Console\Console;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -26,6 +27,7 @@ class ExchangeRateCommand extends Console
     {
         $this->setName(static::COMMAND_NAME);
         $this->setDescription('This job will be ran every day to update price exchange for different currency');
+        $this->addArgument('currency', InputArgument::OPTIONAL, 'The target currencies', 'USD,CHF,VND' );
     }
 
     /**
@@ -36,7 +38,7 @@ class ExchangeRateCommand extends Console
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->getFacade()->updatePriceProductConcreteStorage();
+        $this->getFacade()->updatePriceProduct(explode(',', $input->getArgument('currency')));
 
         return 0;
     }

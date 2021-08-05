@@ -24,11 +24,10 @@ class PriceProductEntityManager extends \Spryker\Zed\PriceProduct\Persistence\Pr
     /**
      * @param string $currentCurrency
      * @param array $rates
-     * @param int $store
      *
      * @return void
      */
-    public function updatePriceData(string $currentCurrency, array $rates, int $store)
+    public function updatePriceData(string $currentCurrency, array $rates)
     {
         $conn = Propel::getConnection();
         foreach ($rates as $symbol => $rate) {
@@ -49,11 +48,11 @@ class PriceProductEntityManager extends \Spryker\Zed\PriceProduct\Persistence\Pr
             ");
 
             $stmt->bindValue(':current', $currentCurrency);
-//            $stmt->bindValue(':store', $store);
             $stmt->bindValue(':symbol', (string)$symbol);
-//            $stmt->bindValue(':rate', (float) $rate, PDO::PARAM_STR);
 
             $stmt->execute();
         }
     }
+
+
 }

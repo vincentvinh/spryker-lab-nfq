@@ -12,9 +12,8 @@ interface PriceProductEntityManagerInterface
     /**
      * @param string $currentCurrency
      * @param array $rates
-     * @param int $store
      *
      * @return mixed
      */
-    public function updatePriceData(string $currentCurrency, array $rates, int $store);
+    public function updatePriceData(string $currentCurrency, array $rates);
 }

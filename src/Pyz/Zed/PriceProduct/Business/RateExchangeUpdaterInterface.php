@@ -12,5 +12,5 @@ interface RateExchangeUpdaterInterface
     /**
      * @return mixed
      */
-    public function execute();
+    public function execute(array $currencies);
 }

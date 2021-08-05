@@ -17,5 +17,5 @@ interface PriceProductFacadeInterface
     /**
      * @return void
      */
-    public function updatePriceProductConcreteStorage();
+    public function updatePriceProduct(array $currency);
 }

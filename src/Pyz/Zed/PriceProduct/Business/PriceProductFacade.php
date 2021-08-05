@@ -21,9 +21,9 @@ class PriceProductFacade extends SprykerPriceProductFacade implements PriceProdu
     /**
      * @return void
      */
-    public function updatePriceProductConcreteStorage()
+    public function updatePriceProduct(array $currency)
     {
         $handler = $this->getFactory()->createRateExchangeUpdater();
-        $handler->execute();
+        $handler->execute($currency);
     }
 }
