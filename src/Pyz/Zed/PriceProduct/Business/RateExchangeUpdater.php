@@ -8,11 +8,11 @@
 namespace Pyz\Zed\PriceProduct\Business;
 
 use Generated\Shared\Transfer\EventEntityTransfer;
-use Generated\Shared\Transfer\StoreTransfer;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
 use Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager;
 use Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface;
 use Spryker\Zed\Event\Business\EventFacade;
+use Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge;
 
 /**
  * Class RateExchangeUpdater
@@ -29,9 +29,9 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     protected $rates;
 
     /**
-     * @var \Generated\Shared\Transfer\StoreTransfer $currentStore
+     * @var \Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge $storeFacade
      */
-    protected $currentStore;
+    protected $storeFacade;
 
     /**
      * @var \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
@@ -49,43 +49,45 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     protected $eventFacade;
 
     /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $store
+     * @param \Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge $storeFacade
      * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
      * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager $entityManager
      * @param \Spryker\Zed\Event\Business\EventFacade $eventFacade
      */
     public function __construct(
-        StoreTransfer $store,
+        PriceProductToStoreFacadeBridge $storeFacade,
         PriceProductQueryContainerInterface $queryContainer,
         PriceProductEntityManager $entityManager,
         EventFacade $eventFacade
     ) {
-        $this->currentStore = $store;
+        $this->storeFacade = $storeFacade;
         $this->queryContainer = $queryContainer;
         $this->entityManager = $entityManager;
         $this->eventFacade = $eventFacade;
     }
 
     /**
+     * @param array $currencies
+     *
      * @return void
      */
-    public function execute()
+    public function execute(array $currencies)
     {
-        $this->getRates();
+        $this->getRates($currencies);
         $this->updateProductPrice();
     }
 
     /**
-     * get exchange rate
+     * @param array $currencies
      *
      * @return void
      */
-    public function getRates()
+    public function getRates(array $currencies)
     {
         $client = new PriceExchangeClient();
-        $currentCurrency = $this->currentStore->getSelectedCurrencyIsoCode();
+        $currentCurrency = $this->storeFacade->getCurrentStore()->getSelectedCurrencyIsoCode();
 
-        $exchangeTransfer = $client->getExchangeData('EUR', $this->currentStore->getAvailableCurrencyIsoCodes());
+        $exchangeTransfer = $client->getExchangeData($this->storeFacade->getCurrentStore()->getDefaultCurrencyIsoCode(), $currencies);
         $this->rates = $exchangeTransfer->getRates();
 
         echo "[+] Rates (compare with $currentCurrency):";
@@ -106,12 +108,11 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     public function updateProductPrice()
     {
         $this->entityManager->updatePriceData(
-            $this->currentStore->getDefaultCurrencyIsoCode(),
-            $this->rates,
-            $this->currentStore->getIdStore()
+            $this->storeFacade,
+            $this->rates
         );
 
-        $this->publishEvents();
+//        $this->publishEvents();
     }
 
     /**
@@ -120,7 +121,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     public function publishEvents()
     {
         foreach ($this->rates as $symbol => $rate) {
-            $entities = $this->queryContainer->queryPriceProductStoreByStoreAndCurrency($this->currentStore->getIdStore(), $symbol)->find();
+            $entities = $this->queryContainer->queryPriceProductStoreByCurrency($symbol)->find();
             $transfers = [];
             /** @var \Orm\Zed\PriceProduct\Persistence\SpyPriceProductStore $entity */
             foreach ($entities as $entity) {

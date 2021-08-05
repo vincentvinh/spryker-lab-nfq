@@ -10,10 +10,9 @@ namespace Pyz\Zed\PriceProduct\Persistence;
 interface PriceProductQueryContainerInterface
 {
     /**
-     * @param int $store
      * @param string $currency
      *
      * @return mixed
      */
-    public function queryPriceProductStoreByStoreAndCurrency(int $store, string $currency);
+    public function queryPriceProductStoreByCurrency(string $currency);
 }

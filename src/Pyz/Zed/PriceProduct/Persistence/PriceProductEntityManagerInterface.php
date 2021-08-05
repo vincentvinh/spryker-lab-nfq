@@ -7,14 +7,15 @@
 
 namespace Pyz\Zed\PriceProduct\Persistence;
 
+use Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge;
+
 interface PriceProductEntityManagerInterface
 {
     /**
-     * @param string $currentCurrency
+     * @param \Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge $storeFacade
      * @param array $rates
-     * @param int $store
      *
      * @return mixed
      */
-    public function updatePriceData(string $currentCurrency, array $rates, int $store);
+    public function updatePriceData(PriceProductToStoreFacadeBridge $storeFacade, array $rates);
 }

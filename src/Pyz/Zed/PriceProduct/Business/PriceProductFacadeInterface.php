@@ -15,7 +15,9 @@ namespace Pyz\Zed\PriceProduct\Business;
 interface PriceProductFacadeInterface
 {
     /**
+     * @param array $currency
+     *
      * @return void
      */
-    public function updatePriceProductConcreteStorage();
+    public function updatePriceProduct(array $currency);
 }

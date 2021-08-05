@@ -19,11 +19,13 @@ use Spryker\Zed\PriceProduct\Business\PriceProductFacade as SprykerPriceProductF
 class PriceProductFacade extends SprykerPriceProductFacade implements PriceProductFacadeInterface
 {
     /**
+     * @param array $currency
+     *
      * @return void
      */
-    public function updatePriceProductConcreteStorage()
+    public function updatePriceProduct(array $currency)
     {
         $handler = $this->getFactory()->createRateExchangeUpdater();
-        $handler->execute();
+        $handler->execute($currency);
     }
 }
