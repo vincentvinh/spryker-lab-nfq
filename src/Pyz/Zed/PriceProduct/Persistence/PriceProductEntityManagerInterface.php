@@ -7,15 +7,15 @@
 
 namespace Pyz\Zed\PriceProduct\Persistence;
 
-use Generated\Shared\Transfer\StoreTransfer;
+use Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge;
 
 interface PriceProductEntityManagerInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $currentStore
+     * @param \Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge $storeFacade
      * @param array $rates
      *
      * @return mixed
      */
-    public function updatePriceData(StoreTransfer $currentStore, array $rates);
+    public function updatePriceData(PriceProductToStoreFacadeBridge $storeFacade, array $rates);
 }

@@ -8,11 +8,11 @@
 namespace Pyz\Zed\PriceProduct\Business;
 
 use Generated\Shared\Transfer\EventEntityTransfer;
-use Generated\Shared\Transfer\StoreTransfer;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
 use Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager;
 use Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface;
 use Spryker\Zed\Event\Business\EventFacade;
+use Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge;
 
 /**
  * Class RateExchangeUpdater
@@ -29,9 +29,9 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     protected $rates;
 
     /**
-     * @var \Generated\Shared\Transfer\StoreTransfer $currentStore
+     * @var \Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge $storeFacade
      */
-    protected $currentStore;
+    protected $storeFacade;
 
     /**
      * @var \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
@@ -49,18 +49,18 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     protected $eventFacade;
 
     /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $store
+     * @param \Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge $storeFacade
      * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface $queryContainer
      * @param \Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager $entityManager
      * @param \Spryker\Zed\Event\Business\EventFacade $eventFacade
      */
     public function __construct(
-        StoreTransfer $store,
+        PriceProductToStoreFacadeBridge $storeFacade,
         PriceProductQueryContainerInterface $queryContainer,
         PriceProductEntityManager $entityManager,
         EventFacade $eventFacade
     ) {
-        $this->currentStore = $store;
+        $this->storeFacade = $storeFacade;
         $this->queryContainer = $queryContainer;
         $this->entityManager = $entityManager;
         $this->eventFacade = $eventFacade;
@@ -85,9 +85,9 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     public function getRates(array $currencies)
     {
         $client = new PriceExchangeClient();
-        $currentCurrency = $this->currentStore->getSelectedCurrencyIsoCode();
+        $currentCurrency = $this->storeFacade->getCurrentStore()->getSelectedCurrencyIsoCode();
 
-        $exchangeTransfer = $client->getExchangeData($this->currentStore->getDefaultCurrencyIsoCode(), $currencies);
+        $exchangeTransfer = $client->getExchangeData($this->storeFacade->getCurrentStore()->getDefaultCurrencyIsoCode(), $currencies);
         $this->rates = $exchangeTransfer->getRates();
 
         echo "[+] Rates (compare with $currentCurrency):";
@@ -108,11 +108,11 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
     public function updateProductPrice()
     {
         $this->entityManager->updatePriceData(
-            $this->currentStore,
+            $this->storeFacade,
             $this->rates
         );
 
-        $this->publishEvents();
+//        $this->publishEvents();
     }
 
     /**
