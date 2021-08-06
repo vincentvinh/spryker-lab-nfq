@@ -39,18 +39,20 @@ class StepFactory extends SprykerShopStepFactory
     /**
      * @return array
      */
-    public function getSteps() : array
+    public function getSteps(): array
     {
         return [];
     }
 
     /**
-     * @return MoreStep
+     * @return \Pyz\Yves\CheckoutPage\Process\Steps\MoreStep
      */
     public function createMoreStep()
     {
-        return new MoreStep($this->getCalculationClient(),
+        return new MoreStep(
+            $this->getCalculationClient(),
             CheckoutPageRouteProviderPlugin::ROUTE_NAME_CHECKOUT_MORE,
-            $this->getConfig()->getEscapeRoute());
+            $this->getConfig()->getEscapeRoute()
+        );
     }
 }

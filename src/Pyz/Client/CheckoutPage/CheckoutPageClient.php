@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Client\CheckoutPage;
 
 use Spryker\Client\Kernel\AbstractClient;
@@ -9,15 +14,13 @@ use Spryker\Client\Kernel\AbstractClient;
  */
 class CheckoutPageClient extends AbstractClient implements CheckoutPageClientInterface
 {
-
     /**
      * @param int $limit
+     *
      * @return array
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
-    public function getMoreProducts(int $limit) : array
+    public function getMoreProducts(int $limit): array
     {
-
         $searchQuery = $this
                 ->getFactory()
                 ->createMoreProductsQueryPlugin($limit);
@@ -28,7 +31,7 @@ class CheckoutPageClient extends AbstractClient implements CheckoutPageClientInt
 
         $searchResult = $this->getFactory()
                 ->getSearchClient()
-                ->search($searchQuery,$searchQueryFormatters);
+                ->search($searchQuery, $searchQueryFormatters);
 
         $new_products = [];
         foreach ($searchResult['products'] as $product) {

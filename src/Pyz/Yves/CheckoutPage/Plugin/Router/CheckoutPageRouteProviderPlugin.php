@@ -11,8 +11,9 @@ class CheckoutPageRouteProviderPlugin extends SprykerShopCheckoutPageRouteProvid
     public const ROUTE_NAME_CHECKOUT_MORE = 'checkout-more';
 
     /**
-     * @param RouteCollection $routeCollection
-     * @return RouteCollection
+     * @param \Spryker\Yves\Router\Route\RouteCollection $routeCollection
+     *
+     * @return \Spryker\Yves\Router\Route\RouteCollection
      */
     public function addRoutes(RouteCollection $routeCollection): RouteCollection
     {

@@ -20,7 +20,7 @@ class CheckoutPageDependencyProvider extends AbstractDependencyProvider
     public function provideServiceLayerDependencies(Container $container)
     {
         $container = $this->addSearchClient($container);
-        $container = $this->addCatalogSearchResultFormatterPlugins($container);
+        $container = $this->addMoreCheckoutSearchResultFormatterPlugins($container);
 
         return $container;
     }
@@ -39,7 +39,12 @@ class CheckoutPageDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    public function addCatalogSearchResultFormatterPlugins($container)
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    public function addMoreCheckoutSearchResultFormatterPlugins($container)
     {
         $container[static::MORE_PRODUCT_SEARCH_RESULT_FORMATTER_PLUGINS] = function () {
             return [

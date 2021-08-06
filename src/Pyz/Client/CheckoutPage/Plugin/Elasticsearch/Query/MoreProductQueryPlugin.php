@@ -4,9 +4,7 @@ namespace Pyz\Client\CheckoutPage\Plugin\Elasticsearch\Query;
 
 use Elastica\Query;
 use Elastica\Query\BoolQuery;
-use Elastica\Query\FunctionScore;
 use Elastica\Query\Match;
-use Elastica\Query\MatchAll;
 use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\SearchContextTransfer;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
@@ -51,7 +49,6 @@ class MoreProductQueryPlugin implements QueryInterface, SearchContextAwareQueryI
 
         return $query;
     }
-
 
     /**
      * {@inheritDoc}

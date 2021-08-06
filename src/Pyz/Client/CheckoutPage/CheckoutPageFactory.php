@@ -4,14 +4,14 @@ namespace Pyz\Client\CheckoutPage;
 
 use Pyz\Client\CheckoutPage\Plugin\Elasticsearch\Query\MoreProductQueryPlugin;
 use Spryker\Client\Checkout\CheckoutFactory as SprykerCheckoutFactory;
-use SprykerShop\Yves\CatalogPage\CatalogPageDependencyProvider;
-use SprykerShop\Yves\CatalogPage\Dependency\Client\CatalogPageToCatalogClientInterface;
+use Spryker\Client\Search\SearchClientInterface;
 
 class CheckoutPageFactory extends SprykerCheckoutFactory
 {
     /**
      * @param int $limit
-     * @return MoreProductQueryPlugin
+     *
+     * @return \Pyz\Client\CheckoutPage\Plugin\Elasticsearch\Query\MoreProductQueryPlugin
      */
     public function createMoreProductsQueryPlugin(int $limit): MoreProductQueryPlugin
     {
@@ -20,17 +20,14 @@ class CheckoutPageFactory extends SprykerCheckoutFactory
 
     /**
      * @return \Spryker\Client\Search\SearchClientInterface
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
-    public function getSearchClient(): \Spryker\Client\Search\SearchClientInterface
+    public function getSearchClient(): SearchClientInterface
     {
         return $this->getProvidedDependency(CheckoutPageDependencyProvider::CLIENT_SEARCH);
     }
 
-
     /**
      * @return mixed
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function getMoreProductSearchResultFormatters()
     {
