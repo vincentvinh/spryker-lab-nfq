@@ -41,6 +41,9 @@ class PriceProductEntityManager extends SprykerPriceProductEntityManager impleme
                     break;
                 }
             }
+            // round value in VND from 123.456 VND to 123.000
+            $priceSql = $symbol == 'VND' ? "round(gross_price * $rate/1000)*1000 as gross , round(net_price * $rate/1000)*1000 as net"
+                : "gross_price * $rate as gross , net_price * $rate as net";
 
             $sql = "
                 with
@@ -63,7 +66,7 @@ class PriceProductEntityManager extends SprykerPriceProductEntityManager impleme
                     C as (update " . SpyPriceProductStoreTableMap::TABLE_NAME . " sp
                         set gross_price = A.gross, net_price  = a.net
                         from
-                        (select fk_price_product , gross_price * $rate as gross , net_price * $rate as net
+                        (select fk_price_product , $priceSql
                             from " . SpyPriceProductStoreTableMap::TABLE_NAME . " sp
                             join " . SpyCurrencyTableMap::TABLE_NAME . " sc on fk_currency = sc.id_currency
                             where sc.code = :current
