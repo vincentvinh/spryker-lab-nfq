@@ -28,6 +28,7 @@ if [ -n "$CLI_POD" ]; then
         kubectl -n ${KUBE_NAMESPACE} exec "${CLI_POD}" -- bash -c "APPLICATION_STORE=${STORE} vendor/bin/console scheduler:suspend"
     done
 fi
+sleep 60s
 
 helm dependency update kubernetes/spryker
 helm --namespace ${KUBE_NAMESPACE} upgrade --install spryker kubernetes/spryker \

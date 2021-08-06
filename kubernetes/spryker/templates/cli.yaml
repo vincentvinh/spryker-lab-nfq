@@ -47,6 +47,8 @@ spec:
           volumeMounts:
             - mountPath: /home/spryker/env
               name: spryker-cli-env
+          resources:
+            {{- toYaml .Values.components.cli.container.resources | nindent 12 }}
           readinessProbe:
             tcpSocket:
               port: {{ .Values.phpFpmPort }}

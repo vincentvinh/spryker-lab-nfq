@@ -38,10 +38,10 @@ components:
       imagePullPolicy: "Always"
       resources:
         requests:
-          cpu: "250m"
-          memory: "128Mi"
+          cpu: "2000m"
+          memory: "2Gi"
         limits:
-          memory: "256Mi"
+          memory: "4Gi"
 
   database:
     # The name of the component
