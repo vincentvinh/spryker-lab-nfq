@@ -68,7 +68,7 @@ class MoreStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
      */
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        return true;
+        return false;
     }
 
     /**

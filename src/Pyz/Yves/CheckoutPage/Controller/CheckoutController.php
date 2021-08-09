@@ -26,7 +26,7 @@ class CheckoutController extends SprykerShopCheckoutController
             return $response;
         }
 
-        $products = $this->getClient()->getMoreProducts(3);
+        $products = $this->getClient()->getMoreProducts(10);
 
         $response['products'] = $products;
 

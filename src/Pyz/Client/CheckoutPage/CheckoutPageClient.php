@@ -22,8 +22,13 @@ class CheckoutPageClient extends AbstractClient implements CheckoutPageClientInt
     public function getMoreProducts(int $limit): array
     {
         $searchQuery = $this
+            ->getFactory()
+            ->createMoreProductsQueryPlugin($limit);
+
+        $searchQuery = $this
                 ->getFactory()
-                ->createMoreProductsQueryPlugin($limit);
+                ->getSearchClient()
+                ->expandQuery($searchQuery, $this->getFactory()->getMoreProductSearchQueryExpanderPlugins(), []);
 
         $searchQueryFormatters = $this
                 ->getFactory()
@@ -33,6 +38,14 @@ class CheckoutPageClient extends AbstractClient implements CheckoutPageClientInt
                 ->getSearchClient()
                 ->search($searchQuery, $searchQueryFormatters);
 
-        return $searchResult['products'];
+        $products = [];
+
+        foreach ($searchResult['products'] as $product) {
+            if (!empty($product['add_to_cart_sku']) && count($products) < 3) {
+                $products[$product['add_to_cart_sku']] = $product;
+            }
+        }
+
+        return $products;
     }
 }
