@@ -44,9 +44,9 @@ class CheckoutPageDependencyProvider extends AbstractDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Client\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Client\Kernel\Container
      */
     public function addMoreCheckoutSearchResultFormatterPlugins(Container $container): Container
     {
@@ -62,11 +62,9 @@ class CheckoutPageDependencyProvider extends AbstractDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Client\Kernel\Container $container
      *
-     * @return Container
-     *
-     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
+     * @return \Spryker\Client\Kernel\Container
      */
     protected function addMoreProductSearchQueryExpanderPlugins(Container $container): Container
     {

@@ -10,6 +10,7 @@ namespace Pyz\Client\CheckoutPage\Plugin\Elasticsearch\Query;
 use Elastica\Query;
 use Elastica\Query\AbstractQuery;
 use Elastica\Query\BoolQuery;
+use Elastica\Query\Match;
 use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\SearchContextTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
@@ -19,7 +20,6 @@ use Spryker\Client\Search\Dependency\Plugin\SearchStringSetterInterface;
 use Spryker\Client\SearchExtension\Dependency\Plugin\SearchContextAwareQueryInterface;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Zed\ContentProductGui\Communication\Table\AbstractProductAbstractTable;
-use Elastica\Query\Match;
 
 /**
  * @method \Spryker\Client\Catalog\CatalogFactory getFactory()
