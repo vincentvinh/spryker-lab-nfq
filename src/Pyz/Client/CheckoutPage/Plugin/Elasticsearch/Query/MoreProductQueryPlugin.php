@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\SearchContextTransfer;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 use Spryker\Client\SearchExtension\Dependency\Plugin\SearchContextAwareQueryInterface;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
+use Spryker\Zed\ContentProductGui\Communication\Table\AbstractProductAbstractTable;
 
 class MoreProductQueryPlugin implements QueryInterface, SearchContextAwareQueryInterface
 {
@@ -45,6 +46,7 @@ class MoreProductQueryPlugin implements QueryInterface, SearchContextAwareQueryI
         $query = (new Query())
             ->setSource([PageIndexMap::SEARCH_RESULT_DATA])
             ->setQuery($boolQuery)
+            ->setSort([PageIndexMap::SEARCH_RESULT_DATA . '.' . AbstractProductAbstractTable::COL_ID_PRODUCT_ABSTRACT])
             ->setSize($this->limit);
 
         return $query;

@@ -33,13 +33,6 @@ class CheckoutPageClient extends AbstractClient implements CheckoutPageClientInt
                 ->getSearchClient()
                 ->search($searchQuery, $searchQueryFormatters);
 
-        $new_products = [];
-        foreach ($searchResult['products'] as $product) {
-            if (!empty($product['add_to_cart_sku']) && count($new_products) < 3) {
-                $new_products[$product['id_product_abstract']] = $product;
-            }
-        }
-
-        return $new_products;
+        return $searchResult['products'];
     }
 }
