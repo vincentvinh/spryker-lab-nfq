@@ -14,7 +14,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Pyz\Client\PriceExchange\PriceExchangeConfig;
 use Pyz\Client\PriceExchange\Service\PriceExchangeService;
-use Pyz\Shared\PriceExchange\PriceExchangeConstants;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 /**
