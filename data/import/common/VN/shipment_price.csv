@@ -4,10 +4,10 @@ spryker_dummy_shipment-express,VN,VND,390,490
 spryker_drone_shipment-air_standard,VN,VND,350,400
 spryker_drone_shipment-air_sonic,VN,VND,700,900
 spryker_drone_shipment-air_light,VN,VND,1100,1200
-spryker_dummy_shipment-standard,VN,VND,350,460
-spryker_dummy_shipment-express,VN,VND,460,580
-spryker_drone_shipment-air_standard,VN,VND,420,480
-spryker_drone_shipment-air_sonic,VN,VND,720,1100
-spryker_drone_shipment-air_light,VN,VND,1300,1600
-spryker_no_shipment,VN,VND,0,0
+spryker_dummy_shipment-standard,VN,USD,350,460
+spryker_dummy_shipment-express,VN,USD,460,580
+spryker_drone_shipment-air_standard,VN,USD,420,480
+spryker_drone_shipment-air_sonic,VN,USD,720,1100
+spryker_drone_shipment-air_light,VN,USD,1300,1600
+spryker_no_shipment,VN,USD,0,0
 spryker_no_shipment,VN,VND,0,0
