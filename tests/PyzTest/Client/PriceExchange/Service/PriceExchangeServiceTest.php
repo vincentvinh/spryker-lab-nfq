@@ -59,23 +59,35 @@ class PriceExchangeServiceTest extends Unit
         $this->base = 'VND';
         // create a stub by calling constructor and replacing a method
         $client = $this->createMock(Client::class);
+
+        $priceExchangeConfigTransfer = new PriceExchangeConfigTransfer();
+        $priceExchangeConfigTransfer->setApiKey('12312312321');
+        $priceExchangeConfigTransfer->setBaseUrl('http://data.fixer.io/api');
+        $priceExchangeConfigTransfer->setPriceExchangeMethod('GET');
+        $priceExchangeConfigTransfer->setPriceExchangeUri('latest');
+        $getFixerConfigSuccess = $this->make(
+            PriceExchangeConfig::class,
+            [
+                'getFixerConfig' => $priceExchangeConfigTransfer,
+            ]
+        );
         $this->getFixerClass = $this->construct(
             PriceExchangeService::class,
             [
                 'client' => $client,
-                'fixerConfig' => new PriceExchangeConfig(),
+                'fixerConfig' => $getFixerConfigSuccess,
                 'priceExchangeTransfer' => new PriceExchangeTransfer(),
             ]
         );
-        $priceExchangeConfigTransfer = new PriceExchangeConfigTransfer();
-        $priceExchangeConfigTransfer->setApiKey(PriceExchangeConstants::FIXER_API_KEY);
-        $priceExchangeConfigTransfer->setBaseUrl('wrong_http_base');
-        $priceExchangeConfigTransfer->setPriceExchangeMethod(PriceExchangeConstants::FIXER_EXCHANGE_RATE_METHOD);
-        $priceExchangeConfigTransfer->setPriceExchangeUri(PriceExchangeConstants::FIXER_EXCHANGE_RATE_URI);
+        $priceExchangeConfigTransferFail = new PriceExchangeConfigTransfer();
+        $priceExchangeConfigTransferFail->setBaseUrl('wrong_http_base');
+        $priceExchangeConfigTransferFail->setApiKey('12312312321');
+        $priceExchangeConfigTransferFail->setPriceExchangeMethod('GET');
+        $priceExchangeConfigTransferFail->setPriceExchangeUri('latest');
         $getFixerConfigFail = $this->make(
             PriceExchangeConfig::class,
             [
-                'getFixerConfig' => $priceExchangeConfigTransfer,
+                'getFixerConfig' => $priceExchangeConfigTransferFail,
             ]
         );
         $this->getFixerClassWrongConfig = $this->construct(
