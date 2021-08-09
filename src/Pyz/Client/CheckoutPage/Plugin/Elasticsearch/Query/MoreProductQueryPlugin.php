@@ -38,6 +38,9 @@ class MoreProductQueryPlugin extends AbstractPlugin implements QueryInterface, S
      */
     protected $query;
 
+    /**
+     * @var int
+     */
     protected $limit;
 
     /**
@@ -45,6 +48,9 @@ class MoreProductQueryPlugin extends AbstractPlugin implements QueryInterface, S
      */
     protected $searchContextTransfer;
 
+    /**
+     * @param int $limit
+     */
     public function __construct(int $limit)
     {
         $this->limit = $limit;
