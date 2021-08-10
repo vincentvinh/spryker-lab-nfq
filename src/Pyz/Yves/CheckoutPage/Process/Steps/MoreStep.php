@@ -58,6 +58,10 @@ class MoreStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
+        $quoteTransferArray = $quoteTransfer->toArray();
+        $quoteTransferArray['is_saw_more'] = true;
+        $quoteTransfer->fromArray($quoteTransferArray);
+
         return $quoteTransfer;
     }
 
@@ -68,7 +72,13 @@ class MoreStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
      */
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        return true;
+        $quoteTransferArray = $quoteTransfer->toArray();
+
+        if ($quoteTransferArray['is_saw_more'] == true) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
