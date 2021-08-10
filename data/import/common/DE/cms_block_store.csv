@@ -1,13 +1,5 @@
 block_key,store_name
-blck-5,DE
 blck-4,DE
-blck-1,DE
-blck-2,DE
-blck-3,DE
-blck-8,DE
-blck-10,DE
-blck-9,DE
-blck-11,DE
 blck-6,DE
 blck-7,DE
 blck-12,DE
@@ -61,3 +53,6 @@ cms-block-email--order-confirmation--html,DE
 cms-block-email--order-confirmation--text,DE
 cms-block-email--order-shipped--html,DE
 cms-block-email--order-shipped--text,DE
+blck-clone-5,DE
+blck-clone-8,DE
+blck-clone-1,DE
