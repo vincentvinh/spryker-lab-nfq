@@ -23,6 +23,16 @@ while getopts "t:" opt; do
 done
 
 if [ -n "$CLI_POD" ]; then
+    # Replace the CLI pod because they ussually stucked with too many jobs
+    kubectl -n ${KUBE_NAMESPACE} delete "${CLI_POD}"
+    sleep 30s
+    until [ "$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name | wc -l)" -eq 1 ];
+    do
+      echo "Waiting for the new CLI pod ..."
+      sleep 10s
+    done
+    CLI_POD=$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name)
+
     for STORE in "${STORES[@]}"
     do
         kubectl -n ${KUBE_NAMESPACE} exec "${CLI_POD}" -- bash -c "APPLICATION_STORE=${STORE} vendor/bin/console scheduler:suspend"

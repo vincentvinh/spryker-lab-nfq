@@ -45,3 +45,4 @@ jobs:
           helm version
       - uses: actions/checkout@v2
       - run: ./scripts/deploy.sh -t ${GITHUB_SHA}
+        timeout-minutes: 60
