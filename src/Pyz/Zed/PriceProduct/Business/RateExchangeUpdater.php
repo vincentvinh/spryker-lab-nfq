@@ -112,7 +112,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
             $this->rates
         );
 
-//        $this->publishEvents();
+        $this->publishEvents();
     }
 
     /**
