@@ -23,7 +23,7 @@ while getopts "t:" opt; do
 done
 
 if [ -n "$CLI_POD" ]; then
-    # Replace the CLI pod because they ussually stucked with too many jobs
+    # Replace the CLI pod because they usually stucked with too many jobs
     kubectl -n ${KUBE_NAMESPACE} delete "${CLI_POD}"
     sleep 30s
     until [ "$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name | wc -l)" -eq 1 ];

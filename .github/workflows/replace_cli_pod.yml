@@ -1,0 +1,24 @@
+name: Replace the CLI pod
+on:
+  workflow_dispatch:
+env:
+  KUBE_NAMESPACE: beta-shop
+
+jobs:
+  replace-cli-pod:
+    name: Delete the CLI pod
+    runs-on: self-hosted
+    outputs:
+      cli-pod: ${{ steps.find-pod.outputs.pod }}
+    steps:
+      - id: find-pod
+        run: |
+          CLI_POD=$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name)
+          kubectl -n ${KUBE_NAMESPACE} delete ${CLI_POD}
+          sleep 10s
+          until [ "$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name | wc -l)" -eq 1 ];
+          do
+            echo "Waiting for the new CLI pod ..."
+            sleep 10s
+          done
+          printf "New CLI pod is running.\n" "$(kubectl -n ${KUBE_NAMESPACE} get pod --selector component=spryker-cli --field-selector=status.phase=Running -o name)"
