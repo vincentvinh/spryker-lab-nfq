@@ -1,0 +1,31 @@
+{% extends template('page-layout-checkout', 'CheckoutPage') %}
+
+{% define data = {
+    title: 'More' | trans,
+    products: _view.products,
+    viewMode: _view.viewMode | default,
+} %}
+
+{% block content %}
+    {% set jsAddressClass = 'js-more' %}
+        {% block fields %}
+            <div class="grid grid--stretch product-list">
+                {% if data.products %}
+                    {% for product in data.products %}
+                        {% widget 'CatalogPageProductWidget' args [product, data.viewMode] only %}{% endwidget %}
+                    {% endfor %}
+                {% else %}
+                    {% block noResults %}{{ parent() }}{% endblock %}
+                {% endif %}
+            </div>
+        {% endblock %}
+
+        {% block actions %}
+            <div class="col">
+                {{ parent() }}
+            </div>
+            <a href="{{ url('checkout-address') }}" class="button button--hollow button--expand">
+                Skip
+            </a>
+        {% endblock %}
+{% endblock %}
