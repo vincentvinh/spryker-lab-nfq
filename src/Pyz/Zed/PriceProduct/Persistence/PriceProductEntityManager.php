@@ -62,8 +62,12 @@ class PriceProductEntityManager extends SprykerPriceProductEntityManager impleme
                     where B.fk_price_product is null),
 
                     A as (insert into " . SpyPriceProductStoreTableMap::TABLE_NAME . "(id_price_product_store, fk_currency, fk_price_product, fk_store, gross_price, net_price) select * from news),
-                    B as (insert into " . SpyPriceProductDefaultTableMap::TABLE_NAME . "(id_price_product_default, fk_price_product_store) select nextval('spy_price_product_default_pk_seq'), id from news),
-                    C as (update " . SpyPriceProductStoreTableMap::TABLE_NAME . " sp
+                    B as (insert into " . SpyPriceProductDefaultTableMap::TABLE_NAME . "(id_price_product_default, fk_price_product_store) select nextval('spy_price_product_default_pk_seq'), id from news)
+                select * from news;
+            ";
+
+            $updateSql = "
+                update " . SpyPriceProductStoreTableMap::TABLE_NAME . " sp
                         set gross_price = A.gross, net_price  = a.net
                         from
                         (select fk_price_product , $priceSql
@@ -75,15 +79,17 @@ class PriceProductEntityManager extends SprykerPriceProductEntityManager impleme
                         and sp.fk_currency in (
                             select id_currency from " . SpyCurrencyTableMap::TABLE_NAME . " where code = :symbol
                         )
-                    )
-                select * from news;
             ";
 
-            $stmt = $conn->prepare($sql);
-            $stmt->bindValue(':current', $currentCurrency);
-            $stmt->bindValue(':symbol', (string)$symbol);
+            $queries = [$sql, $updateSql];
 
-            $stmt->execute();
+            foreach ($queries as $query) {
+                $stmt = $conn->prepare($query);
+                $stmt->bindValue(':current', $currentCurrency);
+                $stmt->bindValue(':symbol', (string)$symbol);
+
+                $stmt->execute();
+            }
         }
     }
 }

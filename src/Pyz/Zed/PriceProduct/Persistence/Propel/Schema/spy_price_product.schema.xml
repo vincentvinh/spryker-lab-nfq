@@ -28,6 +28,8 @@
         <behavior name="event">
             <parameter name="spy_price_product_store_all" column="*"/>
         </behavior>
+        <column name="gross_price" type="BIGINT"/>
+        <column name="net_price" type="BIGINT"/>
     </table>
 
     <table name="spy_price_product_default">
