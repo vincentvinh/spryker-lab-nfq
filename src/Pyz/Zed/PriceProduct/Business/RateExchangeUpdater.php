@@ -8,6 +8,7 @@
 namespace Pyz\Zed\PriceProduct\Business;
 
 use Generated\Shared\Transfer\EventEntityTransfer;
+use Orm\Zed\PriceProduct\Persistence\Map\SpyPriceProductDefaultTableMap;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
 use Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager;
 use Pyz\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface;
@@ -21,7 +22,7 @@ use Spryker\Zed\PriceProduct\Dependency\Facade\PriceProductToStoreFacadeBridge;
  */
 class RateExchangeUpdater implements RateExchangeUpdaterInterface
 {
-    public const PRICE_STORE_EVENT_UPDATE = 'Entity.spy_price_product_store.update';
+    public const PRICE_STORE_EVENT_UPDATE = 'Entity.spy_price_product_store.create';
 
     /**
      * @var array $rates
@@ -125,7 +126,11 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
             $transfers = [];
             /** @var \Orm\Zed\PriceProduct\Persistence\SpyPriceProductStore $entity */
             foreach ($entities as $entity) {
-                $transfers[] = (new EventEntityTransfer())->setId($entity->getPrimaryKey());
+                $transfer = new EventEntityTransfer();
+                $transfer->setId($entity->getPrimaryKey());
+                $transfer->setForeignKeys([SpyPriceProductDefaultTableMap::TABLE_NAME . "fk_price_product" => $entity->getFkPriceProduct()]);
+
+                $transfers[]= $transfer;
             }
 
             $this->eventFacade->triggerBulk(static::PRICE_STORE_EVENT_UPDATE, $transfers);
