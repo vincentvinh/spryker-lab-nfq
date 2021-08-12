@@ -1,9 +1,10 @@
 {% extends '@Application/Layout/layout.twig' %}
 
-{% block action %}
-    {{ createActionButton('/brand/create', 'Create Brand' | trans) }}
-{% endblock %}
-
 {% block content %}
-    {{ brands | raw }}
+
+    {% block action %}
+        {{ createActionButton('/brand/create', 'Create Brand' | trans) }}
+        {{ viewActionButton('/product-brand/assign?id-brand='~idBrand, 'Assign products' | trans) }}
+    {% endblock %}
+    {{ test }}
 {% endblock %}
