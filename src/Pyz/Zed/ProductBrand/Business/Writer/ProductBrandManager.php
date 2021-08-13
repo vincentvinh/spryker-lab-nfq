@@ -12,45 +12,47 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductBrandTransfer;
-use Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToBrandInterface;
-use Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToEventInterface;
-use Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToProductInterface;
-use Spryker\Zed\ProductBrand\Dependency\ProductBrandEvents;
-use Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
+use Orm\Zed\Brand\Persistence\SpyProductBrand;
+use Orm\Zed\Brand\Persistence\SpyProductBrandQuery;
+use Propel\Runtime\Collection\ObjectCollection;
+use Pyz\Zed\Brand\Business\BrandFacadeInterface;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
+use Spryker\Zed\Event\Business\EventFacadeInterface;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 class ProductBrandManager implements ProductBrandManagerInterface
 {
     /**
-     * @var \Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface
+     * @var ProductBrandQueryContainerInterface
      */
     protected $productBrandQueryContainer;
 
     /**
-     * @var \Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToBrandInterface
+     * @var BrandFacadeInterface
      */
     protected $brandFacade;
 
     /**
-     * @var \Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToProductInterface
+     * @var ProductFacadeInterface
      */
     protected $productFacade;
 
     /**
-     * @var \Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToEventInterface
+     * @var EventFacadeInterface
      */
     protected $eventFacade;
 
     /**
-     * @param \Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface $productBrandQueryContainer
-     * @param \Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToBrandInterface $brandFacade
-     * @param \Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToProductInterface $productFacade
-     * @param \Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToEventInterface|null $eventFacade
+     * @param ProductBrandQueryContainerInterface $productBrandQueryContainer
+     * @param BrandFacadeInterface $brandFacade
+     * @param ProductFacadeInterface $productFacade
+     * @param EventFacadeInterface|null $eventFacade
      */
     public function __construct(
         ProductBrandQueryContainerInterface $productBrandQueryContainer,
-        ProductBrandToBrandInterface $brandFacade,
-        ProductBrandToProductInterface $productFacade,
-        ?ProductBrandToEventInterface $eventFacade = null
+        BrandFacadeInterface $brandFacade,
+        ProductFacadeInterface $productFacade,
+        ?EventFacadeInterface $eventFacade = null
     ) {
         $this->productBrandQueryContainer = $productBrandQueryContainer;
         $this->brandFacade = $brandFacade;
@@ -60,9 +62,9 @@ class ProductBrandManager implements ProductBrandManagerInterface
 
     /**
      * @param int $idBrand
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param LocaleTransfer $localeTransfer
      *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer[]
+     * @return ProductAbstractTransfer[]
      */
     public function getAbstractProductTransferCollectionByBrand(
         $idBrand,
@@ -89,9 +91,9 @@ class ProductBrandManager implements ProductBrandManagerInterface
 
     /**
      * @param int $idBrand
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param LocaleTransfer $locale
      *
-     * @return \Orm\Zed\ProductBrand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return SpyProductBrand[]|ObjectCollection
      */
     public function getProductsByBrand($idBrand, LocaleTransfer $locale)
     {
@@ -105,7 +107,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
      * @param int $idBrand
      * @param int $idProductAbstract
      *
-     * @return \Orm\Zed\ProductBrand\Persistence\SpyProductBrandQuery
+     * @return SpyProductBrandQuery
      */
     public function getProductBrandMappingById($idBrand, $idProductAbstract)
     {
@@ -131,7 +133,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
 
             $mapping->delete();
 
-            $this->triggerEvent(ProductBrandEvents::PRODUCT_CATEGORY_UNASSIGNED, $idBrand, $idProductAbstract);
+            $this->triggerEvent(ProductBrandEvents::PRODUCT_BRAND_UNASSIGNED, $idBrand, $idProductAbstract);
 
             $this->touchProductAbstractActive($idProductAbstract);
         }
@@ -155,7 +157,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
             $mapping->setFkProductAbstract($idProductAbstract);
             $mapping->save();
 
-            $this->triggerEvent(ProductBrandEvents::PRODUCT_CATEGORY_ASSIGNED, $idBrand, $idProductAbstract);
+            $this->triggerEvent(ProductBrandEvents::PRODUCT_BRAND_ASSIGNED, $idBrand, $idProductAbstract);
 
             $this->touchProductAbstractActive($idProductAbstract);
         }
@@ -232,7 +234,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
      * @param int $idBrand
      * @param int $idProductAbstract
      *
-     * @return \Generated\Shared\Transfer\ProductBrandTransfer
+     * @return ProductBrandTransfer
      */
     protected function createProductBrandTransfer($idBrand, $idProductAbstract)
     {
@@ -261,7 +263,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     * @param BrandTransfer $brandTransfer
      *
      * @return void
      */
@@ -278,7 +280,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
     /**
      * @param int $idBrandNode
      *
-     * @return \Orm\Zed\ProductBrand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return SpyProductBrand[]|ObjectCollection
      */
     protected function findProductMappingsOfChildCategories($idBrandNode)
     {

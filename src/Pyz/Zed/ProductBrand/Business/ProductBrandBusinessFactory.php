@@ -2,18 +2,11 @@
 
 namespace Pyz\Zed\ProductBrand\Business;
 
+use Pyz\Zed\ProductBrand\Business\Writer\ProductBrandManagerInterface;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer;
 use Pyz\Zed\ProductBrand\ProductBrandConfig;
 use Pyz\Zed\ProductBrand\ProductBrandDependencyProvider;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use Spryker\Zed\ProductCategory\Business\Manager\ProductBrandManager;
-use Spryker\Zed\ProductCategory\Business\Manager\ProductCategoryManagerInterface;
-use Spryker\Zed\ProductCategory\Business\Model\BrandReader;
-use Spryker\Zed\ProductCategory\Business\Model\CategoryReaderInterface;
-use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToCategoryInterface;
-use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToEventInterface;
-use Spryker\Zed\ProductCategory\Dependency\Facade\ProductCategoryToProductInterface;
-use Spryker\Zed\ProductCategory\ProductCategoryDependencyProvider;
 
 /**
  * @method ProductBrandConfig getConfig()
@@ -23,20 +16,20 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
 {
 
     /**
-     * @return ProductCategoryManagerInterface
+     * @return ProductBrandManagerInterface
      */
     public function createProductBrandWriter()
     {
         return new ProductBrandManager(
             $this->getQueryContainer(),
-            $this->getCategoryFacade(),
+            $this->getBrandFacade(),
             $this->getProductFacade(),
             $this->getEventFacade()
         );
     }
 
     /**
-     * @return ProductCategoryToProductInterface
+     * @return ProductBrandToProductInterface
      */
     protected function getProductFacade()
     {
@@ -44,7 +37,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return ProductCategoryToEventInterface
+     * @return ProductBrandToEventInterface
      */
     protected function getEventFacade()
     {
@@ -52,7 +45,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return ProductCategoryToCategoryInterface
+     * @return ProductBrandToBrandInterface
      */
     protected function getBrandFacade()
     {
@@ -60,9 +53,9 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return CategoryReaderInterface
+     * @return BrandReaderInterface
      */
-    public function createBrandReader(): CategoryReaderInterface
+    public function createBrandReader(): BrandReaderInterface
     {
         return new BrandReader(
             $this->getRepository(),
