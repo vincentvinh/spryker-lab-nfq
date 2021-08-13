@@ -7,16 +7,21 @@
 
 namespace Pyz\Zed\ProductBrand\Communication\Form;
 
+use Pyz\Zed\ProductBrand\Business\ProductBrandFacadeInterface;
+use Pyz\Zed\ProductBrand\Communication\ProductBrandCommunicationFactory;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface;
+use Pyz\Zed\ProductBrand\ProductBrandConfig;
 use Spryker\Zed\Kernel\Communication\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * @method \Spryker\Zed\ProductBrand\Business\ProductBrandFacadeInterface getFacade()
- * @method \Spryker\Zed\ProductBrand\Communication\ProductBrandCommunicationFactory getFactory()
- * @method \Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface getQueryContainer()
- * @method \Spryker\Zed\ProductBrand\ProductBrandConfig getConfig()
- * @method \Spryker\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface getRepository()
+ * @method ProductBrandFacadeInterface getFacade()
+ * @method ProductBrandCommunicationFactory getFactory()
+ * @method ProductBrandQueryContainerInterface getQueryContainer()
+ * @method ProductBrandConfig getConfig()
+ * @method ProductBrandRepositoryInterface getRepository()
  */
 class AssignForm extends AbstractType
 {

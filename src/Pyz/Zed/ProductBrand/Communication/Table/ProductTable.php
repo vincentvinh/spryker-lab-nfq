@@ -11,10 +11,10 @@ namespace Pyz\Zed\ProductBrand\Communication\Table;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
+use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Gui\Communication\Table\AbstractTable;
 use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
-use Spryker\Zed\ProductBrand\Dependency\Service\ProductBrandToUtilEncodingInterface;
-use Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
 
 class ProductTable extends AbstractTable
 {
@@ -22,17 +22,17 @@ class ProductTable extends AbstractTable
     public const COL_CHECKBOX = 'checkbox';
 
     /**
-     * @var \Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface
+     * @var ProductBrandQueryContainerInterface
      */
     protected $productBrandQueryContainer;
 
     /**
-     * @var \Spryker\Zed\ProductBrand\Dependency\Service\ProductBrandToUtilEncodingInterface
+     * @var UtilEncodingServiceInterface
      */
     protected $utilEncodingService;
 
     /**
-     * @var \Generated\Shared\Transfer\LocaleTransfer
+     * @var LocaleTransfer
      */
     protected $locale;
 
@@ -42,14 +42,14 @@ class ProductTable extends AbstractTable
     protected $idBrand;
 
     /**
-     * @param \Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface $productBrandQueryContainer
-     * @param \Spryker\Zed\ProductBrand\Dependency\Service\ProductBrandToUtilEncodingInterface $utilEncodingService
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param ProductBrandQueryContainerInterface $productBrandQueryContainer
+     * @param UtilEncodingServiceInterface $utilEncodingService
+     * @param LocaleTransfer $locale
      * @param int $idBrand
      */
     public function __construct(
         ProductBrandQueryContainerInterface $productBrandQueryContainer,
-        ProductBrandToUtilEncodingInterface $utilEncodingService,
+        UtilEncodingServiceInterface $utilEncodingService,
         LocaleTransfer $locale,
         $idBrand
     ) {
@@ -62,9 +62,9 @@ class ProductTable extends AbstractTable
     }
 
     /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
+     * @param TableConfiguration $config
      *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
+     * @return TableConfiguration
      */
     protected function configure(TableConfiguration $config)
     {
@@ -93,7 +93,7 @@ class ProductTable extends AbstractTable
     }
 
     /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
+     * @param TableConfiguration $config
      *
      * @return array
      */

@@ -2,10 +2,11 @@
 
 namespace Pyz\Zed\ProductBrand\Persistence;
 
+use Orm\Zed\Brand\Persistence\SpyProductBrandQuery;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
-use Orm\Zed\ProductBrand\Persistence\SpyProductBrandQuery;
+use Pyz\Zed\ProductBrand\Persistence\Mapper\BrandMapper;
+use Pyz\Zed\ProductBrand\Persistence\Mapper\BrandMapperInterface;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
-use Spryker\Zed\ProductBrand\Persistence\Mapper\BrandMapperInterface;
 
 /**
  * @method \Pyz\Zed\ProductBrand\ProductBrandConfig getConfig()
@@ -14,7 +15,7 @@ use Spryker\Zed\ProductBrand\Persistence\Mapper\BrandMapperInterface;
 class ProductBrandPersistenceFactory extends AbstractPersistenceFactory
 {
     /**
-     * @return \Orm\Zed\ProductBrand\Persistence\SpyProductBrandQuery
+     * @return SpyProductBrandQuery
      */
     public function createProductBrandQuery()
     {
@@ -30,7 +31,7 @@ class ProductBrandPersistenceFactory extends AbstractPersistenceFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductBrand\Persistence\Mapper\BrandMapperInterface
+     * @return BrandMapperInterface
      */
     public function createBrandMapper(): BrandMapperInterface
     {

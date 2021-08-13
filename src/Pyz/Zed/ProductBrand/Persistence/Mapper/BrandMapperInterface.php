@@ -8,15 +8,16 @@
 namespace Pyz\Zed\ProductBrand\Persistence\Mapper;
 
 use Generated\Shared\Transfer\BrandCollectionTransfer;
+use Orm\Zed\Brand\Persistence\SpyProductBrand;
 use Propel\Runtime\Collection\ObjectCollection;
 
 interface BrandMapperInterface
 {
     /**
-     * @param \Orm\Zed\ProductBrand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection $brandEntities
-     * @param \Generated\Shared\Transfer\BrandCollectionTransfer $brandCollectionTransfer
+     * @param SpyProductBrand[]|ObjectCollection $brandEntities
+     * @param BrandCollectionTransfer $brandCollectionTransfer
      *
-     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
+     * @return BrandCollectionTransfer
      */
     public function mapBrandCollection(
         ObjectCollection $brandEntities,

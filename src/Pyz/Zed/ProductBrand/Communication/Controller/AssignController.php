@@ -8,25 +8,32 @@
 namespace Pyz\Zed\ProductBrand\Communication\Controller;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Brand\Persistence\SpyBrand;
+use Pyz\Zed\ProductBrand\Business\ProductBrandFacadeInterface;
+use Pyz\Zed\ProductBrand\Communication\ProductBrandCommunicationFactory;
+use Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
-use Spryker\Zed\ProductBrand\Communication\Table\ProductBrandTable;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method \Spryker\Zed\ProductBrand\Business\ProductBrandFacadeInterface getFacade()
- * @method \Spryker\Zed\ProductBrand\Communication\ProductBrandCommunicationFactory getFactory()
- * @method \Spryker\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface getQueryContainer()
- * @method \Spryker\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface getRepository()
+ * @method ProductBrandFacadeInterface getFacade()
+ * @method ProductBrandCommunicationFactory getFactory()
+ * @method ProductBrandQueryContainerInterface getQueryContainer()
+ * @method ProductBrandRepositoryInterface getRepository()
  */
 class AssignController extends AbstractController
 {
     public const PARAM_ID_BRAND = 'id-brand';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      *
-     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @return array|RedirectResponse
      */
     public function indexAction(Request $request)
     {
@@ -73,7 +80,7 @@ class AssignController extends AbstractController
     /**
      * @param int $idBrand
      *
-     * @return \Orm\Zed\Brand\Persistence\SpyBrand|null
+     * @return SpyBrand|null
      */
     protected function getBrandEntity($idBrand)
     {
@@ -94,7 +101,7 @@ class AssignController extends AbstractController
     /**
      * @param int $idBrand
      *
-     * @return \Symfony\Component\Form\FormInterface
+     * @return FormInterface
      */
     protected function getForm($idBrand)
     {
@@ -105,9 +112,9 @@ class AssignController extends AbstractController
 
     /**
      * @param int $idBrand
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param LocaleTransfer $localeTransfer
      *
-     * @return \Spryker\Zed\ProductBrand\Communication\Table\ProductBrandTable
+     * @return ProductBrandTable
      */
     protected function getBrandProductsTable($idBrand, LocaleTransfer $localeTransfer)
     {
@@ -118,9 +125,9 @@ class AssignController extends AbstractController
 
     /**
      * @param int $idBrand
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param LocaleTransfer $localeTransfer
      *
-     * @return \Spryker\Zed\ProductBrand\Communication\Table\ProductTable
+     * @return ProductTable
      */
     protected function getProductsTable($idBrand, LocaleTransfer $localeTransfer)
     {
@@ -189,9 +196,9 @@ class AssignController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return JsonResponse
      */
     public function productBrandTableAction(Request $request)
     {
@@ -203,9 +210,9 @@ class AssignController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return JsonResponse
      */
     public function productTableAction(Request $request)
     {

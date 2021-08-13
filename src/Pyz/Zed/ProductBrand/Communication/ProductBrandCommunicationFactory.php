@@ -3,18 +3,25 @@
 namespace Pyz\Zed\ProductBrand\Communication;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Pyz\Zed\Brand\Business\BrandFacadeInterface;
+use Pyz\Zed\ProductBrand\Communication\Form\AssignForm;
 use Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable;
+use Pyz\Zed\ProductBrand\Communication\Table\ProductTable;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer;
+use Pyz\Zed\ProductBrand\ProductBrandConfig;
 use Pyz\Zed\ProductBrand\ProductBrandDependencyProvider;
+use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
+use Symfony\Component\Form\FormInterface;
 
 /**
- * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer getQueryContainer()
- * @method \Pyz\Zed\ProductBrand\ProductBrandConfig getConfig()
+ * @method ProductBrandQueryContainer getQueryContainer()
+ * @method ProductBrandConfig getConfig()
  */
 class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
 {
     /**
-     * @return \Generated\Shared\Transfer\LocaleTransfer
+     * @return LocaleTransfer
      */
     public function getCurrentLocale()
     {
@@ -37,7 +44,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param LocaleTransfer $locale
      * @param int $idBrand
      *
      */
@@ -47,10 +54,10 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param LocaleTransfer $locale
      * @param int $idBrand
      *
-     * @return \Spryker\Zed\ProductBrand\Communication\Table\ProductTable
+     * @return ProductTable
      */
     public function createProductTable(LocaleTransfer $locale, $idBrand)
     {
@@ -58,9 +65,9 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductBrand\Dependency\Service\ProductBrandToUtilEncodingInterface
+     * @return UtilEncodingServiceInterface
      */
-    public function getUtilEncodingService()
+    public function getUtilEncodingService(): UtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(ProductBrandDependencyProvider::SERVICE_UTIL_ENCODING);
     }
@@ -68,7 +75,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     /**
      * @param array $data
      *
-     * @return \Symfony\Component\Form\FormInterface
+     * @return FormInterface
      */
     public function createAssignForm(array $data)
     {
@@ -76,10 +83,10 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductBrand\Dependency\Facade\ProductBrandToBrandBridge
+     * @return BrandFacadeInterface
      */
-    public function getBrandFacade(): ProductBrandToBrandBridge
+    public function getBrandFacade(): BrandFacadeInterface
     {
-        return $this->getProvidedDependency(ProductBrandDependencyProvider::FACADE_CATEGORY);
+        return $this->getProvidedDependency(ProductBrandDependencyProvider::FACADE_BRAND);
     }
 }
