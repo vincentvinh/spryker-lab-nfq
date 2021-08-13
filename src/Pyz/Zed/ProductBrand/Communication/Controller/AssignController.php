@@ -145,7 +145,6 @@ class AssignController extends AbstractController
         $idBrand = $this->castId($data['id_brand']);
 
         $this->updateProductBrandMappings($idBrand, $data);
-        $this->updateProductOrder($idBrand, (array)json_decode($data['product_order'], true));
 
         return true;
     }

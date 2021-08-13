@@ -132,13 +132,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
             }
 
             $mapping->delete();
-
-            $this->triggerEvent(ProductBrandEvents::PRODUCT_BRAND_UNASSIGNED, $idBrand, $idProductAbstract);
-
-            $this->touchProductAbstractActive($idProductAbstract);
         }
-
-        $this->touchBrandActive($idBrand);
     }
 
     /**
@@ -156,40 +150,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
             $mapping->setFkBrand($idBrand);
             $mapping->setFkProductAbstract($idProductAbstract);
             $mapping->save();
-
-            $this->triggerEvent(ProductBrandEvents::PRODUCT_BRAND_ASSIGNED, $idBrand, $idProductAbstract);
-
-            $this->touchProductAbstractActive($idProductAbstract);
         }
-
-        $this->touchBrandActive($idBrand);
-    }
-
-    /**
-     * @param int $idBrand
-     * @param array $productOrderList
-     *
-     * @return void
-     */
-    public function updateProductMappingsOrder($idBrand, array $productOrderList)
-    {
-        foreach ($productOrderList as $idProduct => $order) {
-            $mapping = $this->getProductBrandMappingById($idBrand, $idProduct)
-                ->findOne();
-
-            if ($mapping === null) {
-                continue;
-            }
-
-            $mapping->setFkBrand($idBrand);
-            $mapping->setFkProductAbstract($idProduct);
-            $mapping->setProductOrder($order);
-            $mapping->save();
-
-            $this->touchProductAbstractActive($idProduct);
-        }
-
-        $this->touchBrandActive($idBrand);
     }
 
     /**
@@ -211,82 +172,17 @@ class ProductBrandManager implements ProductBrandManagerInterface
     }
 
     /**
-     * @param int $idProductAbstract
-     *
-     * @return void
-     */
-    protected function touchProductAbstractActive($idProductAbstract)
-    {
-        $this->productFacade->touchProductAbstract($idProductAbstract);
-    }
-
-    /**
-     * @param int $idBrand
-     *
-     * @return void
-     */
-    protected function touchBrandActive($idBrand)
-    {
-        $this->brandFacade->touchBrandActive($idBrand);
-    }
-
-    /**
      * @param int $idBrand
      * @param int $idProductAbstract
      *
      * @return ProductBrandTransfer
      */
-    protected function createProductBrandTransfer($idBrand, $idProductAbstract)
+    protected function createProductBrandTransfer(int $idBrand,int $idProductAbstract)
     {
         $productBrandTransfer = new ProductBrandTransfer();
         $productBrandTransfer->setFkBrand($idBrand);
         $productBrandTransfer->setFkProductAbstract($idProductAbstract);
 
         return $productBrandTransfer;
-    }
-
-    /**
-     * @param string $eventName
-     * @param int $idBrand
-     * @param int $idProductAbstract
-     *
-     * @return void
-     */
-    protected function triggerEvent($eventName, $idBrand, $idProductAbstract)
-    {
-        if ($this->eventFacade === null) {
-            return;
-        }
-
-        $productBrandTransfer = $this->createProductBrandTransfer($idBrand, $idProductAbstract);
-        $this->eventFacade->trigger($eventName, $productBrandTransfer);
-    }
-
-    /**
-     * @param BrandTransfer $brandTransfer
-     *
-     * @return void
-     */
-    public function updateProductMappingsForUpdatedBrand(BrandTransfer $brandTransfer)
-    {
-        $idBrandNode = $brandTransfer->getBrandNode()->getIdBrandNode();
-        $productMappings = $this->findProductMappingsOfChildCategories($idBrandNode);
-
-        foreach ($productMappings as $productMappingEntity) {
-            $this->touchProductAbstractActive($productMappingEntity->getFkProductAbstract());
-        }
-    }
-
-    /**
-     * @param int $idBrandNode
-     *
-     * @return SpyProductBrand[]|ObjectCollection
-     */
-    protected function findProductMappingsOfChildCategories($idBrandNode)
-    {
-        return $this
-            ->productBrandQueryContainer
-            ->queryProductBrandChildrenMappingsByBrandNodeId($idBrandNode)
-            ->find();
     }
 }
