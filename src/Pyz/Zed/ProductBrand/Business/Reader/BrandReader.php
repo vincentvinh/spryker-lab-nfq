@@ -9,7 +9,8 @@ namespace Pyz\Zed\ProductBrand\Business\Reader;
 
 use Generated\Shared\Transfer\BrandCollectionTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Zed\ProductBrand\Business\Reader\BrandReaderInterface;
+use Pyz\Zed\Brand\Business\BrandFacadeInterface;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface;
 
 class BrandReader implements BrandReaderInterface
 {
@@ -19,17 +20,17 @@ class BrandReader implements BrandReaderInterface
     protected $brandRepository;
 
     /**
-     * @var ProductBrandToBrandInterface
+     * @var BrandFacadeInterface
      */
     protected $brandFacade;
 
     /**
      * @param ProductBrandRepositoryInterface $brandRepository
-     * @param ProductBrandToBrandInterface $brandFacade
+     * @param BrandFacadeInterface $brandFacade
      */
     public function __construct(
         ProductBrandRepositoryInterface $brandRepository,
-        ProductBrandToBrandInterface $brandFacade
+        BrandFacadeInterface $brandFacade
     ) {
         $this->brandRepository = $brandRepository;
         $this->brandFacade = $brandFacade;

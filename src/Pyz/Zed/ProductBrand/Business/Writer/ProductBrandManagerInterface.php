@@ -9,22 +9,27 @@ namespace Pyz\Zed\ProductBrand\Business\Writer;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
+use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
+use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
+use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Exception\PropelException;
 
 interface ProductBrandManagerInterface
 {
     /**
      * @param int $idCategory
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param LocaleTransfer $localeTransfer
      *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer[]
+     * @return ProductAbstractTransfer[]
      */
     public function getAbstractProductTransferCollectionByCategory($idCategory, LocaleTransfer $localeTransfer);
 
     /**
      * @param int $idCategory
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param LocaleTransfer $locale
      *
-     * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategory[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return SpyProductCategory[]|ObjectCollection
      */
     public function getProductsByCategory($idCategory, LocaleTransfer $locale);
 
@@ -32,7 +37,7 @@ interface ProductBrandManagerInterface
      * @param int $idCategory
      * @param int $idProductAbstract
      *
-     * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery
+     * @return SpyProductCategoryQuery
      */
     public function getProductCategoryMappingById($idCategory, $idProductAbstract);
 
@@ -40,7 +45,7 @@ interface ProductBrandManagerInterface
      * @param int $idCategory
      * @param array $productIdsToAssign
      *
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws PropelException
      *
      * @return void
      */
@@ -65,14 +70,14 @@ interface ProductBrandManagerInterface
      * @param int $idCategory
      * @param array $productOrderList
      *
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @throws PropelException
      *
      * @return void
      */
     public function updateProductMappingsOrder($idCategory, array $productOrderList);
 
     /**
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
+     * @param CategoryTransfer $categoryTransfer
      *
      * @return void
      */

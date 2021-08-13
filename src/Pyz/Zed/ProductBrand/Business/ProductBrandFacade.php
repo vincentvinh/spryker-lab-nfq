@@ -26,7 +26,7 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
     public function createProductBrandMappings($idBrand, array $productIdsToAssign)
     {
         $this->getFactory()
-            ->createProductBrandManager()
+            ->createProductBrandWriter()
             ->createProductBrandMappings($idBrand, $productIdsToAssign);
     }
 
@@ -43,7 +43,7 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
     public function removeProductBrandMappings($idBrand, array $productIdsToUnAssign)
     {
         $this->getFactory()
-            ->createProductBrandManager()
+            ->createProductBrandWriter()
             ->removeProductBrandMappings($idBrand, $productIdsToUnAssign);
     }
 
@@ -60,7 +60,7 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
     public function updateProductMappingsOrder($idBrand, array $productOrderList)
     {
         $this->getFactory()
-            ->createProductBrandManager()
+            ->createProductBrandWriter()
             ->updateProductMappingsOrder($idBrand, $productOrderList);
     }
 
@@ -77,7 +77,7 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
     {
         $this
             ->getFactory()
-            ->createProductBrandManager()
+            ->createProductBrandWriter()
             ->removeMappings($idBrand);
     }
 
@@ -95,7 +95,7 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
     {
         return $this
             ->getFactory()
-            ->createProductBrandManager()
+            ->createProductBrandWriter()
             ->getAbstractProductTransferCollectionByBrand($idBrand, $localeTransfer);
     }
 
@@ -112,7 +112,7 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
     {
         $this
             ->getFactory()
-            ->createProductBrandManager()
+            ->createProductBrandWriter()
             ->updateProductMappingsForUpdatedBrand($brandTransfer);
     }
 

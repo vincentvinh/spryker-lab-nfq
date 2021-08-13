@@ -2,15 +2,23 @@
 
 namespace Pyz\Zed\ProductBrand\Business;
 
+use Pyz\Zed\Brand\Business\BrandFacadeInterface;
+use Pyz\Zed\ProductBrand\Business\Reader\BrandReader;
+use Pyz\Zed\ProductBrand\Business\Reader\BrandReaderInterface;
+use Pyz\Zed\ProductBrand\Business\Writer\ProductBrandManager;
 use Pyz\Zed\ProductBrand\Business\Writer\ProductBrandManagerInterface;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer;
+use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepository;
 use Pyz\Zed\ProductBrand\ProductBrandConfig;
 use Pyz\Zed\ProductBrand\ProductBrandDependencyProvider;
+use Spryker\Zed\Event\Business\EventFacadeInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 /**
  * @method ProductBrandConfig getConfig()
  * @method ProductBrandQueryContainer getQueryContainer()
+ * @method ProductBrandRepository getRepository()()
  */
 class ProductBrandBusinessFactory extends AbstractBusinessFactory
 {
@@ -29,7 +37,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return ProductBrandToProductInterface
+     * @return ProductFacadeInterface
      */
     protected function getProductFacade()
     {
@@ -37,7 +45,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return ProductBrandToEventInterface
+     * @return EventFacadeInterface
      */
     protected function getEventFacade()
     {
@@ -45,7 +53,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return ProductBrandToBrandInterface
+     * @return BrandFacadeInterface
      */
     protected function getBrandFacade()
     {
