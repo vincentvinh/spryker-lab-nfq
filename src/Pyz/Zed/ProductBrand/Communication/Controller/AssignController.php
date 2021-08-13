@@ -70,7 +70,7 @@ class AssignController extends AbstractController
         return $this->viewResponse([
             'idBrand' => $idBrand,
             'form' => $form->createView(),
-            'productCategoriesTable' => $brandProductsTable->render(),
+            'productBrandsTable' => $brandProductsTable->render(),
             'productsTable' => $productsTable->render(),
             'currentBrand' => $brandEntity->toArray(),
             'brandPath' => $brandPath,

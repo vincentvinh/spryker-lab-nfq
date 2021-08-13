@@ -10,7 +10,7 @@
 {% block section_title %}{{ 'Assign products to brand' | trans }}{% endblock %}
 
 {% block action %}
-    {% include ['@CategoryGui/_partials/back-button.twig', '@Category/_partials/back-button.twig'] %}
+    {{ backActionButton('/brand/list', 'List of Brands' | trans) }}
 {% endblock %}
 
 {% block content %}
@@ -78,7 +78,7 @@
                 <div class="tab-content">
                     <div id="tab-11" class="tab-pane active">
                         <div class="panel-body">
-                            {{ productCategoriesTable | raw }}
+                            {{ productBrandsTable | raw }}
 
                             <div class="prcat-deselect-all">
                                 <a href="#" class="btn btn-primary ">{{ 'Deselect All' | trans }}</a>
