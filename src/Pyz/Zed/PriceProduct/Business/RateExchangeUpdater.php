@@ -128,7 +128,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
             foreach ($entities as $entity) {
                 $transfer = new EventEntityTransfer();
                 $transfer->setId($entity->getPrimaryKey());
-                $transfer->setForeignKeys([SpyPriceProductDefaultTableMap::TABLE_NAME . "fk_price_product" => $entity->getFkPriceProduct()]);
+                $transfer->setForeignKeys([SpyPriceProductDefaultTableMap::TABLE_NAME . ".fk_price_product" => $entity->getFkPriceProduct()]);
 
                 $transfers[]= $transfer;
             }
