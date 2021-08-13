@@ -10,7 +10,7 @@
 {% block section_title %}{{ 'Assign products to brand' | trans }}{% endblock %}
 
 {% block action %}
-    {% include ['@BrandGui/_partials/back-button.twig', '@Brand/_partials/back-button.twig'] %}
+    {% include ['@CategoryGui/_partials/back-button.twig', '@Category/_partials/back-button.twig'] %}
 {% endblock %}
 
 {% block content %}
@@ -120,11 +120,11 @@
 
 {% block head_css %}
     {{ parent() }}
-    <link rel="stylesheet"  href="{{ assetsPath('css/spryker-zed-productbrand-assign.css') }}" />
+    <link rel="stylesheet"  href="{{ assetsPath('css/spryker-zed-productcategory-assign.css') }}" />
 {% endblock %}
 
 
 {% block footer_js %}
     {{ parent() }}
-    <script src="{{ assetsPath('js/spryker-zed-productbrand-assign.js') }}"></script>
+    <script src="{{ assetsPath('js/spryker-zed-productcategory-assign.js') }}"></script>
 {% endblock %}

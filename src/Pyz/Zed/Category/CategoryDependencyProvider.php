@@ -18,7 +18,7 @@ use Spryker\Zed\CategoryImageGui\Communication\Plugin\CategoryImageFormTabExpand
 use Spryker\Zed\CategoryNavigationConnector\Communication\Plugin\UpdateNavigationRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\ReadProductCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\RemoveProductCategoryRelationPlugin;
-use Spryker\Zed\ProductCategory\Communication\Plugin\UpdateProductCategoryRelationPlugin;
+use Spryker\Zed\ProductCategory\Communication\Plugin\UpdateProductBrandRelationPlugin;
 
 class CategoryDependencyProvider extends SprykerDependencyProvider
 {
@@ -44,7 +44,7 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
     protected function getRelationUpdatePluginStack(): array
     {
         return [
-            new UpdateProductCategoryRelationPlugin(),
+            new UpdateProductBrandRelationPlugin(),
             new UpdateNavigationRelationPlugin(),
         ];
     }

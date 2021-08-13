@@ -57,7 +57,7 @@ class ProductTable extends AbstractTable
         $this->utilEncodingService = $utilEncodingService;
         $this->locale = $locale;
         $this->idBrand = (int)$idBrand;
-        $this->defaultUrl = sprintf('product-table?%s=%d', ProductBrandTable::PARAM_ID_CATEGORY, $this->idBrand);
+        $this->defaultUrl = sprintf('product-table?%s=%d', ProductBrandTable::PARAM_ID_BRAND, $this->idBrand);
         $this->setTableIdentifier(self::TABLE_IDENTIFIER);
     }
 

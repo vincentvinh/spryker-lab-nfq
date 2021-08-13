@@ -73,7 +73,6 @@ class ProductBrandTable extends AbstractTable
             SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT => 'ID',
             SpyProductAbstractTableMap::COL_SKU => 'SKU',
             SpyProductAbstractLocalizedAttributesTableMap::COL_NAME => 'Name',
-            SpyProductBrandTableMap::COL_PRODUCT_ORDER => 'Order',
             static::COL_CHECKBOX => 'Selected',
         ]);
         $config->setSearchable([
@@ -83,12 +82,9 @@ class ProductBrandTable extends AbstractTable
         $config->setSortable([
             SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
             SpyProductAbstractTableMap::COL_SKU,
-            SpyProductBrandTableMap::COL_PRODUCT_ORDER,
         ]);
 
-        $config->addRawColumn(SpyProductBrandTableMap::COL_PRODUCT_ORDER);
         $config->addRawColumn(static::COL_CHECKBOX);
-        $config->setDefaultSortField(SpyProductBrandTableMap::COL_PRODUCT_ORDER, TableConfiguration::SORT_ASC);
 
         return $config;
     }
@@ -112,7 +108,6 @@ class ProductBrandTable extends AbstractTable
                 SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT => $productBrand['id_product_abstract'],
                 SpyProductAbstractTableMap::COL_SKU => $productBrand['sku'],
                 SpyProductAbstractLocalizedAttributesTableMap::COL_NAME => $productBrand['name'],
-                SpyProductBrandTableMap::COL_PRODUCT_ORDER => $this->getOrderHtml($productBrand),
                 static::COL_CHECKBOX => $this->getCheckboxHtml($productBrand),
             ];
         }
@@ -136,25 +131,6 @@ class ProductBrandTable extends AbstractTable
 
         return sprintf(
             "<input id='product_brand_checkbox_%d' class='product_brand_checkbox' type='checkbox' checked='checked' data-info='%s'>",
-            $productBrand['id_product_abstract'],
-            $this->utilEncodingService->encodeJson($info)
-        );
-    }
-
-    /**
-     * @param array $productBrand
-     *
-     * @return string
-     */
-    protected function getOrderHtml(array $productBrand)
-    {
-        $info = [
-            'id' => $productBrand['id_product_abstract'],
-        ];
-
-        return sprintf(
-            "<input type='text' value='%d' id='product_brand_order_%d' class='product_brand_order' size='4' data-info='%s'>",
-            $productBrand['product_order'],
             $productBrand['id_product_abstract'],
             $this->utilEncodingService->encodeJson($info)
         );

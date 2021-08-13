@@ -12,6 +12,7 @@ use Orm\Zed\Brand\Persistence\SpyBrand;
 use Pyz\Zed\ProductBrand\Business\ProductBrandFacadeInterface;
 use Pyz\Zed\ProductBrand\Communication\ProductBrandCommunicationFactory;
 use Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable;
+use Pyz\Zed\ProductBrand\Communication\Table\ProductTable;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
@@ -64,8 +65,8 @@ class AssignController extends AbstractController
         $productsTable = $this->getProductsTable($idBrand, $localeTransfer);
 
         $brandFacade = $this->getFactory()->getBrandFacade();
-        $brandPath = $brandFacade->getNodePath($idBrand, $localeTransfer);
-
+//        $brandPath = $brandFacade->getNodePath($idBrand, $localeTransfer);
+        $brandPath = 'qdqwd';
         return $this->viewResponse([
             'idBrand' => $idBrand,
             'form' => $form->createView(),
@@ -86,9 +87,7 @@ class AssignController extends AbstractController
     {
         $brandEntity = $this->getFactory()
             ->getBrandQueryContainer()
-            ->queryBrandById($idBrand)
-            ->findOne();
-
+            ->queryBrandById($idBrand);
         if (!$brandEntity) {
             $this->addErrorMessage('The brand with id "%s" does not exist.', ['%s' => $idBrand]);
 
