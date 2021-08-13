@@ -52,7 +52,7 @@ interface ProductBrandQueryContainerInterface extends QueryContainerInterface
      *
      * @return SpyProductBrandQuery
      */
-    public function queryProductsByBrandId($idBrand, LocaleTransfer $locale);
+    public function queryProductsByBrandId(int $idBrand, LocaleTransfer $locale);
 
     /**
      * @api

@@ -3,20 +3,22 @@
 namespace Pyz\Zed\ProductBrand\Persistence;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Brand\Persistence\Map\SpyProductBrandTableMap;
 use Orm\Zed\Brand\Persistence\SpyProductBrandQuery;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 
 /**
- * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandPersistenceFactory getFactory()
+ * @method ProductBrandPersistenceFactory getFactory()
  */
 class ProductBrandQueryContainer extends AbstractQueryContainer implements ProductBrandQueryContainerInterface
 {
-    public const COL_CATEGORY_NAME = 'brand_name';
-    public const VIRTUAL_COLUMN_ID_CATEGORY_NODE = 'id_brand_node';
+    public const COL_BRAND_NAME = 'brand_name';
+    public const VIRTUAL_COLUMN_ID_BRAND_NODE = 'id_brand_node';
 
     /**
      * {@inheritDoc}
@@ -86,14 +88,14 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
-     * @api
-     *
      * @param int $idBrand
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param LocaleTransfer $locale
      *
      * @return SpyProductBrandQuery
+     *@api
+     *
      */
-    public function queryProductsByBrandId($idBrand, LocaleTransfer $locale)
+    public function queryProductsByBrandId(int $idBrand, LocaleTransfer $locale)
     {
         return $this->queryProductBrandMappings()
             ->innerJoinSpyProductAbstract()
@@ -138,11 +140,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
                 'sku'
             )
             ->withColumn(
-                SpyProductBrandTableMap::COL_PRODUCT_ORDER,
-                'product_order'
-            )
-            ->withColumn(
-                SpyProductBrandTableMap::COL_ID_PRODUCT_CATEGORY,
+                SpyProductBrandTableMap::COL_ID_PRODUCT_BRAND,
                 'id_product_brand'
             )
             ->filterByFkBrand($idBrand)
@@ -152,24 +150,24 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
-     * @api
-     *
      * @param string|null $term
      * @param int $idBrand
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param LocaleTransfer $localeTransfer
      *
-     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
+     * @return SpyProductAbstractQuery
+     *@api
+     *
      */
     public function queryProductsAbstractBySearchTermForAssignment($term, $idBrand, LocaleTransfer $localeTransfer)
     {
         $query = $this->queryProductsAbstractBySearchTerm($term, $localeTransfer);
         $query->addJoin(
             [SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, $idBrand],
-            [SpyProductBrandTableMap::COL_FK_PRODUCT_ABSTRACT, SpyProductBrandTableMap::COL_FK_CATEGORY],
+            [SpyProductBrandTableMap::COL_FK_PRODUCT_ABSTRACT, SpyProductBrandTableMap::COL_FK_BRAND],
             Criteria::LEFT_JOIN
         )
             ->addAnd(
-                SpyProductBrandTableMap::COL_FK_CATEGORY,
+                SpyProductBrandTableMap::COL_FK_BRAND,
                 null,
                 Criteria::ISNULL
             );
@@ -180,12 +178,12 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
-     * @api
-     *
      * @param string|null $term
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param LocaleTransfer $locale
      *
-     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
+     * @return SpyProductAbstractQuery
+     *@api
+     *
      */
     public function queryProductsAbstractBySearchTerm($term, LocaleTransfer $locale)
     {
@@ -281,8 +279,8 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
             ->useSpyBrandQuery()
             ->useNodeQuery()
             ->withColumn(
-                SpyBrandNodeTableMap::COL_ID_CATEGORY_NODE,
-                static::VIRTUAL_COLUMN_ID_CATEGORY_NODE
+                SpyBrandNodeTableMap::COL_ID_BRAND_NODE,
+                static::VIRTUAL_COLUMN_ID_BRAND_NODE
             )
             ->filterByIdBrandNode($idsBrandNode, Criteria::IN)
             ->endUse()
