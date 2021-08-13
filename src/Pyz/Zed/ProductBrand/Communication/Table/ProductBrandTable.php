@@ -20,7 +20,7 @@ class ProductBrandTable extends AbstractTable
 {
     public const TABLE_IDENTIFIER = 'product-brand-table';
     public const COL_CHECKBOX = 'checkbox';
-    public const PARAM_ID_CATEGORY = 'id-brand';
+    public const PARAM_ID_BRAND = 'id-brand';
 
     /**
      * @var ProductBrandQueryContainerInterface
@@ -58,7 +58,7 @@ class ProductBrandTable extends AbstractTable
         $this->utilEncodingService = $utilEncodingService;
         $this->locale = $locale;
         $this->idBrand = $idBrand;
-        $this->defaultUrl = sprintf('product-brand-table?%s=%d', static::PARAM_ID_CATEGORY, $this->idBrand);
+        $this->defaultUrl = sprintf('product-brand-table?%s=%d', static::PARAM_ID_BRAND, $this->idBrand);
         $this->setTableIdentifier(static::TABLE_IDENTIFIER);
     }
 
