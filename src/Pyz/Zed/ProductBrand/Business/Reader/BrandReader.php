@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductBrand\Business\Reader;
@@ -15,18 +15,18 @@ use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface;
 class BrandReader implements BrandReaderInterface
 {
     /**
-     * @var ProductBrandRepositoryInterface
+     * @var \Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface
      */
     protected $brandRepository;
 
     /**
-     * @var BrandFacadeInterface
+     * @var \Pyz\Zed\Brand\Business\BrandFacadeInterface
      */
     protected $brandFacade;
 
     /**
-     * @param ProductBrandRepositoryInterface $brandRepository
-     * @param BrandFacadeInterface $brandFacade
+     * @param \Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface $brandRepository
+     * @param \Pyz\Zed\Brand\Business\BrandFacadeInterface $brandFacade
      */
     public function __construct(
         ProductBrandRepositoryInterface $brandRepository,
@@ -38,9 +38,9 @@ class BrandReader implements BrandReaderInterface
 
     /**
      * @param int $idProductAbstract
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return BrandCollectionTransfer
+     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
      */
     public function getBrandTransferCollectionByIdProductAbstract(int $idProductAbstract, LocaleTransfer $localeTransfer): BrandCollectionTransfer
     {

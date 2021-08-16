@@ -1,23 +1,22 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductBrand\Persistence\Mapper;
 
 use Generated\Shared\Transfer\BrandCollectionTransfer;
-use Orm\Zed\Brand\Persistence\SpyProductBrand;
 use Propel\Runtime\Collection\ObjectCollection;
 
 interface BrandMapperInterface
 {
     /**
-     * @param SpyProductBrand[]|ObjectCollection $brandEntities
-     * @param BrandCollectionTransfer $brandCollectionTransfer
+     * @param \Orm\Zed\Brand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection $brandEntities
+     * @param \Generated\Shared\Transfer\BrandCollectionTransfer $brandCollectionTransfer
      *
-     * @return BrandCollectionTransfer
+     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
      */
     public function mapBrandCollection(
         ObjectCollection $brandEntities,

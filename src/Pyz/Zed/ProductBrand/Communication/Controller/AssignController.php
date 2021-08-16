@@ -1,40 +1,32 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductBrand\Communication\Controller;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Brand\Persistence\SpyBrand;
-use Pyz\Zed\ProductBrand\Business\ProductBrandFacadeInterface;
-use Pyz\Zed\ProductBrand\Communication\ProductBrandCommunicationFactory;
 use Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable;
-use Pyz\Zed\ProductBrand\Communication\Table\ProductTable;
-use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
-use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method ProductBrandFacadeInterface getFacade()
- * @method ProductBrandCommunicationFactory getFactory()
- * @method ProductBrandQueryContainerInterface getQueryContainer()
- * @method ProductBrandRepositoryInterface getRepository()
+ * @method \Pyz\Zed\ProductBrand\Business\ProductBrandFacadeInterface getFacade()
+ * @method \Pyz\Zed\ProductBrand\Communication\ProductBrandCommunicationFactory getFactory()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface getQueryContainer()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface getRepository()
  */
 class AssignController extends AbstractController
 {
     public const PARAM_ID_BRAND = 'id-brand';
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction(Request $request)
     {
@@ -67,6 +59,7 @@ class AssignController extends AbstractController
         $brandFacade = $this->getFactory()->getBrandFacade();
 //        $brandPath = $brandFacade->getNodePath($idBrand, $localeTransfer);
         $brandPath = 'qdqwd';
+
         return $this->viewResponse([
             'idBrand' => $idBrand,
             'form' => $form->createView(),
@@ -81,7 +74,7 @@ class AssignController extends AbstractController
     /**
      * @param int $idBrand
      *
-     * @return SpyBrand|null
+     * @return \Orm\Zed\Brand\Persistence\SpyBrand|null
      */
     protected function getBrandEntity($idBrand)
     {
@@ -100,7 +93,7 @@ class AssignController extends AbstractController
     /**
      * @param int $idBrand
      *
-     * @return FormInterface
+     * @return \Symfony\Component\Form\FormInterface
      */
     protected function getForm($idBrand)
     {
@@ -111,9 +104,9 @@ class AssignController extends AbstractController
 
     /**
      * @param int $idBrand
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return ProductBrandTable
+     * @return \Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable
      */
     protected function getBrandProductsTable($idBrand, LocaleTransfer $localeTransfer)
     {
@@ -124,9 +117,9 @@ class AssignController extends AbstractController
 
     /**
      * @param int $idBrand
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return ProductTable
+     * @return \Pyz\Zed\ProductBrand\Communication\Table\ProductTable
      */
     protected function getProductsTable($idBrand, LocaleTransfer $localeTransfer)
     {
@@ -183,20 +176,9 @@ class AssignController extends AbstractController
     }
 
     /**
-     * @param int $idBrand
-     * @param array $productOrder
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return void
-     */
-    protected function updateProductOrder($idBrand, array $productOrder)
-    {
-        $this->getFacade()->updateProductMappingsOrder($idBrand, $productOrder);
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function productBrandTableAction(Request $request)
     {
@@ -208,9 +190,9 @@ class AssignController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function productTableAction(Request $request)
     {

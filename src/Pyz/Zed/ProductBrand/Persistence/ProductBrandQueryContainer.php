@@ -4,16 +4,14 @@ namespace Pyz\Zed\ProductBrand\Persistence;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Brand\Persistence\Map\SpyProductBrandTableMap;
-use Orm\Zed\Brand\Persistence\SpyProductBrandQuery;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
-use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 
 /**
- * @method ProductBrandPersistenceFactory getFactory()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandPersistenceFactory getFactory()
  */
 class ProductBrandQueryContainer extends AbstractQueryContainer implements ProductBrandQueryContainerInterface
 {
@@ -25,7 +23,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      *
      * @api
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryProductBrandMappings()
     {
@@ -39,7 +37,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      *
      * @param int $idBrand
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryProductBrandMappingsByBrandId($idBrand)
     {
@@ -56,7 +54,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      * @param int $idBrand
      * @param int $idProductAbstract
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryProductBrandMappingByIds($idBrand, $idProductAbstract)
     {
@@ -75,7 +73,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      *
      * @param int $idProductAbstract
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryLocalizedProductBrandMappingByIdProduct($idProductAbstract)
     {
@@ -88,12 +86,12 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
+     * @api
+     *
      * @param int $idBrand
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @return SpyProductBrandQuery
-     *@api
-     *
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryProductsByBrandId(int $idBrand, LocaleTransfer $locale)
     {
@@ -150,13 +148,13 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
+     * @api
+     *
      * @param string|null $term
      * @param int $idBrand
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return SpyProductAbstractQuery
-     *@api
-     *
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
      */
     public function queryProductsAbstractBySearchTermForAssignment($term, $idBrand, LocaleTransfer $localeTransfer)
     {
@@ -178,12 +176,12 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
+     * @api
+     *
      * @param string|null $term
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @return SpyProductAbstractQuery
-     *@api
-     *
+     * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
      */
     public function queryProductsAbstractBySearchTerm($term, LocaleTransfer $locale)
     {
@@ -243,7 +241,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      *
      * @param int $idBrandNode
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryProductBrandChildrenMappingsByBrandNodeId($idBrandNode)
     {
@@ -267,7 +265,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      * @param int $idProductAbstract
      * @param array $idsBrandNode
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryProductBrandMappingsByIdAbstractProductAndIdsBrandNode(
         $idProductAbstract,

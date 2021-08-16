@@ -1,20 +1,16 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductBrand\Business\Writer;
 
-use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductBrandTransfer;
-use Orm\Zed\Brand\Persistence\SpyProductBrand;
-use Orm\Zed\Brand\Persistence\SpyProductBrandQuery;
-use Propel\Runtime\Collection\ObjectCollection;
 use Pyz\Zed\Brand\Business\BrandFacadeInterface;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
 use Spryker\Zed\Event\Business\EventFacadeInterface;
@@ -23,30 +19,30 @@ use Spryker\Zed\Product\Business\ProductFacadeInterface;
 class ProductBrandManager implements ProductBrandManagerInterface
 {
     /**
-     * @var ProductBrandQueryContainerInterface
+     * @var \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface
      */
     protected $productBrandQueryContainer;
 
     /**
-     * @var BrandFacadeInterface
+     * @var \Pyz\Zed\Brand\Business\BrandFacadeInterface
      */
     protected $brandFacade;
 
     /**
-     * @var ProductFacadeInterface
+     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     protected $productFacade;
 
     /**
-     * @var EventFacadeInterface
+     * @var \Spryker\Zed\Event\Business\EventFacadeInterface
      */
     protected $eventFacade;
 
     /**
-     * @param ProductBrandQueryContainerInterface $productBrandQueryContainer
-     * @param BrandFacadeInterface $brandFacade
-     * @param ProductFacadeInterface $productFacade
-     * @param EventFacadeInterface|null $eventFacade
+     * @param \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface $productBrandQueryContainer
+     * @param \Pyz\Zed\Brand\Business\BrandFacadeInterface $brandFacade
+     * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
+     * @param \Spryker\Zed\Event\Business\EventFacadeInterface|null $eventFacade
      */
     public function __construct(
         ProductBrandQueryContainerInterface $productBrandQueryContainer,
@@ -62,9 +58,9 @@ class ProductBrandManager implements ProductBrandManagerInterface
 
     /**
      * @param int $idBrand
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return ProductAbstractTransfer[]
+     * @return \Generated\Shared\Transfer\ProductAbstractTransfer[]
      */
     public function getAbstractProductTransferCollectionByBrand(
         $idBrand,
@@ -91,9 +87,9 @@ class ProductBrandManager implements ProductBrandManagerInterface
 
     /**
      * @param int $idBrand
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @return SpyProductBrand[]|ObjectCollection
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection
      */
     public function getProductsByBrand($idBrand, LocaleTransfer $locale)
     {
@@ -107,7 +103,7 @@ class ProductBrandManager implements ProductBrandManagerInterface
      * @param int $idBrand
      * @param int $idProductAbstract
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function getProductBrandMappingById($idBrand, $idProductAbstract)
     {
@@ -175,9 +171,9 @@ class ProductBrandManager implements ProductBrandManagerInterface
      * @param int $idBrand
      * @param int $idProductAbstract
      *
-     * @return ProductBrandTransfer
+     * @return \Generated\Shared\Transfer\ProductBrandTransfer
      */
-    protected function createProductBrandTransfer(int $idBrand,int $idProductAbstract)
+    protected function createProductBrandTransfer(int $idBrand, int $idProductAbstract)
     {
         $productBrandTransfer = new ProductBrandTransfer();
         $productBrandTransfer->setFkBrand($idBrand);

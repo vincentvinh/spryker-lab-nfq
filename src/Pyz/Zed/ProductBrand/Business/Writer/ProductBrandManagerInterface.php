@@ -1,34 +1,29 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductBrand\Business\Writer;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Orm\Zed\Brand\Persistence\SpyProductBrand;
-use Orm\Zed\Brand\Persistence\SpyProductBrandQuery;
-use Propel\Runtime\Collection\ObjectCollection;
-use Propel\Runtime\Exception\PropelException;
 
 interface ProductBrandManagerInterface
 {
     /**
      * @param int $idBrand
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return ProductAbstractTransfer[]
+     * @return \Generated\Shared\Transfer\ProductAbstractTransfer[]
      */
     public function getAbstractProductTransferCollectionByBrand($idBrand, LocaleTransfer $localeTransfer);
 
     /**
      * @param int $idBrand
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      *
-     * @return SpyProductBrand[]|ObjectCollection
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection
      */
     public function getProductsByBrand($idBrand, LocaleTransfer $locale);
 
@@ -36,7 +31,7 @@ interface ProductBrandManagerInterface
      * @param int $idBrand
      * @param int $idProductAbstract
      *
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function getProductBrandMappingById($idBrand, $idProductAbstract);
 
@@ -44,7 +39,7 @@ interface ProductBrandManagerInterface
      * @param int $idBrand
      * @param array $productIdsToAssign
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */

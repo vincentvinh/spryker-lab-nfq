@@ -1,14 +1,15 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductBrand\Persistence;
 
 use Generated\Shared\Transfer\BrandCollectionTransfer;
 use Orm\Zed\Brand\Persistence\Map\SpyBrandAttributeTableMap;
+use Orm\Zed\Brand\Persistence\Map\SpyBrandTableMap;
 use Orm\Zed\Brand\Persistence\Map\SpyProductBrandTableMap;
 use Orm\Zed\Brand\Persistence\SpyProductBrandQuery;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
@@ -16,7 +17,7 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
 
 /**
- * @method ProductBrandPersistenceFactory getFactory()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandPersistenceFactory getFactory()
  */
 class ProductBrandRepository extends AbstractRepository implements ProductBrandRepositoryInterface
 {
@@ -41,6 +42,7 @@ class ProductBrandRepository extends AbstractRepository implements ProductBrandR
      * @param int $idProductAbstract
      * @param int $idLocale
      *
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     protected function queryCategoriesByIdProductAbstract(int $idProductAbstract, int $idLocale): SpyProductBrandQuery
     {
@@ -48,13 +50,13 @@ class ProductBrandRepository extends AbstractRepository implements ProductBrandR
             ->innerJoinWithSpyBrand()
             ->useSpyBrandQuery()
             ->joinAttribute()
-            ->withColumn(SpyBrandAttributeTableMap::COL_NAME, 'name')
+            ->withColumn(SpyBrandTableMap::COL_NAME, 'name')
             ->addAnd(
                 SpyBrandAttributeTableMap::COL_FK_LOCALE,
                 $idLocale,
                 Criteria::EQUAL
             )
-            ->addAscendingOrderByColumn(SpyBrandAttributeTableMap::COL_NAME)
+            ->addAscendingOrderByColumn(SpyBrandTableMap::COL_NAME)
             ->endUse()
             ->addAnd(
                 SpyProductBrandTableMap::COL_FK_PRODUCT_ABSTRACT,
@@ -62,7 +64,7 @@ class ProductBrandRepository extends AbstractRepository implements ProductBrandR
                 Criteria::EQUAL
             )
             ->groupByFkBrand()
-            ->groupBy(SpyBrandAttributeTableMap::COL_NAME);
+            ->groupBy(SpyBrandTableMap::COL_NAME);
     }
 
     /**

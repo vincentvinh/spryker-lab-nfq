@@ -7,21 +7,20 @@ use Pyz\Zed\Brand\Business\BrandFacadeInterface;
 use Pyz\Zed\ProductBrand\Communication\Form\AssignForm;
 use Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable;
 use Pyz\Zed\ProductBrand\Communication\Table\ProductTable;
-use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer;
-use Pyz\Zed\ProductBrand\ProductBrandConfig;
 use Pyz\Zed\ProductBrand\ProductBrandDependencyProvider;
 use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
-use Symfony\Component\Form\FormInterface;
 
 /**
- * @method ProductBrandQueryContainer getQueryContainer()
- * @method ProductBrandConfig getConfig()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\ProductBrand\ProductBrandConfig getConfig()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface getRepository()
+ * @method \Pyz\Zed\ProductBrand\Business\ProductBrandFacadeInterface getFacade()
  */
 class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
 {
     /**
-     * @return LocaleTransfer
+     * @return \Generated\Shared\Transfer\LocaleTransfer
      */
     public function getCurrentLocale()
     {
@@ -30,6 +29,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
+     * @return mixed
      */
     public function getLocaleFacade()
     {
@@ -37,6 +37,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
+     * @return mixed
      */
     public function getBrandQueryContainer()
     {
@@ -44,20 +45,21 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      * @param int $idBrand
      *
+     * @return \Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable
      */
-    public function createProductBrandTable(LocaleTransfer $locale, int $idBrand)
+    public function createProductBrandTable(LocaleTransfer $locale, int $idBrand): ProductBrandTable
     {
         return new ProductBrandTable($this->getQueryContainer(), $this->getUtilEncodingService(), $locale, $idBrand);
     }
 
     /**
-     * @param LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      * @param int $idBrand
      *
-     * @return ProductTable
+     * @return \Pyz\Zed\ProductBrand\Communication\Table\ProductTable
      */
     public function createProductTable(LocaleTransfer $locale, $idBrand)
     {
@@ -65,7 +67,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
-     * @return UtilEncodingServiceInterface
+     * @return \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
      */
     public function getUtilEncodingService(): UtilEncodingServiceInterface
     {
@@ -75,7 +77,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     /**
      * @param array $data
      *
-     * @return FormInterface
+     * @return \Symfony\Component\Form\FormInterface
      */
     public function createAssignForm(array $data)
     {
@@ -83,7 +85,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
     }
 
     /**
-     * @return BrandFacadeInterface
+     * @return \Pyz\Zed\Brand\Business\BrandFacadeInterface
      */
     public function getBrandFacade(): BrandFacadeInterface
     {

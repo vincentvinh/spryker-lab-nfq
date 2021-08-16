@@ -9,10 +9,10 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
  * @method \Pyz\Zed\ProductBrand\Business\ProductBrandBusinessFactory getFactory()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface getRepository()
  */
 class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInterface
 {
-
     /**
      * {@inheritDoc}
      *
@@ -45,23 +45,6 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
         $this->getFactory()
             ->createProductBrandWriter()
             ->removeProductBrandMappings($idBrand, $productIdsToUnAssign);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @api
-     *
-     * @param int $idBrand
-     * @param array $productOrderList
-     *
-     * @return void
-     */
-    public function updateProductMappingsOrder($idBrand, array $productOrderList)
-    {
-        $this->getFactory()
-            ->createProductBrandWriter()
-            ->updateProductMappingsOrder($idBrand, $productOrderList);
     }
 
     /**
@@ -104,23 +87,6 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
      *
      * @api
      *
-     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
-     *
-     * @return void
-     */
-    public function updateAllProductMappingsForUpdatedBrand(BrandTransfer $brandTransfer)
-    {
-        $this
-            ->getFactory()
-            ->createProductBrandWriter()
-            ->updateProductMappingsForUpdatedBrand($brandTransfer);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @api
-     *
      * @param int $idProductAbstract
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
@@ -147,5 +113,4 @@ class ProductBrandFacade extends AbstractFacade implements ProductBrandFacadeInt
         return $this->getRepository()
             ->getProductConcreteIdsByBrandIds($brandIds);
     }
-
 }

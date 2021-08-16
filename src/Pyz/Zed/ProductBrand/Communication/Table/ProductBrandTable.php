@@ -1,14 +1,13 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductBrand\Communication\Table;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Brand\Persistence\Map\SpyProductBrandTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
@@ -23,17 +22,17 @@ class ProductBrandTable extends AbstractTable
     public const PARAM_ID_BRAND = 'id-brand';
 
     /**
-     * @var ProductBrandQueryContainerInterface
+     * @var \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface
      */
     protected $productBrandQueryContainer;
 
     /**
-     * @var UtilEncodingServiceInterface
+     * @var \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
      */
     protected $utilEncodingService;
 
     /**
-     * @var LocaleTransfer
+     * @var \Generated\Shared\Transfer\LocaleTransfer
      */
     protected $locale;
 
@@ -43,9 +42,9 @@ class ProductBrandTable extends AbstractTable
     protected $idBrand;
 
     /**
-     * @param ProductBrandQueryContainerInterface $productBrandQueryContainer
-     * @param UtilEncodingServiceInterface $utilEncodingService
-     * @param LocaleTransfer $locale
+     * @param \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface $productBrandQueryContainer
+     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $utilEncodingService
+     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      * @param int $idBrand
      */
     public function __construct(
@@ -63,9 +62,9 @@ class ProductBrandTable extends AbstractTable
     }
 
     /**
-     * @param TableConfiguration $config
+     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
      *
-     * @return TableConfiguration
+     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
      */
     protected function configure(TableConfiguration $config)
     {
@@ -90,7 +89,7 @@ class ProductBrandTable extends AbstractTable
     }
 
     /**
-     * @param TableConfiguration $config
+     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
      *
      * @return array
      */

@@ -2,29 +2,21 @@
 
 namespace Pyz\Zed\ProductBrand\Business;
 
-use Pyz\Zed\Brand\Business\BrandFacadeInterface;
 use Pyz\Zed\ProductBrand\Business\Reader\BrandReader;
 use Pyz\Zed\ProductBrand\Business\Reader\BrandReaderInterface;
 use Pyz\Zed\ProductBrand\Business\Writer\ProductBrandManager;
-use Pyz\Zed\ProductBrand\Business\Writer\ProductBrandManagerInterface;
-use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer;
-use Pyz\Zed\ProductBrand\Persistence\ProductBrandRepository;
-use Pyz\Zed\ProductBrand\ProductBrandConfig;
 use Pyz\Zed\ProductBrand\ProductBrandDependencyProvider;
-use Spryker\Zed\Event\Business\EventFacadeInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 /**
- * @method ProductBrandConfig getConfig()
- * @method ProductBrandQueryContainer getQueryContainer()
- * @method ProductBrandRepository getRepository()()
+ * @method \Pyz\Zed\ProductBrand\ProductBrandConfig getConfig()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandRepository getRepository()()
  */
 class ProductBrandBusinessFactory extends AbstractBusinessFactory
 {
-
     /**
-     * @return ProductBrandManagerInterface
+     * @return \Pyz\Zed\ProductBrand\Business\Writer\ProductBrandManagerInterface
      */
     public function createProductBrandWriter()
     {
@@ -37,7 +29,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return ProductFacadeInterface
+     * @return \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     protected function getProductFacade()
     {
@@ -45,7 +37,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return EventFacadeInterface
+     * @return \Spryker\Zed\Event\Business\EventFacadeInterface
      */
     protected function getEventFacade()
     {
@@ -53,7 +45,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return BrandFacadeInterface
+     * @return \Pyz\Zed\Brand\Business\BrandFacadeInterface
      */
     protected function getBrandFacade()
     {
@@ -61,7 +53,7 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return BrandReaderInterface
+     * @return \Pyz\Zed\ProductBrand\Business\Reader\BrandReaderInterface
      */
     public function createBrandReader(): BrandReaderInterface
     {
@@ -70,5 +62,4 @@ class ProductBrandBusinessFactory extends AbstractBusinessFactory
             $this->getBrandFacade()
         );
     }
-
 }

@@ -5,7 +5,6 @@ namespace Pyz\Zed\ProductBrand\Business;
 use Generated\Shared\Transfer\BrandCollectionTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
-use Propel\Runtime\Exception\PropelException;
 
 interface ProductBrandFacadeInterface
 {
@@ -21,7 +20,7 @@ interface ProductBrandFacadeInterface
      * @param int $idBrand
      * @param array $productIdsToAssign
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return void
      */
@@ -44,23 +43,6 @@ interface ProductBrandFacadeInterface
 
     /**
      * Specification:
-     * - Updates order of existing product brand mapping entries in database.
-     * - Touches affected brand.
-     * - Touches affected abstract products.
-     *
-     * @api
-     *
-     * @param int $idBrand
-     * @param array $productOrderList
-     *
-     * @throws PropelException
-     *
-     * @return void
-     */
-    public function updateProductMappingsOrder($idBrand, array $productOrderList);
-
-    /**
-     * Specification:
      * - Removes all existing product brand mapping entries from database.
      * - Touches affected brand.
      * - Touches affected abstract products.
@@ -78,38 +60,26 @@ interface ProductBrandFacadeInterface
      * - Returns all abstract products that are assigned to the given brand.
      * - The data of the returned products are localized based on the given locale transfer.
      *
-     * @param int $idBrand
-     * @param LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer[]
-     *@api
-     *
-     */
-    public function getAbstractProductsByIdBrand($idBrand, LocaleTransfer $localeTransfer);
-
-    /**
-     * Specification:
-     * - Touches related abstract-products for the given brand and all of its children
-     *
      * @api
      *
-     * @param BrandTransfer $brandTransfer
+     * @param int $idBrand
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\ProductAbstractTransfer[]
      */
-    public function updateAllProductMappingsForUpdatedBrand(BrandTransfer $brandTransfer);
+    public function getAbstractProductsByIdBrand($idBrand, LocaleTransfer $localeTransfer);
 
     /**
      * Specification:
      * - Returns all brands that are assigned to the given abstract product.
      * - The data of the returned brands are localized based on the given locale transfer.
      *
+     * @api
+     *
      * @param int $idProductAbstract
-     * @param LocaleTransfer $localeTransfer
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return BrandCollectionTransfer
-     *@api
-     *
+     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
      */
     public function getBrandTransferCollectionByIdProductAbstract(int $idProductAbstract, LocaleTransfer $localeTransfer): BrandCollectionTransfer;
 
@@ -124,5 +94,4 @@ interface ProductBrandFacadeInterface
      * @return int[]
      */
     public function getProductConcreteIdsByBrandIds(array $brandIds): array;
-
 }

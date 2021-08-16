@@ -7,7 +7,6 @@ use Spryker\Zed\Kernel\Container;
 
 class ProductBrandDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     public const FACADE_LOCALE = 'locale facade';
     public const FACADE_PRODUCT = 'product facade';
     public const FACADE_BRAND = 'brand facade';

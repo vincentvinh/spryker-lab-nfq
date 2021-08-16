@@ -11,11 +11,12 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 /**
  * @method \Pyz\Zed\ProductBrand\ProductBrandConfig getConfig()
  * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\ProductBrand\Persistence\ProductBrandRepositoryInterface getRepository()
  */
 class ProductBrandPersistenceFactory extends AbstractPersistenceFactory
 {
     /**
-     * @return SpyProductBrandQuery
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function createProductBrandQuery()
     {
@@ -31,7 +32,7 @@ class ProductBrandPersistenceFactory extends AbstractPersistenceFactory
     }
 
     /**
-     * @return BrandMapperInterface
+     * @return \Pyz\Zed\ProductBrand\Persistence\Mapper\BrandMapperInterface
      */
     public function createBrandMapper(): BrandMapperInterface
     {
