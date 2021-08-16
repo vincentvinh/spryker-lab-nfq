@@ -48,7 +48,7 @@ class ProductBrandCommunicationFactory extends AbstractCommunicationFactory
      * @param int $idBrand
      *
      */
-    public function createProductBrandTable(LocaleTransfer $locale, $idBrand)
+    public function createProductBrandTable(LocaleTransfer $locale, int $idBrand)
     {
         return new ProductBrandTable($this->getQueryContainer(), $this->getUtilEncodingService(), $locale, $idBrand);
     }

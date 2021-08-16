@@ -9,8 +9,10 @@
 namespace Pyz\Zed\ProductBrand\Communication\Table;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Brand\Persistence\Map\SpyProductBrandTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
 use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Gui\Communication\Table\AbstractTable;
@@ -51,7 +53,7 @@ class ProductTable extends AbstractTable
         ProductBrandQueryContainerInterface $productBrandQueryContainer,
         UtilEncodingServiceInterface $utilEncodingService,
         LocaleTransfer $locale,
-        $idBrand
+        int $idBrand
     ) {
         $this->productBrandQueryContainer = $productBrandQueryContainer;
         $this->utilEncodingService = $utilEncodingService;
@@ -110,6 +112,7 @@ class ProductTable extends AbstractTable
             $info = [
                 'id' => $product[SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT],
                 'sku' => $product[SpyProductAbstractTableMap::COL_SKU],
+
                 'name' => urlencode($product['name']),
             ];
 

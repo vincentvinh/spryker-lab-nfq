@@ -18,7 +18,7 @@ use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
 
 class ProductBrandTable extends AbstractTable
 {
-    public const TABLE_IDENTIFIER = 'product-brand-table';
+    public const TABLE_IDENTIFIER = 'product-category-table';
     public const COL_CHECKBOX = 'checkbox';
     public const PARAM_ID_BRAND = 'id-brand';
 
@@ -52,7 +52,7 @@ class ProductBrandTable extends AbstractTable
         ProductBrandQueryContainerInterface $productBrandQueryContainer,
         UtilEncodingServiceInterface $utilEncodingService,
         LocaleTransfer $locale,
-        $idBrand
+        int $idBrand
     ) {
         $this->productBrandQueryContainer = $productBrandQueryContainer;
         $this->utilEncodingService = $utilEncodingService;
@@ -97,7 +97,6 @@ class ProductBrandTable extends AbstractTable
     protected function prepareData(TableConfiguration $config)
     {
         $query = $this->productBrandQueryContainer->queryProductsByBrandId($this->idBrand, $this->locale);
-        $query->clearOrderByColumns();
         $query->setModelAlias('spy_product_abstract');
 
         $queryResults = $this->runQuery($query, $config);
@@ -130,7 +129,7 @@ class ProductBrandTable extends AbstractTable
         ];
 
         return sprintf(
-            "<input id='product_brand_checkbox_%d' class='product_brand_checkbox' type='checkbox' checked='checked' data-info='%s'>",
+            "<input id='product_category_checkbox_%d' class='product_category_checkbox' type='checkbox' checked='checked' data-info='%s'>",
             $productBrand['id_product_abstract'],
             $this->utilEncodingService->encodeJson($info)
         );
