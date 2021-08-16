@@ -33,7 +33,7 @@ class ProductTable extends AbstractTable
     /**
      * @var \Generated\Shared\Transfer\LocaleTransfer
      */
-    protected $locale;
+    protected $localeTransfer;
 
     /**
      * @var int
@@ -43,18 +43,18 @@ class ProductTable extends AbstractTable
     /**
      * @param \Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface $productBrandQueryContainer
      * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $utilEncodingService
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      * @param int $idBrand
      */
     public function __construct(
         ProductBrandQueryContainerInterface $productBrandQueryContainer,
-        UtilEncodingServiceInterface $utilEncodingService,
-        LocaleTransfer $locale,
-        int $idBrand
+        UtilEncodingServiceInterface        $utilEncodingService,
+        LocaleTransfer                      $localeTransfer,
+        int                                 $idBrand
     ) {
         $this->productBrandQueryContainer = $productBrandQueryContainer;
         $this->utilEncodingService = $utilEncodingService;
-        $this->locale = $locale;
+        $this->localeTransfer = $localeTransfer;
         $this->idBrand = (int)$idBrand;
         $this->defaultUrl = sprintf('product-table?%s=%d', ProductBrandTable::PARAM_ID_BRAND, $this->idBrand);
         $this->setTableIdentifier(self::TABLE_IDENTIFIER);
@@ -99,7 +99,7 @@ class ProductTable extends AbstractTable
     protected function prepareData(TableConfiguration $config)
     {
         $query = $this->productBrandQueryContainer
-            ->queryProductsAbstractBySearchTermForAssignment(null, $this->idBrand, $this->locale)
+            ->queryProductsAbstractBySearchTermForAssignment(null, $this->idBrand, $this->localeTransfer)
             ->setModelAlias('spy_product_abstract');
 
         $queryResults = $this->runQuery($query, $config);

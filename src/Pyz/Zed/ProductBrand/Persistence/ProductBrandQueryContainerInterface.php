@@ -57,11 +57,11 @@ interface ProductBrandQueryContainerInterface extends QueryContainerInterface
      *
      * @param string|null $term
      * @param int $idBrand
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
      */
-    public function queryProductsAbstractBySearchTermForAssignment($term, $idBrand, LocaleTransfer $locale);
+    public function queryProductsAbstractBySearchTermForAssignment($term, $idBrand, LocaleTransfer $localeTransfer);
 
     /**
      * @api
