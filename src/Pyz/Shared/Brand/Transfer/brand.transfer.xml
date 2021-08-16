@@ -11,7 +11,7 @@
         <property name="url" type="string"/>
         <property name="logo" type="string"/>
         <property name="metaDescription" type="string"/>
-        <property name="localizedAttributes" type="BrandLocalizedAttributes[]" singular="localizedAttributes"/>
+        <property name="localizedAttributes" type="BrandLocalizedAttribute[]" singular="localizedAttributes"/>
     </transfer>
 
     <transfer name="BrandCollection">

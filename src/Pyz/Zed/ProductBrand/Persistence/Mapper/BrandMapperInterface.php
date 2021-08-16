@@ -13,13 +13,13 @@ use Propel\Runtime\Collection\ObjectCollection;
 interface BrandMapperInterface
 {
     /**
-     * @param \Orm\Zed\Brand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection $brandEntities
+     * @param ObjectCollection $productBrandEntities
      * @param \Generated\Shared\Transfer\BrandCollectionTransfer $brandCollectionTransfer
      *
      * @return \Generated\Shared\Transfer\BrandCollectionTransfer
      */
     public function mapBrandCollection(
-        ObjectCollection $brandEntities,
+        ObjectCollection $productBrandEntities,
         BrandCollectionTransfer $brandCollectionTransfer
     ): BrandCollectionTransfer;
 }

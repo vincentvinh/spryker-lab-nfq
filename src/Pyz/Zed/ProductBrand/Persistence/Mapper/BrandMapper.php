@@ -12,15 +12,16 @@ use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
+use Orm\Zed\Brand\Persistence\SpyProductBrand;
 use Propel\Runtime\Collection\ObjectCollection;
 
 class BrandMapper implements BrandMapperInterface
 {
     /**
-     * @param \Orm\Zed\Brand\Persistence\SpyBrand $spyBrand
-     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     * @param SpyBrand $spyBrand
+     * @param BrandTransfer $brandTransfer
      *
-     * @return \Generated\Shared\Transfer\BrandTransfer
+     * @return BrandTransfer
      */
     protected function mapBrand(SpyBrand $spyBrand, BrandTransfer $brandTransfer): BrandTransfer
     {
@@ -28,8 +29,8 @@ class BrandMapper implements BrandMapperInterface
     }
 
     /**
-     * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandEntity
-     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     * @param SpyBrand $brandEntity
+     * @param BrandTransfer $brandTransfer
      *
      * @return void
      */
@@ -48,17 +49,17 @@ class BrandMapper implements BrandMapperInterface
     }
 
     /**
-     * @param \Orm\Zed\Brand\Persistence\SpyProductBrand[]|\Propel\Runtime\Collection\ObjectCollection $productBrandEntities
-     * @param \Generated\Shared\Transfer\BrandCollectionTransfer $brandCollectionTransfer
+     * @param SpyProductBrand[]|ObjectCollection $productBrandEntities
+     * @param BrandCollectionTransfer $brandCollectionTransfer
      *
-     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
+     * @return BrandCollectionTransfer
      */
     public function mapBrandCollection(
         ObjectCollection $productBrandEntities,
         BrandCollectionTransfer $brandCollectionTransfer
     ): BrandCollectionTransfer {
         foreach ($productBrandEntities as $productBrandEntity) {
-            /** @var \Orm\Zed\Brand\Persistence\SpyBrand|null $brandEntity */
+            /** @var SpyBrand|null $brandEntity */
             $brandEntity = $productBrandEntity->getSpyBrand();
             if ($brandEntity === null) {
                 continue;

@@ -7,6 +7,7 @@ use Orm\Zed\Brand\Persistence\Map\SpyProductBrandTableMap;
 use Orm\Zed\Locale\Persistence\Map\SpyLocaleTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use PDO;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
 
@@ -239,49 +240,17 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      *
      * @api
      *
-     * @param int $idBrandNode
-     *
-     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
-     */
-    public function queryProductBrandChildrenMappingsByBrandNodeId($idBrandNode)
-    {
-        return $this
-            ->getFactory()
-            ->createProductBrandQuery()
-            ->useSpyBrandQuery()
-            ->useNodeQuery()
-            ->useDescendantQuery()
-            ->filterByFkBrandNode($idBrandNode)
-            ->endUse()
-            ->endUse()
-            ->endUse();
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @api
-     *
      * @param int $idProductAbstract
-     * @param array $idsBrandNode
      *
      * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryProductBrandMappingsByIdAbstractProductAndIdsBrandNode(
-        $idProductAbstract,
-        array $idsBrandNode
+        $idProductAbstract
     ) {
         return $this
             ->queryProductBrandMappings()
             ->filterByFkProductAbstract($idProductAbstract)
             ->useSpyBrandQuery()
-            ->useNodeQuery()
-            ->withColumn(
-                SpyBrandNodeTableMap::COL_ID_BRAND_NODE,
-                static::VIRTUAL_COLUMN_ID_BRAND_NODE
-            )
-            ->filterByIdBrandNode($idsBrandNode, Criteria::IN)
-            ->endUse()
             ->endUse();
     }
 }

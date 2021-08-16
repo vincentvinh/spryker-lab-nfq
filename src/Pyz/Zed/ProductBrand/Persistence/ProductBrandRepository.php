@@ -31,11 +31,11 @@ class ProductBrandRepository extends AbstractRepository implements ProductBrandR
      */
     public function getBrandTransferCollectionByIdProductAbstract(int $idProductAbstract, int $idLocale): BrandCollectionTransfer
     {
-        $spyBrandCollection = $this->queryCategoriesByIdProductAbstract($idProductAbstract, $idLocale)->find();
+        $spyProductBrandCollection = $this->queryBrandsByIdProductAbstract($idProductAbstract, $idLocale)->find();
 
         return $this->getFactory()
             ->createBrandMapper()
-            ->mapBrandCollection($spyBrandCollection, new BrandCollectionTransfer());
+            ->mapBrandCollection($spyProductBrandCollection, new BrandCollectionTransfer());
     }
 
     /**
@@ -44,7 +44,7 @@ class ProductBrandRepository extends AbstractRepository implements ProductBrandR
      *
      * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
-    protected function queryCategoriesByIdProductAbstract(int $idProductAbstract, int $idLocale): SpyProductBrandQuery
+    protected function queryBrandsByIdProductAbstract(int $idProductAbstract, int $idLocale): SpyProductBrandQuery
     {
         return $this->getFactory()->createProductBrandQuery()
             ->innerJoinWithSpyBrand()
