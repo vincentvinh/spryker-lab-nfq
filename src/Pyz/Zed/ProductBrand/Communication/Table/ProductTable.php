@@ -48,9 +48,9 @@ class ProductTable extends AbstractTable
      */
     public function __construct(
         ProductBrandQueryContainerInterface $productBrandQueryContainer,
-        UtilEncodingServiceInterface        $utilEncodingService,
-        LocaleTransfer                      $localeTransfer,
-        int                                 $idBrand
+        UtilEncodingServiceInterface $utilEncodingService,
+        LocaleTransfer $localeTransfer,
+        int $idBrand
     ) {
         $this->productBrandQueryContainer = $productBrandQueryContainer;
         $this->utilEncodingService = $utilEncodingService;

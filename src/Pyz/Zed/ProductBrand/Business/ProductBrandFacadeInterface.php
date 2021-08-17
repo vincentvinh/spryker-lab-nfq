@@ -3,7 +3,6 @@
 namespace Pyz\Zed\ProductBrand\Business;
 
 use Generated\Shared\Transfer\BrandCollectionTransfer;
-use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 
 interface ProductBrandFacadeInterface

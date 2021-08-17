@@ -13,7 +13,7 @@ use Propel\Runtime\Collection\ObjectCollection;
 interface BrandMapperInterface
 {
     /**
-     * @param ObjectCollection $productBrandEntities
+     * @param \Propel\Runtime\Collection\ObjectCollection $productBrandEntities
      * @param \Generated\Shared\Transfer\BrandCollectionTransfer $brandCollectionTransfer
      *
      * @return \Generated\Shared\Transfer\BrandCollectionTransfer
