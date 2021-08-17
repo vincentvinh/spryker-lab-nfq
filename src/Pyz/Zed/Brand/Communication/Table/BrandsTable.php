@@ -163,9 +163,9 @@ class BrandsTable extends AbstractTable
     protected function generateImageViewBrand(string $imageUrl): string
     {
         if (!empty($imageUrl)) {
-            return 'Yes';
+            return $imageUrl;
         }
 
-        return 'No';
+        return '';
     }
 }
