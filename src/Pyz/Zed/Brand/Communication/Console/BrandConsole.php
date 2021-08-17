@@ -8,12 +8,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @method \Pyz\Zed\Brand\Business\BrandFacade getFacade()
+ * @method \Pyz\Zed\Brand\Persistence\BrandRepositoryInterface getRepository()
+ * @method \Pyz\Zed\Brand\Communication\BrandCommunicationFactory getFactory()
+ * @method \Pyz\Zed\Brand\Persistence\BrandQueryContainerInterface getQueryContainer()
  */
 class BrandConsole extends Console
 {
-
-    const COMMAND_NAME = 'some:command';
-    const DESCRIPTION = 'Describe me!';
+    public const COMMAND_NAME = 'some:command';
+    public const DESCRIPTION = 'Describe me!';
 
     /**
      * @return void
@@ -41,5 +43,4 @@ class BrandConsole extends Console
 
         return static::CODE_SUCCESS;
     }
-
 }

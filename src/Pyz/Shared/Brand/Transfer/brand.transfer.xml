@@ -18,8 +18,12 @@
         <property name="brands" type="Brand[]" singular="brand"/>
     </transfer>
 
-    <transfer name="BrandLocalizedAttribute">
+    <transfer name="BrandLocalizedAttributes">
         <property name="locale" type="Locale"/>
         <property name="metaDescription" type="string"/>
+    </transfer>
+
+    <transfer name="Url">
+        <property name="fkResourceBrand" type="int"/>
     </transfer>
 </transfers>

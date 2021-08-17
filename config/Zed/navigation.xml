@@ -560,4 +560,12 @@
             </storage>
         </pages>
     </maintenance>
+    <brand>
+        <label>Brand</label>
+        <title>Brand</title>
+        <bundle>brand</bundle>
+        <controller>index</controller>
+        <action>index</action>
+        <icon>fa-th-large</icon>
+    </brand>
 </config>

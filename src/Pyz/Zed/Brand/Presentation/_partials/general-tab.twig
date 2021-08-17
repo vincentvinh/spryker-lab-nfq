@@ -1,0 +1,21 @@
+{{ form_row(brandForm.name) }}
+{{ form_row(brandForm.description) }}
+{{ form_row(brandForm.is_searchable) }}
+{{ form_row(brandForm.is_highlight) }}
+<hr />
+<p><strong>{{ 'Translations' | trans }}</strong></p>
+
+{% for localizedAttributes in brandForm.localized_attributes %}
+    {% set localeName = localizedAttributes.vars.value.locale.localeName %}
+    {% set collapsed = (currentLocale != localeName) %}
+
+    {% embed '@Gui/Partials/localized-ibox.twig' with {
+        localeName: localeName,
+        collapsed: collapsed,
+        id: 'localizedAttributes-ibox-' ~ localeName
+    } %}
+        {% block content %}
+            {{ form_widget(localizedAttributes) }}
+        {% endblock %}
+    {% endembed %}
+{% endfor %}
