@@ -15,12 +15,12 @@ use Pyz\Zed\Brand\Persistence\BrandQueryContainerInterface;
 class BrandAttribute implements BrandAttributeInterface
 {
     /**
-     * @var BrandQueryContainerInterface;
+     * @var \Pyz\Zed\Brand\Persistence\BrandQueryContainerInterface $queryContainer
      */
     protected $queryContainer;
 
     /**
-     * @param BrandQueryContainerInterface; $queryContainer
+     * @param \Pyz\Zed\Brand\Persistence\BrandQueryContainerInterface $queryContainer
      */
     public function __construct(BrandQueryContainerInterface $queryContainer)
     {
@@ -28,9 +28,12 @@ class BrandAttribute implements BrandAttributeInterface
     }
 
     /**
+     * @param int $idBrand
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
      * @return void
      */
-    public function read($idBrand, BrandTransfer $brandTransfer)
+    public function read(int $idBrand, BrandTransfer $brandTransfer)
     {
         // TODO: Implement read() method.
     }
@@ -60,14 +63,14 @@ class BrandAttribute implements BrandAttributeInterface
     /**
      * @param \Orm\Zed\Brand\Persistence\SpyBrandAttribute $spyBrandAttribute
      * @param \Generated\Shared\Transfer\BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return \Orm\Zed\Brand\Persistence\SpyBrandAttribute
      */
     protected function updateEntity(
         SpyBrandAttribute $spyBrandAttribute,
         BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer,
-        $idBrand
+        int $idBrand
     ) {
         $spyBrandAttribute->fromArray($brandLocalizedAttributesTransfer->toArray());
         $spyBrandAttribute->setFkBrand($idBrand);
@@ -116,13 +119,5 @@ class BrandAttribute implements BrandAttributeInterface
     public function delete(BrandTransfer $brandTransfer)
     {
         $this->queryContainer->queryAttributeByBrandId($brandTransfer->getIdBrand())->delete();
-    }
-
-    /**
-     * @return void
-     */
-    public function deleteAll()
-    {
-        $this->queryContainer->queryDeleteAllAttribute();
     }
 }

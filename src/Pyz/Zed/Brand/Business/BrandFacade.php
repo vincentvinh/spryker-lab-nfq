@@ -2,14 +2,14 @@
 
 namespace Pyz\Zed\Brand\Business;
 
-use Generated\Shared\Transfer\BrandCollectionTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
+use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
  * @method \Pyz\Zed\Brand\Business\BrandBusinessFactory getFactory()
- * @method \Pyz\Zed\Brand\Persistence\BrandRepositoryInterface getRepository()
  * @method \Pyz\Zed\Brand\Persistence\BrandEntityManagerInterface getEntityManager()
+ * @method \Pyz\Zed\Brand\Persistence\BrandRepositoryInterface getRepository()
  */
 class BrandFacade extends AbstractFacade implements BrandFacadeInterface
 {
@@ -44,32 +44,22 @@ class BrandFacade extends AbstractFacade implements BrandFacadeInterface
     }
 
     /**
-     * @return void
+     * @return \Generated\Shared\Transfer\LocaleTransfer
      */
-    public function getAllBrands(): BrandCollectionTransfer
-    {
-        // TODO: Implement getAllBrands() method.
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCurrentLocale()
+    public function getCurrentLocale(): LocaleTransfer
     {
         return $this->getFactory()->getCurrentLocale();
     }
 
     /**
-     * |
-     *
-     * @param $idBrand
+     * @param int $brandId
      *
      * @return \Generated\Shared\Transfer\BrandTransfer|mixed|null
      */
-    public function getBrandById($idBrand)
+    public function getBrandById(int $brandId)
     {
         return $this->getFactory()
             ->createBrandReader()
-            ->getBrand($idBrand);
+            ->getBrand($brandId);
     }
 }

@@ -11,29 +11,29 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 /**
  * @method \Pyz\Zed\Brand\BrandConfig getConfig()
  * @method \Pyz\Zed\Brand\Persistence\BrandQueryContainer getQueryContainer()
- * @method \Pyz\Zed\Brand\Persistence\BrandRepositoryInterface getRepository()
  * @method \Pyz\Zed\Brand\Persistence\BrandEntityManagerInterface getEntityManager()
+ * @method \Pyz\Zed\Brand\Persistence\BrandRepositoryInterface getRepository()
  */
 class BrandPersistenceFactory extends AbstractPersistenceFactory
 {
     /**
-     * @param null $modelAlias
+     * @param string|null $modelAlias
      * @param \Propel\Runtime\ActiveQuery\Criteria|null $criteria
      *
      * @return \Orm\Zed\Brand\Persistence\SpyBrandQuery
      */
-    public function createBrandQuery($modelAlias = null, ?Criteria $criteria = null): SpyBrandQuery
+    public function createBrandQuery(?string $modelAlias = null, ?Criteria $criteria = null): SpyBrandQuery
     {
         return SpyBrandQuery::create($modelAlias, $criteria);
     }
 
     /**
-     * @param null $modelAlias
+     * @param string|null $modelAlias
      * @param \Propel\Runtime\ActiveQuery\Criteria|null $criteria
      *
      * @return \Orm\Zed\Brand\Persistence\SpyBrandAttributeQuery
      */
-    public function createBrandAttributeQuery($modelAlias = null, ?Criteria $criteria = null): SpyBrandAttributeQuery
+    public function createBrandAttributeQuery(?string $modelAlias = null, ?Criteria $criteria = null): SpyBrandAttributeQuery
     {
         return SpyBrandAttributeQuery::create($modelAlias, $criteria);
     }
@@ -44,7 +44,7 @@ class BrandPersistenceFactory extends AbstractPersistenceFactory
      *
      * @return \Orm\Zed\Url\Persistence\SpyUrlQuery
      */
-    public function createUrlQuery($modelAlias = null, ?Criteria $criteria = null)
+    public function createUrlQuery(?string $modelAlias = null, ?Criteria $criteria = null)
     {
         return SpyUrlQuery::create($modelAlias, $criteria);
     }

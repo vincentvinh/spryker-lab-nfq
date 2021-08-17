@@ -2,24 +2,19 @@
 
 namespace Pyz\Zed\Brand\Business;
 
-use Generated\Shared\Transfer\BrandCollectionTransfer;
+use Generated\Shared\Transfer\LocaleTransfer;
 
 interface BrandFacadeInterface
 {
     /**
-     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
+     * @return \Generated\Shared\Transfer\LocaleTransfer
      */
-    public function getAllBrands(): BrandCollectionTransfer;
+    public function getCurrentLocale(): LocaleTransfer;
 
     /**
-     * @return mixed
-     */
-    public function getCurrentLocale();
-
-    /**
-     * @param $brandId
+     * @param int $brandId
      *
      * @return mixed
      */
-    public function getBrandById($brandId);
+    public function getBrandById(int $brandId);
 }

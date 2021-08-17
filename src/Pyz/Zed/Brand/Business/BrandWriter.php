@@ -35,7 +35,7 @@ class BrandWriter implements BrandWriterInterface
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
-     * @return mixed|void
+     * @return void
      */
     public function delete(BrandTransfer $brandTransfer)
     {
@@ -65,13 +65,13 @@ class BrandWriter implements BrandWriterInterface
     }
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @throws \Pyz\Zed\Brand\Business\Exception\MissingBrandException
      *
      * @return \Orm\Zed\Brand\Persistence\SpyBrand
      */
-    protected function getBrandEntity($idBrand): SpyBrand
+    protected function getBrandEntity(int $idBrand): SpyBrand
     {
         $brandEntity = $this
             ->brandQueryContainer
@@ -83,13 +83,5 @@ class BrandWriter implements BrandWriterInterface
         }
 
         return $brandEntity;
-    }
-
-    /**
-     * @return void
-     */
-    public function deleteAll()
-    {
-        $this->brandQueryContainer->queryDeleteAll();
     }
 }

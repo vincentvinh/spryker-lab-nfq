@@ -13,7 +13,12 @@ use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
  */
 class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryContainerInterface
 {
-    public function queryListBrand($idLocale)
+    /**
+     * @param int $idLocale
+     *
+     * @return mixed|\Orm\Zed\Brand\Persistence\SpyBrandQuery|void
+     */
+    public function queryListBrand(int $idLocale)
     {
         return $this->getFactory()->createBrandQuery()->create()
             ->joinAttribute()
@@ -30,41 +35,41 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
     }
 
     /**
-     * @param $nameBrand
+     * @param string $nameBrand
      *
      * @return mixed|\Orm\Zed\Brand\Persistence\SpyBrandQuery
      */
-    public function queryBrandByName($nameBrand)
+    public function queryBrandByName(string $nameBrand)
     {
         return $this->getFactory()->createBrandQuery()->filterByName($nameBrand);
     }
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return mixed|\Orm\Zed\Brand\Persistence\SpyBrandQuery
      */
-    public function queryBrandById($idBrand)
+    public function queryBrandById(int $idBrand)
     {
         return $this->getFactory()->createBrandQuery()->filterByIdBrand($idBrand);
     }
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return mixed|\Orm\Zed\Brand\Persistence\SpyBrandAttributeQuery
      */
-    public function queryAttributeByBrandId($idBrand)
+    public function queryAttributeByBrandId(int $idBrand)
     {
         return $this->getFactory()->createBrandAttributeQuery()->filterByFkBrand($idBrand);
     }
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return mixed|\Orm\Zed\Url\Persistence\SpyUrlQuery
      */
-    public function queryUrlByIdBrand($idBrand)
+    public function queryUrlByIdBrand(int $idBrand)
     {
         return $this->getFactory()->createUrlQuery()
             ->joinSpyLocale()

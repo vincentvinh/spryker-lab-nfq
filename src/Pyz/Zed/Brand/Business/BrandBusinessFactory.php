@@ -10,8 +10,8 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 /**
  * @method \Pyz\Zed\Brand\BrandConfig getConfig()
  * @method \Pyz\Zed\Brand\Persistence\BrandQueryContainer getQueryContainer()
- * @method \Pyz\Zed\Brand\Persistence\BrandRepositoryInterface getRepository()
  * @method \Pyz\Zed\Brand\Persistence\BrandEntityManagerInterface getEntityManager()
+ * @method \Pyz\Zed\Brand\Persistence\BrandRepositoryInterface getRepository()()
  */
 class BrandBusinessFactory extends AbstractBusinessFactory
 {
@@ -53,10 +53,9 @@ class BrandBusinessFactory extends AbstractBusinessFactory
     /**
      * @return \Pyz\Zed\Brand\Business\Brand
      */
-    public function createBrand()
+    public function createBrand(): Brand
     {
         return new Brand(
-            $this->createBrandReader(),
             $this->createBrandWriter(),
             $this->createBrandAttribute(),
             $this->createBrandUrl()

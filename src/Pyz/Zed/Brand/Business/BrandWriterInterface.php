@@ -18,7 +18,17 @@ interface BrandWriterInterface
      */
     public function delete(BrandTransfer $brandTransfer);
 
+    /**
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return mixed
+     */
     public function create(BrandTransfer $brandTransfer);
 
+    /**
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return mixed
+     */
     public function update(BrandTransfer $brandTransfer);
 }

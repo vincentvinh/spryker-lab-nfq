@@ -7,19 +7,10 @@
 
 namespace Pyz\Zed\Brand\Persistence;
 
-use Generated\Shared\Transfer\BrandCollectionTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
-use Generated\Shared\Transfer\LocaleTransfer;
 
 interface BrandRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
-     */
-    public function getAllBrandCollection(LocaleTransfer $localeTransfer): BrandCollectionTransfer;
-
     /**
      * @param int $idBrand
      *

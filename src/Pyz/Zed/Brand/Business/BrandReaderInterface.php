@@ -2,8 +2,7 @@
 
 namespace Pyz\Zed\Brand\Business;
 
-use Generated\Shared\Transfer\BrandCollectionTransfer;
-use Generated\Shared\Transfer\LocaleTransfer;
+use Generated\Shared\Transfer\BrandTransfer;
 
 /**
  * Interface BrandReaderInterface
@@ -13,9 +12,9 @@ use Generated\Shared\Transfer\LocaleTransfer;
 interface BrandReaderInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     * @param int $idBrand
      *
-     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
+     * @return \Generated\Shared\Transfer\BrandTransfer|null
      */
-    public function getAllBrands(LocaleTransfer $localeTransfer): BrandCollectionTransfer;
+    public function getBrand(int $idBrand): ?BrandTransfer;
 }
