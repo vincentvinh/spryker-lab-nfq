@@ -7,6 +7,8 @@ use Spryker\Zed\Kernel\Container;
 
 class BrandDependencyProvider extends AbstractBundleDependencyProvider
 {
+    public const FACADE_LOCALE = 'FACADE_LOCALE';
+    public const FACADE_URL = 'FACADE_URL';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -15,7 +17,7 @@ class BrandDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
-        //TODO Provide dependencies
+        $container = $this->addLocaleFacade($container);
 
         return $container;
     }
@@ -27,7 +29,8 @@ class BrandDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
-        //TODO Provide dependencies
+        $container = $this->addLocaleFacade($container);
+        $container = $this->addUrlFacade($container);
 
         return $container;
     }
@@ -40,8 +43,34 @@ class BrandDependencyProvider extends AbstractBundleDependencyProvider
     public function providePersistenceLayerDependencies(Container $container)
     {
         //TODO Provide dependencies
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addLocaleFacade(Container $container): Container
+    {
+        $container->set(static::FACADE_LOCALE, function (Container $container) {
+            return $container->getLocator()->locale()->facade();
+        });
 
         return $container;
     }
 
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addUrlFacade(Container $container): Container
+    {
+        $container->set(static::FACADE_URL, function (Container $container) {
+            return $container->getLocator()->url()->facade();
+        });
+
+        return $container;
+    }
 }
