@@ -16,6 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ViewController extends AbstractController
 {
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function indexAction(Request $request)
     {
         $brandTransfer = $this->getFacade()->getBrandById($this->castId($request->get(BrandConstants::PARAM_ID_BRAND)));
@@ -45,7 +50,7 @@ class ViewController extends AbstractController
     /**
      * @return string
      */
-    protected function createSuccessRedirectUrl()
+    protected function createSuccessRedirectUrl(): string
     {
         $url = Url::generate('/brand');
 

@@ -51,7 +51,7 @@ class BrandUrl implements BrandUrlInterface
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
-     * @return mixed|void
+     * @return void
      */
     public function update(BrandTransfer $brandTransfer)
     {
@@ -66,7 +66,7 @@ class BrandUrl implements BrandUrlInterface
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
-     * @return mixed|void
+     * @return void
      */
     public function delete(BrandTransfer $brandTransfer)
     {
@@ -105,12 +105,12 @@ class BrandUrl implements BrandUrlInterface
     }
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return mixed
      */
-    protected function findUrlBrand($idBrand, LocaleTransfer $localeTransfer)
+    protected function findUrlBrand(int $idBrand, LocaleTransfer $localeTransfer)
     {
         return $this->queryContainer->queryUrlByIdBrand($idBrand)
             ->filterByFkLocale($localeTransfer->requireIdLocale()->getIdLocale())

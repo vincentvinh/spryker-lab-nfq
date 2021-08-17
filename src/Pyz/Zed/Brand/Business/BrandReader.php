@@ -2,8 +2,7 @@
 
 namespace Pyz\Zed\Brand\Business;
 
-use Generated\Shared\Transfer\BrandCollectionTransfer;
-use Generated\Shared\Transfer\LocaleTransfer;
+use Generated\Shared\Transfer\BrandTransfer;
 use Pyz\Zed\Brand\Persistence\BrandQueryContainerInterface;
 use Pyz\Zed\Brand\Persistence\BrandRepositoryInterface;
 
@@ -32,21 +31,11 @@ class BrandReader implements BrandReaderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\BrandCollectionTransfer
-     */
-    public function getAllBrands(LocaleTransfer $localeTransfer): BrandCollectionTransfer
-    {
-        return $this->repository->getAllBrandCollection($localeTransfer);
-    }
-
-    /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return \Generated\Shared\Transfer\BrandTransfer|null
      */
-    public function getBrand($idBrand)
+    public function getBrand(int $idBrand): ?BrandTransfer
     {
         return $this->repository->findBrandById($idBrand);
     }

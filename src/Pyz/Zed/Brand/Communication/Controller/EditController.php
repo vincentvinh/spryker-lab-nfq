@@ -16,6 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class EditController extends AbstractController
 {
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function indexAction(Request $request)
     {
         $brandTransfer = $this->getFactory()->createBrandEditDataProvider()->getData($this->castId($request->get(BrandConstants::PARAM_ID_BRAND)));
@@ -58,11 +63,11 @@ class EditController extends AbstractController
     }
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return string
      */
-    protected function createSuccessRedirectUrl($idBrand): string
+    protected function createSuccessRedirectUrl(int $idBrand): string
     {
         $url = Url::generate(
             '/brand/edit',

@@ -7,35 +7,37 @@ use Spryker\Zed\Kernel\Persistence\QueryContainer\QueryContainerInterface;
 interface BrandQueryContainerInterface extends QueryContainerInterface
 {
     /**
-     * @param $idLocale
+     * @param int $idLocale
      *
      * @return mixed|void
      */
-    public function queryListBrand($idLocale);
+    public function queryListBrand(int $idLocale);
 
     /**
-     * @param $nameBrand
+     * @param string $nameBrand
      *
      * @return mixed
      */
-    public function queryBrandByName($nameBrand);
+    public function queryBrandByName(string $nameBrand);
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return mixed
      */
-    public function queryBrandById($idBrand);
+    public function queryBrandById(int $idBrand);
 
     /**
-     * @return mixed
-     */
-    public function queryAttributeByBrandId($idBrand);
-
-    /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return mixed
      */
-    public function queryUrlByIdBrand($idBrand);
+    public function queryAttributeByBrandId(int $idBrand);
+
+    /**
+     * @param int $idBrand
+     *
+     * @return mixed
+     */
+    public function queryUrlByIdBrand(int $idBrand);
 }

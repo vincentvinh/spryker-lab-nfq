@@ -50,7 +50,7 @@ class BrandEditDataProvider
     /**
      * @param int $brandId
      *
-     * @return \Generated\Shared\Transfer\CategoryTransfer|null
+     * @return \Generated\Shared\Transfer\BrandTransfer|null
      */
     protected function buildBrandTransfer(int $brandId): ?BrandTransfer
     {
@@ -64,7 +64,7 @@ class BrandEditDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\BrandTransfer $categoryTransfer
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
      * @return \Generated\Shared\Transfer\BrandTransfer
      */

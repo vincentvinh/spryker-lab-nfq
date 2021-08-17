@@ -54,9 +54,11 @@ class CreateController extends AbstractController
     }
 
     /**
+     * @param int $idBrand
+     *
      * @return string
      */
-    protected function createSuccessRedirectUrl($idBrand)
+    protected function createSuccessRedirectUrl(int $idBrand)
     {
         $url = Url::generate(
             '/brand/edit',

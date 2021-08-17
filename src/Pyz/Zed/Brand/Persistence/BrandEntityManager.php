@@ -14,7 +14,7 @@ class BrandEntityManager extends AbstractEntityManager implements BrandEntityMan
     /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
-     * @return mixed|void
+     * @return void
      */
     public function delete(BrandTransfer $brandTransfer)
     {
@@ -30,10 +30,10 @@ class BrandEntityManager extends AbstractEntityManager implements BrandEntityMan
      */
     public function create(BrandTransfer $brandTransfer)
     {
-        $brandEntity = new spyBrand();
-        $brandEntity->fromArray($brandTransfer->toArray());
-        $brandEntity->save();
-        $brandTransfer->setIdBrand($brandEntity->getIdBrand());
+        $spyBrand = new SpyBrand();
+        $spyBrand->fromArray($brandTransfer->toArray());
+        $spyBrand->save();
+        $brandTransfer->setIdBrand($spyBrand->getIdBrand());
     }
 
     /**

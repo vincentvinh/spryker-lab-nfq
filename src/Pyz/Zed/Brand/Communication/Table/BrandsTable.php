@@ -29,6 +29,10 @@ class BrandsTable extends AbstractTable
      */
     protected $brandQueryContainer;
 
+    /**
+     * @param \Pyz\Zed\Brand\Business\BrandFacadeInterface $brandFacade
+     * @param \Pyz\Zed\Brand\Persistence\BrandQueryContainerInterface $brandQueryContainer
+     */
     public function __construct(
         BrandFacadeInterface $brandFacade,
         BrandQueryContainerInterface $brandQueryContainer
@@ -42,7 +46,7 @@ class BrandsTable extends AbstractTable
      *
      * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
      */
-    protected function configure(TableConfiguration $config)
+    protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config->setHeader([
             static::NAME => 'Name',
@@ -97,11 +101,11 @@ class BrandsTable extends AbstractTable
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return string
      */
-    protected function generateEditBrandButton($id): string
+    protected function generateEditBrandButton(int $id): string
     {
         return $this->generateEditButton(
             Url::generate('/brand/edit', [
@@ -112,11 +116,11 @@ class BrandsTable extends AbstractTable
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return string
      */
-    protected function generateBrandRemoveButton($id): string
+    protected function generateBrandRemoveButton(int $id): string
     {
         return $this->generateRemoveButton(
             Url::generate('/brand/delete', [
@@ -127,11 +131,11 @@ class BrandsTable extends AbstractTable
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return string
      */
-    protected function generateBrandViewButton($id): string
+    protected function generateBrandViewButton(int $id): string
     {
         return $this->generateViewButton(
             Url::generate('/brand/view', [
