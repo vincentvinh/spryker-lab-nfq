@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+    <transfer name="Brand">
+        <property name="idBrand" type="int"/>
+        <property name="name" type="string"/>
+        <property name="description" type="string"/>
+        <property name="isHighlight" type="bool"/>
+        <property name="isSearchable" type="bool"/>
+        <property name="url" type="string"/>
+        <property name="logo" type="string"/>
+        <property name="metaDescription" type="string"/>
+        <property name="localizedAttributes" type="BrandLocalizedAttributes[]" singular="localizedAttributes"/>
+    </transfer>
+
+    <transfer name="BrandCollection">
+        <property name="brands" type="Brand[]" singular="brand"/>
+    </transfer>
+
+    <transfer name="BrandLocalizedAttributes">
+        <property name="locale" type="Locale"/>
+        <property name="metaDescription" type="string"/>
+    </transfer>
+
+    <transfer name="Url">
+        <property name="fkResourceBrand" type="int"/>
+    </transfer>
+</transfers>

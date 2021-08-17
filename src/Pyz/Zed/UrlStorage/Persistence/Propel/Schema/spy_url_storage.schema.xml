@@ -6,6 +6,7 @@
           package="src.Orm.Zed.UrlStorage.Persistence">
 
     <table name="spy_url_storage">
+        <column name="fk_brand" type="INTEGER" required="false"/>
         <behavior name="synchronization">
             <parameter name="queue_pool" value="synchronizationPool"/>
         </behavior>
