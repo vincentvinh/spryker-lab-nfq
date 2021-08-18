@@ -8,9 +8,7 @@
 namespace Pyz\Zed\ProductBrand\Communication\Controller;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Brand\Persistence\Map\SpyBrandTableMap;
 use Pyz\Shared\Brand\BrandConstants;
-use Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +34,7 @@ class AssignController extends AbstractController
         $brandEntity = $this->getBrandEntity($idBrand);
 
         if (!$brandEntity) {
-            return new RedirectResponse($this->getFactory()->getBrandFacade()->getBrandListUrl());
+            return new RedirectResponse('/brand');
         }
 
         $form = $this->getForm($idBrand);
@@ -57,8 +55,6 @@ class AssignController extends AbstractController
         $localeTransfer = $this->getFactory()->getCurrentLocale();
         $brandProductsTable = $this->getBrandProductsTable($idBrand, $localeTransfer);
         $productsTable = $this->getProductsTable($idBrand, $localeTransfer);
-
-
 
 //        $brandPath = $brandFacade->getNodePath($idBrand, $localeTransfer); TBD
         $brandPath = $brandEntity->getName();

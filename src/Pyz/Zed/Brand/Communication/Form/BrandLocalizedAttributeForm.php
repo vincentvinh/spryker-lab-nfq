@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Brand\Communication\Form;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Spryker\Zed\Kernel\Communication\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;

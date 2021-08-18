@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Brand\Communication\Form\DataProvider;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
