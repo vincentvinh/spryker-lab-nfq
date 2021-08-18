@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true
+          submodules: recursive
       - name: Install packages
         run: apt-get install iproute2 -y
       - run: docker/sdk boot deploy.staging.yml
