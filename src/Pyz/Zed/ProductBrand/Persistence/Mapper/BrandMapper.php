@@ -39,11 +39,11 @@ class BrandMapper implements BrandMapperInterface
             $localeTransfer = new LocaleTransfer();
             $localeTransfer->fromArray($attribute->getLocale()->toArray(), true);
 
-            $brandLocalizedAttributesTransfer = new BrandLocalizedAttributeTransfer();
-            $brandLocalizedAttributesTransfer->fromArray($attribute->toArray(), true);
-            $brandLocalizedAttributesTransfer->setLocale($localeTransfer);
+            $brandLocalizedAttributeTransfer = new BrandLocalizedAttributeTransfer();
+            $brandLocalizedAttributeTransfer->fromArray($attribute->toArray(), true);
+            $brandLocalizedAttributeTransfer->setLocale($localeTransfer);
 
-            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributesTransfer);
+            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributeTransfer);
         }
     }
 

@@ -93,7 +93,11 @@ class BrandsTable extends AbstractTable
                 static::LOGO => $this->generateImageViewBrand($brand[static::LOGO]),
                 static::SEARCHABLE => $this->yesNoOutput($brand[static::SEARCHABLE]),
                 static::HIGHLIGHTED => $this->yesNoOutput($brand[static::HIGHLIGHTED]),
-                static::ACTIONS => $this->generateBrandViewButton($brand[static::ID_BRAND]) . ' ' . $this->generateEditBrandButton($brand[static::ID_BRAND]) . ' ' . $this->generateBrandRemoveButton($brand[static::ID_BRAND]),
+                static::ACTIONS =>
+                    $this->generateBrandAssignButton($brand[static::ID_BRAND]) . ' ' .
+                    $this->generateBrandViewButton($brand[static::ID_BRAND]) . ' ' .
+                    $this->generateEditBrandButton($brand[static::ID_BRAND]) . ' ' .
+                    $this->generateBrandRemoveButton($brand[static::ID_BRAND]),
             ];
         }
 
@@ -142,6 +146,21 @@ class BrandsTable extends AbstractTable
                 BrandConstants::PARAM_ID_BRAND => $id,
             ]),
             'View'
+        );
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return string
+     */
+    protected function generateBrandAssignButton(int $id): string
+    {
+        return $this->generateViewButton(
+            Url::generate('/product-brand/assign', [
+                BrandConstants::PARAM_ID_BRAND => $id,
+            ]),
+            'Assign to products'
         );
     }
 

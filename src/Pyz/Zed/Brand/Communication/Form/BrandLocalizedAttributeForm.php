@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Brand\Communication\Form;
 
 use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Spryker\Zed\Kernel\Communication\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -45,7 +46,7 @@ class BrandLocalizedAttributeForm extends AbstractType
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'data_class' => BrandLocalizedAttributesTransfer::class,
+            'data_class' => BrandLocalizedAttributeTransfer::class,
         ]);
     }
 

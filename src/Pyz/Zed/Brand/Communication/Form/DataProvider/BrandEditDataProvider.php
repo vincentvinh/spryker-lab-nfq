@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Brand\Communication\Form\DataProvider;
 
 use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Zed\Brand\Business\BrandFacadeInterface;
@@ -103,10 +104,10 @@ class BrandEditDataProvider
     /**
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return \Generated\Shared\Transfer\BrandLocalizedAttributesTransfer
+     * @return \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer
      */
-    protected function createEmptyBrandLocalizedAttributesTransfer(LocaleTransfer $localeTransfer): BrandLocalizedAttributesTransfer
+    protected function createEmptyBrandLocalizedAttributesTransfer(LocaleTransfer $localeTransfer): BrandLocalizedAttributeTransfer
     {
-        return (new BrandLocalizedAttributesTransfer())->setLocale($localeTransfer);
+        return (new BrandLocalizedAttributeTransfer())->setLocale($localeTransfer);
     }
 }
