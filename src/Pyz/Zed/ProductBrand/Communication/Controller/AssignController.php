@@ -185,7 +185,7 @@ class AssignController extends AbstractController
      */
     public function productBrandTableAction(Request $request)
     {
-        $idBrand = $this->castId($request->get(ProductBrandTable::PARAM_ID_BRAND));
+        $idBrand = $this->castId($request->get(BrandConstants::PARAM_ID_BRAND));
         $localeTransfer = $this->getFactory()->getCurrentLocale();
         $productBrandTable = $this->getBrandProductsTable($idBrand, $localeTransfer);
 
@@ -199,7 +199,7 @@ class AssignController extends AbstractController
      */
     public function productTableAction(Request $request)
     {
-        $idBrand = $this->castId($request->get(ProductBrandTable::PARAM_ID_BRAND));
+        $idBrand = $this->castId($request->get(BrandConstants::PARAM_ID_BRAND));
         $localeTransfer = $this->getFactory()->getCurrentLocale();
         $productTable = $this->getProductsTable($idBrand, $localeTransfer);
 

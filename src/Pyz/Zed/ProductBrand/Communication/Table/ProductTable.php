@@ -10,6 +10,7 @@ namespace Pyz\Zed\ProductBrand\Communication\Table;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractLocalizedAttributesTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Pyz\Shared\Brand\BrandConstants;
 use Pyz\Zed\ProductBrand\Persistence\ProductBrandQueryContainerInterface;
 use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Gui\Communication\Table\AbstractTable;
@@ -56,7 +57,7 @@ class ProductTable extends AbstractTable
         $this->utilEncodingService = $utilEncodingService;
         $this->localeTransfer = $localeTransfer;
         $this->idBrand = (int)$idBrand;
-        $this->defaultUrl = sprintf('product-table?%s=%d', ProductBrandTable::PARAM_ID_BRAND, $this->idBrand);
+        $this->defaultUrl = sprintf('product-table?%s=%d', BrandConstants::PARAM_ID_BRAND, $this->idBrand);
         $this->setTableIdentifier(self::TABLE_IDENTIFIER);
     }
 
