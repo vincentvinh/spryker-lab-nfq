@@ -8,6 +8,8 @@
 namespace Pyz\Zed\ProductBrand\Communication\Controller;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Orm\Zed\Brand\Persistence\Map\SpyBrandTableMap;
+use Pyz\Shared\Brand\BrandConstants;
 use Pyz\Zed\ProductBrand\Communication\Table\ProductBrandTable;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -30,7 +32,7 @@ class AssignController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $idBrand = $this->castId($request->get(ProductBrandTable::PARAM_ID_BRAND));
+        $idBrand = $this->castId($request->get(BrandConstants::PARAM_ID_BRAND));
         $brandEntity = $this->getBrandEntity($idBrand);
 
         if (!$brandEntity) {
@@ -56,16 +58,16 @@ class AssignController extends AbstractController
         $brandProductsTable = $this->getBrandProductsTable($idBrand, $localeTransfer);
         $productsTable = $this->getProductsTable($idBrand, $localeTransfer);
 
-        $brandFacade = $this->getFactory()->getBrandFacade();
-//        $brandPath = $brandFacade->getNodePath($idBrand, $localeTransfer);
-        $brandPath = 'qdqwd';
+
+
+//        $brandPath = $brandFacade->getNodePath($idBrand, $localeTransfer); TBD
+        $brandPath = $brandEntity->getName();
 
         return $this->viewResponse([
             'idBrand' => $idBrand,
             'form' => $form->createView(),
             'productBrandsTable' => $brandProductsTable->render(),
             'productsTable' => $productsTable->render(),
-            'currentBrand' => $brandEntity->toArray(),
             'brandPath' => $brandPath,
             'currentLocale' => $localeTransfer->getLocaleName(),
         ]);
@@ -80,7 +82,8 @@ class AssignController extends AbstractController
     {
         $brandEntity = $this->getFactory()
             ->getBrandQueryContainer()
-            ->queryBrandById($idBrand);
+            ->queryBrandById($idBrand)
+            ->findOne();
         if (!$brandEntity) {
             $this->addErrorMessage('The brand with id "%s" does not exist.', ['%s' => $idBrand]);
 
