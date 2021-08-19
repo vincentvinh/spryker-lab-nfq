@@ -12,9 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: recursive
+          submodules: true
       - name: Install packages
         run: apt-get install iproute2 -y
+      - run: rm -rf docker/deployment/default
+      - run: git checkout a197618
+        working-directory: docker
       - run: docker/sdk boot deploy.staging.yml
       - run: SPRYKER_BUILD_HASH=${GITHUB_SHA} docker/sdk export images -t ${GITHUB_SHA}
 
