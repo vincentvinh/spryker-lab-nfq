@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <brand-storage>
+        <label>Brand Storage</label>
+        <title>Brand Storage</title>
+        <bundle>brand-storage</bundle>
+        <controller>index</controller>
+        <action>index</action>
+    </brand-storage>
+</config>

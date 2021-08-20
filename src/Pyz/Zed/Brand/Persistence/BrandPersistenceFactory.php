@@ -44,7 +44,7 @@ class BrandPersistenceFactory extends AbstractPersistenceFactory
      *
      * @return \Orm\Zed\Url\Persistence\SpyUrlQuery
      */
-    public function createUrlQuery(?string $modelAlias = null, ?Criteria $criteria = null)
+    public function createUrlQuery(?string $modelAlias = null, ?Criteria $criteria = null): SpyUrlQuery
     {
         return SpyUrlQuery::create($modelAlias, $criteria);
     }

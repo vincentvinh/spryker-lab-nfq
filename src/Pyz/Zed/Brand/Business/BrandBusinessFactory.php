@@ -58,7 +58,8 @@ class BrandBusinessFactory extends AbstractBusinessFactory
         return new Brand(
             $this->createBrandWriter(),
             $this->createBrandAttribute(),
-            $this->createBrandUrl()
+            $this->createBrandUrl(),
+            $this->getEventFacade()
         );
     }
 
@@ -84,5 +85,13 @@ class BrandBusinessFactory extends AbstractBusinessFactory
     public function getUrlFacade()
     {
         return $this->getProvidedDependency(BrandDependencyProvider::FACADE_URL);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEventFacade()
+    {
+        return $this->getProvidedDependency(BrandDependencyProvider::FACADE_EVENT);
     }
 }

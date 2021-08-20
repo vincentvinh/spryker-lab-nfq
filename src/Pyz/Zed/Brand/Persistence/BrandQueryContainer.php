@@ -38,6 +38,8 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
      * @param string $nameBrand
      *
      * @return mixed|\Orm\Zed\Brand\Persistence\SpyBrandQuery
+     *
+     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      */
     public function queryBrandByName(string $nameBrand)
     {
@@ -75,5 +77,13 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
             ->joinSpyLocale()
             ->filterByFkResourceBrand($idBrand)
             ->withColumn(SpyLocaleTableMap::COL_LOCALE_NAME);
+    }
+
+    /**
+     * @return \Orm\Zed\Brand\Persistence\SpyBrandQuery
+     */
+    public function queryAllBrand()
+    {
+        return $this->getFactory()->createBrandQuery()->joinWithAttribute();
     }
 }
