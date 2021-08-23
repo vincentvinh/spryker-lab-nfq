@@ -1,0 +1,41 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Brand removal confirmation' | trans %}
+
+{% block head_title widget_title %}
+{% block section_title widget_title %}
+
+{% block action %}
+    {{ parent() }}
+    {{ backActionButton(app.request.headers.get('referer'), 'Back' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <span>{{ 'Are you sure you want to remove this brand?' | trans }}</span>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="{{ app.request.headers.get('referer') }}" class="btn btn-back">{{ 'Back' | trans }}</a>
+                    {{ form_start(deleteForm, {
+                        'action': url('/brand/delete/confirm', {'id-brand': idBrand})
+                    }) }}
+                    <input type="submit"
+                           class="btn btn-danger safe-submit"
+                           value="{{ 'Remove List' | trans }}"/>
+                    {{ form_end(deleteForm) }}
+                </div>
+            </div>
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% if widget_title is not defined %}
+    {% set widget_title = 'View brand' | trans %}
+{% endif %}
+
+{% block section_title %}{{ widget_title }}{% endblock %}
+
+{% block action %}
+    {{ editActionButton('/brand/edit?id-brand='~brand.idBrand, 'Edit' | trans) }}
+    {% include ['@Brand/_partials/back-button.twig', '@Brand/_partials/back-button.twig'] %}
+{% endblock %}
+
+{% block content %}
+    {% embed '@Gui/Partials/widget.twig' %}
+        {% block widget_content %}
+            <p>
+                <strong>{{ 'Name:' | trans }}</strong> {{ brand.name }}
+            </p>
+            <p>
+                <strong>{{ 'Description:' | trans }}</strong> {{ brand.description }}
+            </p>
+            <p>
+                <strong>{{ 'Logo:' | trans }}</strong> {{ brand.logo }}
+            </p>
+            <p>
+                <strong>{{ 'Highlight:' | trans }}</strong> {{ brand.isHighlight ? 'yes'|trans : 'no'|trans }}
+            </p>
+            <p>
+                <strong>{{ 'SearchAble:' | trans }}</strong> {{ brand.isSearchable ? 'yes'|trans : 'no'|trans }}
+            </p>
+            {% for localizedAttribute in localizedAttributes %}
+                {% set localeName = localizedAttribute.locale.localeName %}
+
+                {% embed '@Gui/Partials/localized-ibox.twig' with {
+                    localeName: localeName,
+                    collapsed: false,
+                    id: 'localizedAttributes-ibox-' ~ localeName
+                } %}
+                    {% block content %}
+                        <p>
+                            <strong>{{ 'Meta Description:' | trans }}</strong> {{ localizedAttribute.metaDescription }}
+                        </p>
+                    {% endblock %}
+                {% endembed %}
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

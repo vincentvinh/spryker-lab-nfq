@@ -8,7 +8,6 @@
 namespace Pyz\Zed\PriceProduct\Business;
 
 use Generated\Shared\Transfer\EventEntityTransfer;
-use Orm\Zed\PriceProduct\Persistence\Map\SpyPriceProductDefaultTableMap;
 use Orm\Zed\PriceProduct\Persistence\Map\SpyPriceProductStoreTableMap;
 use Pyz\Client\PriceExchange\PriceExchangeClient;
 use Pyz\Zed\PriceProduct\Persistence\PriceProductEntityManager;
@@ -131,7 +130,7 @@ class RateExchangeUpdater implements RateExchangeUpdaterInterface
                 $transfer->setId($entity->getPrimaryKey());
                 $transfer->setForeignKeys([SpyPriceProductStoreTableMap::TABLE_NAME . ".fk_price_product" => $entity->getFkPriceProduct()]);
 
-                $transfers[]= $transfer;
+                $transfers[] = $transfer;
             }
 
             $this->eventFacade->triggerBulk(static::PRICE_STORE_EVENT_UPDATE, $transfers);
