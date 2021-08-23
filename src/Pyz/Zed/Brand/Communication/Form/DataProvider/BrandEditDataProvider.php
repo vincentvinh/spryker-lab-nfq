@@ -77,8 +77,8 @@ class BrandEditDataProvider
                 continue;
             }
 
-            $brandLocalizedAttributesTransfer = $this->createEmptyBrandLocalizedAttributesTransfer($localeTransfer);
-            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributesTransfer);
+            $brandLocalizedAttributeTransfer = $this->createEmptyBrandLocalizedAttributeTransfer($localeTransfer);
+            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributeTransfer);
         }
 
         return $brandTransfer;
@@ -105,7 +105,7 @@ class BrandEditDataProvider
      *
      * @return \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer
      */
-    protected function createEmptyBrandLocalizedAttributesTransfer(LocaleTransfer $localeTransfer): BrandLocalizedAttributeTransfer
+    protected function createEmptyBrandLocalizedAttributeTransfer(LocaleTransfer $localeTransfer): BrandLocalizedAttributeTransfer
     {
         return (new BrandLocalizedAttributeTransfer())->setLocale($localeTransfer);
     }

@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\BrandStorage\Business;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandStorageTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandStorage\Persistence\SpyBrandStorage;
@@ -114,7 +114,7 @@ class BrandStorageWrite implements BrandStorageWriteInterface
             $brandAttributes = $brandEntity->getAttributes()->toArray();
             foreach ($brandAttributes as $brandAttribute) {
                 $localName = $locales[$brandAttribute['FkLocale']];
-                $brandAttributeEntity = new BrandLocalizedAttributesTransfer();
+                $brandAttributeEntity = new BrandLocalizedAttributeTransfer();
                 $brandAttributeEntity->fromArray($brandAttribute, true);
                 $brandStorageTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $brandAttributeEntity);
             }
@@ -143,11 +143,11 @@ class BrandStorageWrite implements BrandStorageWriteInterface
 
     /**
      * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandTransfer
-     * @param \Generated\Shared\Transfer\BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer
+     * @param \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer $brandLocalizedAttributeTransfer
      *
      * @return \Generated\Shared\Transfer\BrandStorageTransfer
      */
-    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer): BrandStorageTransfer
+    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributeTransfer $brandLocalizedAttributeTransfer): BrandStorageTransfer
     {
         $brandStorageTransfer = new BrandStorageTransfer();
         $brandStorageTransfer->setIdBrand($brandTransfer->getIdBrand());
@@ -155,7 +155,7 @@ class BrandStorageWrite implements BrandStorageWriteInterface
         $brandStorageTransfer->setDescription($brandTransfer->getDescription());
         $brandStorageTransfer->setIsHighlight($brandTransfer->getIsHighlight());
         $brandStorageTransfer->setIsSearchable($brandTransfer->getIsSearchable());
-        $brandStorageTransfer->setMetaDescription($brandLocalizedAttributesTransfer->getMetaDescription());
+        $brandStorageTransfer->setMetaDescription($brandLocalizedAttributeTransfer->getMetaDescription());
 
         return $brandStorageTransfer;
     }
