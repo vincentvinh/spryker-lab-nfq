@@ -129,7 +129,7 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
     }
 
     /**
-     * @return \Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStoragePublishListener[][]
+     * @return array[]
      */
     protected function getBrandStoragePlugins(): array
     {

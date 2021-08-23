@@ -61,9 +61,9 @@ class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscri
     }
 
     /**
-     * @param EventCollectionInterface $eventCollection
+     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
      *
-     * @return EventCollectionInterface
+     * @return \Spryker\Zed\Event\Dependency\EventCollectionInterface
      */
     protected function addBrandDeleteStorageListener(EventCollectionInterface $eventCollection): EventCollectionInterface
     {

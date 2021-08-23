@@ -21,6 +21,8 @@ class BrandStorageFacade extends AbstractFacade implements BrandStorageFacadeInt
 
     /**
      * @param array $brandIds
+     *
+     * @return void
      */
     public function unpublish(array $brandIds)
     {

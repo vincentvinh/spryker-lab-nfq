@@ -63,6 +63,8 @@ class BrandStorageWrite implements BrandStorageWriteInterface
 
     /**
      * @param array $brandStoragesWithIdAndLocales
+     *
+     * @return void
      */
     protected function deleteStorageData(array $brandStoragesWithIdAndLocales)
     {

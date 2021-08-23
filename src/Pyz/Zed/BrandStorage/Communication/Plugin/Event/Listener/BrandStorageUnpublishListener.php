@@ -41,7 +41,7 @@ class BrandStorageUnpublishListener extends AbstractPlugin implements EventBulkH
     public function getSubscribedEvents(): array
     {
         return [
-            BrandEvents::ENTITY_SPY_BRAND_DELETE
+            BrandEvents::ENTITY_SPY_BRAND_DELETE,
         ];
     }
 }
