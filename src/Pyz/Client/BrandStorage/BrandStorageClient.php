@@ -9,7 +9,6 @@ use Spryker\Client\Kernel\AbstractClient;
  */
 class BrandStorageClient extends AbstractClient implements BrandStorageClientInterface
 {
-
     /**
      * @return \Pyz\Client\BrandStorage\Zed\BrandStorageStubInterface
      */
@@ -17,5 +16,4 @@ class BrandStorageClient extends AbstractClient implements BrandStorageClientInt
     {
         return $this->getFactory()->createZedStub();
     }
-
 }

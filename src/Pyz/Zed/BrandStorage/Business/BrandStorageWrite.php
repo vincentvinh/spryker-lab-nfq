@@ -4,13 +4,8 @@ namespace Pyz\Zed\BrandStorage\Business;
 
 use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\BrandStorageTransfer;
-use Generated\Shared\Transfer\BrandTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
-use Orm\Zed\Brand\Persistence\SpyBrandAttribute;
 use Orm\Zed\BrandStorage\Persistence\SpyBrandStorage;
-use Orm\Zed\CategoryStorage\Persistence\SpyCategoryNodeStorage;
-use Pyz\Zed\Brand\Business\Model\BrandAttribute\BrandAttribute;
-use Pyz\Zed\Brand\Business\Model\BrandAttribute\BrandAttributeInterface;
 use Pyz\Zed\BrandStorage\Persistence\BrandStorageQueryContainerInterface;
 use Spryker\Shared\Kernel\Store;
 
@@ -26,20 +21,22 @@ class BrandStorageWrite implements BrandStorageWriteInterface
      */
     protected $store;
 
+    /**
+     * @param \Pyz\Zed\BrandStorage\Persistence\BrandStorageQueryContainerInterface $brandStorageQueryContainer
+     * @param \Spryker\Shared\Kernel\Store $store
+     */
     public function __construct(
         BrandStorageQueryContainerInterface $brandStorageQueryContainer,
         Store $store
-    )
-    {
+    ) {
         $this->brandStorageQueryContainer = $brandStorageQueryContainer;
         $this->store = $store;
     }
 
     /**
      * @param array $brandIds
-     * @return mixed|void
      *
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
     public function publish(array $brandIds)
     {
@@ -50,16 +47,17 @@ class BrandStorageWrite implements BrandStorageWriteInterface
     }
 
     /**
+     * @param array $brandEntities
      * @param array $brandStorages
      *
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
     protected function storeData(array $brandEntities, array $brandStorages)
     {
         foreach ($brandEntities as $brandEntity) {
             /** @var SpyBrand $brandEntity */
-            /** @var BrandStorageTransfer $brand */
-            foreach($brandEntity as $locale =>  $brand) {
+            /** @var \Generated\Shared\Transfer\BrandStorageTransfer $brand */
+            foreach ($brandEntity as $locale => $brand) {
                 if (isset($brandStorages[$brand->getIdBrand()][$locale])) {
                     $this->setStoreData($brand, $locale, $brandStorages[$brand->getIdBrand()][$locale]);
                     continue;
@@ -74,8 +72,6 @@ class BrandStorageWrite implements BrandStorageWriteInterface
      * @param array $brandIds
      *
      * @return array
-     *
-     * @throws \Propel\Runtime\Exception\PropelException
      */
     protected function getBrands(array $brandIds): array
     {
@@ -85,14 +81,13 @@ class BrandStorageWrite implements BrandStorageWriteInterface
         $brandStorageTransfer = [];
 
         foreach ($brandEntities as $brandEntity) {
-            /** @var $brandEntity SpyBrand */
+            /** @var \Orm\Zed\Brand\Persistence\SpyBrand $brandEntity */
             $brandAttributes = $brandEntity->getAttributes()->toArray();
             foreach ($brandAttributes as $brandAttribute) {
                 $localName = $locales[$brandAttribute['FkLocale']];
                 $brandAttributeEntity = new BrandLocalizedAttributesTransfer();
                 $brandAttributeEntity->fromArray($brandAttribute, true);
                 $brandStorageTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $brandAttributeEntity);
-
             }
         }
 
@@ -101,6 +96,7 @@ class BrandStorageWrite implements BrandStorageWriteInterface
 
     /**
      * @param array $brandIds
+     *
      * @return array
      */
     protected function getBrandStorages(array $brandIds): array
@@ -109,17 +105,18 @@ class BrandStorageWrite implements BrandStorageWriteInterface
         $brandStorageEntities = $this->brandStorageQueryContainer->getBrandStorageByBrandIds($brandIds);
 
         foreach ($brandStorageEntities as $brandStorageEntity) {
-            /** @var SPyBrandStorage $brandStorageEntity */
+            /** @var \Orm\Zed\BrandStorage\Persistence\SpyBrandStorage $brandStorageEntity */
             $brandStorages[$brandStorageEntity->getFkBrand()][$brandStorageEntity->getLocale()] = $brandStorageEntity;
         }
 
         return $brandStorages;
     }
+
     /**
-     * @param SpyBrand $brandTransfer
-     * @param BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer
+     * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandTransfer
+     * @param \Generated\Shared\Transfer\BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer
      *
-     * @return BrandStorageTransfer
+     * @return \Generated\Shared\Transfer\BrandStorageTransfer
      */
     protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer): BrandStorageTransfer
     {
@@ -135,12 +132,13 @@ class BrandStorageWrite implements BrandStorageWriteInterface
     }
 
     /**
-     * @param BrandStorageTransfer $brandStorageTransfer
-     * @param $locale
-     * @param null| ?SpyBrandStorage $spyBrandStorage
-     * @throws \Propel\Runtime\Exception\PropelException
+     * @param \Generated\Shared\Transfer\BrandStorageTransfer $brandStorageTransfer
+     * @param string $locale
+     * @param \Orm\Zed\BrandStorage\Persistence\SpyBrandStorage|null $spyBrandStorage
+     *
+     * @return void
      */
-    protected function setStoreData(BrandStorageTransfer $brandStorageTransfer, $locale, ?SpyBrandStorage  $spyBrandStorage)
+    protected function setStoreData(BrandStorageTransfer $brandStorageTransfer, string $locale, ?SpyBrandStorage $spyBrandStorage)
     {
         if (empty($spyBrandStorage)) {
             $spyBrandStorage = new SpyBrandStorage();

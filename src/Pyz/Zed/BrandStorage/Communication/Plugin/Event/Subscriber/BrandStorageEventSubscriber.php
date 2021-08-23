@@ -13,12 +13,18 @@ use Spryker\Zed\Event\Dependency\EventCollectionInterface;
 use Spryker\Zed\Event\Dependency\Plugin\EventSubscriberInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
+/**
+ * @method \Pyz\Zed\BrandStorage\Business\BrandStorageFacadeInterface getFacade()
+ * @method \Pyz\Zed\BrandStorage\BrandStorageConfig getConfig()
+ * @method \Pyz\Zed\BrandStorage\Communication\BrandStorageCommunicationFactory getFactory()
+ * @method \Pyz\Zed\BrandStorage\Persistence\BrandStorageQueryContainerInterface getQueryContainer()
+ */
 class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscriberInterface
 {
     /**
-     * @param EventCollectionInterface $eventCollection
+     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
      *
-     * @return EventCollectionInterface
+     * @return \Spryker\Zed\Event\Dependency\EventCollectionInterface
      */
     public function getSubscribedEvents(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
@@ -39,7 +45,6 @@ class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscri
 
         return $eventCollection;
     }
-
 
     /**
      * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection

@@ -14,19 +14,21 @@ interface BrandStorageQueryContainerInterface extends QueryContainerInterface
     public function getAllBrandByIds(array $brandIds);
 
     /**
+     * @param array $brandIds
+     *
      * @return mixed
      */
     public function getBrandStorageByBrandIds(array $brandIds);
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return mixed
      */
-    public function queryAttributeByBrandId($idBrand);
+    public function queryAttributeByBrandId(int $idBrand);
 
     /**
-     * @params array $localeNames
+     * @param array $localeNames
      *
      * @return mixed
      */

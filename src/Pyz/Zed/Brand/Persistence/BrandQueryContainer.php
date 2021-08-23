@@ -38,8 +38,6 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
      * @param string $nameBrand
      *
      * @return mixed|\Orm\Zed\Brand\Persistence\SpyBrandQuery
-     *
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      */
     public function queryBrandByName(string $nameBrand)
     {

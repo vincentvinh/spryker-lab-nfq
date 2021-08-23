@@ -2,8 +2,6 @@
 
 namespace Pyz\Zed\BrandStorage;
 
-use Pyz\Zed\Synchronization\SynchronizationConfig;
-use Spryker\Shared\Publisher\PublisherConfig;
 use Spryker\Zed\Kernel\AbstractBundleConfig;
 
 class BrandStorageConfig extends AbstractBundleConfig

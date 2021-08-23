@@ -7,17 +7,15 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 /**
  * @method \Pyz\Zed\BrandStorage\Business\BrandStorageBusinessFactory getFactory()
  */
-class BrandStorageFacade extends AbstractFacade implements BrandStorageWriteInterface
+class BrandStorageFacade extends AbstractFacade implements BrandStorageFacadeInterface
 {
     /**
      * @param array $brandIds
-     * @return mixed|void
      *
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     * @return void
      */
     public function publish(array $brandIds)
     {
-        $this->getFactory()->getBrandStorageWrite()->publish($brandIds);
+        $this->getFactory()->createBrandStorageWrite()->publish($brandIds);
     }
 }

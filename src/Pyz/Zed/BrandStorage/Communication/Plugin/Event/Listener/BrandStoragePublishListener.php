@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener;
@@ -26,8 +26,7 @@ class BrandStoragePublishListener extends AbstractPlugin implements EventBulkHan
      * @param array $eventTransfers
      * @param string $eventName
      *
-     * @throws \Propel\Runtime\Exception\PropelException
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     * @return void
      */
     public function handleBulk(array $eventTransfers, $eventName)
     {

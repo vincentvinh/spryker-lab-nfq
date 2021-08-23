@@ -2,7 +2,6 @@
 
 namespace Pyz\Zed\Brand;
 
-use Spryker\Zed\Category\Dependency\Facade\CategoryToEventFacadeBridge;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
@@ -64,9 +63,9 @@ class BrandDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
 
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     protected function addUrlFacade(Container $container): Container
     {
@@ -78,9 +77,9 @@ class BrandDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     protected function addEventFacade(Container $container): Container
     {

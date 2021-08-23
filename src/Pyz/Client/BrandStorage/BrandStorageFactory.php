@@ -7,7 +7,6 @@ use Spryker\Client\Kernel\AbstractFactory;
 
 class BrandStorageFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Client\BrandStorage\Zed\BrandStorageStubInterface
      */
@@ -23,5 +22,4 @@ class BrandStorageFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(BrandStorageDependencyProvider::CLIENT_ZED_REQUEST);
     }
-
 }

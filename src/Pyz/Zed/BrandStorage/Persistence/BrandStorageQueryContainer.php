@@ -14,8 +14,6 @@ class BrandStorageQueryContainer extends AbstractQueryContainer implements Brand
      * @param array $brandIds
      *
      * @return mixed|\Orm\Zed\Brand\Persistence\SpyBrand[]|\Propel\Runtime\Collection\ObjectCollection
-     *
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function getAllBrandByIds(array $brandIds)
     {
@@ -33,9 +31,7 @@ class BrandStorageQueryContainer extends AbstractQueryContainer implements Brand
     }
 
     /**
-     * @return SpyBrandQuery
-     *
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     * @return \Orm\Zed\Brand\Persistence\SpyBrandQuery
      */
     protected function getAllBrand(): SpyBrandQuery
     {
@@ -43,11 +39,11 @@ class BrandStorageQueryContainer extends AbstractQueryContainer implements Brand
     }
 
     /**
-     * @param $idBrand
+     * @param int $idBrand
      *
      * @return mixed|void
      */
-    public function queryAttributeByBrandId($idBrand)
+    public function queryAttributeByBrandId(int $idBrand)
     {
         return $this->getFactory()->getBrandQueryContainer()->queryAttributeByBrandId($idBrand);
     }
@@ -56,8 +52,6 @@ class BrandStorageQueryContainer extends AbstractQueryContainer implements Brand
      * @param array $localeNames
      *
      * @return mixed
-     *
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function queryLocalesWithLocaleNames(array $localeNames)
     {

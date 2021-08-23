@@ -3,11 +3,8 @@
 namespace Pyz\Zed\Brand\Business;
 
 use Generated\Shared\Transfer\BrandTransfer;
-use Generated\Shared\Transfer\EventEntityTransfer;
 use Pyz\Zed\Brand\Business\Model\BrandAttribute\BrandAttributeInterface;
 use Pyz\Zed\Brand\Business\Model\BrandUrl\BrandUrlInterface;
-use Pyz\Zed\Brand\Dependency\BrandEvents;
-use Spryker\Zed\Category\Dependency\CategoryEvents;
 use Spryker\Zed\Event\Business\EventFacadeInterface;
 
 class Brand

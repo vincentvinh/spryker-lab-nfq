@@ -8,12 +8,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @method \Pyz\Zed\BrandStorage\Business\BrandStorageFacade getFacade()
+ * @method \Pyz\Zed\BrandStorage\Communication\BrandStorageCommunicationFactory getFactory()
+ * @method \Pyz\Zed\BrandStorage\Persistence\BrandStorageQueryContainerInterface getQueryContainer()
  */
 class BrandStorageConsole extends Console
 {
-
-    const COMMAND_NAME = 'some:command';
-    const DESCRIPTION = 'Describe me!';
+    public const COMMAND_NAME = 'some:command';
+    public const DESCRIPTION = 'Describe me!';
 
     /**
      * @return void
@@ -41,5 +42,4 @@ class BrandStorageConsole extends Console
 
         return static::CODE_SUCCESS;
     }
-
 }

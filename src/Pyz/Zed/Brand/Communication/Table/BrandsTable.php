@@ -160,11 +160,11 @@ class BrandsTable extends AbstractTable
     }
 
     /**
-     * @param $imageUrl
+     * @param string|null $imageUrl
      *
      * @return string
      */
-    protected function generateImageViewBrand($imageUrl): string
+    protected function generateImageViewBrand(?string $imageUrl): string
     {
         if (!empty($imageUrl)) {
             return $imageUrl;

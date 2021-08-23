@@ -15,9 +15,9 @@ class BrandStoragePersistenceFactory extends AbstractPersistenceFactory
 {
     /**
      * @param string|null $modelAlias
-     * @param Criteria|null $criteria
+     * @param \Propel\Runtime\ActiveQuery\Criteria|null $criteria
      *
-     * @return SpyBrandStorageQuery
+     * @return \Orm\Zed\BrandStorage\Persistence\SpyBrandStorageQuery
      */
     public function createBrandStorageQuery(?string $modelAlias = null, ?Criteria $criteria = null): SpyBrandStorageQuery
     {
@@ -26,8 +26,6 @@ class BrandStoragePersistenceFactory extends AbstractPersistenceFactory
 
     /**
      * @return mixed
-     *
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function getBrandQueryContainer()
     {
@@ -36,8 +34,6 @@ class BrandStoragePersistenceFactory extends AbstractPersistenceFactory
 
     /**
      * @return mixed
-     *
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function getLocaleQueryContainer()
     {

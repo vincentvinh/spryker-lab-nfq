@@ -51,11 +51,9 @@ class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
-     *
-     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
+     * @return \Spryker\Zed\Kernel\Container
      */
     protected function addBrandQueryContainer(Container $container): Container
     {
@@ -67,11 +65,9 @@ class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
-     *
-     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
+     * @return \Spryker\Zed\Kernel\Container
      */
     protected function addLocaleQueryContainer(Container $container): Container
     {
@@ -83,11 +79,9 @@ class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
-     *
-     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
+     * @return \Spryker\Zed\Kernel\Container
      */
     protected function addStore(Container $container): Container
     {
@@ -99,13 +93,11 @@ class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
-     *
-     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
+     * @return \Spryker\Zed\Kernel\Container
      */
-    protected function  addFacadeEventBehavior(Container $container): Container
+    protected function addFacadeEventBehavior(Container $container): Container
     {
         $container->set(static::FACADE_EVENT_BEHAVIOR, function (Container $container) {
             return $container->getLocator()->eventBehavior()->facade();

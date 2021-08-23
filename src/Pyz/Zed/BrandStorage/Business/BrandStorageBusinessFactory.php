@@ -12,11 +12,9 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 class BrandStorageBusinessFactory extends AbstractBusinessFactory
 {
     /**
-     * @return BrandStorageWrite
-     *
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
+     * @return \Pyz\Zed\BrandStorage\Business\BrandStorageWrite
      */
-    public function getBrandStorageWrite(): BrandStorageWrite
+    public function createBrandStorageWrite(): BrandStorageWrite
     {
         return new BrandStorageWrite(
             $this->getQueryContainer(),
@@ -26,8 +24,6 @@ class BrandStorageBusinessFactory extends AbstractBusinessFactory
 
     /**
      * @return mixed
-     *
-     * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function getStore()
     {
