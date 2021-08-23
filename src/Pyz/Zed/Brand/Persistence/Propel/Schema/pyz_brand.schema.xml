@@ -14,6 +14,9 @@
         <column name="is_searchable" default="true" type="BOOLEAN"/>
         <column name="is_highlight" default="true" type="BOOLEAN"/>
         <id-method-parameter value="spy_brand_pk_seq"/>
+        <behavior name="event">
+            <parameter name="spy_brand_all" column="*"/>
+        </behavior>
     </table>
     <table name="spy_brand_attribute" idMethod="native">
         <column name="id_brand_attribute" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>

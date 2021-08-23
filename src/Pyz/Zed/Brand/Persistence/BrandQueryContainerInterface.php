@@ -40,4 +40,9 @@ interface BrandQueryContainerInterface extends QueryContainerInterface
      * @return mixed
      */
     public function queryUrlByIdBrand(int $idBrand);
+
+    /***
+     * @return mixed
+     */
+    public function queryAllBrand();
 }

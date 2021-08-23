@@ -76,4 +76,12 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
             ->filterByFkResourceBrand($idBrand)
             ->withColumn(SpyLocaleTableMap::COL_LOCALE_NAME);
     }
+
+    /**
+     * @return \Orm\Zed\Brand\Persistence\SpyBrandQuery
+     */
+    public function queryAllBrand()
+    {
+        return $this->getFactory()->createBrandQuery()->joinWithAttribute();
+    }
 }

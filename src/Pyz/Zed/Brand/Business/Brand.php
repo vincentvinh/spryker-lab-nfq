@@ -5,6 +5,7 @@ namespace Pyz\Zed\Brand\Business;
 use Generated\Shared\Transfer\BrandTransfer;
 use Pyz\Zed\Brand\Business\Model\BrandAttribute\BrandAttributeInterface;
 use Pyz\Zed\Brand\Business\Model\BrandUrl\BrandUrlInterface;
+use Spryker\Zed\Event\Business\EventFacadeInterface;
 
 class Brand
 {
@@ -24,18 +25,26 @@ class Brand
     protected $brandUrl;
 
     /**
+     * @var \Spryker\Zed\Event\Business\EventFacadeInterface
+     */
+    protected $eventFacade;
+
+    /**
      * @param \Pyz\Zed\Brand\Business\BrandWriterInterface $brandWriterInterface
      * @param \Pyz\Zed\Brand\Business\Model\BrandAttribute\BrandAttributeInterface $brandAttributeInterface
      * @param \Pyz\Zed\Brand\Business\Model\BrandUrl\BrandUrlInterface $brandUrlInterface
+     * @param \Spryker\Zed\Event\Business\EventFacadeInterface $eventFacade
      */
     public function __construct(
         BrandWriterInterface $brandWriterInterface,
         BrandAttributeInterface $brandAttributeInterface,
-        BrandUrlInterface $brandUrlInterface
+        BrandUrlInterface $brandUrlInterface,
+        EventFacadeInterface $eventFacade
     ) {
         $this->brandWriter = $brandWriterInterface;
         $this->brandAttribute = $brandAttributeInterface;
         $this->brandUrl = $brandUrlInterface;
+        $this->eventFacade = $eventFacade;
     }
 
     /**
@@ -69,8 +78,8 @@ class Brand
      */
     public function delete(BrandTransfer $brandTransfer)
     {
-        $this->brandAttribute->delete($brandTransfer);
         $this->brandUrl->delete($brandTransfer);
+        $this->brandAttribute->delete($brandTransfer);
         $this->brandWriter->delete($brandTransfer);
     }
 }
