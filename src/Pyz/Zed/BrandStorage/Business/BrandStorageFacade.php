@@ -18,4 +18,12 @@ class BrandStorageFacade extends AbstractFacade implements BrandStorageFacadeInt
     {
         $this->getFactory()->createBrandStorageWrite()->publish($brandIds);
     }
+
+    /**
+     * @param array $brandIds
+     */
+    public function unpublish(array $brandIds)
+    {
+        $this->getFactory()->createBrandStorageWrite()->unpublish($brandIds);
+    }
 }

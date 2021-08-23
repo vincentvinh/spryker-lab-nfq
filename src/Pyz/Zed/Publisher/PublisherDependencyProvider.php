@@ -9,6 +9,7 @@ namespace Pyz\Zed\Publisher;
 
 use Pyz\Zed\Brand\Dependency\BrandEvents;
 use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStoragePublishListener;
+use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStorageUnpublishListener;
 use Spryker\Shared\GlossaryStorage\GlossaryStorageConfig;
 use Spryker\Zed\GlossaryStorage\Communication\Plugin\Publisher\GlossaryKey\GlossaryDeletePublisherPlugin as GlossaryKeyDeletePublisherPlugin;
 use Spryker\Zed\GlossaryStorage\Communication\Plugin\Publisher\GlossaryKey\GlossaryWritePublisherPlugin as GlossaryKeyWriterPublisherPlugin;
@@ -135,6 +136,7 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
         return [
             BrandEvents::BRAND_PUBLISH => [
                 new BrandStoragePublishListener(),
+                new BrandStorageUnpublishListener(),
             ],
         ];
     }

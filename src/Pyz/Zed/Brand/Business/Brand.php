@@ -78,8 +78,8 @@ class Brand
      */
     public function delete(BrandTransfer $brandTransfer)
     {
-        $this->brandAttribute->delete($brandTransfer);
         $this->brandUrl->delete($brandTransfer);
+        $this->brandAttribute->delete($brandTransfer);
         $this->brandWriter->delete($brandTransfer);
     }
 }

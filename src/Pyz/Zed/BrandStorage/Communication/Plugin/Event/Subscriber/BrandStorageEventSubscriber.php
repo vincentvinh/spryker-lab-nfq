@@ -9,6 +9,7 @@ namespace Pyz\Zed\BrandStorage\Communication\Plugin\Event\Subscriber;
 
 use Pyz\Zed\Brand\Dependency\BrandEvents;
 use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStoragePublishListener;
+use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStorageUnpublishListener;
 use Spryker\Zed\Event\Dependency\EventCollectionInterface;
 use Spryker\Zed\Event\Dependency\Plugin\EventSubscriberInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
@@ -29,7 +30,8 @@ class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscri
     public function getSubscribedEvents(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
         $eventCollection = $this->addBrandCreateStorageListener($eventCollection);
-//        $eventCollection = $this->addBrandUpdateStorageListener($eventCollection);
+        $eventCollection = $this->addBrandUpdateStorageListener($eventCollection);
+        $eventCollection = $this->addBrandDeleteStorageListener($eventCollection);
 
         return $eventCollection;
     }
@@ -54,6 +56,18 @@ class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscri
     protected function addBrandUpdateStorageListener(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
         $eventCollection->addListenerQueued(BrandEvents::ENTITY_SPY_BRAND_UPDATE, new BrandStoragePublishListener());
+
+        return $eventCollection;
+    }
+
+    /**
+     * @param EventCollectionInterface $eventCollection
+     *
+     * @return EventCollectionInterface
+     */
+    protected function addBrandDeleteStorageListener(EventCollectionInterface $eventCollection): EventCollectionInterface
+    {
+        $eventCollection->addListenerQueued(BrandEvents::ENTITY_SPY_BRAND_DELETE, new BrandStorageUnpublishListener());
 
         return $eventCollection;
     }

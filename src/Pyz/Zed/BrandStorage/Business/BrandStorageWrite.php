@@ -41,9 +41,36 @@ class BrandStorageWrite implements BrandStorageWriteInterface
     public function publish(array $brandIds)
     {
         $brandEntities = $this->getBrands($brandIds);
-        $brandStorages = $this->getBrandStorages($brandIds);
+        $brandStoragesWithIdAndLocales = $this->getBrandStorages($brandIds);
 
-        $this->storeData($brandEntities, $brandStorages);
+        if (empty($brandEntities)) {
+            $this->deleteStorageData($brandStoragesWithIdAndLocales);
+        }
+
+        $this->storeData($brandEntities, $brandStoragesWithIdAndLocales);
+    }
+
+    /**
+     * @param array $brandIds
+     *
+     * @return void
+     */
+    public function unpublish(array $brandIds)
+    {
+        $brandStorages = $this->getBrandStorages($brandIds);
+        $this->deleteStorageData($brandStorages);
+    }
+
+    /**
+     * @param array $brandStoragesWithIdAndLocales
+     */
+    protected function deleteStorageData(array $brandStoragesWithIdAndLocales)
+    {
+        foreach ($brandStoragesWithIdAndLocales as $brandStoragesWithIdAndLocale) {
+            foreach ($brandStoragesWithIdAndLocale as $brandStorage) {
+                $brandStorage->delete();
+            }
+        }
     }
 
     /**
