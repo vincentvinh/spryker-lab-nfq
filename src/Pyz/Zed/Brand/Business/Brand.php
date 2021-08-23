@@ -60,8 +60,6 @@ class Brand
         $this->brandWriter->create($brandTransfer);
         $this->brandAttribute->create($brandTransfer);
         $this->brandUrl->create($brandTransfer);
-
-        $this->triggerBulk($brandTransfer->requireIdBrand()->getIdBrand());
     }
 
     /**
@@ -74,8 +72,6 @@ class Brand
         $this->brandWriter->update($brandTransfer);
         $this->brandAttribute->update($brandTransfer);
         $this->brandUrl->update($brandTransfer);
-
-        $this->triggerBulk($brandTransfer->requireIdBrand()->getIdBrand());
     }
 
     /**
@@ -88,19 +84,5 @@ class Brand
         $this->brandAttribute->delete($brandTransfer);
         $this->brandUrl->delete($brandTransfer);
         $this->brandWriter->delete($brandTransfer);
-
-//        $this->triggerBulk($brandTransfer->requireIdBrand()->getIdBrand());
-    }
-
-    /**
-     * @param int $brandIdToTrigger
-     *
-     * @return void
-     */
-    protected function triggerBulk(int $brandIdToTrigger): void
-    {
-        $eventTransfers[] = (new EventEntityTransfer())->setId($brandIdToTrigger);
-
-        $this->eventFacade->triggerBulk(BrandEvents::BRAND_PUBLISH, $eventTransfers);
     }
 }

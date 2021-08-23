@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener;
 
+use Pyz\Zed\Brand\Dependency\BrandEvents;
 use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Kernel\Persistence\EntityManager\TransactionTrait;
@@ -25,6 +26,7 @@ class BrandStoragePublishListener extends AbstractPlugin implements EventBulkHan
      * @param array $eventTransfers
      * @param string $eventName
      *
+     * @throws \Propel\Runtime\Exception\PropelException
      * @throws \Spryker\Zed\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function handleBulk(array $eventTransfers, $eventName)
@@ -32,5 +34,16 @@ class BrandStoragePublishListener extends AbstractPlugin implements EventBulkHan
         $brandIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
 
         $this->getFacade()->publish($brandIds);
+    }
+
+    /**
+     * @return array
+     */
+    public function getSubscribedEvents(): array
+    {
+        return [
+            BrandEvents::ENTITY_SPY_BRAND_CREATE,
+            BrandEvents::ENTITY_SPY_BRAND_UPDATE,
+        ];
     }
 }

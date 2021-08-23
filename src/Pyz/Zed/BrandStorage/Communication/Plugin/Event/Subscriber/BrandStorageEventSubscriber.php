@@ -23,6 +23,7 @@ class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscri
     public function getSubscribedEvents(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
         $eventCollection = $this->addBrandCreateStorageListener($eventCollection);
+//        $eventCollection = $this->addBrandUpdateStorageListener($eventCollection);
 
         return $eventCollection;
     }
@@ -34,7 +35,20 @@ class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscri
      */
     protected function addBrandCreateStorageListener(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
-        $eventCollection->addListenerQueued(BrandEvents::BRAND_PUBLISH, new BrandStoragePublishListener());
+        $eventCollection->addListenerQueued(BrandEvents::ENTITY_SPY_BRAND_CREATE, new BrandStoragePublishListener());
+
+        return $eventCollection;
+    }
+
+
+    /**
+     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
+     *
+     * @return \Spryker\Zed\Event\Dependency\EventCollectionInterface
+     */
+    protected function addBrandUpdateStorageListener(EventCollectionInterface $eventCollection): EventCollectionInterface
+    {
+        $eventCollection->addListenerQueued(BrandEvents::ENTITY_SPY_BRAND_UPDATE, new BrandStoragePublishListener());
 
         return $eventCollection;
     }

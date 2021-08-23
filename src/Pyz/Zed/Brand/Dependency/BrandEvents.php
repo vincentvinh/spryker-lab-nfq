@@ -34,7 +34,7 @@ interface BrandEvents
      *
      * @api
      */
-    public const BRAND_PUBLISH = 'Brand.publish';
+    public const BRAND_PUBLISH = 'publish.brand';
 
     /**
      * Specification:
@@ -42,5 +42,5 @@ interface BrandEvents
      *
      * @api
      */
-    public const BRAND_UNPUBLISH = 'Brand.unpublish';
+    public const BRAND_UNPUBLISH = 'unpublish.brand';
 }

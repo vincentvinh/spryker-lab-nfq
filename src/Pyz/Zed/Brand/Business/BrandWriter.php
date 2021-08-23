@@ -53,9 +53,13 @@ class BrandWriter implements BrandWriterInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     * @param BrandTransfer $brandTransfer
      *
-     * @return void
+     * @return mixed|void
+     *
+     * @throws MissingBrandException
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function update(BrandTransfer $brandTransfer)
     {

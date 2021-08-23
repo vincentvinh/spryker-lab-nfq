@@ -30,6 +30,7 @@ use Spryker\Shared\SalesReturnSearch\SalesReturnSearchConfig;
 use Spryker\Shared\TaxProductStorage\TaxProductStorageConfig;
 use Spryker\Shared\TaxStorage\TaxStorageConfig;
 use Spryker\Shared\UrlStorage\UrlStorageConstants;
+use Pyz\Shared\BrandStorage\BrandStorageConstants;
 
 class RabbitMqConfig extends SprykerRabbitMqConfig
 {
@@ -96,6 +97,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
             TaxProductStorageConfig::PRODUCT_ABSTRACT_TAX_SET_SYNC_STORAGE_QUEUE,
             TaxStorageConfig::TAX_SET_SYNC_STORAGE_QUEUE,
             SalesReturnSearchConfig::SYNC_SEARCH_RETURN,
+            BrandStorageConstants::BRAND_SYNC_QUEUE
         ];
     }
 

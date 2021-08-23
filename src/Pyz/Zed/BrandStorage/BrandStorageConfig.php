@@ -9,34 +9,34 @@ use Spryker\Zed\Kernel\AbstractBundleConfig;
 class BrandStorageConfig extends AbstractBundleConfig
 {
     /**
-     * @return string|null
+     * @api
+     *
+     * @deprecated Use {@link \Spryker\Zed\SynchronizationBehavior\SynchronizationBehaviorConfig::isSynchronizationEnabled()} instead.
+     *
+     * @return bool
      */
-    public function getCategoryTreeSynchronizationPoolName(): ?string
+    public function isSendingToQueue(): bool
     {
-        return SynchronizationConfig::DEFAULT_SYNCHRONIZATION_POOL_NAME;
+        return true;
     }
 
     /**
+     * @api
+     *
      * @return string|null
      */
-    public function getCategoryNodeSynchronizationPoolName(): ?string
+    public function getBrandSynchronizationPoolName(): ?string
     {
-        return SynchronizationConfig::DEFAULT_SYNCHRONIZATION_POOL_NAME;
+        return null;
     }
 
     /**
+     * @api
+     *
      * @return string|null
      */
-    public function getCategoryTreeEventQueueName(): ?string
+    public function getEventQueueName(): ?string
     {
-        return PublisherConfig::PUBLISH_QUEUE;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCategoryNodeEventQueueName(): ?string
-    {
-        return PublisherConfig::PUBLISH_QUEUE;
+        return null;
     }
 }

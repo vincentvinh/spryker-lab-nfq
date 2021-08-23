@@ -58,9 +58,10 @@ class BrandStorageWrite implements BrandStorageWriteInterface
     {
         foreach ($brandEntities as $brandEntity) {
             /** @var SpyBrand $brandEntity */
+            /** @var BrandStorageTransfer $brand */
             foreach($brandEntity as $locale =>  $brand) {
-                if (isset($brandStorages[$brandEntity->getIdBrand()][$locale])) {
-                    $this->setStoreData($brand, $locale, $brandStorages[$brandEntity->getIdBrand()][$locale]);
+                if (isset($brandStorages[$brand->getIdBrand()][$locale])) {
+                    $this->setStoreData($brand, $locale, $brandStorages[$brand->getIdBrand()][$locale]);
                     continue;
                 }
 
@@ -100,7 +101,6 @@ class BrandStorageWrite implements BrandStorageWriteInterface
 
     /**
      * @param array $brandIds
-     *
      * @return array
      */
     protected function getBrandStorages(array $brandIds): array
@@ -110,7 +110,7 @@ class BrandStorageWrite implements BrandStorageWriteInterface
 
         foreach ($brandStorageEntities as $brandStorageEntity) {
             /** @var SPyBrandStorage $brandStorageEntity */
-            $brandStorages[$brandStorageEntity->getFkBrand()][$brandStorageEntity[$brandStorageEntity->getLocale()]] = $brandStorageEntity;
+            $brandStorages[$brandStorageEntity->getFkBrand()][$brandStorageEntity->getLocale()] = $brandStorageEntity;
         }
 
         return $brandStorages;
@@ -150,19 +150,5 @@ class BrandStorageWrite implements BrandStorageWriteInterface
         $spyBrandStorage->setFkBrand($brandStorageTransfer->getIdBrand());
         $spyBrandStorage->setLocale($locale);
         $spyBrandStorage->save();
-    }
-
-    /**
-     * @param $idBrand
-     *
-     * @param $idLocale
-     */
-    protected function getBrandAttribute($idBrand, $idLocale)
-    {
-        $localizedBrandAttributesEntity = $this
-            ->brandStorageQueryContainer
-            ->queryAttributeByBrandId($idBrand)
-            ->filterByFkLocale($idLocale)
-            ->findOneOrCreate();
     }
 }
