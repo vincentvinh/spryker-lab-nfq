@@ -1,9 +1,21 @@
-{% extends '@Application/Layout/layout.twig' %}
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'brand' %}
+{% block section_title %}{{ widget_title | trans }}{% endblock %}
 
 {% block action %}
-    {{ createActionButton('/brand/create', 'Create Brand' | trans) }}
+    {{ createActionButton('/brand/create', 'Create brand' | trans) }}
 {% endblock %}
 
 {% block content %}
-    {{ brands | raw }}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Brands' | trans } %}
+
+        {% block widget_content %}
+            {{ brandTable | raw }}
+        {% endblock %}
+
+    {% endembed %}
+
 {% endblock %}
+

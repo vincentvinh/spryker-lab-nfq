@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Brand\Persistence;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
@@ -42,11 +42,11 @@ class BrandRepository extends AbstractRepository implements BrandRepositoryInter
             $localeTransfer = new LocaleTransfer();
             $localeTransfer->fromArray($attribute->getLocale()->toArray(), true);
 
-            $brandLocalizedAttributesTransfer = new BrandLocalizedAttributesTransfer();
-            $brandLocalizedAttributesTransfer->fromArray($attribute->toArray(), true);
-            $brandLocalizedAttributesTransfer->setLocale($localeTransfer);
+            $brandLocalizedAttributeTransfer = new BrandLocalizedAttributeTransfer();
+            $brandLocalizedAttributeTransfer->fromArray($attribute->toArray(), true);
+            $brandLocalizedAttributeTransfer->setLocale($localeTransfer);
 
-            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributesTransfer);
+            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributeTransfer);
         }
 
         return $brandTransfer;

@@ -11,14 +11,14 @@
         <property name="url" type="string"/>
         <property name="logo" type="string"/>
         <property name="metaDescription" type="string"/>
-        <property name="localizedAttributes" type="BrandLocalizedAttributes[]" singular="localizedAttributes"/>
+        <property name="localizedAttributes" type="BrandLocalizedAttribute[]" singular="localizedAttributes"/>
     </transfer>
 
     <transfer name="BrandCollection">
         <property name="brands" type="Brand[]" singular="brand"/>
     </transfer>
 
-    <transfer name="BrandLocalizedAttributes">
+    <transfer name="BrandLocalizedAttribute">
         <property name="locale" type="Locale"/>
         <property name="metaDescription" type="string"/>
     </transfer>

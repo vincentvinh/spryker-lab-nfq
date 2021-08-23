@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Brand\Business\Model\BrandAttribute;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrandAttribute;
 use Pyz\Zed\Brand\Persistence\BrandQueryContainerInterface;
@@ -62,19 +62,19 @@ class BrandAttribute implements BrandAttributeInterface
 
     /**
      * @param \Orm\Zed\Brand\Persistence\SpyBrandAttribute $spyBrandAttribute
-     * @param \Generated\Shared\Transfer\BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer
+     * @param \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer $brandLocalizedAttributeTransfer
      * @param int $idBrand
      *
      * @return \Orm\Zed\Brand\Persistence\SpyBrandAttribute
      */
     protected function updateEntity(
         SpyBrandAttribute $spyBrandAttribute,
-        BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer,
+        BrandLocalizedAttributeTransfer $brandLocalizedAttributeTransfer,
         int $idBrand
     ) {
-        $spyBrandAttribute->fromArray($brandLocalizedAttributesTransfer->toArray());
+        $spyBrandAttribute->fromArray($brandLocalizedAttributeTransfer->toArray());
         $spyBrandAttribute->setFkBrand($idBrand);
-        $localeTransfer = $brandLocalizedAttributesTransfer->requireLocale()->getLocale();
+        $localeTransfer = $brandLocalizedAttributeTransfer->requireLocale()->getLocale();
         $idLocale = $localeTransfer->requireIdLocale()->getIdLocale();
         $spyBrandAttribute->setFkLocale($idLocale);
 

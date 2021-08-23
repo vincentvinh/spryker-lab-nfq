@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Brand\Communication\Form;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Spryker\Zed\Kernel\Communication\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -33,7 +33,7 @@ class BrandLocalizedAttributeForm extends AbstractType
     public const FIELD_META_TITLE = 'meta_title';
     public const FIELD_META_DESCRIPTION = 'meta_description';
     public const FIELD_META_KEYWORDS = 'meta_keywords';
-    public const FIELD_CATEGORY_IMAGE_NAME = 'brand_image_name';
+    public const FIELD_BRAND_IMAGE_NAME = 'brand_image_name';
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
@@ -45,7 +45,7 @@ class BrandLocalizedAttributeForm extends AbstractType
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'data_class' => BrandLocalizedAttributesTransfer::class,
+            'data_class' => BrandLocalizedAttributeTransfer::class,
         ]);
     }
 

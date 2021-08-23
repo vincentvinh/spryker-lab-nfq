@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\Brand\Communication\Form\DataProvider;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 
@@ -38,9 +38,9 @@ class BrandCreateDataProvider
         $brandTransfer->setIsSearchable(true);
 
         foreach ($this->localeFacade->getLocaleCollection() as $localTransfer) {
-            $brandLocalizedAttributesTransfer = new BrandLocalizedAttributesTransfer();
-            $brandLocalizedAttributesTransfer->setLocale($localTransfer);
-            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributesTransfer);
+            $brandLocalizedAttributeTransfer = new BrandLocalizedAttributeTransfer();
+            $brandLocalizedAttributeTransfer->setLocale($localTransfer);
+            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributeTransfer);
         }
 
         return $brandTransfer;

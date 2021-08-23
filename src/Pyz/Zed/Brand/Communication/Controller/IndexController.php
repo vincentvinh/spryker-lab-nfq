@@ -21,7 +21,7 @@ class IndexController extends AbstractController
         $table = $this->getFactory()->createBrandTable();
 
         return [
-            'brands' => $table->render(),
+            'brandTable' => $table->render(),
         ];
     }
 
