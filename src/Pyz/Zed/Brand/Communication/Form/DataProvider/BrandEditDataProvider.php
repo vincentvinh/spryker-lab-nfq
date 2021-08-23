@@ -77,8 +77,8 @@ class BrandEditDataProvider
                 continue;
             }
 
-            $categoryLocalizedAttributesTransfer = $this->createEmptyBrandLocalizedAttributesTransfer($localeTransfer);
-            $brandTransfer->addLocalizedAttributes($categoryLocalizedAttributesTransfer);
+            $brandLocalizedAttributesTransfer = $this->createEmptyBrandLocalizedAttributesTransfer($localeTransfer);
+            $brandTransfer->addLocalizedAttributes($brandLocalizedAttributesTransfer);
         }
 
         return $brandTransfer;
@@ -91,13 +91,13 @@ class BrandEditDataProvider
      */
     protected function getBrandLocaleIds(BrandTransfer $brandTransfer): array
     {
-        $categoryLocaleIds = [];
+        $brandLocaleIds = [];
 
         foreach ($brandTransfer->getLocalizedAttributes() as $localizedAttribute) {
-            $categoryLocaleIds[] = $localizedAttribute->getLocale()->getIdLocale();
+            $brandLocaleIds[] = $localizedAttribute->getLocale()->getIdLocale();
         }
 
-        return $categoryLocaleIds;
+        return $brandLocaleIds;
     }
 
     /**

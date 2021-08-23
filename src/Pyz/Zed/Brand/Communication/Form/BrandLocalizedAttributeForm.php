@@ -33,7 +33,7 @@ class BrandLocalizedAttributeForm extends AbstractType
     public const FIELD_META_TITLE = 'meta_title';
     public const FIELD_META_DESCRIPTION = 'meta_description';
     public const FIELD_META_KEYWORDS = 'meta_keywords';
-    public const FIELD_CATEGORY_IMAGE_NAME = 'brand_image_name';
+    public const FIELD_BRAND_IMAGE_NAME = 'brand_image_name';
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
