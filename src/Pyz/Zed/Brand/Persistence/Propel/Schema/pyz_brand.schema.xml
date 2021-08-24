@@ -9,7 +9,7 @@
     <table name="spy_brand" idMethod="native">
         <column name="id_brand" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
         <column name="name" type="VARCHAR" size="255" required="true"/>
-        <column name="description" type="VARCHAR" size="255" />
+        <column name="description" type="LONGVARCHAR" size="255" />
         <column name="logo" required="false" type="VARCHAR" size="255"/>
         <column name="is_searchable" default="true" type="BOOLEAN"/>
         <column name="is_highlight" default="true" type="BOOLEAN"/>
