@@ -9,23 +9,25 @@ use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 
 /**
-* @group PyzTest
-* @group Zed
-* @group StringReverser
-* @group Business
-* @group Facade
-* @group StringReverserFacadeTest
-* Add your own group annotations below this line
-*/
+ * Auto-generated group annotations
+ *
+ * @group PyzTest
+ * @group Zed
+ * @group Brand
+ * @group Business
+ * @group Facade
+ * @group BrandFacadeTest
+ * Add your own group annotations below this line
+ */
 class BrandFacadeTest extends Unit
 {
     /**
-    * @var \PyzTest\Zed\Brand\BrandBusinessTester
-    */
+     * @var \PyzTest\Zed\Brand\BrandBusinessTester
+     */
     protected $tester;
 
     /**
-     * @return BrandBuilder|\Spryker\Shared\Kernel\Transfer\AbstractTransfer
+     * @return \Generated\Shared\DataBuilder\BrandBuilder|\Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
     public function initBrandTransfer()
     {
@@ -46,11 +48,11 @@ class BrandFacadeTest extends Unit
     }
 
     /**
-     * @param BrandTransfer $brandTransfer
+     * @return \Generated\Shared\Transfer\BrandTransfer
      */
     public function testBrandSaveCorrectly(): BrandTransfer
     {
-        /** @var BrandTransfer $brandTransfer */
+        /** @var \Generated\Shared\Transfer\BrandTransfer $brandTransfer */
         $brandTransfer = $this->initBrandTransfer();
 
         $nameBrand = $brandTransfer->getName();
@@ -63,14 +65,16 @@ class BrandFacadeTest extends Unit
     }
 
     /**
-     * @param BrandTransfer $brandTransfer
-     *
      * @depends testBrandSaveCorrectly
+     *
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return void
      */
     public function testBrandFindCorrectly(BrandTransfer $brandTransfer)
     {
         /**
-         * @var BrandTransfer $brandResultTransfer
+         * @var \Generated\Shared\Transfer\BrandTransfer $brandResultTransfer
          */
         $brandResultTransfer = $this->tester->getFacade()->getBrandById($brandTransfer->getIdBrand());
 
@@ -78,18 +82,18 @@ class BrandFacadeTest extends Unit
     }
 
     /**
-     * @param BrandTransfer $brandTransfer
-     *
      * @depends testBrandSaveCorrectly
      *
-     * @return BrandTransfer
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return \Generated\Shared\Transfer\BrandTransfer
      */
-    public function testBrandEditCorrectly(BrandTransfer $brandTransfer)
+    public function testBrandEditCorrectly(BrandTransfer $brandTransfer): BrandTransfer
     {
         $nameBrandEdit = $brandTransfer->getName() . '1';
         $brandTransfer->setName($nameBrandEdit);
         /**
-         * @var BrandTransfer $brandResultTransfer
+         * @var \Generated\Shared\Transfer\BrandTransfer $brandResultTransfer
          */
         $this->tester->getFacade()->update($brandTransfer);
         $this->assertSame($nameBrandEdit, $brandTransfer->getName());
@@ -98,17 +102,17 @@ class BrandFacadeTest extends Unit
     }
 
     /**
-     * @param BrandTransfer $brandTransfer
-     *
      * @depends testBrandSaveCorrectly
      *
-     * @return BrandTransfer
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return \Generated\Shared\Transfer\BrandTransfer
      */
     public function testBrandEditSameNameCorrectly(BrandTransfer $brandTransfer): BrandTransfer
     {
         $nameOrigin = $brandTransfer->getName();
         /**
-         * @var BrandTransfer $brandResultTransfer
+         * @var \Generated\Shared\Transfer\BrandTransfer $brandResultTransfer
          */
         $this->tester->getFacade()->update($brandTransfer);
         $this->assertSame($nameOrigin, $brandTransfer->getName());
@@ -117,9 +121,11 @@ class BrandFacadeTest extends Unit
     }
 
     /**
-     * @param BrandTransfer $brandTransfer
-     *
      * @depends testBrandEditCorrectly
+     *
+     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
+     *
+     * @return void
      */
     public function testBrandDeleteCorrectly(BrandTransfer $brandTransfer)
     {

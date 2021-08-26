@@ -1,8 +1,12 @@
 <?php
+
 namespace PyzTest\Zed\Brand;
+
+use Codeception\Actor;
 
 /**
  * Inherited Methods
+ *
  * @method void wantToTest($text)
  * @method void wantTo($text)
  * @method void execute($callable)
@@ -15,8 +19,8 @@ namespace PyzTest\Zed\Brand;
  * @method void pause()
  *
  * @SuppressWarnings(PHPMD)
-*/
-class BrandBusinessTester extends \Codeception\Actor
+ */
+class BrandBusinessTester extends Actor
 {
     use _generated\BrandBusinessTesterActions;
 
