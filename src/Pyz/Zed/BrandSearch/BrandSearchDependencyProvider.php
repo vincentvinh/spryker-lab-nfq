@@ -1,12 +1,12 @@
 <?php
 
-namespace Pyz\Zed\BrandStorage;
+namespace Pyz\Zed\BrandSearch;
 
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
-class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
+class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
 {
     public const QUERY_CONTAINER_LOCALE = 'QUERY_CONTAINER_LOCALE';
     public const QUERY_CONTAINER_BRAND = 'QUERY_CONTAINER_BRAND';

@@ -19,7 +19,6 @@
             <parameter name="key_suffix_column" value="fk_brand"/>
             <parameter name="queue_group" value="sync.storage.brand"/>
             <parameter name="queue_pool" value="synchronizationPool"/>
-            <parameter name="queue_pool" value="synchronizationPool"/>
         </behavior>
         <behavior name="timestampable"/>
     </table>
