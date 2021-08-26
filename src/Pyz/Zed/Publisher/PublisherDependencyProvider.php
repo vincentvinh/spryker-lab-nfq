@@ -9,7 +9,7 @@ namespace Pyz\Zed\Publisher;
 
 use Pyz\Zed\Brand\Dependency\BrandEvents;
 use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchPublishListener;
-use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchUnpublishListener
+use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchUnpublishListener;
 use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStoragePublishListener;
 use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStorageUnpublishListener;
 use Spryker\Shared\GlossaryStorage\GlossaryStorageConfig;
@@ -144,7 +144,10 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
         ];
     }
 
-    private function getBrandSearchPlugins()
+    /**
+     * @return array[]
+     */
+    private function getBrandSearchPlugins(): array
     {
         return [
             BrandEvents::BRAND_PUBLISH => [

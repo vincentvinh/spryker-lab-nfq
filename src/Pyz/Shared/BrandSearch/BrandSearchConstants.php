@@ -10,7 +10,7 @@ interface BrandSearchConstants
      *
      * @api
      */
-    public const BRAND_SYNC_QUEUE = 'sync.storage.brand';
+    public const BRAND_SYNC_QUEUE = 'sync.search.brand';
 
     /**
      * Specification:
@@ -18,7 +18,7 @@ interface BrandSearchConstants
      *
      * @api
      */
-    public const BRAND_SYNC_ERROR_QUEUE = 'sync.storage.brand.error';
+    public const BRAND_SYNC_ERROR_QUEUE = 'sync.search.brand.error';
 
     /**
      * Specification:
