@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\BrandStorage\Business;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandStorageTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandStorage\Persistence\SpyBrandStorage;
@@ -143,11 +143,11 @@ class BrandStorageWrite implements BrandStorageWriteInterface
 
     /**
      * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandTransfer
-     * @param \Generated\Shared\Transfer\BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer
+     * @param \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer
      *
      * @return \Generated\Shared\Transfer\BrandStorageTransfer
      */
-    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer): BrandStorageTransfer
+    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer): BrandStorageTransfer
     {
         $brandStorageTransfer = new BrandStorageTransfer();
         $brandStorageTransfer->setIdBrand($brandTransfer->getIdBrand());
