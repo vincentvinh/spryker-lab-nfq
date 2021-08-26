@@ -50,7 +50,7 @@ class BrandStorageListenerTest extends Unit
     }
 
     /**
-     * @return array $eventTransfers
+     * @return array
      */
     public function testBrandPublishStorageListenerStoreData(): array
     {
@@ -68,10 +68,12 @@ class BrandStorageListenerTest extends Unit
         return $eventTransfers;
     }
 
-
     /**
-     * @param array $eventTransfers
      * @depends testBrandPublishStorageListenerStoreData
+     *
+     * @param array $eventTransfers
+     *
+     * @return void
      */
     public function testBrandUnPublishStorageListenerStoreData(array $eventTransfers): void
     {
