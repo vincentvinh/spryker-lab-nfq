@@ -80,7 +80,9 @@ class BrandStorageListenerTest extends Unit
 
         $brandStorageUnpublishStorageListener->handleBulk($eventTransfers, BrandEvents::BRAND_UNPUBLISH);
 
-        $this->assertBrandStorage();
+        $spyBrandStorage = SpyBrandStorageQuery::create()->filterByFkBrand_In([$this->brandTransfer->getIdBrand()])->find();
+
+        $this->assertEmpty($spyBrandStorage->toArray());
     }
 
     /**
@@ -90,7 +92,7 @@ class BrandStorageListenerTest extends Unit
     {
         $spyBrandStorage = SpyBrandStorageQuery::create()->filterByFkBrand_In([$this->brandTransfer->getIdBrand()])->find();
 
-        $this->assertNotNull($spyBrandStorage);
+        $this->assertNotEmpty($spyBrandStorage->toArray());
     }
 
     /**
