@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <brand-search>
+        <label>Brand Search</label>
+        <title>Brand Search</title>
+        <bundle>brand-search</bundle>
+        <controller>index</controller>
+        <action>index</action>
+    </brand-search>
+</config>

@@ -7,6 +7,7 @@
 
 namespace Pyz\Client\RabbitMq;
 
+use Pyz\Shared\BrandSearch\BrandSearchConstants;
 use Pyz\Shared\BrandStorage\BrandStorageConstants;
 use Spryker\Client\RabbitMq\RabbitMqConfig as SprykerRabbitMqConfig;
 use Spryker\Shared\AvailabilityStorage\AvailabilityStorageConstants;
@@ -98,6 +99,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
             TaxStorageConfig::TAX_SET_SYNC_STORAGE_QUEUE,
             SalesReturnSearchConfig::SYNC_SEARCH_RETURN,
             BrandStorageConstants::BRAND_SYNC_QUEUE,
+            BrandSearchConstants::BRAND_SYNC_QUEUE,
         ];
     }
 

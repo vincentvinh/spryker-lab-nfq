@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Event;
 
+use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Subscriber\BrandSearchEventSubscriber;
 use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Subscriber\BrandStorageEventSubscriber;
 use Pyz\Zed\ProductStorage\Communication\Plugin\Event\Subscriber\ProductStorageEventSubscriber;
 use Spryker\Zed\AvailabilityNotification\Communication\Plugin\Event\Subscriber\AvailabilityNotificationSubscriber;
@@ -111,10 +112,12 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
         $eventSubscriberCollection->add(new ConfigurableBundleTemplatePageSearchEventSubscriber());
         $eventSubscriberCollection->add(new ConfigurableBundleTemplateImagePageSearchEventSubscriber());
         $eventSubscriberCollection->add(new ProductListStorageEventSubscriber());
+        $eventSubscriberCollection->add(new BrandStorageEventSubscriber());
 
         /**
          * Search Events
          */
+        $eventSubscriberCollection->add(new BrandSearchEventSubscriber());
         $eventSubscriberCollection->add(new CategoryPageSearchEventSubscriber());
         $eventSubscriberCollection->add(new CmsPageSearchEventSubscriber());
         $eventSubscriberCollection->add(new ProductReviewSearchEventSubscriber());
@@ -124,7 +127,6 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
         $eventSubscriberCollection->add(new ProductConcretePageSearchProductEventSubscriber());
         $eventSubscriberCollection->add(new ProductConcretePageSearchProductLocalizedAttributesEventSubscriber());
         $eventSubscriberCollection->add(new ProductListSearchEventSubscriber());
-        $eventSubscriberCollection->add(new BrandStorageEventSubscriber());
 
         $eventSubscriberCollection->add(new PublisherSubscriber());
 

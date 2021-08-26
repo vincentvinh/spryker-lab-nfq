@@ -1,17 +1,18 @@
 <?php
 
-namespace Pyz\Zed\BrandStorage;
+namespace Pyz\Zed\BrandSearch;
 
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
-class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
+class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
 {
     public const QUERY_CONTAINER_LOCALE = 'QUERY_CONTAINER_LOCALE';
     public const QUERY_CONTAINER_BRAND = 'QUERY_CONTAINER_BRAND';
     public const STORE = 'STORE';
     public const FACADE_EVENT_BEHAVIOR = 'FACADE_EVENT_BEHAVIOR';
+    public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -33,6 +34,7 @@ class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = $this->addStore($container);
+        $container = $this->addUtilEncodingService($container);
 
         return $container;
     }
@@ -101,6 +103,20 @@ class BrandStorageDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container->set(static::FACADE_EVENT_BEHAVIOR, function (Container $container) {
             return $container->getLocator()->eventBehavior()->facade();
+        });
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    private function addUtilEncodingService(Container $container): Container
+    {
+        $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
+            return $container->getLocator()->utilEncoding()->service();
         });
 
         return $container;

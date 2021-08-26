@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          name="zed"
+          xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
+          namespace="Orm\Zed\BrandSearch\Persistence"
+          package="src.Orm.Zed.BrandSearch.Persistence">
+
+    <table name="spy_brand_search">
+        <column name="id_brand_search" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_brand" type="INTEGER" required="true"/>
+        <!-- "structured_data" column contains the result from database query while "data" column contains mapped data for the search engine -->
+        <column name="structured_data" type="LONGVARCHAR" required="true"/>
+        <id-method-parameter value="spy_brand_search_pk_seq"/>
+        <behavior name="synchronization">
+            <parameter name="resource" value="brand"/>
+            <parameter name="locale" required="true"/>
+            <parameter name="key_suffix_column" value="fk_brand"/>
+            <parameter name="queue_group" value="sync.search.brand"/>
+            <parameter name="params" value='{"type":"brand"}'/>
+        </behavior>
+        <behavior name="timestampable"/>
+    </table>
+
+</database>

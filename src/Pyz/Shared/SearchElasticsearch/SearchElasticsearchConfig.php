@@ -12,6 +12,7 @@ use Spryker\Shared\SearchElasticsearch\SearchElasticsearchConfig as SprykerSearc
 class SearchElasticsearchConfig extends SprykerSearchElasticsearchConfig
 {
     protected const SUPPORTED_SOURCE_IDENTIFIERS = [
+        'brand',
         'page',
         'product-review',
         'return_reason',
