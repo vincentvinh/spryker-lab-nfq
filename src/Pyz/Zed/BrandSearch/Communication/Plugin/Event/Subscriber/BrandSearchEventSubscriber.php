@@ -9,7 +9,8 @@ namespace Pyz\Zed\BrandSearch\Communication\Plugin\Event\Subscriber;
 
 use Pyz\Zed\Brand\Dependency\BrandEvents;
 use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchPublishListener;
-use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchUnpublishListener;
+use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchUnPublishListener;
+use Pyz\Zed\ProductBrand\Dependency\ProductBrandEvents;
 use Spryker\Zed\Event\Dependency\EventCollectionInterface;
 use Spryker\Zed\Event\Dependency\Plugin\EventSubscriberInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
@@ -32,6 +33,9 @@ class BrandSearchEventSubscriber extends AbstractPlugin implements EventSubscrib
         $this->addBrandCreateSearchListener($eventCollection);
         $this->addBrandUpdateSearchListener($eventCollection);
         $this->addBrandDeleteSearchListener($eventCollection);
+        $this->addProductBrandCreateSearchListener($eventCollection);
+        $this->addProductBrandDeleteSearchListener($eventCollection);
+        $this->addProductBrandUpdateSearchListener($eventCollection);
 
         return $eventCollection;
     }
@@ -67,7 +71,43 @@ class BrandSearchEventSubscriber extends AbstractPlugin implements EventSubscrib
      */
     protected function addBrandDeleteSearchListener(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
-        $eventCollection->addListenerQueued(BrandEvents::ENTITY_SPY_BRAND_DELETE, new BrandSearchUnpublishListener());
+        $eventCollection->addListenerQueued(BrandEvents::ENTITY_SPY_BRAND_DELETE, new BrandSearchUnPublishListener());
+
+        return $eventCollection;
+    }
+
+    /**
+     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
+     *
+     * @return \Spryker\Zed\Event\Dependency\EventCollectionInterface
+     */
+    protected function addProductBrandCreateSearchListener(EventCollectionInterface $eventCollection): EventCollectionInterface
+    {
+        $eventCollection->addListenerQueued(ProductBrandEvents::ENTITY_SPY_PRODUCT_BRAND_CREATE, new BrandSearchPublishListener());
+
+        return $eventCollection;
+    }
+
+    /**
+     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
+     *
+     * @return \Spryker\Zed\Event\Dependency\EventCollectionInterface
+     */
+    protected function addProductBrandUpdateSearchListener(EventCollectionInterface $eventCollection): EventCollectionInterface
+    {
+        $eventCollection->addListenerQueued(ProductBrandEvents::ENTITY_SPY_PRODUCT_BRAND_UPDATE, new BrandSearchPublishListener());
+
+        return $eventCollection;
+    }
+
+    /**
+     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
+     *
+     * @return \Spryker\Zed\Event\Dependency\EventCollectionInterface
+     */
+    protected function addProductBrandDeleteSearchListener(EventCollectionInterface $eventCollection): EventCollectionInterface
+    {
+        $eventCollection->addListenerQueued(ProductBrandEvents::ENTITY_SPY_PRODUCT_BRAND_DELETE, new BrandSearchUnPublishListener());
 
         return $eventCollection;
     }

@@ -18,7 +18,7 @@ use Spryker\Zed\Kernel\Persistence\EntityManager\TransactionTrait;
  * @method \Pyz\Zed\BrandSearch\Business\BrandSearchFacade getFacade()
  * @method \Pyz\Zed\BrandSearch\BrandSearchConfig getConfig()
  */
-class BrandSearchUnpublishListener extends AbstractPlugin implements EventBulkHandlerInterface
+class BrandSearchUnPublishListener extends AbstractPlugin implements EventBulkHandlerInterface
 {
     use TransactionTrait;
 
@@ -32,7 +32,7 @@ class BrandSearchUnpublishListener extends AbstractPlugin implements EventBulkHa
     {
         $brandIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
 
-        $this->getFacade()->unpublish($brandIds);
+        $this->getFacade()->unPublish($brandIds);
     }
 
     /**

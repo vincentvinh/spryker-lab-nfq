@@ -8,6 +8,7 @@
 namespace Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener;
 
 use Pyz\Zed\Brand\Dependency\BrandEvents;
+use Pyz\Zed\ProductBrand\Dependency\ProductBrandEvents;
 use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\Kernel\Persistence\EntityManager\TransactionTrait;
@@ -30,7 +31,11 @@ class BrandSearchPublishListener extends AbstractPlugin implements EventBulkHand
      */
     public function handleBulk(array $eventTransfers, $eventName)
     {
-        $brandIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
+        if ($eventName == BrandEvents::ENTITY_SPY_BRAND_CREATE || $eventName == BrandEvents::ENTITY_SPY_BRAND_UPDATE) {
+            $brandIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
+        } else {
+            $brandIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferForeignKeys($eventTransfers, 'spy_product_brand.fk_brand');
+        }
 
         $this->getFacade()->publish($brandIds);
     }
@@ -44,6 +49,8 @@ class BrandSearchPublishListener extends AbstractPlugin implements EventBulkHand
         return [
             BrandEvents::ENTITY_SPY_BRAND_CREATE,
             BrandEvents::ENTITY_SPY_BRAND_UPDATE,
+            ProductBrandEvents::ENTITY_SPY_PRODUCT_BRAND_UPDATE,
+            ProductBrandEvents::ENTITY_SPY_PRODUCT_BRAND_CREATE,
         ];
     }
 }

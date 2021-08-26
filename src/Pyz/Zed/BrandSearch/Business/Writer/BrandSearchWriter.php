@@ -132,7 +132,6 @@ class BrandSearchWriter implements BrandSearchWriterInterface
                 $productBrandAbstractTransfer->setProductAbstract($productAbstractTransfer);
                 $brandProductAbstractCollectionTransfer[] = $productBrandAbstractTransfer;
             }
-
             foreach ($brandAttributes as $brandAttribute) {
                 $localName = $locales[$brandAttribute['FkLocale']];
                 $brandAttributeEntity = new BrandLocalizedAttributeTransfer();
