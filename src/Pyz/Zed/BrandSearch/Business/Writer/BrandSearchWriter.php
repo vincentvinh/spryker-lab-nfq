@@ -29,6 +29,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
     /**
      * @param \Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainerInterface $brandSearchQueryContainer
      * @param \Spryker\Shared\Kernel\Store $store
+     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $utilEncoding
      */
     public function __construct(
         BrandSearchQueryContainerInterface $brandSearchQueryContainer,
