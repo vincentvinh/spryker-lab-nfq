@@ -12,15 +12,14 @@
         <index name="spy_brand_storage-fk_brand">
             <index-column name="fk_brand"/>
         </index>
-        <id-method-parameter value="spy_brand_storage_pk_seq"/>
         <behavior name="synchronization">
             <parameter name="resource" value="brand"/>
             <parameter name="locale" required="true"/>
             <parameter name="key_suffix_column" value="fk_brand"/>
             <parameter name="queue_group" value="sync.storage.brand"/>
             <parameter name="queue_pool" value="synchronizationPool"/>
-            <parameter name="queue_pool" value="synchronizationPool"/>
         </behavior>
         <behavior name="timestampable"/>
+        <id-method-parameter value="spy_brand_storage_pk_seq"/>
     </table>
 </database>
