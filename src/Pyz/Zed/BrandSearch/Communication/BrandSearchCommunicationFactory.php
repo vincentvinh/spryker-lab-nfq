@@ -8,6 +8,7 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 /**
  * @method \Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainer getQueryContainer()
  * @method \Pyz\Zed\BrandSearch\BrandSearchConfig getConfig()
+ * @method \Pyz\Zed\BrandSearch\Business\BrandSearchFacadeInterface getFacade()
  */
 class BrandSearchCommunicationFactory extends AbstractCommunicationFactory
 {

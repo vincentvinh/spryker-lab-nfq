@@ -45,7 +45,6 @@ class BrandSearchPublishListener extends AbstractPlugin implements EventBulkHand
      */
     public function getSubscribedEvents(): array
     {
-
         return [
             BrandEvents::ENTITY_SPY_BRAND_CREATE,
             BrandEvents::ENTITY_SPY_BRAND_UPDATE,

@@ -11,7 +11,6 @@ interface BrandSearchFacadeInterface
      */
     public function publish(array $brandIds);
 
-
     /**
      * @param array $brandIds
      *

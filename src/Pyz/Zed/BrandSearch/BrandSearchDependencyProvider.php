@@ -13,6 +13,7 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     public const STORE = 'STORE';
     public const FACADE_EVENT_BEHAVIOR = 'FACADE_EVENT_BEHAVIOR';
     public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
+
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -108,9 +109,9 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
-     * @return Container
-     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
      */
     private function addUtilEncodingService(Container $container): Container
     {

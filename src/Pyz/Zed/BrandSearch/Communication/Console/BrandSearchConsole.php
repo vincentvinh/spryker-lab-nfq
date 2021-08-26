@@ -8,12 +8,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * @method \Pyz\Zed\BrandSearch\Business\BrandSearchFacade getFacade()
+ * @method \Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainerInterface getQueryContainer()
+ * @method \Pyz\Zed\BrandSearch\Communication\BrandSearchCommunicationFactory getFactory()
  */
 class BrandSearchConsole extends Console
 {
-
-    const COMMAND_NAME = 'some:command';
-    const DESCRIPTION = 'Describe me!';
+    public const COMMAND_NAME = 'some:command';
+    public const DESCRIPTION = 'Describe me!';
 
     /**
      * @return void
@@ -41,5 +42,4 @@ class BrandSearchConsole extends Console
 
         return static::CODE_SUCCESS;
     }
-
 }

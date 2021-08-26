@@ -9,7 +9,6 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
  */
 class BrandSearchFacade extends AbstractFacade implements BrandSearchFacadeInterface
 {
-
     /**
      * @param array $brandIds
      *

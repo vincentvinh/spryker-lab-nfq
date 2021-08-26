@@ -22,6 +22,7 @@ class BrandSearchQueryContainer extends AbstractQueryContainer implements BrandS
 
     /**
      * @param array $brandIds
+     *
      * @return \Orm\Zed\BrandSearch\Persistence\SpyBrandSearch[]|\Propel\Runtime\Collection\ObjectCollection
      */
     public function getBrandSearchByBrandIds(array $brandIds)

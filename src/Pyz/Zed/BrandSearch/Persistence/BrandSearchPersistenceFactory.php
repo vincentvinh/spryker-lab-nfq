@@ -16,7 +16,6 @@ class BrandSearchPersistenceFactory extends AbstractPersistenceFactory
     /**
      * @param string|null $modelAlias
      * @param \Propel\Runtime\ActiveQuery\Criteria|null $criteria
-     *
      */
     public function createBrandSearchQuery(?string $modelAlias = null, ?Criteria $criteria = null): SpyBrandSearchQuery
     {

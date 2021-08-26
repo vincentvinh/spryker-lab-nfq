@@ -13,7 +13,7 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 class BrandSearchBusinessFactory extends AbstractBusinessFactory
 {
     /**
-     * @return BrandSearchWriter
+     * @return \Pyz\Zed\BrandSearch\Business\Writer\BrandSearchWriter
      */
     public function createBrandSearchWriter(): BrandSearchWriter
     {
