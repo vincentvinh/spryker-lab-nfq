@@ -12,6 +12,14 @@
         <property name="url" type="string"/>
         <property name="logo" type="string"/>
         <property name="metaDescription" type="string"/>
+        <property name="productAbstractBrands" type="ProductBrandAbstract[]" singular="productAbstractBrands"/>
+    </transfer>
+
+    <transfer name="ProductBrandAbstract">
+        <property name="idProductBrand" type="int"/>
+        <property name="fkProductAbstract" type="int"/>
+        <property name="fkBrand" type="int"/>
+        <property name="ProductAbstract" type="ProductAbstract"/>
     </transfer>
 
 </transfers>

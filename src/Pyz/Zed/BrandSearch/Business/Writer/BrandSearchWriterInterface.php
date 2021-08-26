@@ -16,5 +16,5 @@ interface BrandSearchWriterInterface
      *
      * @return mixed
      */
-    public function unpublish(array $brandIds);
+    public function unPublish(array $brandIds);
 }

@@ -5,6 +5,8 @@ namespace Pyz\Zed\BrandSearch\Business\Writer;
 use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
+use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Generated\Shared\Transfer\ProductBrandAbstractTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandSearch\Persistence\SpyBrandSearch;
 use Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainerInterface;
@@ -17,7 +19,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
     /**
      * @var Store
      */
-    protected $store;
+    protected Store $store;
     /**
      * @var BrandSearchQueryContainerInterface
      */
@@ -45,14 +47,14 @@ class BrandSearchWriter implements BrandSearchWriterInterface
      */
     public function publish(array $brandIds)
     {
-        $brandEntities = $this->getBrands($brandIds);
-        $brandSearchesWithIdAndLocales = $this->getBrandSearchs($brandIds);
+        $brandSearchTransferCollection = $this->getBrandSearchTransferCollection($brandIds);
+        $brandSearchesWithIdAndLocales = $this->getBrandSearches($brandIds);
 
-        if (empty($brandEntities)) {
+        if (empty($brandSearchTransferCollection)) {
             $this->deleteSearchData($brandSearchesWithIdAndLocales);
         }
 
-        $this->storeData($brandEntities, $brandSearchesWithIdAndLocales);
+        $this->storeData($brandSearchTransferCollection, $brandSearchesWithIdAndLocales);
     }
 
     /**
@@ -60,9 +62,9 @@ class BrandSearchWriter implements BrandSearchWriterInterface
      *
      * @return void
      */
-    public function unpublish(array $brandIds)
+    public function unPublish(array $brandIds)
     {
-        $brandSearches = $this->getBrandSearchs($brandIds);
+        $brandSearches = $this->getBrandSearches($brandIds);
         $this->deleteSearchData($brandSearches);
     }
 
@@ -90,14 +92,14 @@ class BrandSearchWriter implements BrandSearchWriterInterface
     {
         foreach ($brandEntities as $brandEntity) {
             /** @var SpyBrand $brandEntity */
-            /** @var BrandSearchTransfer $brand */
-            foreach ($brandEntity as $locale => $brand) {
-                if (isset($brandSearches[$brand->getIdBrand()][$locale])) {
-                    $this->setStoreData($brand, $locale, $brandSearches[$brand->getIdBrand()][$locale]);
+            /** @var BrandSearchTransfer $brandSearchTransfer */
+            foreach ($brandEntity as $locale => $brandSearchTransfer) {
+                if (isset($brandSearches[$brandSearchTransfer->getIdBrand()][$locale])) {
+                    $this->setStoreData($brandSearchTransfer, $locale, $brandSearches[$brandSearchTransfer->getIdBrand()][$locale]);
                     continue;
                 }
 
-                $this->setStoreData($brand, $locale, null);
+                $this->setStoreData($brandSearchTransfer, $locale, null);
             }
         }
     }
@@ -107,7 +109,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
      *
      * @return array
      */
-    protected function getBrands(array $brandIds): array
+    protected function getBrandSearchTransferCollection(array $brandIds): array
     {
         $brandEntities = $this->brandSearchQueryContainer->getAllBrandByIds($brandIds);
         $locales = $this->store->getLocales();
@@ -117,11 +119,25 @@ class BrandSearchWriter implements BrandSearchWriterInterface
         foreach ($brandEntities as $brandEntity) {
             /** @var SpyBrand $brandEntity */
             $brandAttributes = $brandEntity->getAttributes()->toArray();
+            $brandProductAbstractCollection = $brandEntity->getSpyProductBrandsJoinSpyProductAbstract()->toArray();
+            $brandProductAbstractCollectionTransfer = [];
+            foreach ($brandProductAbstractCollection as $brandProductAbstract) {
+
+                $productBrandAbstractTransfer = new ProductBrandAbstractTransfer();
+
+                $productAbstractTransfer = new ProductAbstractTransfer();
+                $productBrandAbstractTransfer->fromArray($brandProductAbstract, true);
+                $productAbstractTransfer->fromArray($brandProductAbstract['SpyProductAbstract'], true);
+
+                $productBrandAbstractTransfer->setProductAbstract($productAbstractTransfer);
+                $brandProductAbstractCollectionTransfer[] = $productBrandAbstractTransfer;
+            }
+
             foreach ($brandAttributes as $brandAttribute) {
                 $localName = $locales[$brandAttribute['FkLocale']];
                 $brandAttributeEntity = new BrandLocalizedAttributeTransfer();
                 $brandAttributeEntity->fromArray($brandAttribute, true);
-                $brandSearchTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $brandAttributeEntity);
+                $brandSearchTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $brandAttributeEntity, $brandProductAbstractCollectionTransfer);
             }
         }
 
@@ -133,7 +149,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
      *
      * @return array
      */
-    protected function getBrandSearchs(array $brandIds): array
+    protected function getBrandSearches(array $brandIds): array
     {
         $brandSearches = [];
         $brandSearchEntities = $this->brandSearchQueryContainer->getBrandSearchByBrandIds($brandIds);
@@ -149,10 +165,10 @@ class BrandSearchWriter implements BrandSearchWriterInterface
     /**
      * @param SpyBrand $brandTransfer
      * @param BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer
-     *
+     * @param ProductBrandAbstractTransfer[] $brandProductAbstractCollectionTransfer
      * @return BrandSearchTransfer
      */
-    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer): BrandSearchTransfer
+    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer,array $brandProductAbstractCollectionTransfer): BrandSearchTransfer
     {
         $brandSearchTransfer = new BrandSearchTransfer();
         $brandSearchTransfer->setIdBrand($brandTransfer->getIdBrand());
@@ -161,6 +177,10 @@ class BrandSearchWriter implements BrandSearchWriterInterface
         $brandSearchTransfer->setIsHighlight($brandTransfer->getIsHighlight());
         $brandSearchTransfer->setIsSearchable($brandTransfer->getIsSearchable());
         $brandSearchTransfer->setMetaDescription($brandLocalizedAttributesTransfer->getMetaDescription());
+
+        foreach ($brandProductAbstractCollectionTransfer as $brandProductAbstractTransfer) {
+            $brandSearchTransfer->addProductAbstractBrands($brandProductAbstractTransfer);
+        }
 
         return $brandSearchTransfer;
     }
