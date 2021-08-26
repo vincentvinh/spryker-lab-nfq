@@ -29,9 +29,9 @@ class BrandStorageEventSubscriber extends AbstractPlugin implements EventSubscri
      */
     public function getSubscribedEvents(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
-        $eventCollection = $this->addBrandCreateStorageListener($eventCollection);
-        $eventCollection = $this->addBrandUpdateStorageListener($eventCollection);
-        $eventCollection = $this->addBrandDeleteStorageListener($eventCollection);
+        $this->addBrandCreateStorageListener($eventCollection);
+        $this->addBrandUpdateStorageListener($eventCollection);
+        $this->addBrandDeleteStorageListener($eventCollection);
 
         return $eventCollection;
     }

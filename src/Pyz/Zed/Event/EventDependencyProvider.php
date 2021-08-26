@@ -112,10 +112,12 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
         $eventSubscriberCollection->add(new ConfigurableBundleTemplatePageSearchEventSubscriber());
         $eventSubscriberCollection->add(new ConfigurableBundleTemplateImagePageSearchEventSubscriber());
         $eventSubscriberCollection->add(new ProductListStorageEventSubscriber());
+        $eventSubscriberCollection->add(new BrandStorageEventSubscriber());
 
         /**
          * Search Events
          */
+        $eventSubscriberCollection->add(new BrandSearchEventSubscriber());
         $eventSubscriberCollection->add(new CategoryPageSearchEventSubscriber());
         $eventSubscriberCollection->add(new CmsPageSearchEventSubscriber());
         $eventSubscriberCollection->add(new ProductReviewSearchEventSubscriber());
@@ -125,8 +127,6 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
         $eventSubscriberCollection->add(new ProductConcretePageSearchProductEventSubscriber());
         $eventSubscriberCollection->add(new ProductConcretePageSearchProductLocalizedAttributesEventSubscriber());
         $eventSubscriberCollection->add(new ProductListSearchEventSubscriber());
-        $eventSubscriberCollection->add(new BrandSearchEventSubscriber());
-        $eventSubscriberCollection->add(new BrandStorageEventSubscriber());
 
         $eventSubscriberCollection->add(new PublisherSubscriber());
 

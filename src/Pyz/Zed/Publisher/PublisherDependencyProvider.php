@@ -7,11 +7,6 @@
 
 namespace Pyz\Zed\Publisher;
 
-use Pyz\Zed\Brand\Dependency\BrandEvents;
-use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchPublishListener;
-use Pyz\Zed\BrandSearch\Communication\Plugin\Event\Listener\BrandSearchUnpublishListener;
-use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStoragePublishListener;
-use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStorageUnpublishListener;
 use Spryker\Shared\GlossaryStorage\GlossaryStorageConfig;
 use Spryker\Zed\GlossaryStorage\Communication\Plugin\Publisher\GlossaryKey\GlossaryDeletePublisherPlugin as GlossaryKeyDeletePublisherPlugin;
 use Spryker\Zed\GlossaryStorage\Communication\Plugin\Publisher\GlossaryKey\GlossaryWritePublisherPlugin as GlossaryKeyWriterPublisherPlugin;
@@ -49,7 +44,6 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
             $this->getProductLabelStoragePlugins(),
             $this->getProductLabelSearchPlugins(),
             $this->getReturnReasonSearchPlugins(),
-            $this->getBrandStorageSearchPlugins(),
         );
     }
 
@@ -127,21 +121,6 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
         return [
             new ReturnReasonWritePublisherPlugin(),
             new ReturnReasonDeletePublisherPlugin(),
-        ];
-    }
-
-    /**
-     * @return array[]
-     */
-    protected function getBrandStorageSearchPlugins(): array
-    {
-        return [
-            BrandEvents::BRAND_PUBLISH => [
-                new BrandStoragePublishListener(),
-                new BrandStorageUnpublishListener(),
-                new BrandSearchPublishListener(),
-                new BrandSearchUnpublishListener(),
-            ],
         ];
     }
 }

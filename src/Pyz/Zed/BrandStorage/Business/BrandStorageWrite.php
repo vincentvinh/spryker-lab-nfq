@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\BrandStorage\Business;
 
-use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
+use Generated\Shared\Transfer\BrandLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\BrandStorageTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandStorage\Persistence\SpyBrandStorage;
@@ -143,11 +143,11 @@ class BrandStorageWrite implements BrandStorageWriteInterface
 
     /**
      * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandTransfer
-     * @param \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer $brandLocalizedAttributeTransfer
+     * @param \Generated\Shared\Transfer\BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer
      *
      * @return \Generated\Shared\Transfer\BrandStorageTransfer
      */
-    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributeTransfer $brandLocalizedAttributeTransfer): BrandStorageTransfer
+    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributesTransfer $brandLocalizedAttributesTransfer): BrandStorageTransfer
     {
         $brandStorageTransfer = new BrandStorageTransfer();
         $brandStorageTransfer->setIdBrand($brandTransfer->getIdBrand());
@@ -155,7 +155,7 @@ class BrandStorageWrite implements BrandStorageWriteInterface
         $brandStorageTransfer->setDescription($brandTransfer->getDescription());
         $brandStorageTransfer->setIsHighlight($brandTransfer->getIsHighlight());
         $brandStorageTransfer->setIsSearchable($brandTransfer->getIsSearchable());
-        $brandStorageTransfer->setMetaDescription($brandLocalizedAttributeTransfer->getMetaDescription());
+        $brandStorageTransfer->setMetaDescription($brandLocalizedAttributesTransfer->getMetaDescription());
 
         return $brandStorageTransfer;
     }

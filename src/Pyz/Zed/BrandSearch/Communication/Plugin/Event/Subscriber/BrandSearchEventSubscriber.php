@@ -29,9 +29,9 @@ class BrandSearchEventSubscriber extends AbstractPlugin implements EventSubscrib
      */
     public function getSubscribedEvents(EventCollectionInterface $eventCollection): EventCollectionInterface
     {
-        $eventCollection = $this->addBrandCreateSearchListener($eventCollection);
-        $eventCollection = $this->addBrandUpdateSearchListener($eventCollection);
-        $eventCollection = $this->addBrandDeleteSearchListener($eventCollection);
+        $this->addBrandCreateSearchListener($eventCollection);
+        $this->addBrandUpdateSearchListener($eventCollection);
+        $this->addBrandDeleteSearchListener($eventCollection);
 
         return $eventCollection;
     }
