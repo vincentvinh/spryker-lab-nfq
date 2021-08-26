@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Queue;
 
+use Pyz\Shared\BrandSearch\BrandSearchConstants;
 use Pyz\Shared\BrandStorage\BrandStorageConstants;
 use Spryker\Shared\AvailabilityStorage\AvailabilityStorageConstants;
 use Spryker\Shared\CategoryPageSearch\CategoryPageSearchConstants;
@@ -73,6 +74,7 @@ class QueueDependencyProvider extends SprykerDependencyProvider
             ConfigurableBundlePageSearchConfig::CONFIGURABLE_BUNDLE_SEARCH_QUEUE => new SynchronizationSearchQueueMessageProcessorPlugin(),
             SalesReturnSearchConfig::SYNC_SEARCH_RETURN => new SynchronizationSearchQueueMessageProcessorPlugin(),
             BrandStorageConstants::BRAND_SYNC_QUEUE => new SynchronizationStorageQueueMessageProcessorPlugin(),
+            BrandSearchConstants::BRAND_SYNC_QUEUE => new SynchronizationSearchQueueMessageProcessorPlugin(),
         ];
     }
 }

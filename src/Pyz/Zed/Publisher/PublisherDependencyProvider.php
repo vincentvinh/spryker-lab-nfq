@@ -49,8 +49,7 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
             $this->getProductLabelStoragePlugins(),
             $this->getProductLabelSearchPlugins(),
             $this->getReturnReasonSearchPlugins(),
-            $this->getBrandStoragePlugins(),
-            $this->getBrandSearchPlugins()
+            $this->getBrandStorageSearchPlugins(),
         );
     }
 
@@ -134,23 +133,12 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
     /**
      * @return array[]
      */
-    protected function getBrandStoragePlugins(): array
+    protected function getBrandStorageSearchPlugins(): array
     {
         return [
             BrandEvents::BRAND_PUBLISH => [
                 new BrandStoragePublishListener(),
                 new BrandStorageUnpublishListener(),
-            ],
-        ];
-    }
-
-    /**
-     * @return array[]
-     */
-    private function getBrandSearchPlugins(): array
-    {
-        return [
-            BrandEvents::BRAND_PUBLISH => [
                 new BrandSearchPublishListener(),
                 new BrandSearchUnpublishListener(),
             ],
