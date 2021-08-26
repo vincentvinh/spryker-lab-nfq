@@ -12,14 +12,6 @@ use Generated\Shared\Transfer\BrandTransfer;
 interface BrandAttributeInterface
 {
     /**
-     * @param int $idBrand
-     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
-     *
-     * @return mixed
-     */
-    public function read(int $idBrand, BrandTransfer $brandTransfer);
-
-    /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
      * @return void

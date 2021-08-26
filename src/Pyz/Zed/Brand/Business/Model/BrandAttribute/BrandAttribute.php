@@ -28,17 +28,6 @@ class BrandAttribute implements BrandAttributeInterface
     }
 
     /**
-     * @param int $idBrand
-     * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
-     *
-     * @return void
-     */
-    public function read(int $idBrand, BrandTransfer $brandTransfer)
-    {
-        // TODO: Implement read() method.
-    }
-
-    /**
      * @param \Generated\Shared\Transfer\BrandTransfer $brandTransfer
      *
      * @return void

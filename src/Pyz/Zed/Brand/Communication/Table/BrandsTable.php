@@ -89,7 +89,7 @@ class BrandsTable extends AbstractTable
         foreach ($data as $brand) {
             $result[] = [
                 static::NAME => $brand[static::NAME],
-                static::DESCRIPTION => $brand[static::DESCRIPTION],
+                static::DESCRIPTION => strlen($brand[static::DESCRIPTION]) > 50 ? substr($brand[static::DESCRIPTION],0,50)."..." : $brand[static::DESCRIPTION],
                 static::LOGO => $this->generateImageViewBrand($brand[static::LOGO]),
                 static::SEARCHABLE => $this->yesNoOutput($brand[static::SEARCHABLE]),
                 static::HIGHLIGHTED => $this->yesNoOutput($brand[static::HIGHLIGHTED]),

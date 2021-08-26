@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<transfers
+    xmlns="spryker:transfer-01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd"
+>
+    <transfer name="Brand">
+        <property name="name" dataBuilderRule="unique()->sentence(2)"/>
+        <property name="description" dataBuilderRule="unique()->sentence(2)"/>
+        <property name="isHighlight" dataBuilderRule="boolean(100)"/>
+        <property name="isSearchable" dataBuilderRule="boolean(100)"/>
+        <property name="name" dataBuilderRule="unique()->sentence(2)"/>
+        <property name="logo" dataBuilderRule="unique()->sentence(2)"/>
+    </transfer>
+
+    <transfer name="BrandLocalizedAttribute">
+        <property name="metaDescription" dataBuilderRule="unique()->sentence(2)"/>
+    </transfer>
+</transfers>
