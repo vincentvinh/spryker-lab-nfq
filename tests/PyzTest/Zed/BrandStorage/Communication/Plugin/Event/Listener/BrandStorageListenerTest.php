@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\EventEntityTransfer;
 use Orm\Zed\BrandStorage\Persistence\SpyBrandStorageQuery;
 use Pyz\Zed\Brand\Dependency\BrandEvents;
 use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStoragePublishListener;
+use Pyz\Zed\BrandStorage\Communication\Plugin\Event\Listener\BrandStorageUnpublishListener;
 
 /**
  * Auto-generated group annotations
@@ -49,9 +50,9 @@ class BrandStorageListenerTest extends Unit
     }
 
     /**
-     * @return void
+     * @return array $eventTransfers
      */
-    public function testBrandPublishStorageListenerStoreData(): void
+    public function testBrandPublishStorageListenerStoreData(): array
     {
         $brandStoragePublishStorageListener = new BrandStoragePublishListener();
         $brandStoragePublishStorageListener->setFacade($this->tester->getFacade());
@@ -61,6 +62,23 @@ class BrandStorageListenerTest extends Unit
         ];
 
         $brandStoragePublishStorageListener->handleBulk($eventTransfers, BrandEvents::BRAND_PUBLISH);
+
+        $this->assertBrandStorage();
+
+        return $eventTransfers;
+    }
+
+
+    /**
+     * @param array $eventTransfers
+     * @depends testBrandPublishStorageListenerStoreData
+     */
+    public function testBrandUnPublishStorageListenerStoreData(array $eventTransfers): void
+    {
+        $brandStorageUnpublishStorageListener = new BrandStorageUnpublishListener();
+        $brandStorageUnpublishStorageListener->setFacade($this->tester->getFacade());
+
+        $brandStorageUnpublishStorageListener->handleBulk($eventTransfers, BrandEvents::BRAND_UNPUBLISH);
 
         $this->assertBrandStorage();
     }
