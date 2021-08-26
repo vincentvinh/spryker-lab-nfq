@@ -19,7 +19,8 @@ class BrandSearchBusinessFactory extends AbstractBusinessFactory
     {
         return new BrandSearchWriter(
             $this->getQueryContainer(),
-            $this->getStore()
+            $this->getStore(),
+            $this->getUtilEncodingService()
         );
     }
 
@@ -29,5 +30,13 @@ class BrandSearchBusinessFactory extends AbstractBusinessFactory
     public function getStore()
     {
         return $this->getProvidedDependency(BrandSearchDependencyProvider::STORE);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUtilEncodingService()
+    {
+        return $this->getProvidedDependency(BrandSearchDependencyProvider::SERVICE_UTIL_ENCODING);
     }
 }

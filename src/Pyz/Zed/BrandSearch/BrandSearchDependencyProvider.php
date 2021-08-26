@@ -12,7 +12,7 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     public const QUERY_CONTAINER_BRAND = 'QUERY_CONTAINER_BRAND';
     public const STORE = 'STORE';
     public const FACADE_EVENT_BEHAVIOR = 'FACADE_EVENT_BEHAVIOR';
-
+    public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -33,6 +33,7 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     public function provideBusinessLayerDependencies(Container $container)
     {
         $container = $this->addStore($container);
+        $container = $this->addUtilEncodingService($container);
 
         return $container;
     }
@@ -101,6 +102,20 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container->set(static::FACADE_EVENT_BEHAVIOR, function (Container $container) {
             return $container->getLocator()->eventBehavior()->facade();
+        });
+
+        return $container;
+    }
+
+    /**
+     * @param Container $container
+     * @return Container
+     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
+     */
+    private function addUtilEncodingService(Container $container): Container
+    {
+        $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
+            return $container->getLocator()->utilEncoding()->service();
         });
 
         return $container;

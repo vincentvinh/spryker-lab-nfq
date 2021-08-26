@@ -8,7 +8,9 @@ use Generated\Shared\Transfer\BrandSearchTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandSearch\Persistence\SpyBrandSearch;
 use Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainerInterface;
+use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Zed\CategoryPageSearch\Dependency\Service\CategoryPageSearchToUtilEncodingInterface;
 
 class BrandSearchWriter implements BrandSearchWriterInterface
 {
@@ -20,6 +22,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
      * @var BrandSearchQueryContainerInterface
      */
     private BrandSearchQueryContainerInterface $brandSearchQueryContainer;
+    private UtilEncodingServiceInterface $utilEncoding;
 
     /**
      * @param BrandSearchQueryContainerInterface $brandSearchQueryContainer
@@ -27,10 +30,12 @@ class BrandSearchWriter implements BrandSearchWriterInterface
      */
     public function __construct(
         BrandSearchQueryContainerInterface $brandSearchQueryContainer,
-        Store $store
+        Store $store,
+        UtilEncodingServiceInterface $utilEncoding
     ) {
         $this->store = $store;
         $this->brandSearchQueryContainer = $brandSearchQueryContainer;
+        $this->utilEncoding = $utilEncoding;
     }
 
     /**
@@ -174,6 +179,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
         }
 
         $spyBrandSearch->setData($brandSearchTransfer->toArray());
+        $spyBrandSearch->setStructuredData($this->utilEncoding->encodeJson($brandSearchTransfer->toArray()));
         $spyBrandSearch->setFkBrand($brandSearchTransfer->getIdBrand());
         $spyBrandSearch->setLocale($locale);
         $spyBrandSearch->save();
