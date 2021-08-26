@@ -2,8 +2,8 @@
 
 namespace Pyz\Zed\BrandSearch\Business;
 
+use Pyz\Zed\BrandSearch\BrandSearchDependencyProvider;
 use Pyz\Zed\BrandSearch\Business\Writer\BrandSearchWriter;
-use Pyz\Zed\BrandStorage\BrandStorageDependencyProvider;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
@@ -15,7 +15,7 @@ class BrandSearchBusinessFactory extends AbstractBusinessFactory
     /**
      * @return BrandSearchWriter
      */
-    public function createBrandSearchWrite(): BrandSearchWriter
+    public function createBrandSearchWriter(): BrandSearchWriter
     {
         return new BrandSearchWriter(
             $this->getQueryContainer(),
@@ -28,6 +28,6 @@ class BrandSearchBusinessFactory extends AbstractBusinessFactory
      */
     public function getStore()
     {
-        return $this->getProvidedDependency(BrandStorageDependencyProvider::STORE);
+        return $this->getProvidedDependency(BrandSearchDependencyProvider::STORE);
     }
 }

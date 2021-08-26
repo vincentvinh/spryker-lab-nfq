@@ -17,7 +17,7 @@ class BrandSearchFacade extends AbstractFacade implements BrandSearchFacadeInter
      */
     public function publish(array $brandIds)
     {
-        $this->getFactory()->createBrandSearchWrite()->publish($brandIds);
+        $this->getFactory()->createBrandSearchWriter()->publish($brandIds);
     }
 
     /**
@@ -27,6 +27,6 @@ class BrandSearchFacade extends AbstractFacade implements BrandSearchFacadeInter
      */
     public function unPublish(array $brandIds)
     {
-        $this->getFactory()->createBrandSearchWrite()->unPublish($brandIds);
+        $this->getFactory()->createBrandSearchWriter()->unPublish($brandIds);
     }
 }

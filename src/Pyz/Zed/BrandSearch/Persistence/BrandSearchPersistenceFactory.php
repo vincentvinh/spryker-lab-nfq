@@ -4,7 +4,7 @@ namespace Pyz\Zed\BrandSearch\Persistence;
 
 use Orm\Zed\BrandSearch\Persistence\SpyBrandSearchQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Pyz\Zed\BrandStorage\BrandStorageDependencyProvider;
+use Pyz\Zed\BrandSearch\BrandSearchDependencyProvider;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 
 /**
@@ -28,7 +28,7 @@ class BrandSearchPersistenceFactory extends AbstractPersistenceFactory
      */
     public function getBrandQueryContainer()
     {
-        return $this->getProvidedDependency(BrandStorageDependencyProvider::QUERY_CONTAINER_BRAND);
+        return $this->getProvidedDependency(BrandSearchDependencyProvider::QUERY_CONTAINER_BRAND);
     }
 
     /**
@@ -36,6 +36,6 @@ class BrandSearchPersistenceFactory extends AbstractPersistenceFactory
      */
     public function getLocaleQueryContainer()
     {
-        return $this->getProvidedDependency(BrandStorageDependencyProvider::QUERY_CONTAINER_LOCALE);
+        return $this->getProvidedDependency(BrandSearchDependencyProvider::QUERY_CONTAINER_LOCALE);
     }
 }

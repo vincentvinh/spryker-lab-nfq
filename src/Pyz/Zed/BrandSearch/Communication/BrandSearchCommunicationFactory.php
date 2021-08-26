@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\BrandSearch\Communication;
 
-use Pyz\Zed\BrandStorage\BrandStorageDependencyProvider;
+use Pyz\Zed\BrandSearch\BrandSearchDependencyProvider;
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 
 /**
@@ -16,6 +16,6 @@ class BrandSearchCommunicationFactory extends AbstractCommunicationFactory
      */
     public function getEventBehaviorFacade()
     {
-        return $this->getProvidedDependency(BrandStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);
+        return $this->getProvidedDependency(BrandSearchDependencyProvider::FACADE_EVENT_BEHAVIOR);
     }
 }
