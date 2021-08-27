@@ -240,16 +240,16 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      *
      * @api
      *
-     * @param int $idProductAbstract
+     * @param array $idProductAbstract
      *
      * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
-    public function queryProductBrandMappingsByIdAbstractProductAndIdsBrandNode(
+    public function queryProductBrandByProductAbstractIds(
         $idProductAbstract
     ) {
         return $this
             ->queryProductBrandMappings()
-            ->filterByFkProductAbstract($idProductAbstract)
+            ->filterByFkProductAbstract_In($idProductAbstract)
             ->useSpyBrandQuery()
             ->endUse();
     }

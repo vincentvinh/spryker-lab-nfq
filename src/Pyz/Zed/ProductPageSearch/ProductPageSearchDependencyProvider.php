@@ -7,6 +7,9 @@
 
 namespace Pyz\Zed\ProductPageSearch;
 
+use Pyz\Shared\BrandSearch\ProductPageSearchConfigExtension;
+use Pyz\Zed\BrandSearch\Communication\Plugin\PageDataExpander\ProductBrandPageDataLoaderExpanderPlugin;
+use Pyz\Zed\BrandSearch\Communication\Plugin\PageDataLoader\BrandPageDataLoaderPlugin;
 use Spryker\Shared\ProductLabelSearch\ProductLabelSearchConfig;
 use Spryker\Shared\ProductListSearch\ProductListSearchConfig;
 use Spryker\Shared\ProductPageSearch\ProductPageSearchConfig;
@@ -51,6 +54,7 @@ class ProductPageSearchDependencyProvider extends SprykerProductPageSearchDepend
         $dataExpanderPlugins[ProductReviewSearchConfig::PLUGIN_PRODUCT_PAGE_RATING_DATA] = new ProductReviewDataLoaderExpanderPlugin();
         $dataExpanderPlugins[ProductListSearchConfig::PLUGIN_PRODUCT_LIST_DATA] = new ProductListDataLoadExpanderPlugin();
         $dataExpanderPlugins[ProductPageSearchConfig::PLUGIN_PRODUCT_CATEGORY_PAGE_DATA] = new ProductCategoryPageDataLoaderExpanderPlugin();
+        $dataExpanderPlugins[ProductPageSearchConfigExtension::PLUGIN_PRODUCT_BRAND_PAGE_DATA] = new ProductBrandPageDataLoaderExpanderPlugin();
         $dataExpanderPlugins[ProductPageSearchConfig::PLUGIN_PRODUCT_PRICE_PAGE_DATA] = new PricePageDataLoaderExpanderPlugin();
         $dataExpanderPlugins[ProductPageSearchConfig::PLUGIN_PRODUCT_IMAGE_PAGE_DATA] = new ProductImagePageDataLoaderExpanderPlugin();
 
@@ -65,6 +69,7 @@ class ProductPageSearchDependencyProvider extends SprykerProductPageSearchDepend
         return [
             new ImagePageDataLoaderPlugin(),
             new CategoryPageDataLoaderPlugin(),
+            new BrandPageDataLoaderPlugin(),
             new PriceProductPageDataLoaderPlugin(),
             new ProductLabelDataLoaderPlugin(),
             new ProductReviewPageDataLoaderPlugin(),

@@ -17,4 +17,10 @@
     </transfer>
 
 
+    <transfer name="ProductPayload">
+        <property name="brand" type="BrandSearch"/>
+    </transfer>
+    <transfer name="ProductPageSearch">
+        <property name="brand" type="BrandSearch"/>
+    </transfer>
 </transfers>
