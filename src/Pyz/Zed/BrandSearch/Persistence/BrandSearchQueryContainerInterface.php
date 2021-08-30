@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\BrandSearch\Persistence;
 
+use Orm\Zed\Brand\Persistence\SpyBrandQuery;
 use Spryker\Zed\Kernel\Persistence\QueryContainer\QueryContainerInterface;
 
 interface BrandSearchQueryContainerInterface extends QueryContainerInterface
@@ -33,4 +34,11 @@ interface BrandSearchQueryContainerInterface extends QueryContainerInterface
      * @return mixed
      */
     public function queryLocalesWithLocaleNames(array $localeNames);
+
+    /**
+     * @param int $brandId
+     * @param int $fkLocale
+     * @return mixed
+     */
+    public function getQueryProductAbstractIdsByBrandLocale(int $brandId, int $fkLocale);
 }
