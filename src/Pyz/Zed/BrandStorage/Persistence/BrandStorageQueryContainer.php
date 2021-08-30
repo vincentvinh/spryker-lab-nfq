@@ -27,7 +27,7 @@ class BrandStorageQueryContainer extends AbstractQueryContainer implements Brand
      */
     public function getBrandStorageByBrandIds(array $brandIds)
     {
-        return $this->getFactory()->createBrandStorageQuery()->filterByFkBrand_In($brandIds)->find();
+        return $this->getFactory()->createBrandStorageQuery()->filterByFkBrand_In($brandIds);
     }
 
     /**

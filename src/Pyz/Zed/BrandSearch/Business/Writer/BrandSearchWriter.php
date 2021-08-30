@@ -151,7 +151,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
     protected function getBrandSearches(array $brandIds): array
     {
         $brandSearches = [];
-        $brandSearchEntities = $this->brandSearchQueryContainer->getBrandSearchByBrandIds($brandIds);
+        $brandSearchEntities = $this->brandSearchQueryContainer->getBrandSearchByBrandIds($brandIds)->find();
 
         foreach ($brandSearchEntities as $brandSearchEntity) {
             /** @var \Orm\Zed\BrandSearch\Persistence\SpyBrandSearch $brandSearchEntity */
