@@ -4,8 +4,6 @@ namespace Pyz\Zed\BrandSearch\Business\Writer;
 
 use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
-use Generated\Shared\Transfer\ProductAbstractTransfer;
-use Generated\Shared\Transfer\ProductBrandAbstractTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandSearch\Persistence\SpyBrandSearch;
 use Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainerInterface;
@@ -120,23 +118,17 @@ class BrandSearchWriter implements BrandSearchWriterInterface
         foreach ($brandEntities as $brandEntity) {
             /** @var \Orm\Zed\Brand\Persistence\SpyBrand $brandEntity */
             $brandAttributes = $brandEntity->getAttributes()->toArray();
-            $brandProductAbstractCollection = $brandEntity->getSpyProductBrandsJoinSpyProductAbstract()->toArray();
-            $brandProductAbstractCollectionTransfer = [];
-            foreach ($brandProductAbstractCollection as $brandProductAbstract) {
-                $productBrandAbstractTransfer = new ProductBrandAbstractTransfer();
 
-                $productAbstractTransfer = new ProductAbstractTransfer();
-                $productBrandAbstractTransfer->fromArray($brandProductAbstract, true);
-                $productAbstractTransfer->fromArray($brandProductAbstract['SpyProductAbstract'], true);
-
-                $productBrandAbstractTransfer->setProductAbstract($productAbstractTransfer);
-                $brandProductAbstractCollectionTransfer[] = $productBrandAbstractTransfer;
-            }
             foreach ($brandAttributes as $brandAttribute) {
                 $localName = $locales[$brandAttribute['FkLocale']];
                 $brandAttributeEntity = new BrandLocalizedAttributeTransfer();
+                $productAbstractIds = $this->brandSearchQueryContainer
+                    ->getQueryProductAbstractIdsByBrandLocale(
+                        $brandEntity->getIdBrand(),
+                        $brandAttribute['FkLocale']
+                    )->toArray();
                 $brandAttributeEntity->fromArray($brandAttribute, true);
-                $brandSearchTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $brandAttributeEntity, $brandProductAbstractCollectionTransfer);
+                $brandSearchTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $brandAttributeEntity, $productAbstractIds, $localName->getLocaleName());
             }
         }
 
@@ -164,23 +156,27 @@ class BrandSearchWriter implements BrandSearchWriterInterface
     /**
      * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandTransfer
      * @param \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer
-     * @param \Generated\Shared\Transfer\ProductBrandAbstractTransfer[] $brandProductAbstractCollectionTransfer
+     * @param array $productAbstractIds
+     * @param string $localeName
      *
      * @return \Generated\Shared\Transfer\BrandSearchTransfer
      */
-    protected function mapToBrandTransfer(SpyBrand $brandTransfer, BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer, array $brandProductAbstractCollectionTransfer): BrandSearchTransfer
-    {
+    protected function mapToBrandTransfer(
+        SpyBrand $brandTransfer,
+        BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer,
+        array $productAbstractIds,
+        string $localeName
+    ): BrandSearchTransfer {
         $brandSearchTransfer = new BrandSearchTransfer();
         $brandSearchTransfer->setIdBrand($brandTransfer->getIdBrand());
         $brandSearchTransfer->setName($brandTransfer->getName());
+
+        $brandSearchTransfer->setLocale($localeName);
         $brandSearchTransfer->setDescription($brandTransfer->getDescription());
         $brandSearchTransfer->setIsHighlight($brandTransfer->getIsHighlight());
         $brandSearchTransfer->setIsSearchable($brandTransfer->getIsSearchable());
         $brandSearchTransfer->setMetaDescription($brandLocalizedAttributesTransfer->getMetaDescription());
-
-        foreach ($brandProductAbstractCollectionTransfer as $brandProductAbstractTransfer) {
-            $brandSearchTransfer->addProductAbstractBrands($brandProductAbstractTransfer);
-        }
+        $brandSearchTransfer->setProductAbstractIds($productAbstractIds);
 
         return $brandSearchTransfer;
     }

@@ -61,4 +61,15 @@ class BrandSearchQueryContainer extends AbstractQueryContainer implements BrandS
             ->filterByLocaleName_In($localeNames)
             ->find();
     }
+
+    /**
+     * @param int $brandId
+     * @param int $fkLocale
+     *
+     * @return mixed
+     */
+    public function getQueryProductAbstractIdsByBrandLocale(int $brandId, int $fkLocale)
+    {
+        return $this->getFactory()->getBrandQueryContainer()->queryProductAbstractIdsByBrandLocale($brandId, $fkLocale);
+    }
 }

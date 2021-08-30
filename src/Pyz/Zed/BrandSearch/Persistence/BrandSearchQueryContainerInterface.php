@@ -33,4 +33,12 @@ interface BrandSearchQueryContainerInterface extends QueryContainerInterface
      * @return mixed
      */
     public function queryLocalesWithLocaleNames(array $localeNames);
+
+    /**
+     * @param int $brandId
+     * @param int $fkLocale
+     *
+     * @return mixed
+     */
+    public function getQueryProductAbstractIdsByBrandLocale(int $brandId, int $fkLocale);
 }
