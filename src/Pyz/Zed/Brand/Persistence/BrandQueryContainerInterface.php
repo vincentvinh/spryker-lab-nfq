@@ -46,12 +46,13 @@ interface BrandQueryContainerInterface extends QueryContainerInterface
      */
     public function queryAllBrand();
 
-
     /**
      * @param int $brandId
      * @param int $fkLocale
-     * @return mixed
+     *
      * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     *
+     * @return mixed
      */
     public function queryProductAbstractIdsByBrandLocale(int $brandId, int $fkLocale);
 }

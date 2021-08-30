@@ -85,10 +85,10 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
         return $this->getFactory()->createBrandQuery()->joinWithAttribute();
     }
 
-
     /**
      * @param int $brandId
      * @param int $fkLocale
+     *
      * @return mixed
      */
     public function queryProductAbstractIdsByBrandLocale(int $brandId, int $fkLocale)

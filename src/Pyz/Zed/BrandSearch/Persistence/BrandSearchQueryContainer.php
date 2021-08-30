@@ -62,7 +62,6 @@ class BrandSearchQueryContainer extends AbstractQueryContainer implements BrandS
             ->find();
     }
 
-
     /**
      * @param int $brandId
      * @param int $fkLocale
