@@ -65,6 +65,7 @@ class BrandSearchQueryContainer extends AbstractQueryContainer implements BrandS
     /**
      * @param int $brandId
      * @param int $fkLocale
+     *
      * @return mixed
      */
     public function getQueryProductAbstractIdsByBrandLocale(int $brandId, int $fkLocale)
