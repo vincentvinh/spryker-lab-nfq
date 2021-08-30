@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\BrandSearch;
 
+use Pyz\Zed\Synchronization\SynchronizationConfig;
 use Spryker\Zed\Kernel\AbstractBundleConfig;
 
 class BrandSearchConfig extends AbstractBundleConfig
@@ -25,7 +26,7 @@ class BrandSearchConfig extends AbstractBundleConfig
      */
     public function getBrandSynchronizationPoolName(): ?string
     {
-        return null;
+        return SynchronizationConfig::DEFAULT_SYNCHRONIZATION_POOL_NAME;
     }
 
     /**

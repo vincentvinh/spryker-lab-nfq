@@ -131,7 +131,7 @@ class BrandStorageWrite implements BrandStorageWriteInterface
     protected function getBrandStorages(array $brandIds): array
     {
         $brandStorages = [];
-        $brandStorageEntities = $this->brandStorageQueryContainer->getBrandStorageByBrandIds($brandIds);
+        $brandStorageEntities = $this->brandStorageQueryContainer->getBrandStorageByBrandIds($brandIds)->find();
 
         foreach ($brandStorageEntities as $brandStorageEntity) {
             /** @var \Orm\Zed\BrandStorage\Persistence\SpyBrandStorage $brandStorageEntity */
