@@ -10,6 +10,7 @@ namespace Pyz\Zed\ProductPageSearch;
 use Pyz\Shared\BrandSearch\ProductPageSearchConfigExtension;
 use Pyz\Zed\BrandSearch\Communication\Plugin\PageDataExpander\ProductBrandPageDataLoaderExpanderPlugin;
 use Pyz\Zed\BrandSearch\Communication\Plugin\PageDataLoader\BrandPageDataLoaderPlugin;
+use Pyz\Zed\BrandSearch\Communication\Plugin\PageMapPlugin\BrandListMapExpanderPlugin;
 use Spryker\Shared\ProductLabelSearch\ProductLabelSearchConfig;
 use Spryker\Shared\ProductListSearch\ProductListSearchConfig;
 use Spryker\Shared\ProductPageSearch\ProductPageSearchConfig;
@@ -89,6 +90,7 @@ class ProductPageSearchDependencyProvider extends SprykerProductPageSearchDepend
             new ProductLabelMapExpanderPlugin(),
             new ProductReviewMapExpanderPlugin(),
             new ProductListMapExpanderPlugin(),
+            new BrandListMapExpanderPlugin(),
         ];
     }
 

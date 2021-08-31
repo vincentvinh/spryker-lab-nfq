@@ -9,7 +9,6 @@ namespace Pyz\Zed\BrandSearch\Communication\Plugin\PageDataLoader;
 
 use Generated\Shared\Transfer\BrandSearchLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
-use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductPageLoadTransfer;
 use Pyz\Zed\BrandSearch\Communication\BrandSearchCommunicationFactory;
@@ -43,7 +42,6 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
     }
 
     /**
-     * @param int[] $productAbstractIds
      * @param \Generated\Shared\Transfer\ProductPayloadTransfer[] $payloadTransfers
      *
      * @return array
