@@ -10,6 +10,8 @@
         <property name="isHighlight" type="bool"/>
         <property name="isSearchable" type="bool"/>
         <property name="logo" type="string"/>
+        <property name="url" type="string"/>
+        <property name="type" type="string"/>
         <property name="productAbstractIds" type="array"/>
         <property name="localizedAttributes" type="BrandSearchLocalizedAttribute[]" singular="localizedAttributes"/>
     </transfer>

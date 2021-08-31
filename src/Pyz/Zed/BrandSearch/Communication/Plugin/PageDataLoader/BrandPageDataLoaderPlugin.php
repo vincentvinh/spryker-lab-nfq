@@ -71,6 +71,7 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
                 $brandTransfer->setIsSearchable($brandEntity->getIsSearchable());
                 $brandTransfer->setLogo($brandEntity->getLogo());
 
+
                 $payloadTransfer->setBrand($brandTransfer);
             }
         }
