@@ -46,6 +46,11 @@ class BrandListMapExpanderPlugin extends AbstractPlugin implements ProductAbstra
             return $pageMapTransfer;
         }
         $brandSearchTransfer = $this->getBrandSearchData($productData);
+
+        $pageMapBuilder->addCompletionTerms($pageMapTransfer, $brandSearchTransfer->getName());
+        $pageMapBuilder->addSuggestionTerms($pageMapTransfer, $brandSearchTransfer->getName());
+        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'brand', $brandSearchTransfer->toArray());
+
         $pageMapTransfer->setBrand($brandSearchTransfer);
 
         return $pageMapTransfer;

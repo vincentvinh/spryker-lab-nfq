@@ -2,12 +2,12 @@
 
 namespace Pyz\Client\Catalog\Plugin\SearchElasticsearch;
 
-use Generated\Shared\DataBuilder\FacetConfigBuilder;
 use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\FacetConfigTransfer;
 use Generated\Shared\Transfer\SearchConfigurationTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\SearchExtension\Dependency\Plugin\SearchConfigBuilderPluginInterface;
+use Spryker\Shared\Search\SearchConfig;
 
 /**
  * @method \Spryker\Client\Catalog\CatalogFactory getFactory()
@@ -34,10 +34,10 @@ class CatalogSearchConfigBuilderPlugin extends AbstractPlugin implements SearchC
     protected function buildFacetConfig(SearchConfigurationTransfer $searchConfigurationTransfer): SearchConfigurationTransfer
     {
         $priceFacetConfigTransfer = (new FacetConfigTransfer())
-            ->setName('price')
-            ->setParameterName('price')
-            ->setFieldName(PageIndexMap::INTEGER_FACET)
-            ->setType(FacetConfigBuilder::TYPE_PRICE_RANGE);
+            ->setName('brand')
+            ->setParameterName('brand')
+            ->setFieldName(PageIndexMap::BRAND)
+            ->setType(SearchConfig::FACET_TYPE_RANGE);
 
         $searchConfigurationTransfer->addFacetConfigItem($priceFacetConfigTransfer);
 
