@@ -7,6 +7,8 @@
 
 namespace Pyz\Zed\BrandSearch\Communication\Plugin\PageDataLoader;
 
+use Generated\Shared\Transfer\BrandSearchTransfer;
+use Generated\Shared\Transfer\BrandTransfer;
 use Generated\Shared\Transfer\ProductPageLoadTransfer;
 use Pyz\Zed\BrandSearch\Communication\BrandSearchCommunicationFactory;
 use Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainer;
@@ -32,7 +34,7 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
      */
     public function expandProductPageDataTransfer(ProductPageLoadTransfer $loadTransfer)
     {
-        $payloadTransfers = $this->setProductBrand($loadTransfer->getProductAbstractIds(), $loadTransfer->getPayloadTransfers());
+        $payloadTransfers = $this->setBrand($loadTransfer->getPayloadTransfers());
         $loadTransfer->setPayloadTransfers($payloadTransfers);
 
         return $loadTransfer;
@@ -44,23 +46,18 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
      *
      * @return array
      */
-    protected function setProductBrand(array $productAbstractIds, array $payloadTransfers): array
+    protected function setBrand(array $payloadTransfers): array
     {
-        $query = $this->getFactory()->getProductBrandQueryContainer()->queryProductBrandByProductAbstractIds($productAbstractIds);
-
-        $productBrandEntities = $query->find();
-        $formattedProductBrand = [];
-        foreach ($productBrandEntities as $productBrandEntity) {
-            $formattedProductBrand[$productBrandEntity->getFkProductAbstract()][] = $productBrandEntity->getFkBrand();
-        }
-
         foreach ($payloadTransfers as $payloadTransfer) {
-            if (!isset($formattedProductBrand[$payloadTransfer->getIdProductAbstract()])) {
-                continue;
-            }
+            $brand = $this->getFactory()->getProductBrandQueryContainer()->queryBrandByProductAbstractId($payloadTransfer->getIdProductAbstract());
+            if (isset($brand)) {
+                $brandToBeMappedToTransfer = $brand->toArray();
+                //find a brand if exist to set if exist
+                $brandTransfer = new BrandSearchTransfer();
 
-            $idBrand = $formattedProductBrand[$payloadTransfer->getIdProductAbstract()];
-            $payloadTransfer->setIdBrand($idBrand);
+                $brandTransfer->fromArray($brandToBeMappedToTransfer, true);
+                $payloadTransfer->setBrand($brandTransfer);
+            }
         }
 
         return $payloadTransfers;
