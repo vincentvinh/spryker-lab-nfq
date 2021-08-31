@@ -249,11 +249,15 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     ) {
         return $this
             ->queryProductBrandMappings()
-            ->joinSpyBrand()
+            ->joinWithSpyBrand()
             ->useSpyBrandQuery()
-            ->joinAttribute()
+            ->joinWithAttribute()
+            ->useAttributeQuery()
+            ->joinWithLocale()
+            ->endUse()
+            ->joinWithSpyUrl()
             ->endUse()
             ->filterByFkProductAbstract($idProductAbstract)
-            ->findOne();
+            ->find();
     }
 }

@@ -7,8 +7,10 @@
 
 namespace Pyz\Zed\BrandSearch\Communication\Plugin\PageDataLoader;
 
+use Generated\Shared\Transfer\BrandSearchLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
 use Generated\Shared\Transfer\BrandTransfer;
+use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductPageLoadTransfer;
 use Pyz\Zed\BrandSearch\Communication\BrandSearchCommunicationFactory;
 use Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainer;
@@ -51,11 +53,28 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
         foreach ($payloadTransfers as $payloadTransfer) {
             $brand = $this->getFactory()->getProductBrandQueryContainer()->queryBrandByProductAbstractId($payloadTransfer->getIdProductAbstract());
             if (isset($brand)) {
-                $brandToBeMappedToTransfer = $brand->toArray();
+                $brandToBeMappedToTransfer = $brand->getData()[0];
                 //find a brand if exist to set if exist
                 $brandTransfer = new BrandSearchTransfer();
+                $brandEntity = $brandToBeMappedToTransfer->getSpyBrand();
 
-                $brandTransfer->fromArray($brandToBeMappedToTransfer, true);
+                $brandAttributeEntities = $brandEntity->getAttributes();
+                foreach ($brandAttributeEntities as $brandAttributeEntity) {
+                    $brandAttributeEntityFormatted = $brandAttributeEntity->toArray();
+                    $brandLocaleTransfer = new BrandSearchLocalizedAttributeTransfer();
+                    $brandLocaleTransfer->fromArray($brandAttributeEntityFormatted, true);
+                    $localeTransfer= new LocaleTransfer();
+                    $localeFormatted = $brandAttributeEntity->getLocale()->toArray();
+                    $localeTransfer->fromArray($localeFormatted);
+                    $brandLocaleTransfer->setLocale($localeTransfer);
+                    $brandTransfer->addLocalizedAttributes($brandLocaleTransfer);
+                }
+                $brandTransfer->setName($brandEntity->getName());
+                $brandTransfer->setDescription($brandEntity->getDescription());
+                $brandTransfer->setIsHighlight($brandEntity->getIsHighlight());
+                $brandTransfer->setIsSearchable($brandEntity->getIsSearchable());
+                $brandTransfer->setLogo($brandEntity->getLogo());
+
                 $payloadTransfer->setBrand($brandTransfer);
             }
         }

@@ -6,16 +6,18 @@
     <transfer name="BrandSearch">
         <property name="idBrand" type="int"/>
         <property name="name" type="string"/>
-        <property name="locale" type="string"/>
         <property name="description" type="string"/>
         <property name="isHighlight" type="bool"/>
         <property name="isSearchable" type="bool"/>
-        <property name="url" type="string"/>
         <property name="logo" type="string"/>
-        <property name="metaDescription" type="string"/>
         <property name="productAbstractIds" type="array"/>
+        <property name="localizedAttributes" type="BrandSearchLocalizedAttribute[]" singular="localizedAttributes"/>
     </transfer>
 
+    <transfer name="BrandSearchLocalizedAttribute">
+        <property name="locale" type="Locale"/>
+        <property name="metaDescription" type="string"/>
+    </transfer>
 
     <transfer name="ProductPayload">
         <property name="brand" type="BrandSearch"/>
