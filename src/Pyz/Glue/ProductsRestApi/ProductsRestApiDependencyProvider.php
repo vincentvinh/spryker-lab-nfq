@@ -12,11 +12,12 @@ use Spryker\Glue\ProductDiscontinuedRestApi\Plugin\ProductDiscontinuedConcretePr
 use Spryker\Glue\ProductReviewsRestApi\Plugin\ProductsRestApi\ProductReviewsAbstractProductsResourceExpanderPlugin;
 use Spryker\Glue\ProductReviewsRestApi\Plugin\ProductsRestApi\ProductReviewsConcreteProductsResourceExpanderPlugin;
 use Spryker\Glue\ProductsRestApi\ProductsRestApiDependencyProvider as SprykerProductsRestApiDependencyProvider;
+use Spryker\Zed\Kernel\Container as SprykerContainer;
 
 class ProductsRestApiDependencyProvider extends SprykerProductsRestApiDependencyProvider
 {
-
     public const BRAND_QUERY_CONTAINER = 'BRAND_QUERY_CONTAINER';
+
     /**
      * @return \Spryker\Glue\ProductsRestApiExtension\Dependency\Plugin\ConcreteProductsResourceExpanderPluginInterface[]
      */
@@ -38,7 +39,6 @@ class ProductsRestApiDependencyProvider extends SprykerProductsRestApiDependency
         ];
     }
 
-
     /**
      * @param \Spryker\Glue\Kernel\Container $container
      *
@@ -48,8 +48,10 @@ class ProductsRestApiDependencyProvider extends SprykerProductsRestApiDependency
     {
         $container = parent::provideDependencies($container);
         $container = $this->addBrandQueryContainer($container);
+
         return $container;
     }
+
     /**
      * @param \Spryker\Glue\Kernel\Container $container
      *
@@ -57,7 +59,7 @@ class ProductsRestApiDependencyProvider extends SprykerProductsRestApiDependency
      */
     protected function addBrandQueryContainer(Container $container): Container
     {
-        $container->set(static::BRAND_QUERY_CONTAINER, function (\Spryker\Zed\Kernel\Container $container) {
+        $container->set(static::BRAND_QUERY_CONTAINER, function (SprykerContainer $container) {
             return $container->getLocator()->brand()->queryContainer();
         });
 

@@ -26,7 +26,6 @@ class CatalogSearchConfigBuilderPlugin extends AbstractPlugin implements SearchC
         return $searchConfigurationTransfer;
     }
 
-
     /**
      * @param \Generated\Shared\Transfer\SearchConfigurationTransfer $searchConfigurationTransfer
      *
@@ -44,5 +43,4 @@ class CatalogSearchConfigBuilderPlugin extends AbstractPlugin implements SearchC
 
         return $searchConfigurationTransfer;
     }
-
 }

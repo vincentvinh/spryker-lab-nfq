@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\BrandSearch\Communication\Plugin\PageDataLoader;
@@ -11,14 +11,12 @@ use Generated\Shared\Transfer\BrandSearchLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductPageLoadTransfer;
-use Pyz\Zed\BrandSearch\Communication\BrandSearchCommunicationFactory;
-use Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\ProductPageSearchExtension\Dependency\Plugin\ProductPageDataLoaderPluginInterface;
 
 /**
- * @method BrandSearchCommunicationFactory getFactory()
- * @method BrandSearchQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\BrandSearch\Communication\BrandSearchCommunicationFactory getFactory()
+ * @method \Pyz\Zed\BrandSearch\Persistence\BrandSearchQueryContainer getQueryContainer()
  * @method \Spryker\Zed\ProductPageSearch\Business\ProductPageSearchFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductPageSearch\ProductPageSearchConfig getConfig()
  */
@@ -61,7 +59,7 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
                     $brandAttributeEntityFormatted = $brandAttributeEntity->toArray();
                     $brandLocaleTransfer = new BrandSearchLocalizedAttributeTransfer();
                     $brandLocaleTransfer->fromArray($brandAttributeEntityFormatted, true);
-                    $localeTransfer= new LocaleTransfer();
+                    $localeTransfer = new LocaleTransfer();
                     $localeFormatted = $brandAttributeEntity->getLocale()->toArray();
                     $localeTransfer->fromArray($localeFormatted);
                     $brandLocaleTransfer->setLocale($localeTransfer);

@@ -9,8 +9,6 @@ use Spryker\Glue\ProductsRestApi\Processor\Mapper\AbstractProductsResourceMapper
 
 class AbstractProductsResourceMapper extends SprykerAbstractProductsResourceMapper
 {
-
-
     private BrandQueryContainerInterface $brandQueryContainer;
 
     public function __construct(BrandQueryContainerInterface $brandQueryContainer)
@@ -22,7 +20,6 @@ class AbstractProductsResourceMapper extends SprykerAbstractProductsResourceMapp
      * @param array $abstractProductData
      *
      * @return \Generated\Shared\Transfer\AbstractProductsRestAttributesTransfer
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      */
     public function mapAbstractProductsDataToAbstractProductsRestAttributes(array $abstractProductData): AbstractProductsRestAttributesTransfer
     {

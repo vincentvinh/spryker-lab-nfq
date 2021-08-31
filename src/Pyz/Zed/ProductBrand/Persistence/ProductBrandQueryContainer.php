@@ -238,11 +238,13 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
+     * @api
+     *
      * @param int $idProductAbstract
      *
-     * @return \Orm\Zed\Brand\Persistence\SpyBrandAttribute|\Orm\Zed\Brand\Persistence\SpyProductBrand|\Orm\Zed\Brand\Persistence\SpyProductBrandQuery|\Orm\Zed\Url\Persistence\SpyUrl
      * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
-     * @api
+     *
+     * @return \Orm\Zed\Brand\Persistence\SpyBrandAttribute|\Orm\Zed\Brand\Persistence\SpyProductBrand|\Orm\Zed\Brand\Persistence\SpyProductBrandQuery|\Orm\Zed\Url\Persistence\SpyUrl
      */
     public function queryBrandByProductAbstractId(
         int $idProductAbstract

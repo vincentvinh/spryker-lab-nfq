@@ -108,7 +108,6 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
      * @param int $sku
      *
      * @return mixed
-     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      */
     public function queryBrandByProductAbstractSku(int $sku)
     {
