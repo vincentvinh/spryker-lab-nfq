@@ -3,7 +3,9 @@
 namespace Pyz\Zed\BrandSearch\Business\Writer;
 
 use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
+use Generated\Shared\Transfer\BrandSearchLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
+use Generated\Shared\Transfer\LocaleTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandSearch\Persistence\SpyBrandSearch;
 use Pyz\Shared\Brand\BrandConstants;
@@ -179,6 +181,17 @@ class BrandSearchWriter implements BrandSearchWriterInterface
         $brandSearchTransfer->setIsHighlight($brandEntity->getIsHighlight());
         $brandSearchTransfer->setIsSearchable($brandEntity->getIsSearchable());
         $brandSearchTransfer->setProductAbstractIds($productAbstractIds);
+
+        foreach ($brandEntity->getAttributes() as $attributes)
+        {
+            $localeTransfer = new LocaleTransfer();
+            $brandLocalizedAttributesTransfer = new BrandSearchLocalizedAttributeTransfer();
+            $localeEntity = $attributes->getLocale()->toArray();
+            $localeTransfer->fromArray($localeEntity, true);
+            $brandLocalizedAttributesTransfer->setLocale($localeTransfer);
+            $brandLocalizedAttributesTransfer->setMetaDescription($attributes->getMetaDescription());
+            $brandSearchTransfer->addLocalizedAttributes($brandLocalizedAttributesTransfer);
+        }
 
         return $brandSearchTransfer;
     }
