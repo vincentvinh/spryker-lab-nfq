@@ -238,14 +238,14 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
     /**
      * {@inheritDoc}
      *
-     * @param array $idProductAbstract
+     * @param int $idProductAbstract
      *
      * @return \Orm\Zed\Brand\Persistence\SpyBrandAttribute|\Orm\Zed\Brand\Persistence\SpyProductBrand|\Orm\Zed\Brand\Persistence\SpyProductBrandQuery|\Orm\Zed\Url\Persistence\SpyUrl
      * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      * @api
      */
     public function queryBrandByProductAbstractId(
-        $idProductAbstract
+        int $idProductAbstract
     ) {
         return $this
             ->queryProductBrandMappings()

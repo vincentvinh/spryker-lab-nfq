@@ -74,11 +74,11 @@ interface ProductBrandQueryContainerInterface extends QueryContainerInterface
     public function queryProductsAbstractBySearchTerm($term, LocaleTransfer $locale);
 
     /**
-     * @api
-     *
      * @param int $idProductAbstract
      *
      * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
+     *@api
+     *
      */
-    public function queryProductBrandByProductAbstractIds($idProductAbstract);
+    public function queryBrandByProductAbstractId(int $idProductAbstract);
 }
