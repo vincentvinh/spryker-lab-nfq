@@ -103,4 +103,25 @@ class BrandQueryContainer extends AbstractQueryContainer implements BrandQueryCo
             ->endUse()
             ->findByIdBrand($brandId);
     }
+
+    /**
+     * @param int $sku
+     *
+     * @return mixed
+     * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
+     */
+    public function queryBrandByProductAbstractSku(int $sku)
+    {
+        return $this->getFactory()
+            ->createBrandQuery()
+            ->joinWithSpyProductBrand()
+            ->joinAttribute()
+            ->useSpyProductBrandQuery()
+            ->joinWithSpyProductAbstract()
+            ->useSpyProductAbstractQuery()
+            ->filterBySku($sku)
+            ->endUse()
+            ->endUse()
+            ->findOne();
+    }
 }

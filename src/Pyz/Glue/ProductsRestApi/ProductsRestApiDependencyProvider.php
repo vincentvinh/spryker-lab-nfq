@@ -7,13 +7,17 @@
 
 namespace Pyz\Glue\ProductsRestApi;
 
+use Spryker\Glue\Kernel\Container;
 use Spryker\Glue\ProductDiscontinuedRestApi\Plugin\ProductDiscontinuedConcreteProductsResourceExpanderPlugin;
 use Spryker\Glue\ProductReviewsRestApi\Plugin\ProductsRestApi\ProductReviewsAbstractProductsResourceExpanderPlugin;
 use Spryker\Glue\ProductReviewsRestApi\Plugin\ProductsRestApi\ProductReviewsConcreteProductsResourceExpanderPlugin;
+use Spryker\Glue\ProductsRestApi\Dependency\Client\ProductsRestApiToProductStorageClientBridge;
 use Spryker\Glue\ProductsRestApi\ProductsRestApiDependencyProvider as SprykerProductsRestApiDependencyProvider;
 
 class ProductsRestApiDependencyProvider extends SprykerProductsRestApiDependencyProvider
 {
+
+    public const BRAND_QUERY_CONTAINER = 'BRAND_QUERY_CONTAINER';
     /**
      * @return \Spryker\Glue\ProductsRestApiExtension\Dependency\Plugin\ConcreteProductsResourceExpanderPluginInterface[]
      */
@@ -33,5 +37,31 @@ class ProductsRestApiDependencyProvider extends SprykerProductsRestApiDependency
         return [
             new ProductReviewsAbstractProductsResourceExpanderPlugin(),
         ];
+    }
+
+
+    /**
+     * @param \Spryker\Glue\Kernel\Container $container
+     *
+     * @return \Spryker\Glue\Kernel\Container
+     */
+    public function provideDependencies(Container $container): Container
+    {
+        $container = parent::provideDependencies($container);
+        $container = $this->addBrandQueryContainer($container);
+        return $container;
+    }
+    /**
+     * @param \Spryker\Glue\Kernel\Container $container
+     *
+     * @return \Spryker\Glue\Kernel\Container
+     */
+    protected function addBrandQueryContainer(Container $container): Container
+    {
+        $container->set(static::BRAND_QUERY_CONTAINER, function (\Spryker\Zed\Kernel\Container $container) {
+            return $container->getLocator()->brand()->queryContainer();
+        });
+
+        return $container;
     }
 }
