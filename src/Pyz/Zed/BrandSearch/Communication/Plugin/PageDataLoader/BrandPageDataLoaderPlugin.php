@@ -68,9 +68,9 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
                     $urls = $brandEntity->getSpyUrlsJoinSpyLocale();
                     foreach ($urls as $urlEntity) {
                         if ($urlEntity->getFkLocale() == $localeTransfer->getIdLocale()) {
-                            $urlEntity->toArray();
+                            $urlEntity = $urlEntity->toArray();
                             $urlTransfer = new UrlTransfer();
-                            $urlTransfer->fromArray($urlEntity);
+                            $urlTransfer->fromArray($urlEntity, true);
                             $brandLocaleTransfer->setUrl($urlTransfer);
                         }
                     }
