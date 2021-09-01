@@ -11,6 +11,7 @@ use Generated\Shared\Transfer\BrandSearchLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductPageLoadTransfer;
+use Generated\Shared\Transfer\UrlTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\ProductPageSearchExtension\Dependency\Plugin\ProductPageDataLoaderPluginInterface;
 
@@ -63,6 +64,15 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
                     $localeFormatted = $brandAttributeEntity->getLocale()->toArray();
                     $localeTransfer->fromArray($localeFormatted);
                     $brandLocaleTransfer->setLocale($localeTransfer);
+
+                    $urls = $brandEntity->getSpyUrlsJoinSpyLocale();
+                    foreach ($urls as $urlEntity) {
+                        if ($urlEntity->getFkLocale() == $localeTransfer->getIdLocale()) {
+                            $urlTransfer = new UrlTransfer();
+                            $urlTransfer->fromArray($urlEntity);
+                            $brandLocaleTransfer->setUrl($urlTransfer);
+                        }
+                    }
                     $brandTransfer->addLocalizedAttributes($brandLocaleTransfer);
                 }
                 $brandTransfer->setName($brandEntity->getName());
