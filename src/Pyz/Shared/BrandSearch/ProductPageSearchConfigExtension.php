@@ -17,5 +17,5 @@ class ProductPageSearchConfigExtension extends ProductPageSearchConfig
      *
      * @api
      */
-    public const PLUGIN_PRODUCT_BRAND_PAGE_DATA = 'PLUGIN_PRODUCT_CATEGORY_PAGE_DATA';
+    public const PLUGIN_PRODUCT_BRAND_PAGE_DATA = 'PLUGIN_PRODUCT_BRAND_PAGE_DATA';
 }
