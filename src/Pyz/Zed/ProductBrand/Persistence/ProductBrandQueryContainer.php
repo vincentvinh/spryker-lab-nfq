@@ -244,7 +244,7 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
      *
      * @throws \Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException
      *
-     * @return \Orm\Zed\Brand\Persistence\SpyBrandAttribute|\Orm\Zed\Brand\Persistence\SpyProductBrand|\Orm\Zed\Brand\Persistence\SpyProductBrandQuery|\Orm\Zed\Url\Persistence\SpyUrl
+     * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
     public function queryBrandByProductAbstractId(
         int $idProductAbstract
@@ -259,7 +259,6 @@ class ProductBrandQueryContainer extends AbstractQueryContainer implements Produ
             ->endUse()
             ->joinWithSpyUrl()
             ->endUse()
-            ->filterByFkProductAbstract($idProductAbstract)
-            ->find();
+            ->filterByFkProductAbstract($idProductAbstract);
     }
 }

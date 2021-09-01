@@ -47,7 +47,7 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
     protected function setBrand(array $payloadTransfers): array
     {
         foreach ($payloadTransfers as $payloadTransfer) {
-            $brand = $this->getFactory()->getProductBrandQueryContainer()->queryBrandByProductAbstractId($payloadTransfer->getIdProductAbstract());
+            $brand = $this->getFactory()->getProductBrandQueryContainer()->queryBrandByProductAbstractId($payloadTransfer->getIdProductAbstract())->find();
             if (isset($brand)) {
                 $brandToBeMappedToTransfer = $brand->getData()[0];
                 //find a brand if exist to set if exist
@@ -70,7 +70,6 @@ class BrandPageDataLoaderPlugin extends AbstractPlugin implements ProductPageDat
                 $brandTransfer->setIsHighlight($brandEntity->getIsHighlight());
                 $brandTransfer->setIsSearchable($brandEntity->getIsSearchable());
                 $brandTransfer->setLogo($brandEntity->getLogo());
-
 
                 $payloadTransfer->setBrand($brandTransfer);
             }

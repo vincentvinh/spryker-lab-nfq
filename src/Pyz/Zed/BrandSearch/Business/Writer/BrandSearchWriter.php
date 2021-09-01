@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\BrandLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchLocalizedAttributeTransfer;
 use Generated\Shared\Transfer\BrandSearchTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
+use Generated\Shared\Transfer\UrlTransfer;
 use Orm\Zed\Brand\Persistence\SpyBrand;
 use Orm\Zed\BrandSearch\Persistence\SpyBrandSearch;
 use Pyz\Shared\Brand\BrandConstants;
@@ -131,7 +132,7 @@ class BrandSearchWriter implements BrandSearchWriterInterface
                         $brandAttribute['FkLocale']
                     )->toArray();
                 $brandAttributeEntity->fromArray($brandAttribute, true);
-                $brandSearchTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $brandAttributeEntity, $productAbstractIds, $localName->getLocaleName());
+                $brandSearchTransfer[$brandEntity->getIdBrand()][$localName->getLocaleName()] = $this->mapToBrandTransfer($brandEntity, $productAbstractIds);
             }
         }
 
@@ -157,39 +158,40 @@ class BrandSearchWriter implements BrandSearchWriterInterface
     }
 
     /**
-     * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandTransfer
-     * @param \Generated\Shared\Transfer\BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer
+     * @param \Orm\Zed\Brand\Persistence\SpyBrand $brandEntity
      * @param array $productAbstractIds
-     * @param string $localeName
      *
      * @return \Generated\Shared\Transfer\BrandSearchTransfer
      */
     protected function mapToBrandTransfer(
         SpyBrand $brandEntity,
-        BrandLocalizedAttributeTransfer $brandLocalizedAttributesTransfer,
-        array $productAbstractIds,
-        string $localeName
+        array $productAbstractIds
     ): BrandSearchTransfer {
-
         $brandSearchTransfer = new BrandSearchTransfer();
         $brandSearchTransfer->setIdBrand($brandEntity->getIdBrand());
         $brandSearchTransfer->setName($brandEntity->getName());
         $brandSearchTransfer->setLogo($brandEntity->getLogo());
-        $brandSearchTransfer->setUrl($brandEntity->getUrl());
         $brandSearchTransfer->setType(BrandConstants::BRAND_TYPE);
         $brandSearchTransfer->setDescription($brandEntity->getDescription());
         $brandSearchTransfer->setIsHighlight($brandEntity->getIsHighlight());
         $brandSearchTransfer->setIsSearchable($brandEntity->getIsSearchable());
         $brandSearchTransfer->setProductAbstractIds($productAbstractIds);
 
-        foreach ($brandEntity->getAttributes() as $attributes)
-        {
+        foreach ($brandEntity->getAttributes() as $attributes) {
             $localeTransfer = new LocaleTransfer();
             $brandLocalizedAttributesTransfer = new BrandSearchLocalizedAttributeTransfer();
             $localeEntity = $attributes->getLocale()->toArray();
             $localeTransfer->fromArray($localeEntity, true);
             $brandLocalizedAttributesTransfer->setLocale($localeTransfer);
             $brandLocalizedAttributesTransfer->setMetaDescription($attributes->getMetaDescription());
+            $urls = $brandEntity->getSpyUrlsJoinSpyLocale();
+            foreach ($urls as $urlEntity) {
+                if ($urlEntity->getFkLocale() == $localeTransfer->getIdLocale()) {
+                    $urlTransfer = new UrlTransfer();
+                    $urlTransfer->fromArray($urlEntity);
+                    $brandLocalizedAttributesTransfer->setUrl($urlTransfer);
+                }
+            }
             $brandSearchTransfer->addLocalizedAttributes($brandLocalizedAttributesTransfer);
         }
 
