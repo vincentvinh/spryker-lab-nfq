@@ -28,6 +28,12 @@
   "mappings": {
     "page": {
       "properties": {
+        "brand": {
+          "type": "object",
+          "include_in_all": false,
+          "properties": {
+          }
+        },
         "full-text": {
           "analyzer": "fulltext_index_analyzer",
           "search_analyzer": "fulltext_search_analyzer"

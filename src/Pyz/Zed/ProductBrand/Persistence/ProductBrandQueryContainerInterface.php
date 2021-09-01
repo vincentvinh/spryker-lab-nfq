@@ -80,5 +80,5 @@ interface ProductBrandQueryContainerInterface extends QueryContainerInterface
      *
      * @return \Orm\Zed\Brand\Persistence\SpyProductBrandQuery
      */
-    public function queryProductBrandMappingsByIdAbstractProductAndIdsBrandNode($idProductAbstract);
+    public function queryBrandByProductAbstractId(int $idProductAbstract);
 }

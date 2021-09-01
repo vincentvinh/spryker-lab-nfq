@@ -13,6 +13,7 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     public const STORE = 'STORE';
     public const FACADE_EVENT_BEHAVIOR = 'FACADE_EVENT_BEHAVIOR';
     public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
+    public const QUERY_CONTAINER_PRODUCT_BRAND = 'QUERY_CONTAINER_PRODUCT_BRAND';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -22,6 +23,7 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     public function provideCommunicationLayerDependencies(Container $container)
     {
         $container = $this->addFacadeEventBehavior($container);
+        $container = $this->addProductBrandQueryContainer($container);
 
         return $container;
     }
@@ -75,6 +77,20 @@ class BrandSearchDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container->set(static::QUERY_CONTAINER_BRAND, function (Container $container) {
             return $container->getLocator()->brand()->queryContainer();
+        });
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addProductBrandQueryContainer(Container $container): Container
+    {
+        $container->set(static::QUERY_CONTAINER_PRODUCT_BRAND, function (Container $container) {
+            return $container->getLocator()->productBrand()->queryContainer();
         });
 
         return $container;

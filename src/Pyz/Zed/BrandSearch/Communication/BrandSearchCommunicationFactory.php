@@ -19,4 +19,12 @@ class BrandSearchCommunicationFactory extends AbstractCommunicationFactory
     {
         return $this->getProvidedDependency(BrandSearchDependencyProvider::FACADE_EVENT_BEHAVIOR);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getProductBrandQueryContainer()
+    {
+        return $this->getProvidedDependency(BrandSearchDependencyProvider::QUERY_CONTAINER_PRODUCT_BRAND);
+    }
 }
