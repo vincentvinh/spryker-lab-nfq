@@ -14,8 +14,6 @@ use Spryker\Glue\ProductsRestApi\ProductsRestApiDependencyProvider as SprykerPro
 
 class ProductsRestApiDependencyProvider extends SprykerProductsRestApiDependencyProvider
 {
-    public const BRAND_QUERY_CONTAINER = 'BRAND_QUERY_CONTAINER';
-
     /**
      * @return \Spryker\Glue\ProductsRestApiExtension\Dependency\Plugin\ConcreteProductsResourceExpanderPluginInterface[]
      */
